@@ -1,0 +1,62 @@
+{
+    "manifest_version": 3,
+    "name": "Link&TitleCopyPro",
+    "description": "A browser extension that allows you to copy both the title and URL link of a browser tab at the same time.",
+    "version": "0.1.0",
+    // "options_page": "options.html",
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      // "default_popup": "popup.html",
+      // "default_icon": "master-34.png"
+    },
+    "chrome_url_overrides": {
+      // "newtab": "newtab.html"
+    },
+    "icons": {
+      // "128": "master.png"
+    },
+    "content_scripts": [
+      {
+        "matches": [
+          "http://*/*",
+          "https://*/*",
+          "<all_urls>"
+        ],
+        "js": [
+          "content.js"
+        ],
+        "css": [
+        ]
+      }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": [
+          // "injectScript.bundle.js",
+          // "content.styles.css",
+          // "master.png",
+          // "master-34.png",
+          // "vs/*"
+        ],
+        "matches": [
+          "http://*/*",
+          "https://*/*",
+          "<all_urls>"
+        ]
+      }
+    ],
+    "permissions": [
+      "webRequest",
+      "storage",
+      "contextMenus",
+      "bookmarks"
+    ],
+    "host_permissions": [
+      "<all_urls>"
+    ],
+    "content_security_policy": {
+      "extension_pages": "script-src 'self';object-src 'none'"
+    }
+  }
