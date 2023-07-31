@@ -4,7 +4,8 @@ Link&amp;TitleCopyPro is a browser extension that allows you to copy both the ti
 Link&amp;TitleCopyPro是一个可以同时复制浏览器标签页的标题和URL链接的浏览器扩展
 
 
-[] copy title & link
-[] copy as md: `[title](url)`
-[] config with title position
-[] config title xpath
+- [x] copy title & link
+- [ ] copy selected text & link
+- [ ] copy as md: `[title](url)`
+- [ ] custom shortcut
+- [ ] context menu 
