@@ -18,12 +18,25 @@ chrome.runtime.onInstalled.addListener(function () {
     id: 'copyPageTitleAndUrl',
     title: 'Copy Page Title and URL',
     type: 'normal',
-    contexts: ['all']
+    contexts: ['page']
   })
 })
 
 chrome.contextMenus.onClicked.addListener(function (info, tab) {
   if (info.menuItemId === 'copyPageTitleAndUrl') {
     copyToClipboard()
+  }
+})
+
+// Notification
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === 'showNotification') {
+    // TODO show notification
+    // chrome.notifications.create({
+    //   type: 'basic',
+    //   iconUrl: './icons/icon.webp',
+    //   title: request.title,
+    //   message: request.message
+    // })
   }
 })

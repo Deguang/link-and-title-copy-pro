@@ -2,5 +2,13 @@
     "name": {
         "message": "复制页面标题和链接",
         "description": ""
+    },
+    "successTip": {
+        "message": "复制成功",
+        "description": ""
+    },
+    "errorTip": {
+        "message": "复制失败",
+        "description": ""
     }
 }

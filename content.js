@@ -3,18 +3,22 @@ function copyToClipboard() {
     const url = window.location.href;
     const text = `${title}\n${url}`;
     navigator.clipboard.writeText(text).then(() => {
-      // Send a message to the background script indicating that the copy operation is complete
-      chrome.runtime.sendMessage({ type: 'copyComplete' });
       // Show a notification to the user，indicating that the copy operation was successful
       console.log(chrome.notifications)
-      chrome.notifications.create({
-        type: 'basic',
-        title: 'Basic Notification',
-        message: 'This is a Basic Notification',
-        iconUrl: 'icon.png'
+      chrome.runtime.sendMessage({
+        action: 'showNotification',
+        title: 'Copied to Clipboard Successfully',
+        message: 'Page title and URL copied to clipboard.'
       })
-
-    });
+    }).catch(error => {
+      // Show a notification to the user indicating that the copy operation failed
+      console.error('Error copying text:', error);
+      chrome.runtime.sendMessage({
+        action: 'showNotification',
+        title: 'Copy Failed',
+        message: 'Failed to copy page title and URL to clipboard.'
+      })
+    })
   }
   // This function adds the keyboard shortcut listener
   function addKeyboardShortcut() {
