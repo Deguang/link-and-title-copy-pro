@@ -1,40 +1,72 @@
-function copyToClipboard() {
-    const title = document.title;
-    const url = window.location.href;
-    const text = `${title}\n${url}`;
-    navigator.clipboard.writeText(text).then(() => {
-      // Show a notification to the user，indicating that the copy operation was successful
-      console.log(chrome.notifications)
-      chrome.runtime.sendMessage({
-        action: 'showNotification',
-        title: 'Copied to Clipboard Successfully',
-        message: 'Page title and URL copied to clipboard.'
-      })
-    }).catch(error => {
-      // Show a notification to the user indicating that the copy operation failed
-      console.error('Error copying text:', error);
-      chrome.runtime.sendMessage({
-        action: 'showNotification',
-        title: 'Copy Failed',
-        message: 'Failed to copy page title and URL to clipboard.'
-      })
-    })
-  }
-  // This function adds the keyboard shortcut listener
-  function addKeyboardShortcut() {
-    document.addEventListener('keydown', event => {
-      if (event.ctrlKey && event.shiftKey && event.key === 'C') {
-        copyToClipboard();
+let configuredShortcuts = [];
+
+function copyToClipboard(template) {
+  const title = document.title;
+  const url = window.location.href;
+  const selectedText = window.getSelection().toString();
+  
+  let text = template
+    .replace('{title}', title)
+    .replace('{url}', url)
+    .replace('{selectedText}', selectedText);
+
+  navigator.clipboard.writeText(text).then(() => {
+    chrome.runtime.sendMessage({
+      action: 'showNotification',
+      title: 'Copied to Clipboard Successfully',
+      message: 'Content copied to clipboard based on the template.'
+    });
+  }).catch(error => {
+    console.error('Error copying text:', error);
+    chrome.runtime.sendMessage({
+      action: 'showNotification',
+      title: 'Copy Failed',
+      message: 'Failed to copy content to clipboard.'
+    });
+  });
+}
+
+function addKeyboardShortcuts() {
+  document.addEventListener('keydown', event => {
+    configuredShortcuts.forEach((config, index) => {
+      const keys = config.shortcut.split('+');
+      const modifierKeys = keys.slice(0, -1);
+      const lastKey = keys[keys.length - 1].toLowerCase();
+
+      const modifiersMatch = 
+        (!modifierKeys.includes('Ctrl') || event.ctrlKey) &&
+        (!modifierKeys.includes('Shift') || event.shiftKey) &&
+        (!modifierKeys.includes('Alt') || event.altKey);
+
+      if (modifiersMatch && event.key.toLowerCase() === lastKey) {
+        event.preventDefault();
+        copyToClipboard(config.template);
       }
     });
-  }
-  // Call the function to add the keyboard shortcut listener
-  addKeyboardShortcut();
-  // Listen for messages from the background script
-  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    console.log('message', message)
-    if (message.action === 'copyToClipboard') {
-      copyToClipboard();
+  });
+}
+
+function loadConfigurations() {
+  chrome.storage.local.get('CopyTitleAndUrlConfigs', function(result) {
+    if (result.CopyTitleAndUrlConfigs) {
+      configuredShortcuts = result.CopyTitleAndUrlConfigs;
+      console.log('Configurations loaded:', configuredShortcuts);
+      addKeyboardShortcuts();
     }
   });
-console.log('in page content')
+}
+
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.action === 'copyToClipboard') {
+    const config = configuredShortcuts[message.templateIndex];
+    if (config) {
+      copyToClipboard(config.template);
+    }
+  } else if (message.action === 'reloadConfigurations') {
+    loadConfigurations();
+  }
+});
+
+loadConfigurations();
+
+console.log('Content script loaded');

@@ -14,5 +14,53 @@
     "config": {
         "message": "配置",
         "description": ""
+    },
+    "addNewConfig": {
+        "message": "添加配置",
+        "description": ""
+    },
+    "edit": {
+        "message": "编辑配置",
+        "description": ""
+    },
+    "delete": {
+        "message": "删除配置",
+        "description": ""
+    },
+    "shortcut": {
+        "message": "快捷键",
+        "description": ""
+    },
+    "template": {
+        "message": "模板",
+        "description": ""
+    },
+    "description": {
+        "message": "描述",
+        "description": ""
+    },
+    "save": {
+        "message": "保存",
+        "description": ""
+    },
+    "cancel": {
+        "message": "取消",
+        "description": ""
+    },
+    "preview": {
+        "message": "预览",
+        "description": ""
+    },
+    "supportedPlaceholders": {
+        "message": "支持的占位符",
+        "description": ""
+    },
+    "configDescription": {
+        "message": "配置描述",
+        "description": ""
+    },
+    "shortCutRemind": {
+        "message": "按下组合键即可录入",
+        "description": ""
     }
 }

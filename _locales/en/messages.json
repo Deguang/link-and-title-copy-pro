@@ -14,5 +14,53 @@
     "config": {
         "message": "Config",
         "description": ""
+    },
+    "addNewConfig": {
+        "message": "Add Config",
+        "description": ""
+    },
+    "edit": {
+        "message": "Edit Config",
+        "description": ""
+    },
+    "delete": {
+        "message": "Delete Config",
+        "description": ""
+    },
+    "shortcut": {
+        "message": "Shortcut",
+        "description": ""
+    },
+    "template": {
+        "message": "Template",
+        "description": ""
+    },
+    "description": {
+        "message": "Description",
+        "description": ""
+    },
+    "save": {
+        "message": "Save",
+        "description": ""
+    },
+    "cancel": {
+        "message": "Cancel",
+        "description": ""
+    },
+    "preview": {
+        "message": "Preview",
+        "description": ""
+    },
+    "supportedPlaceholders": {
+        "message": "Supported Placeholders",
+        "description": ""
+    },
+    "configDescription": {
+        "message": "Config Description",
+        "description": ""
+    },
+    "shortCutRemind": {
+        "message": "Press shortcut to enter",
+        "description": ""
     }
 }

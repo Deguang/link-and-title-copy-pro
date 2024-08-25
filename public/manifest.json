@@ -6,7 +6,9 @@
   "permissions": [
     "clipboardWrite",
     "activeTab",
-    "contextMenus"
+    "contextMenus",
+    "storage",
+    "notifications"
   ],
   "host_permissions": [
     "http://*/*",
