@@ -5,7 +5,9 @@
   "description": "Link&amp;TitleCopyPro is a browser extension that allows you to copy both the title and URL link of a browser tab at the same time.",
   "main": "background.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vite build",
+    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix"
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,29 @@
   "bugs": {
     "url": "https://github.com/Deguang/link-and-title-copy-pro/issues"
   },
-  "homepage": "https://github.com/Deguang/link-and-title-copy-pro#readme"
+  "homepage": "https://github.com/Deguang/link-and-title-copy-pro#readme",
+  "keywords": [],
+  "dependencies": {
+    "@types/chrome": "^0.0.270",
+    "@types/react": "^18.3.4",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.41",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.10",
+    "vite": "^5.4.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "@typescript-eslint/eslint-plugin": "^8.2.0",
+    "@typescript-eslint/parser": "^8.2.0",
+    "eslint": "^9.9.1",
+    "eslint-plugin-react": "^7.35.0",
+    "globals": "^15.9.0",
+    "typescript-eslint": "^8.2.0",
+    "vite-plugin-html": "^3.2.2",
+    "vite-plugin-html-config": "^2.0.1"
+  }
 }

@@ -13,7 +13,7 @@
     "https://*/*"
   ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "assets/background.js"
   },
   "content_scripts": [
     {
@@ -22,7 +22,7 @@
         "https://*/*"
       ],
       "js": [
-        "content.js"
+        "assets/content.js"
       ]
     }
   ],
@@ -37,5 +37,6 @@
   "default_locale": "zh_CN",
   "icons": {
     "128": "icons/icon.webp"
-  }
+  },
+  "options_page": "options.html"
 }
