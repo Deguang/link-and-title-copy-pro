@@ -57,6 +57,14 @@ export default defineConfig({
           } else {
             console.log('_locales directory not found, skipping...');
           }
+
+          // 复制 localize.js
+          if (existsSync('src/localize.js')) {
+            copyFileSync('src/localize.js', 'dist/localize.js');
+            console.log('Copied localize.js to dist directory');
+          } else {
+            console.error('localize.js not found in src directory');
+          }
         } catch (error) {
           console.error('Error during file copying:', error);
         }
@@ -85,6 +93,14 @@ export default defineConfig({
           return `assets/${extType}/[name]-[hash][extname]`;
         },
       }
+    }
+  },
+  css: {
+    postcss: {
+      plugins: [
+        require('tailwindcss'),
+        require('autoprefixer'),
+      ],
     }
   },
   resolve: {

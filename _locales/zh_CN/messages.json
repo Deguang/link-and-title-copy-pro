@@ -10,5 +10,9 @@
     "errorTip": {
         "message": "复制失败",
         "description": ""
+    },
+    "config": {
+        "message": "配置",
+        "description": ""
     }
 }

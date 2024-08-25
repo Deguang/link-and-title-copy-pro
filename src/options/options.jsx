@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import OptionsPage from './OptionsPage';
+import Config from './config';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <OptionsPage />
+    <Config />
   </React.StrictMode>
 );

@@ -2,5 +2,17 @@
     "name": {
         "message": "Copy Page Title and URL",
         "description": ""
+    },
+    "successTip": {
+        "message": "Copy Successfully",
+        "description": ""
+    },
+    "errorTip": {
+        "message": "Copy Failed",
+        "description": ""
+    },
+    "config": {
+        "message": "Config",
+        "description": ""
     }
 }
