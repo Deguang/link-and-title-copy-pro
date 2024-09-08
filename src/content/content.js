@@ -1,3 +1,4 @@
+import {STORAGE_KEY} from '../constant.js';
 let configuredShortcuts = [];
 
 function copyToClipboard(template) {
@@ -47,9 +48,9 @@ function addKeyboardShortcuts() {
 }
 
 function loadConfigurations() {
-  chrome.storage.local.get('CopyTitleAndUrlConfigs', function(result) {
-    if (result.CopyTitleAndUrlConfigs) {
-      configuredShortcuts = result.CopyTitleAndUrlConfigs;
+  chrome.storage.local.get(STORAGE_KEY, function(result) {
+    if (result[STORAGE_KEY]) {
+      configuredShortcuts = result[STORAGE_KEY];
       console.log('Configurations loaded:', configuredShortcuts);
       addKeyboardShortcuts();
     }

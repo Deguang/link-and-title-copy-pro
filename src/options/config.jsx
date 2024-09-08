@@ -1,11 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTranslate } from '@/hooks/useTranslate.js';
 import { useChromeStorage } from '@/hooks/useChromeStorage.js';
+import { STORAGE_KEY } from '../constant';
 
 const ConfigItem = ({ config, index, onUpdate, onDelete, isNew = false }) => {
     const { t } = useTranslate();
     const [editing, setEditing] = useState(isNew);
     const [editedConfig, setEditedConfig] = useState(config);
+    const [shortcutError, setShortcutError] = useState('');
+    const [isManualInput, setIsManualInput] = useState(false);
     const shortcutRef = useRef(null);
 
     const handleEdit = () => {
@@ -29,14 +32,49 @@ const ConfigItem = ({ config, index, onUpdate, onDelete, isNew = false }) => {
 
     const handleShortcutCapture = (e) => {
         e.preventDefault();
-        const shortcut = [];
-        if (e.ctrlKey) shortcut.push('Ctrl');
-        if (e.altKey) shortcut.push('Alt');
-        if (e.shiftKey) shortcut.push('Shift');
-        if (e.key !== 'Control' && e.key !== 'Alt' && e.key !== 'Shift') {
-            shortcut.push(e.key.toUpperCase());
+        setShortcutError('');
+        
+        const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+        const modifiers = [];
+        if (e.ctrlKey) modifiers.push(isMac ? 'Command' : 'Ctrl');
+        if (e.metaKey) modifiers.push(isMac ? 'Command' : 'Win');
+        if (e.altKey) modifiers.push('Alt');
+        if (e.shiftKey) modifiers.push('Shift');
+
+        let key = e.key;
+        const specialKeys = {
+            ' ': 'Space',
+            'ArrowUp': '↑',
+            'ArrowDown': '↓',
+            'ArrowLeft': '←',
+            'ArrowRight': '→',
+        };
+        key = specialKeys[key] || key;
+
+        if (!['Control', 'Alt', 'Shift', 'Meta', 'Command'].includes(key)) {
+            const shortcut = [...modifiers, key].join('+');
+            
+            if (isValidShortcut(shortcut)) {
+                setEditedConfig(prev => ({ ...prev, shortcut }));
+            } else {
+                setShortcutError(t('invalidShortcut'));
+            }
         }
-        setEditedConfig(prev => ({ ...prev, shortcut: shortcut.join('+') }));
+    };
+
+    const handleManualShortcutInput = (e) => {
+        const shortcut = e.target.value;
+        if (isValidShortcut(shortcut)) {
+            setEditedConfig(prev => ({ ...prev, shortcut }));
+            setShortcutError('');
+        } else {
+            setShortcutError(t('invalidShortcut'));
+        }
+    };
+
+    const isValidShortcut = (shortcut) => {
+        const invalidCombinations = ['Ctrl+W', 'Ctrl+T', 'Ctrl+N', 'Alt+F4'];
+        return !invalidCombinations.includes(shortcut);
     };
 
     useEffect(() => {
@@ -55,21 +93,42 @@ const ConfigItem = ({ config, index, onUpdate, onDelete, isNew = false }) => {
     if (editing) {
         return (
             <div className="bg-white p-4 mb-4 rounded-lg shadow">
-                <h3 className="text-lg font-semibold mb-2">{isNew ? t('addNewConfig') : t('editConfig')}</h3>
-                <div className="flex items-center mb-2">
-                    <label className="w-1/4">{t('shortcut')}:</label>
+                <h3 className="text-lg font-semibold mb-2">
+                    {isNew ? t('addNewConfig') : t('editConfig')}
+                </h3>
+                <div className="flex items-start mb-2">
+                    <label className="w-1/4 pt-2">{t('shortcut')}:</label>
                     <div className="w-3/4">
-                        <input
-                            ref={shortcutRef}
-                            type="text"
-                            name="shortcut"
-                            value={editedConfig.shortcut}
-                            onKeyDown={handleShortcutCapture}
-                            className="w-full p-2 border rounded"
-                            placeholder={t('pressKeyCombination')}
-                            readOnly
-                        />
-                        <span className="text-xs text-gray-500">({t('shortcutRemind')})</span>
+                    {isManualInput ? (
+                            <input
+                                type="text"
+                                value={editedConfig.shortcut}
+                                onChange={handleManualShortcutInput}
+                                className={`w-full p-2 border rounded ${shortcutError ? 'border-red-500' : ''}`}
+                                placeholder={t('enterShortcutManually')}
+                            />
+                        ) : (
+                            <input
+                                ref={shortcutRef}
+                                type="text"
+                                name="shortcut"
+                                value={editedConfig.shortcut}
+                                onKeyDown={handleShortcutCapture}
+                                className={`w-full p-2 border rounded ${shortcutError ? 'border-red-500' : ''}`}
+                                placeholder={t('pressKeyCombination')}
+                                readOnly
+                            />
+                        )}
+                        {shortcutError && <p className="text-red-500 text-xs mt-1">{shortcutError}</p>}
+                        <button
+                            onClick={() => setIsManualInput(!isManualInput)}
+                            className="text-sm text-blue-500 mt-1 block"
+                        >
+                            {isManualInput ? t('switchToAutomaticCapture') : t('switchToManualInput')}
+                        </button>
+                        <p className="text-xs text-gray-500 mt-1">
+                            {t('exampleShortcuts')}: Ctrl+Shift+P, Alt+S, Command+Option+F
+                        </p>
                     </div>
                 </div>
                 <div className="flex items-start mb-2">
@@ -141,6 +200,7 @@ const ConfigList = ({ configs, onUpdate, onDelete }) => {
                     index={index}
                     onUpdate={onUpdate}
                     onDelete={onDelete}
+                    isNew={config.isNew}
                 />
             ))}
         </div>
@@ -149,16 +209,12 @@ const ConfigList = ({ configs, onUpdate, onDelete }) => {
 
 export default function Config() {
     const { t } = useTranslate();
-    const [configs, setConfigs, storageError] = useChromeStorage('CopyTitleAndUrlConfigs', []);
-    const [isAdding, setIsAdding] = useState(false);
+    const [configs, setConfigs, storageError] = useChromeStorage(STORAGE_KEY, []);
 
     const handleUpdate = (index, updatedConfig) => {
         const newConfigs = [...configs];
-        newConfigs[index] = updatedConfig;
+        newConfigs[index] = { ...updatedConfig, isNew: false };
         setConfigs(newConfigs);
-        if (index === configs.length - 1 && isAdding) {
-            setIsAdding(false);
-        }
     };
 
     const handleDelete = (index) => {
@@ -167,9 +223,8 @@ export default function Config() {
     };
 
     const handleAddNew = () => {
-        const newConfig = { shortcut: '', template: '' };
+        const newConfig = { shortcut: '', template: '', isNew: true };
         setConfigs([...configs, newConfig]);
-        setIsAdding(true);
     };
 
     if (storageError) {
@@ -188,27 +243,20 @@ export default function Config() {
             <div className="w-full max-w-2xl bg-slate-50 rounded-lg shadow-lg overflow-hidden">
                 <div className="p-6">
                     <h1 className="text-2xl font-bold mb-6 text-gray-800">{t('config')}-{t('name')}</h1>
+                    <p className="text-sm text-gray-600 mb-4">
+                    {t('supportedPlaceholders')}: {'{title}'}, {'{url}'}
+                    </p>
                     <ConfigList
                         configs={configs}
                         onUpdate={handleUpdate}
                         onDelete={handleDelete}
                     />
-                    {isAdding ? (
-                        <ConfigItem
-                            config={{ shortcut: '', template: '' }}
-                            index={configs.length}
-                            onUpdate={handleUpdate}
-                            onDelete={() => setIsAdding(false)}
-                            isNew={true}
-                        />
-                    ) : (
-                        <button
-                            onClick={handleAddNew}
-                            className="mt-6 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-200"
-                        >
-                            {t('addNewConfig')}
-                        </button>
-                    )}
+                    <button
+                        onClick={handleAddNew}
+                        className="mt-6 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-200"
+                    >
+                        {t('addNewConfig')}
+                    </button>
                 </div>
             </div>
         </div>

@@ -62,5 +62,25 @@
     "shortCutRemind": {
         "message": "按下组合键即可录入",
         "description": ""
+    },
+    "exampleShortcuts": {
+        "message": "快捷键示例",
+        "description": ""
+    },
+    "switchToAutomaticCapture": {
+        "message": "切换到自动捕获快捷键",
+        "description": ""
+    },
+    "switchToManualInput": {
+        "message": "切换到手动录入快捷键",
+        "description": ""
+    },
+    "enterShortcutManually": {
+        "message": "手动录入快捷键",
+        "description": ""
+    },
+    "pressKeyCombination": {
+        "message": "按下组合键自动录入",
+        "description": ""
     }
 }

@@ -10,3 +10,8 @@ Link&amp;TitleCopyPro是一个可以同时复制浏览器标签页的标题和UR
 - [*] custom copy template: `[title](url)` or break line
 - [*] custom shortcut
 - [*] context menu
+
+
+// some error:
+保存提示
+编辑快捷配置列表异常；

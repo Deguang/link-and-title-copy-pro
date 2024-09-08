@@ -1,9 +1,36 @@
+import {STORAGE_KEY, DEFAULT_CONFIGS} from '../constant.js';
 let configuredShortcuts = [];
 
+function getPlatform() {
+  const platformInfo = navigator.platform.toLowerCase();
+  if (platformInfo.includes('win')) return 'windows';
+  if (platformInfo.includes('mac')) return 'mac';
+  if (platformInfo.includes('linux')) return 'linux';
+  return 'unknown';
+}
+
+function setupDefaultConfigs() {
+  const platform = getPlatform();
+  chrome.storage.local.get(STORAGE_KEY, (result) => {
+    if (!result[STORAGE_KEY] || result[STORAGE_KEY].length === 0) {
+      const platformConfigs = DEFAULT_CONFIGS.map(config => config[platform] || config.windows);
+      chrome.storage.local.set({ [STORAGE_KEY]: platformConfigs }, () => {
+        console.log(`Default configurations for ${platform} have been set.`);
+      });
+    }
+  });
+}
+
+chrome.runtime.onInstalled.addListener((details) => {
+  if (details.reason === 'install' || details.reason === 'update') {
+    setupDefaultConfigs();
+  }
+});
+
 function loadConfigurations() {
-  chrome.storage.sync.get('CopyTitleAndUrlConfigs', function(result) {
-    if (result.CopyTitleAndUrlConfigs) {
-      configuredShortcuts = result.CopyTitleAndUrlConfigs;
+  chrome.storage.local.get(STORAGE_KEY, function(result) {
+    if (result[STORAGE_KEY]) {
+      configuredShortcuts = result[STORAGE_KEY];
       updateContextMenu();
     }
   });

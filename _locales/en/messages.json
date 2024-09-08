@@ -62,5 +62,25 @@
     "shortCutRemind": {
         "message": "Press shortcut to enter",
         "description": ""
+    },
+    "exampleShortcuts": {
+        "message": "Shortcut Examples",
+        "description": ""
+    },
+    "switchToAutomaticCapture": {
+        "message": "Switch to Automatic Capture",
+        "description": ""
+    },
+    "switchToManualInput": {
+        "message": "Switch to Manual Input",
+        "description": ""
+    },
+    "enterShortcutManually": {
+        "message": "Enter Shortcut Manually",
+        "description": ""
+    },
+    "pressKeyCombination": {
+        "message": "Press Key Combination",
+        "description": ""
     }
 }
