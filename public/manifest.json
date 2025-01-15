@@ -1,7 +1,7 @@
 {
   "name": "Copy Page Title and URL",
   "version": "0.2.0",
-  "description": "A Chrome extension that allows you to copy both the page title and URL using the keyboard shortcut Ctrl+Shift+P.",
+  "description": "A Chrome extension that allows you to copy both the page title and URL using the custom keyboard shortcut.",
   "manifest_version": 3,
   "permissions": [
     "clipboardWrite",
