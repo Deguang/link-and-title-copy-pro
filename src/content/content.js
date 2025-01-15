@@ -11,20 +11,32 @@ function copyToClipboard(template) {
     .replace('{url}', url)
     .replace('{selectedText}', selectedText);
 
-  navigator.clipboard.writeText(text).then(() => {
-    chrome.runtime.sendMessage({
-      action: 'showNotification',
-      title: 'Copied to Clipboard Successfully',
-      message: 'Content copied to clipboard based on the template.'
+  try {
+    navigator.clipboard.writeText(text).then(() => {
+      chrome.runtime.sendMessage({
+        action: 'showNotification',
+        title: 'Copied to Clipboard Successfully',
+        message: 'Content copied to clipboard based on the template.'
+      });
     });
-  }).catch(error => {
+  } catch(error) {
     console.error('Error copying text:', error);
-    chrome.runtime.sendMessage({
-      action: 'showNotification',
-      title: 'Copy Failed',
-      message: 'Failed to copy content to clipboard.'
-    });
-  });
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      document.execCommand('copy');
+      chrome.runtime.sendMessage({
+        action: 'showNotification',
+        title: 'Copied to Clipboard Successfully',
+        message: 'Content copied to clipboard based on the template.'
+      });
+    } catch (error) {
+      console.error('Error copying text:', error);
+    }
+    document.body.removeChild(textarea);
+  }
 }
 
 function addKeyboardShortcuts() {

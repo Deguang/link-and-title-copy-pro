@@ -33,12 +33,12 @@ const ConfigItem = ({ config, index, onUpdate, onDelete, isNew = false }) => {
     const handleShortcutCapture = (e) => {
         e.preventDefault();
         setShortcutError('');
-        
+console.log(e)
         const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
         const modifiers = [];
-        if (e.ctrlKey) modifiers.push(isMac ? 'Command' : 'Ctrl');
+        if (e.ctrlKey) modifiers.push('Ctrl');
         if (e.metaKey) modifiers.push(isMac ? 'Command' : 'Win');
-        if (e.altKey) modifiers.push('Alt');
+        if (e.altKey) modifiers.push(isMac ? 'Option' : 'Alt');
         if (e.shiftKey) modifiers.push('Shift');
 
         let key = e.key;
@@ -52,7 +52,7 @@ const ConfigItem = ({ config, index, onUpdate, onDelete, isNew = false }) => {
         key = specialKeys[key] || key;
 
         if (!['Control', 'Alt', 'Shift', 'Meta', 'Command'].includes(key)) {
-            const shortcut = [...modifiers, key].join('+');
+            const shortcut = [...modifiers, key.toLowerCase()].join('+');
             
             if (isValidShortcut(shortcut)) {
                 setEditedConfig(prev => ({ ...prev, shortcut }));
