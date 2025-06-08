@@ -15,7 +15,7 @@
     "https://*/*"
   ],
   "background": {
-    "service_worker": "assets/background.js",
+    "service_worker": "background.js",
     "type": "module"
   },
   "content_scripts": [
@@ -25,7 +25,7 @@
         "https://*/*"
       ],
       "js": [
-        "assets/content.js"
+        "content.js"
       ],
       "type": "module"
     }
