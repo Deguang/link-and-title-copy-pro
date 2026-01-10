@@ -78,7 +78,8 @@ export default defineConfig(({ command, mode }) => {
         input: {
           options: resolve(__dirname, 'src/options/options.html'),
           background: resolve(__dirname, 'src/background/background.js'),
-          content: resolve(__dirname, 'src/content/content.js'), // 添加 content.js 到主配置
+          content: resolve(__dirname, 'src/content/content.js'),
+          offscreen: resolve(__dirname, 'src/offscreen/offscreen.html'),
         },
         output: {
           entryFileNames: (chunkInfo) => {

@@ -1,10 +1,10 @@
 {
     "name": {
-        "message": "Copy Page Title and URL",
+        "message": "Copy Page Title and URL Pro",
         "description": ""
     },
     "successTip": {
-        "message": "Copy Successfully",
+        "message": "Copied Successfully",
         "description": ""
     },
     "errorTip": {
@@ -12,19 +12,19 @@
         "description": ""
     },
     "config": {
-        "message": "Config",
+        "message": "Settings",
         "description": ""
     },
     "addNewConfig": {
-        "message": "Add Config",
+        "message": "Add Template",
         "description": ""
     },
     "edit": {
-        "message": "Edit Config",
+        "message": "Edit",
         "description": ""
     },
     "delete": {
-        "message": "Delete Config",
+        "message": "Delete",
         "description": ""
     },
     "shortcut": {
@@ -56,15 +56,15 @@
         "description": ""
     },
     "configDescription": {
-        "message": "Config Description",
+        "message": "Template Description",
         "description": ""
     },
     "shortCutRemind": {
-        "message": "Press shortcut to enter",
+        "message": "Press key combination to capture",
         "description": ""
     },
     "exampleShortcuts": {
-        "message": "Shortcut Examples",
+        "message": "Example Shortcuts",
         "description": ""
     },
     "switchToAutomaticCapture": {
@@ -76,11 +76,31 @@
         "description": ""
     },
     "enterShortcutManually": {
-        "message": "Enter Shortcut Manually",
+        "message": "Enter shortcut manually",
         "description": ""
     },
     "pressKeyCombination": {
-        "message": "Press Key Combination",
+        "message": "Press key combination",
+        "description": ""
+    },
+    "selectedTextCopied": {
+        "message": "Selected text copied",
+        "description": ""
+    },
+    "titleUrlCopied": {
+        "message": "Title and URL copied",
+        "description": ""
+    },
+    "smartCopy": {
+        "message": "Smart Copy",
+        "description": ""
+    },
+    "withSelectedText": {
+        "message": "With selected text",
+        "description": ""
+    },
+    "withoutSelectedText": {
+        "message": "Without selected text",
         "description": ""
     }
 }

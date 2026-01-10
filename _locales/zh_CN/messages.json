@@ -1,6 +1,6 @@
 {
     "name": {
-        "message": "复制页面标题和链接",
+        "message": "复制页面标题和链接专业版",
         "description": ""
     },
     "successTip": {
@@ -20,11 +20,11 @@
         "description": ""
     },
     "edit": {
-        "message": "编辑配置",
+        "message": "编辑",
         "description": ""
     },
     "delete": {
-        "message": "删除配置",
+        "message": "删除",
         "description": ""
     },
     "shortcut": {
@@ -81,6 +81,26 @@
     },
     "pressKeyCombination": {
         "message": "按下组合键自动录入",
+        "description": ""
+    },
+    "selectedTextCopied": {
+        "message": "已复制选中文本",
+        "description": ""
+    },
+    "titleUrlCopied": {
+        "message": "已复制标题和链接",
+        "description": ""
+    },
+    "smartCopy": {
+        "message": "智能复制",
+        "description": ""
+    },
+    "withSelectedText": {
+        "message": "包含选中文本",
+        "description": ""
+    },
+    "withoutSelectedText": {
+        "message": "无选中文本",
         "description": ""
     }
 }
