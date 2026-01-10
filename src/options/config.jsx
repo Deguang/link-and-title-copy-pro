@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTranslate } from '@/hooks/useTranslate.js';
 import { useChromeStorage } from '@/hooks/useChromeStorage.js';
+import { processTemplate } from '@/utils/templateProcessor';
 import { STORAGE_KEY } from '../constant';
 
 const TemplateHelp = ({ t }) => {
@@ -152,29 +153,17 @@ const ConfigItem = ({ config, index, onUpdate, onDelete, isNew = false }) => {
         const previewUrl = "https://example.com";
         const previewSelectedText = "Selected text example";
 
-        // 模拟有选中文本的情况
-        let withSelectionPreview = template
-            .replace(/\{if:selectedText\}(.*?)\{\/if:selectedText\}/gs, '$1')
-            .replace(/\{if:noSelectedText\}(.*?)\{\/if:noSelectedText\}/gs, '')
-            .replace(/\{selectedText\|title\}/g, previewSelectedText)
-            .replace(/\{title\|selectedText\}/g, previewSelectedText)
-            .replace(/\{selectedText\}/g, previewSelectedText)
-            .replace(/\{title\}/g, previewTitle)
-            .replace(/\{url\}/g, previewUrl);
-
-        // 模拟无选中文本的情况
-        let withoutSelectionPreview = template
-            .replace(/\{if:selectedText\}(.*?)\{\/if:selectedText\}/gs, '')
-            .replace(/\{if:noSelectedText\}(.*?)\{\/if:noSelectedText\}/gs, '$1')
-            .replace(/\{selectedText\|title\}/g, previewTitle)
-            .replace(/\{title\|selectedText\}/g, previewTitle)
-            .replace(/\{selectedText\}/g, '')
-            .replace(/\{title\}/g, previewTitle)
-            .replace(/\{url\}/g, previewUrl);
-
         return {
-            withSelection: withSelectionPreview.trim(),
-            withoutSelection: withoutSelectionPreview.trim()
+            withSelection: processTemplate(template, {
+                title: previewTitle,
+                url: previewUrl,
+                selectedText: previewSelectedText
+            }),
+            withoutSelection: processTemplate(template, {
+                title: previewTitle,
+                url: previewUrl,
+                selectedText: ''
+            })
         };
     };
 

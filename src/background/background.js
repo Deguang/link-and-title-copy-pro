@@ -1,5 +1,6 @@
 // 直接定义常量和默认配置，而不是导入
 const STORAGE_KEY = 'CopyTitleAndUrlConfigs';
+import { processTemplate } from '../utils/templateProcessor';
 
 const DEFAULT_CONFIGS = [
   {
@@ -288,19 +289,12 @@ async function fallbackCopy(index, tab) {
     // 简单的模板处理（不支持选中文本，因为我们还没法获取它）
     // 注意：如果页面有 selection，但 content script 失败，我们这里拿不到 selection
     // 除非我们用 scripting api 去获取，但这里为了简单起见，作为最后的保障，只处理 title/url
-    let text = config.template
-      .replace(/\{title\}/g, tab.title || '')
-      .replace(/\{url\}/g, tab.url || '')
-      .replace(/\{selectedText\}/g, '')
-      .replace(/\{selectedText\|title\}/g, tab.title || '')
-      .replace(/\{title\|selectedText\}/g, tab.title || '')
-      .replace(/\{if:selectedText\}(.*?)\{\/if:selectedText\}/gs, '')
-      .replace(/\{if:noSelectedText\}(.*?)\{\/if:noSelectedText\}/gs, '$1');
-
-    // 清理多余空行
-    text = text.replace(/\n\s*\n\s*\n/g, '\n\n')
-      .replace(/^\s+|\s+$/g, '')
-      .replace(/\s+$/gm, '');
+    // 简单的模板处理（使用通用工具）
+    const text = processTemplate(config.template, {
+      title: tab.title || '',
+      url: tab.url || '',
+      selectedText: '' // Fallback 时无法获取选中文本
+    });
 
     // 确保 offscreen document 存在
     await setupOffscreenDocument(OFFSCREEN_DOCUMENT_PATH);

@@ -52,7 +52,67 @@ const fileHandlingPlugin = {
 
 // 主配置
 export default defineConfig(({ command, mode }) => {
+  const target = process.env.BUILD_TARGET || 'main'; // main, background, content
+
+  // Base config
+  const baseConfig = {
+    resolve: {
+      alias: {
+        '@': resolve(__dirname, 'src'),
+      },
+    },
+    build: {
+      outDir: 'dist',
+      emptyOutDir: target === 'main', // Only clean for main build
+      minify: false, // Disable minification for debugging
+    }
+  };
+
+  if (target === 'background') {
+    return {
+      ...baseConfig,
+      build: {
+        ...baseConfig.build,
+        lib: {
+          entry: resolve(__dirname, 'src/background/background.js'),
+          name: 'background',
+          formats: ['iife'],
+          fileName: () => 'background.js',
+        },
+        rollupOptions: {
+          output: {
+            extend: true,
+          }
+        }
+      },
+      plugins: [] // No plugins needed for simple JS
+    };
+  }
+
+  if (target === 'content') {
+    return {
+      ...baseConfig,
+      build: {
+        ...baseConfig.build,
+        lib: {
+          entry: resolve(__dirname, 'src/content/content.js'),
+          name: 'content',
+          formats: ['iife'],
+          fileName: () => 'content.js',
+        },
+        rollupOptions: {
+          output: {
+            extend: true,
+          }
+        }
+      },
+      plugins: []
+    };
+  }
+
+  // Main build (Options + Offscreen + Assets)
   return {
+    ...baseConfig,
     plugins: [
       react(),
       createHtmlPlugin({
@@ -70,25 +130,17 @@ export default defineConfig(({ command, mode }) => {
           },
         ],
       }),
-      fileHandlingPlugin
+      fileHandlingPlugin // Only copy static files during main build
     ],
     build: {
-      outDir: 'dist',
+      ...baseConfig.build,
       rollupOptions: {
         input: {
           options: resolve(__dirname, 'src/options/options.html'),
-          background: resolve(__dirname, 'src/background/background.js'),
-          content: resolve(__dirname, 'src/content/content.js'),
           offscreen: resolve(__dirname, 'src/offscreen/offscreen.html'),
         },
         output: {
-          entryFileNames: (chunkInfo) => {
-            // content.js 直接输出到根目录，其他文件保持原样
-            if (chunkInfo.name === 'content') {
-              return 'content.js';
-            }
-            return '[name].js';
-          },
+          entryFileNames: '[name].js',
           chunkFileNames: '[name].[hash].js',
           format: 'es',
           assetFileNames: (assetInfo) => {
@@ -111,11 +163,6 @@ export default defineConfig(({ command, mode }) => {
           require('autoprefixer'),
         ],
       }
-    },
-    resolve: {
-      alias: {
-        '@': resolve(__dirname, 'src'),
-      },
     },
   };
 });
