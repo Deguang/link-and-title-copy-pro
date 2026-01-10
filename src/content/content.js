@@ -115,7 +115,16 @@ function addKeyboardShortcuts() {
 }
 
 function isShortcutMatch(event, shortcut) {
+  // Guard against undefined or empty shortcut
+  if (!shortcut || typeof shortcut !== 'string') {
+    return false;
+  }
+
   const keys = shortcut.split('+').map(key => key.trim());
+  if (keys.length === 0 || !keys[keys.length - 1]) {
+    return false;
+  }
+
   const modifierKeys = keys.slice(0, -1);
   const lastKey = keys[keys.length - 1].toLowerCase();
 
