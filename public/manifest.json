@@ -1,6 +1,6 @@
 {
   "name": "Copy Page Title and URL Pro",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Enhanced Chrome extension for copying page title, URL, and selected text with customizable templates and smart fallback.",
   "manifest_version": 3,
   "permissions": [
