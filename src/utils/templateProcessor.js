@@ -44,6 +44,24 @@ export function processTemplate(template, context = {}) {
         .replace(/\{url\}/g, url)
         .replace(/\{selectedText\}/g, selectedText);
 
+    // Handle URL component placeholders
+    if (url) {
+        try {
+            const urlObj = new URL(url);
+            result = result
+                .replace(/\{url:clean\}/g, `${urlObj.origin}${urlObj.pathname}`)
+                .replace(/\{url:protocol\}/g, urlObj.protocol.replace(':', ''))
+                .replace(/\{url:domain\}/g, urlObj.hostname)
+                .replace(/\{url:path\}/g, urlObj.pathname)
+                .replace(/\{url:query\}/g, urlObj.search)
+                .replace(/\{url:hash\}/g, urlObj.hash)
+                .replace(/\{url:origin\}/g, urlObj.origin);
+        } catch (e) {
+            // If URL parsing fails, leave the placeholders as-is or replace with empty
+            console.warn('Failed to parse URL for component placeholders:', e);
+        }
+    }
+
     // Handle smart/combined placeholders
     if (hasSelection) {
         result = result

@@ -102,5 +102,125 @@
     "withoutSelectedText": {
         "message": "无选中文本",
         "description": ""
+    },
+    "templateHelp": {
+        "message": "模板帮助与示例",
+        "description": ""
+    },
+    "basicPlaceholders": {
+        "message": "基础占位符",
+        "description": ""
+    },
+    "smartPlaceholders": {
+        "message": "智能占位符",
+        "description": ""
+    },
+    "urlComponentPlaceholders": {
+        "message": "URL 组件占位符",
+        "description": ""
+    },
+    "conditionalTemplates": {
+        "message": "条件模板",
+        "description": ""
+    },
+    "exampleTemplates": {
+        "message": "模板示例",
+        "description": ""
+    },
+    "pageTitle": {
+        "message": "页面标题",
+        "description": ""
+    },
+    "pageUrl": {
+        "message": "页面 URL",
+        "description": ""
+    },
+    "selectedTextEmpty": {
+        "message": "选中文本（无选中时为空）",
+        "description": ""
+    },
+    "selectedTextOrTitle": {
+        "message": "优先选中文本，否则使用标题",
+        "description": ""
+    },
+    "sameAsAbove": {
+        "message": "同上",
+        "description": ""
+    },
+    "urlClean": {
+        "message": "不含查询参数和锚点的 URL",
+        "description": ""
+    },
+    "urlProtocol": {
+        "message": "仅协议（如 https）",
+        "description": ""
+    },
+    "urlDomain": {
+        "message": "域名",
+        "description": ""
+    },
+    "urlPath": {
+        "message": "仅路径",
+        "description": ""
+    },
+    "urlQuery": {
+        "message": "查询参数（含 ?）",
+        "description": ""
+    },
+    "urlHash": {
+        "message": "锚点（含 #）",
+        "description": ""
+    },
+    "urlOrigin": {
+        "message": "协议 + 域名",
+        "description": ""
+    },
+    "onlyWhenTextSelected": {
+        "message": "仅当有选中文本时",
+        "description": ""
+    },
+    "onlyWhenNoTextSelected": {
+        "message": "仅当无选中文本时",
+        "description": ""
+    },
+    "smartCopyDesc": {
+        "message": "智能复制 - 选中文本或标题 + URL",
+        "description": ""
+    },
+    "markdownLinkFormat": {
+        "message": "Markdown 链接格式",
+        "description": ""
+    },
+    "quotedSelectedText": {
+        "message": "带引号的选中文本和标题，或仅标题",
+        "description": ""
+    },
+    "templateConfigurations": {
+        "message": "模板配置",
+        "description": ""
+    },
+    "emptyResult": {
+        "message": "结果为空",
+        "description": ""
+    },
+    "invalidShortcut": {
+        "message": "无效的快捷键组合",
+        "description": ""
+    },
+    "invalidShortcutFormat": {
+        "message": "无效的快捷键格式",
+        "description": ""
+    },
+    "templatePlaceholder": {
+        "message": "输入模板内容...",
+        "description": ""
+    },
+    "descriptionPlaceholder": {
+        "message": "模板描述",
+        "description": ""
+    },
+    "confirmDelete": {
+        "message": "确定要删除此模板吗？",
+        "description": ""
     }
 }

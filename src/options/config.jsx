@@ -4,60 +4,72 @@ import { useChromeStorage } from '@/hooks/useChromeStorage.js';
 import { processTemplate } from '@/utils/templateProcessor';
 import { STORAGE_KEY } from '../constant';
 
-const TemplateHelp = ({ t }) => {
-    const [showHelp, setShowHelp] = useState(false);
+const TemplateHelp = ({ t, showHelp, setShowHelp }) => {
 
     return (
-        <div className="mb-4 p-4 bg-blue-50 rounded-lg">
+        <div className="mb-4 p-4 bg-blue-50 rounded-lg flex-shrink-0">
             <button
                 onClick={() => setShowHelp(!showHelp)}
                 className="flex items-center text-blue-700 font-medium"
             >
                 <span className="mr-2">{showHelp ? '▼' : '▶'}</span>
-                Template Help & Examples
+                {t('templateHelp')}
             </button>
 
             {showHelp && (
-                <div className="mt-3 text-sm">
+                <div className="mt-3 text-sm max-h-64 overflow-y-auto">
                     <div className="mb-3">
-                        <h4 className="font-medium mb-2">Basic Placeholders:</h4>
+                        <h4 className="font-medium mb-2">{t('basicPlaceholders')}:</h4>
                         <ul className="list-disc list-inside space-y-1 text-gray-700">
-                            <li><code className="bg-gray-200 px-1 rounded">{'{title}'}</code> - Page title</li>
-                            <li><code className="bg-gray-200 px-1 rounded">{'{url}'}</code> - Page URL</li>
-                            <li><code className="bg-gray-200 px-1 rounded">{'{selectedText}'}</code> - Selected text (empty if none)</li>
+                            <li><code className="bg-gray-200 px-1 rounded">{'{title}'}</code> - {t('pageTitle')}</li>
+                            <li><code className="bg-gray-200 px-1 rounded">{'{url}'}</code> - {t('pageUrl')}</li>
+                            <li><code className="bg-gray-200 px-1 rounded">{'{selectedText}'}</code> - {t('selectedTextEmpty')}</li>
                         </ul>
                     </div>
 
                     <div className="mb-3">
-                        <h4 className="font-medium mb-2">Smart Placeholders:</h4>
+                        <h4 className="font-medium mb-2">{t('smartPlaceholders')}:</h4>
                         <ul className="list-disc list-inside space-y-1 text-gray-700">
-                            <li><code className="bg-gray-200 px-1 rounded">{'{selectedText|title}'}</code> - Selected text if any, otherwise title</li>
-                            <li><code className="bg-gray-200 px-1 rounded">{'{title|selectedText}'}</code> - Same as above</li>
+                            <li><code className="bg-gray-200 px-1 rounded">{'{selectedText|title}'}</code> - {t('selectedTextOrTitle')}</li>
+                            <li><code className="bg-gray-200 px-1 rounded">{'{title|selectedText}'}</code> - {t('sameAsAbove')}</li>
                         </ul>
                     </div>
 
                     <div className="mb-3">
-                        <h4 className="font-medium mb-2">Conditional Templates:</h4>
+                        <h4 className="font-medium mb-2">{t('urlComponentPlaceholders')}:</h4>
                         <ul className="list-disc list-inside space-y-1 text-gray-700">
-                            <li><code className="bg-gray-200 px-1 rounded text-xs">{'{if:selectedText}...{/if:selectedText}'}</code> - Only when text is selected</li>
-                            <li><code className="bg-gray-200 px-1 rounded text-xs">{'{if:noSelectedText}...{/if:noSelectedText}'}</code> - Only when no text selected</li>
+                            <li><code className="bg-gray-200 px-1 rounded">{'{url:clean}'}</code> - {t('urlClean')}</li>
+                            <li><code className="bg-gray-200 px-1 rounded">{'{url:protocol}'}</code> - {t('urlProtocol')}</li>
+                            <li><code className="bg-gray-200 px-1 rounded">{'{url:domain}'}</code> - {t('urlDomain')}</li>
+                            <li><code className="bg-gray-200 px-1 rounded">{'{url:path}'}</code> - {t('urlPath')}</li>
+                            <li><code className="bg-gray-200 px-1 rounded">{'{url:query}'}</code> - {t('urlQuery')}</li>
+                            <li><code className="bg-gray-200 px-1 rounded">{'{url:hash}'}</code> - {t('urlHash')}</li>
+                            <li><code className="bg-gray-200 px-1 rounded">{'{url:origin}'}</code> - {t('urlOrigin')}</li>
                         </ul>
                     </div>
 
                     <div className="mb-3">
-                        <h4 className="font-medium mb-2">Example Templates:</h4>
+                        <h4 className="font-medium mb-2">{t('conditionalTemplates')}:</h4>
+                        <ul className="list-disc list-inside space-y-1 text-gray-700">
+                            <li><code className="bg-gray-200 px-1 rounded text-xs">{'{if:selectedText}...{/if:selectedText}'}</code> - {t('onlyWhenTextSelected')}</li>
+                            <li><code className="bg-gray-200 px-1 rounded text-xs">{'{if:noSelectedText}...{/if:noSelectedText}'}</code> - {t('onlyWhenNoTextSelected')}</li>
+                        </ul>
+                    </div>
+
+                    <div className="mb-3">
+                        <h4 className="font-medium mb-2">{t('exampleTemplates')}:</h4>
                         <div className="space-y-2">
                             <div className="bg-white p-2 rounded border">
                                 <div className="font-mono text-xs mb-1">{'{selectedText|title}'}<br />{'{url}'}</div>
-                                <div className="text-xs text-gray-600">Smart copy - selected text or title + URL</div>
+                                <div className="text-xs text-gray-600">{t('smartCopyDesc')}</div>
                             </div>
                             <div className="bg-white p-2 rounded border">
                                 <div className="font-mono text-xs mb-1">[{'{selectedText|title}'}]({'{url}'})</div>
-                                <div className="text-xs text-gray-600">Markdown link format</div>
+                                <div className="text-xs text-gray-600">{t('markdownLinkFormat')}</div>
                             </div>
                             <div className="bg-white p-2 rounded border">
                                 <div className="font-mono text-xs mb-1">{'{if:selectedText}"{selectedText}" - {title}{/if:selectedText}{if:noSelectedText}{title}{/if:noSelectedText}'}<br />{'{url}'}</div>
-                                <div className="text-xs text-gray-600">Quoted selected text with title, or just title</div>
+                                <div className="text-xs text-gray-600">{t('quotedSelectedText')}</div>
                             </div>
                         </div>
                     </div>
@@ -67,13 +79,42 @@ const TemplateHelp = ({ t }) => {
     );
 };
 
-const ConfigItem = ({ config, index, onUpdate, onDelete, isNew = false }) => {
+const ConfigItem = ({ config, index, onUpdate, onDelete, onOpenHelp, isNew = false }) => {
     const { t } = useTranslate();
-    const [editing, setEditing] = useState(isNew);
+    const [editing, setEditing] = useState(false);
     const [editedConfig, setEditedConfig] = useState(config);
     const [shortcutError, setShortcutError] = useState('');
     const [isManualInput, setIsManualInput] = useState(false);
+    const [showPreview, setShowPreview] = useState(false);
+    const [showSuggestions, setShowSuggestions] = useState(false);
+    const [suggestionFilter, setSuggestionFilter] = useState('');
+    const [selectedSuggestion, setSelectedSuggestion] = useState(0);
     const shortcutRef = useRef(null);
+    const templateRef = useRef(null);
+
+    // Available placeholders for autocomplete
+    const placeholders = [
+        { value: '{title}', desc: t('pageTitle') },
+        { value: '{url}', desc: t('pageUrl') },
+        { value: '{url:clean}', desc: t('urlClean') },
+        { value: '{url:protocol}', desc: t('urlProtocol') },
+        { value: '{url:domain}', desc: t('urlDomain') },
+        { value: '{url:path}', desc: t('urlPath') },
+        { value: '{url:query}', desc: t('urlQuery') },
+        { value: '{url:hash}', desc: t('urlHash') },
+        { value: '{url:origin}', desc: t('urlOrigin') },
+        { value: '{selectedText}', desc: t('selectedTextEmpty') },
+        { value: '{selectedText|title}', desc: t('selectedTextOrTitle') },
+        { value: '{title|selectedText}', desc: t('sameAsAbove') },
+        { value: '{if:selectedText}', desc: t('onlyWhenTextSelected') },
+        { value: '{/if:selectedText}', desc: t('onlyWhenTextSelected') },
+        { value: '{if:noSelectedText}', desc: t('onlyWhenNoTextSelected') },
+        { value: '{/if:noSelectedText}', desc: t('onlyWhenNoTextSelected') },
+    ];
+
+    const filteredPlaceholders = placeholders.filter(p =>
+        p.value.toLowerCase().includes(suggestionFilter.toLowerCase())
+    );
 
     const handleEdit = () => {
         setEditing(true);
@@ -92,6 +133,67 @@ const ConfigItem = ({ config, index, onUpdate, onDelete, isNew = false }) => {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setEditedConfig(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleTemplateChange = (e) => {
+        const { value, selectionStart } = e.target;
+        setEditedConfig(prev => ({ ...prev, template: value }));
+
+        // Check if we should show suggestions
+        const textBeforeCursor = value.substring(0, selectionStart);
+        const lastBraceIndex = textBeforeCursor.lastIndexOf('{');
+        const lastCloseBrace = textBeforeCursor.lastIndexOf('}');
+
+        if (lastBraceIndex > lastCloseBrace) {
+            const filter = textBeforeCursor.substring(lastBraceIndex);
+            setSuggestionFilter(filter);
+            setShowSuggestions(true);
+            setSelectedSuggestion(0);
+        } else {
+            setShowSuggestions(false);
+            setSuggestionFilter('');
+        }
+    };
+
+    const handleTemplateKeyDown = (e) => {
+        if (!showSuggestions || filteredPlaceholders.length === 0) return;
+
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            setSelectedSuggestion(prev => (prev + 1) % filteredPlaceholders.length);
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            setSelectedSuggestion(prev => (prev - 1 + filteredPlaceholders.length) % filteredPlaceholders.length);
+        } else if (e.key === 'Enter' || e.key === 'Tab') {
+            if (showSuggestions) {
+                e.preventDefault();
+                insertSuggestion(filteredPlaceholders[selectedSuggestion].value);
+            }
+        } else if (e.key === 'Escape') {
+            setShowSuggestions(false);
+        }
+    };
+
+    const insertSuggestion = (placeholder) => {
+        const textarea = templateRef.current;
+        if (!textarea) return;
+
+        const { selectionStart, value } = textarea;
+        const textBeforeCursor = value.substring(0, selectionStart);
+        const textAfterCursor = value.substring(selectionStart);
+        const lastBraceIndex = textBeforeCursor.lastIndexOf('{');
+
+        const newValue = textBeforeCursor.substring(0, lastBraceIndex) + placeholder + textAfterCursor;
+        setEditedConfig(prev => ({ ...prev, template: newValue }));
+        setShowSuggestions(false);
+        setSuggestionFilter('');
+
+        // Set cursor position after inserted placeholder
+        setTimeout(() => {
+            const newCursorPos = lastBraceIndex + placeholder.length;
+            textarea.setSelectionRange(newCursorPos, newCursorPos);
+            textarea.focus();
+        }, 0);
     };
 
     const handleShortcutCapture = (e) => {
@@ -176,8 +278,6 @@ const ConfigItem = ({ config, index, onUpdate, onDelete, isNew = false }) => {
                     {isNew ? t('addNewConfig') : t('edit')}
                 </h3>
 
-                <TemplateHelp t={t} />
-
                 <div className="flex items-start mb-4">
                     <label className="w-1/4 pt-2 font-medium">{t('shortcut')}:</label>
                     <div className="w-3/4">
@@ -230,18 +330,39 @@ const ConfigItem = ({ config, index, onUpdate, onDelete, isNew = false }) => {
 
                 <div className="flex items-start mb-4">
                     <label className="w-1/4 pt-2 font-medium">{t('template')}:</label>
-                    <div className="w-3/4">
+                    <div className="w-3/4 relative">
                         <textarea
+                            ref={templateRef}
                             name="template"
                             value={editedConfig.template}
-                            onChange={handleChange}
+                            onChange={handleTemplateChange}
+                            onKeyDown={handleTemplateKeyDown}
+                            onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
                             className="w-full p-2 border rounded"
-                            placeholder="Template with placeholders..."
+                            placeholder={t('templatePlaceholder')}
                             rows="6"
                         />
-                        <span className="text-xs text-gray-500">
-                            {t('supportedPlaceholders')}: {'{title}'}, {'{url}'}, {'{selectedText}'}, {'{selectedText|title}'}
-                        </span>
+                        {showSuggestions && filteredPlaceholders.length > 0 && (
+                            <div className="absolute z-10 w-full mt-1 bg-white border rounded-lg shadow-lg max-h-48 overflow-y-auto">
+                                {filteredPlaceholders.map((placeholder, idx) => (
+                                    <div
+                                        key={placeholder.value}
+                                        onClick={() => insertSuggestion(placeholder.value)}
+                                        className={`px-3 py-2 cursor-pointer flex justify-between items-center ${idx === selectedSuggestion ? 'bg-blue-100' : 'hover:bg-gray-100'
+                                            }`}
+                                    >
+                                        <code className="text-sm font-mono text-blue-600">{placeholder.value}</code>
+                                        <span className="text-xs text-gray-500 ml-2">{placeholder.desc}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                        <button
+                            onClick={onOpenHelp}
+                            className="text-xs text-blue-600 hover:text-blue-800 hover:underline cursor-pointer"
+                        >
+                            {t('supportedPlaceholders')} ↗
+                        </button>
                     </div>
                 </div>
 
@@ -249,15 +370,15 @@ const ConfigItem = ({ config, index, onUpdate, onDelete, isNew = false }) => {
                     <label className="block font-medium mb-2">{t('preview')}:</label>
                     <div className="space-y-3">
                         <div>
-                            <div className="text-sm font-medium text-green-700 mb-1">📝 With selected text:</div>
+                            <div className="text-sm font-medium text-green-700 mb-1">📝 {t('withSelectedText')}:</div>
                             <div className="whitespace-pre-wrap bg-green-50 p-3 rounded border text-sm">
-                                {preview.withSelection || 'Empty result'}
+                                {preview.withSelection || t('emptyResult')}
                             </div>
                         </div>
                         <div>
-                            <div className="text-sm font-medium text-blue-700 mb-1">📄 Without selected text:</div>
+                            <div className="text-sm font-medium text-blue-700 mb-1">📄 {t('withoutSelectedText')}:</div>
                             <div className="whitespace-pre-wrap bg-blue-50 p-3 rounded border text-sm">
-                                {preview.withoutSelection || 'Empty result'}
+                                {preview.withoutSelection || t('emptyResult')}
                             </div>
                         </div>
                     </div>
@@ -284,66 +405,77 @@ const ConfigItem = ({ config, index, onUpdate, onDelete, isNew = false }) => {
     const displayPreview = generatePreview(config.template);
 
     return (
-        <div className="bg-white p-4 mb-4 rounded-lg shadow">
-            <div className="flex items-center mb-2">
-                <strong className="w-1/4">{t('shortcut')}:</strong>
-                <span className="w-3/4 font-mono bg-gray-100 px-2 py-1 rounded">{config.shortcut}</span>
-            </div>
-
-            {config.description && (
-                <div className="flex items-center mb-2">
-                    <strong className="w-1/4">{t('description')}:</strong>
-                    <span className="w-3/4 text-gray-700">{config.description}</span>
+        <div className="bg-white p-3 mb-3 rounded-lg shadow">
+            {/* Header row: shortcut + description + actions */}
+            <div className="flex items-center justify-between gap-3 mb-2">
+                <div className="flex items-center gap-3 flex-1 min-w-0">
+                    <span className="font-mono bg-gray-100 px-2 py-1 rounded text-sm font-medium whitespace-nowrap">
+                        {config.shortcut}
+                    </span>
+                    {config.description && (
+                        <span className="text-gray-600 text-sm truncate">{config.description}</span>
+                    )}
                 </div>
-            )}
-
-            <div className="flex items-start mb-2">
-                <strong className="w-1/4">{t('template')}:</strong>
-                <pre className="w-3/4 whitespace-pre-wrap font-mono text-sm bg-gray-50 p-2 rounded">{config.template}</pre>
+                <div className="flex gap-2 flex-shrink-0">
+                    <button
+                        onClick={handleEdit}
+                        className="bg-blue-500 text-white px-2 py-1 text-sm rounded hover:bg-blue-600 transition duration-200"
+                    >
+                        {t('edit')}
+                    </button>
+                    <button
+                        onClick={() => {
+                            if (window.confirm(t('confirmDelete'))) {
+                                onDelete(index);
+                            }
+                        }}
+                        className="bg-red-500 text-white px-2 py-1 text-sm rounded hover:bg-red-600 transition duration-200"
+                    >
+                        {t('delete')}
+                    </button>
+                </div>
             </div>
 
-            <div className="mb-4">
-                <strong className="block mb-2">{t('preview')}:</strong>
-                <div className="space-y-2">
+            {/* Template display */}
+            <pre className="whitespace-pre-wrap font-mono text-sm bg-gray-50 p-2 rounded mb-2 text-gray-700 max-h-20 overflow-y-auto">
+                {config.template}
+            </pre>
+
+            {/* Collapsible Preview */}
+            <button
+                onClick={() => setShowPreview(!showPreview)}
+                className="text-xs text-blue-600 hover:text-blue-800 flex items-center"
+            >
+                <span className="mr-1">{showPreview ? '▼' : '▶'}</span>
+                {t('preview')}
+            </button>
+
+            {showPreview && (
+                <div className="mt-2 grid grid-cols-2 gap-2">
                     <div>
-                        <div className="text-sm font-medium text-green-700 mb-1">📝 With selection:</div>
-                        <div className="whitespace-pre-wrap bg-green-50 p-2 rounded text-sm border-l-4 border-green-400">
+                        <div className="text-xs font-medium text-green-700 mb-1">📝 {t('withSelectedText')}</div>
+                        <div className="whitespace-pre-wrap bg-green-50 p-2 rounded text-xs border-l-2 border-green-400 max-h-16 overflow-y-auto">
                             {displayPreview.withSelection}
                         </div>
                     </div>
                     <div>
-                        <div className="text-sm font-medium text-blue-700 mb-1">📄 Without selection:</div>
-                        <div className="whitespace-pre-wrap bg-blue-50 p-2 rounded text-sm border-l-4 border-blue-400">
+                        <div className="text-xs font-medium text-blue-700 mb-1">📄 {t('withoutSelectedText')}</div>
+                        <div className="whitespace-pre-wrap bg-blue-50 p-2 rounded text-xs border-l-2 border-blue-400 max-h-16 overflow-y-auto">
                             {displayPreview.withoutSelection}
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div className="flex gap-2">
-                <button
-                    onClick={handleEdit}
-                    className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition duration-200"
-                >
-                    {t('edit')}
-                </button>
-                <button
-                    onClick={() => onDelete(index)}
-                    className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition duration-200"
-                >
-                    {t('delete')}
-                </button>
-            </div>
+            )}
         </div>
     );
 };
 
-const ConfigList = ({ configs, onUpdate, onDelete }) => {
+const ConfigList = ({ configs, onUpdate, onDelete, onOpenHelp }) => {
     const { t } = useTranslate();
 
     return (
         <div className="flex-1 overflow-y-auto min-h-0 pr-2">
-            <h2 className="text-xl font-semibold mb-4">Template Configurations</h2>
+            <h2 className="text-xl font-semibold mb-4">{t('templateConfigurations')}</h2>
             {configs.map((config, index) => (
                 <ConfigItem
                     key={index}
@@ -351,6 +483,7 @@ const ConfigList = ({ configs, onUpdate, onDelete }) => {
                     index={index}
                     onUpdate={onUpdate}
                     onDelete={onDelete}
+                    onOpenHelp={onOpenHelp}
                     isNew={config.isNew}
                 />
             ))}
@@ -361,6 +494,11 @@ const ConfigList = ({ configs, onUpdate, onDelete }) => {
 export default function Config() {
     const { t } = useTranslate();
     const [configs, setConfigs, storageError] = useChromeStorage(STORAGE_KEY, []);
+    const [showHelp, setShowHelp] = useState(false);
+
+    const handleOpenHelp = () => {
+        setShowHelp(true);
+    };
 
     const handleUpdate = (index, updatedConfig) => {
         const newConfigs = [...configs];
@@ -395,27 +533,20 @@ export default function Config() {
     }
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center p-4 bg-gray-100">
-            <div className="w-full max-w-4xl bg-slate-50 rounded-lg shadow-lg overflow-hidden flex flex-col h-[90vh]">
-                <div className="p-6 flex flex-col h-full">
-                    <h1 className="text-2xl font-bold mb-6 text-gray-800 flex-shrink-0">
+        <div className="fixed inset-0 flex items-center justify-center p-2 bg-gray-100">
+            <div className="w-full max-w-5xl bg-slate-50 rounded-lg shadow-lg overflow-hidden flex flex-col h-[95vh]">
+                <div className="p-4 flex flex-col h-full">
+                    <h1 className="text-xl font-bold mb-4 text-gray-800 flex-shrink-0">
                         {t('config')} - {t('name')}
                     </h1>
 
-                    <div className="mb-6 p-4 bg-blue-50 rounded-lg flex-shrink-0">
-                        <h3 className="font-medium text-blue-800 mb-2">✨ Enhanced Features:</h3>
-                        <ul className="text-sm text-blue-700 space-y-1">
-                            <li>• <strong>Smart text selection support</strong> - Copy selected text or fallback to page title</li>
-                            <li>• <strong>Conditional templates</strong> - Different output based on whether text is selected</li>
-                            <li>• <strong>Right-click context menu</strong> - Quick access from page or selected text</li>
-                            <li>• <strong>Visual feedback</strong> - Different icons and messages for different copy types</li>
-                        </ul>
-                    </div>
+                    <TemplateHelp t={t} showHelp={showHelp} setShowHelp={setShowHelp} />
 
                     <ConfigList
                         configs={configs}
                         onUpdate={handleUpdate}
                         onDelete={handleDelete}
+                        onOpenHelp={handleOpenHelp}
                     />
 
                     <div className="mt-6 flex-shrink-0">

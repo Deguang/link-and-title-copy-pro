@@ -102,5 +102,125 @@
     "withoutSelectedText": {
         "message": "Without selected text",
         "description": ""
+    },
+    "templateHelp": {
+        "message": "Template Help & Examples",
+        "description": ""
+    },
+    "basicPlaceholders": {
+        "message": "Basic Placeholders",
+        "description": ""
+    },
+    "smartPlaceholders": {
+        "message": "Smart Placeholders",
+        "description": ""
+    },
+    "urlComponentPlaceholders": {
+        "message": "URL Component Placeholders",
+        "description": ""
+    },
+    "conditionalTemplates": {
+        "message": "Conditional Templates",
+        "description": ""
+    },
+    "exampleTemplates": {
+        "message": "Example Templates",
+        "description": ""
+    },
+    "pageTitle": {
+        "message": "Page title",
+        "description": ""
+    },
+    "pageUrl": {
+        "message": "Page URL",
+        "description": ""
+    },
+    "selectedTextEmpty": {
+        "message": "Selected text (empty if none)",
+        "description": ""
+    },
+    "selectedTextOrTitle": {
+        "message": "Selected text if any, otherwise title",
+        "description": ""
+    },
+    "sameAsAbove": {
+        "message": "Same as above",
+        "description": ""
+    },
+    "urlClean": {
+        "message": "URL without query params and hash",
+        "description": ""
+    },
+    "urlProtocol": {
+        "message": "Protocol only (e.g., https)",
+        "description": ""
+    },
+    "urlDomain": {
+        "message": "Domain/hostname",
+        "description": ""
+    },
+    "urlPath": {
+        "message": "Path only",
+        "description": ""
+    },
+    "urlQuery": {
+        "message": "Query parameters with ?",
+        "description": ""
+    },
+    "urlHash": {
+        "message": "Hash fragment with #",
+        "description": ""
+    },
+    "urlOrigin": {
+        "message": "Protocol + domain",
+        "description": ""
+    },
+    "onlyWhenTextSelected": {
+        "message": "Only when text is selected",
+        "description": ""
+    },
+    "onlyWhenNoTextSelected": {
+        "message": "Only when no text selected",
+        "description": ""
+    },
+    "smartCopyDesc": {
+        "message": "Smart copy - selected text or title + URL",
+        "description": ""
+    },
+    "markdownLinkFormat": {
+        "message": "Markdown link format",
+        "description": ""
+    },
+    "quotedSelectedText": {
+        "message": "Quoted selected text with title, or just title",
+        "description": ""
+    },
+    "templateConfigurations": {
+        "message": "Template Configurations",
+        "description": ""
+    },
+    "emptyResult": {
+        "message": "Empty result",
+        "description": ""
+    },
+    "invalidShortcut": {
+        "message": "Invalid shortcut combination",
+        "description": ""
+    },
+    "invalidShortcutFormat": {
+        "message": "Invalid shortcut format",
+        "description": ""
+    },
+    "templatePlaceholder": {
+        "message": "Template with placeholders...",
+        "description": ""
+    },
+    "descriptionPlaceholder": {
+        "message": "Brief description of this template",
+        "description": ""
+    },
+    "confirmDelete": {
+        "message": "Are you sure you want to delete this template?",
+        "description": ""
     }
 }

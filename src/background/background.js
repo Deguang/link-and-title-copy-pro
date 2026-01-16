@@ -144,44 +144,62 @@ function loadConfigurations() {
   });
 }
 
+// Debounce timer for context menu updates
+let menuUpdateTimer = null;
+
 function updateContextMenu() {
+  // Debounce: cancel any pending update and schedule a new one
+  if (menuUpdateTimer) {
+    clearTimeout(menuUpdateTimer);
+  }
+
+  menuUpdateTimer = setTimeout(() => {
+    menuUpdateTimer = null;
+    doUpdateContextMenu();
+  }, 100);
+}
+
+function doUpdateContextMenu() {
   try {
     chrome.contextMenus.removeAll(() => {
       if (chrome.runtime.lastError) {
-        console.error('Error removing context menus:', chrome.runtime.lastError);
+        console.error('Error removing context menus:', chrome.runtime.lastError.message);
         return;
       }
 
-      configuredShortcuts.forEach((config, index) => {
-        if (config && config.shortcut && config.template) {
-          // 为页面创建菜单项
-          chrome.contextMenus.create({
-            id: `copyTemplate_page_${index}`,
-            title: `📄 ${config.description || config.shortcut}`,
-            type: 'normal',
-            contexts: ['page']
-          }, () => {
-            if (chrome.runtime.lastError) {
-              console.error(`Error creating page context menu ${index}:`, chrome.runtime.lastError);
-            }
-          });
+      // Filter valid configs (non-empty shortcut and template, not isNew)
+      const validConfigs = configuredShortcuts.filter(
+        config => config && config.shortcut && config.template && !config.isNew
+      );
 
-          // 为选中文本创建菜单项
-          chrome.contextMenus.create({
-            id: `copyTemplate_selection_${index}`,
-            title: `📝 ${config.description || config.shortcut}`,
-            type: 'normal',
-            contexts: ['selection']
-          }, () => {
-            if (chrome.runtime.lastError) {
-              console.error(`Error creating selection context menu ${index}:`, chrome.runtime.lastError);
-            }
-          });
-        }
+      validConfigs.forEach((config, index) => {
+        // 为页面创建菜单项
+        chrome.contextMenus.create({
+          id: `copyTemplate_page_${index}`,
+          title: `📄 ${config.description || config.shortcut}`,
+          type: 'normal',
+          contexts: ['page']
+        }, () => {
+          if (chrome.runtime.lastError) {
+            console.error(`Error creating page context menu ${index}:`, chrome.runtime.lastError.message);
+          }
+        });
+
+        // 为选中文本创建菜单项
+        chrome.contextMenus.create({
+          id: `copyTemplate_selection_${index}`,
+          title: `📝 ${config.description || config.shortcut}`,
+          type: 'normal',
+          contexts: ['selection']
+        }, () => {
+          if (chrome.runtime.lastError) {
+            console.error(`Error creating selection context menu ${index}:`, chrome.runtime.lastError.message);
+          }
+        });
       });
 
       // 添加分隔线和帮助项
-      if (configuredShortcuts.length > 0) {
+      if (validConfigs.length > 0) {
         chrome.contextMenus.create({
           id: 'separator',
           type: 'separator',
