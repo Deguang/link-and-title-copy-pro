@@ -222,5 +222,17 @@
     "confirmDelete": {
         "message": "确定要删除此模板吗？",
         "description": ""
+    },
+    "toastCopied": {
+        "message": "复制成功！",
+        "description": ""
+    },
+    "toastFailed": {
+        "message": "复制失败",
+        "description": ""
+    },
+    "toastFallback": {
+        "message": "已复制 (Fallback)",
+        "description": ""
     }
 }

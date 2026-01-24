@@ -325,9 +325,20 @@ async function fallbackCopy(index, tab) {
     }, (response) => {
       if (chrome.runtime.lastError) {
         console.error('Error sending to offscreen:', chrome.runtime.lastError);
+        // Fallback to system notification if offscreen fails
         showNotification('Copy Failed', 'Could not copy to clipboard');
       } else if (response && response.success) {
-        showNotification('Copied (Fallback)', text);
+        // Try to show toast in the active tab
+        chrome.tabs.sendMessage(tab.id, {
+            action: 'showToast', 
+            message: chrome.i18n.getMessage('toastFallback') || 'Copied (Fallback)',
+            contentPreview: text
+        }, () => {
+             // If sending to tab fails (e.g. no content script), fallback to system notification
+             if (chrome.runtime.lastError) {
+                 showNotification(chrome.i18n.getMessage('toastFallback') || 'Copied (Fallback)', text);
+             }
+        });
       } else {
         showNotification('Copy Failed', response?.error || 'Unknown error');
       }

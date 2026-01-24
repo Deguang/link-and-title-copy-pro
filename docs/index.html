@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link & Title Copy Pro - Copy Links as Markdown, HTML, & Custom Formats</title>
+    <meta name="description" content="The best Chrome extension to copy browser tab titles and URLs simultaneously. Export links as Markdown, HTML, Jira, or custom formats. Perfect for developers, researchers, and writers.">
+    <meta name="keywords" content="chrome extension, copy link, markdown copy, url cleaner, productivity tool, notion links, jira format, obsidian citations">
+    <meta name="author" content="Deguang">
+    <link rel="canonical" href="https://deguang.github.io/link-and-title-copy-pro/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://deguang.github.io/link-and-title-copy-pro/">
+    <meta property="og:title" content="Link & Title Copy Pro - The Ultimate Copy Tool">
+    <meta property="og:description" content="Copy smarter, paste faster. The ultimate browser extension for developers and researchers to clean URLs and format links instantly.">
+    <meta property="og:image" content="https://deguang.github.io/link-and-title-copy-pro/icon.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://deguang.github.io/link-and-title-copy-pro/">
+    <meta property="twitter:title" content="Link & Title Copy Pro - The Ultimate Copy Tool">
+    <meta property="twitter:description" content="Copy smarter, paste faster. The ultimate browser extension for developers and researchers to clean URLs and format links instantly.">
+    <meta property="twitter:image" content="https://deguang.github.io/link-and-title-copy-pro/icon.webp">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Link & Title Copy Pro",
+      "operatingSystem": "Chrome, Edge",
+      "applicationCategory": "ProductivityApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "A browser extension that allows you to copy both the title and URL link of a browser tab at the same time, with customizable templates and smart features.",
+      "featureList": "Copy title & link, Custom templates, URL cleaning, i18n support",
+      "author": {
+        "@type": "Person",
+        "name": "Deguang"
+      },
+      "downloadUrl": "https://chromewebstore.google.com/detail/kakoelinbkchhkjcbgjgmailplkhpkod?authuser=0&hl=en"
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        primary: { 50: '#eff6ff', 100: '#dbeafe', 600: '#2563eb', 700: '#1d4ed8' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #60a5fa, #a78bfa);
+        }
+        .text-balance {
+            text-wrap: balance;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-blue-100 selection:text-blue-900" style="touch-action: manipulation">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav border-b border-slate-200/60 transition-all duration-300">
+        <div class="container mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="icon.webp" alt="Logo" width="36" height="36" class="w-9 h-9 rounded-xl shadow-md ring-1 ring-slate-900/5">
+                <span class="text-lg font-bold tracking-tight text-slate-800">Link & Title Copy Pro</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#features" class="text-slate-600 hover:text-blue-600 transition">Features</a>
+                <a href="#use-cases" class="text-slate-600 hover:text-blue-600 transition">Use Cases</a>
+                <a href="#how-it-works" class="text-slate-600 hover:text-blue-600 transition">How it Works</a>
+                <a href="#faq" class="text-slate-600 hover:text-blue-600 transition">FAQ</a>
+                <div class="h-4 w-px bg-slate-300"></div>
+                <a href="zh.html" class="text-slate-600 hover:text-blue-600 transition font-medium">中文</a>
+                <a href="https://github.com/Deguang/link-and-title-copy-pro" aria-label="GitHub Repository" class="text-slate-600 hover:text-slate-900 transition">
+                    <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                </a>
+                <a href="https://chromewebstore.google.com/detail/kakoelinbkchhkjcbgjgmailplkhpkod?authuser=0&hl=en" class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-full transition shadow-lg hover:shadow-xl hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-slate-900 outline-none">
+                    Download
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-gradient pt-40 pb-32 relative overflow-hidden">
+        <!-- Abstract Decoration -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
+            <div class="absolute -top-40 -right-40 w-96 h-96 bg-blue-500 rounded-full blur-3xl mix-blend-multiply filter animate-blob"></div>
+            <div class="absolute top-40 -left-40 w-96 h-96 bg-purple-500 rounded-full blur-3xl mix-blend-multiply filter animate-blob animation-delay-2000"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <span class="inline-block px-4 py-1.5 mb-6 text-sm font-medium tracking-wide text-blue-200 bg-blue-900/30 border border-blue-500/30 rounded-full backdrop-blur-sm">
+                v0.5.0 is now available 🚀
+            </span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-8 tracking-tight text-balance">
+                Copy smarter,<br>
+                <span class="text-gradient">paste faster.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed text-balance">
+                The ultimate browser extension for developers and researchers. 
+                Clean URLs, format markdown, and streamline your workflow in one click.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-5">
+                <a href="https://chromewebstore.google.com/detail/kakoelinbkchhkjcbgjgmailplkhpkod?authuser=0&hl=en" class="group px-8 py-4 bg-white text-slate-900 font-bold rounded-2xl transition hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)] transform hover:-translate-y-1 flex items-center justify-center gap-2 focus-visible:ring-4 focus-visible:ring-blue-500/30 outline-none">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg" width="20" height="20" class="w-5 h-5" alt="Chrome">
+                    Add to Chrome
+                    <span class="text-slate-400 font-normal text-sm ml-1 group-hover:text-slate-600 transition">— It’s Free</span>
+                </a>
+                <a href="https://github.com/Deguang/link-and-title-copy-pro" class="px-8 py-4 bg-slate-800/50 hover:bg-slate-800 text-white font-semibold border border-slate-700/50 rounded-2xl transition transform hover:-translate-y-1 backdrop-blur-sm focus-visible:ring-4 focus-visible:ring-slate-500/30 outline-none">
+                    View Source
+                </a>
+            </div>
+            
+            <!-- Screenshot Placeholder with device frame -->
+            <div class="mt-20 relative mx-auto max-w-5xl group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                <div class="relative rounded-xl bg-slate-900 shadow-2xl border border-slate-700 overflow-hidden">
+                    <img src="images/feature-paste.png" alt="Link & Title Copy Pro Interface - Paste Contexts" class="w-full h-auto transform scale-100 group-hover:scale-105 transition duration-700 ease-out">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Grid -->
+    <section id="features" class="py-24 bg-white relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6 text-balance">Packed with Power</h2>
+                <p class="text-xl text-slate-600 max-w-2xl mx-auto text-balance">Everything you need to manage links, without the clutter.</p>
+            </div>
+
+            <!-- Toast Feature Highlight -->
+            <div class="mb-24 flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
+                <div class="flex-1 order-2 md:order-1">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 group">
+                         <div class="absolute -inset-1 bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                        <img src="images/feature-toast.png" alt="Instant Visual Feedback Toast" class="relative w-full rounded-2xl transform transition duration-500 hover:scale-[1.02]">
+                    </div>
+                </div>
+                <div class="flex-1 order-1 md:order-2 text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium mb-6">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        </span>
+                        New Feature
+                    </div>
+                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">Instant Visual Feedback</h3>
+                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                        Never guess if you copied correctly. Our new <strong>Smart Toast</strong> shows you exactly what's in your clipboard, complete with a preview of the formatted link.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-slate-700">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Live content preview
+                        </li>
+                        <li class="flex items-center text-slate-700">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Keyboard shortcut support
+                        </li>
+                        <li class="flex items-center text-slate-700">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Dark mode aesthetics
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="group p-8 rounded-3xl bg-slate-50 hover:bg-white border border-slate-100 hover:border-blue-100 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300">
+                    <div class="w-14 h-14 bg-blue-600/10 text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">
+                        📝
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-slate-900">Custom Templates</h3>
+                    <p class="text-slate-600 leading-relaxed">Define your own formats using placeholders like <code class="bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono">{title}</code>, <code class="bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono">{url}</code>, and markdown syntax.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="group p-8 rounded-3xl bg-slate-50 hover:bg-white border border-slate-100 hover:border-purple-100 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300">
+                    <div class="w-14 h-14 bg-purple-600/10 text-purple-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">
+                        🧹
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-slate-900">Clean URLs</h3>
+                    <p class="text-slate-600 leading-relaxed">Say goodbye to 500-character tracking links. Automatically strip <code class="bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono">utm_source</code> and other analytics garbage.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="group p-8 rounded-3xl bg-slate-50 hover:bg-white border border-slate-100 hover:border-green-100 hover:shadow-2xl hover:shadow-green-500/10 transition-all duration-300">
+                    <div class="w-14 h-14 bg-green-600/10 text-green-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">
+                        ⌨️
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-slate-900">Shortcuts & i18n</h3>
+                    <p class="text-slate-600 leading-relaxed">Bind your favorite templates to keyboard shortcuts. Fully localized for English and Simplified Chinese.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section (New for SEO) -->
+    <section id="use-cases" class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-balance">Built for Every Workflow</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Use Case 1 -->
+                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <h3 class="text-lg font-bold mb-2 text-slate-800">For Developers</h3>
+                    <p class="text-sm text-slate-600">Copy links for <strong class="text-slate-800">Git commit messages</strong>, Jira tickets, or generic Markdown documentation instantly.</p>
+                </div>
+                <!-- Use Case 2 -->
+                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <h3 class="text-lg font-bold mb-2 text-slate-800">For Writers</h3>
+                    <p class="text-sm text-slate-600">Streamline your citations. Perfect for grabbing links for blog posts, formatted HTML, or newsletter curation.</p>
+                </div>
+                <!-- Use Case 3 -->
+                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <h3 class="text-lg font-bold mb-2 text-slate-800">For Research</h3>
+                    <p class="text-sm text-slate-600">Integrates perfectly with <strong class="text-slate-800">Obsidian</strong>, <strong class="text-slate-800">Logseq</strong>, and Notion to build your second brain faster.</p>
+                </div>
+                <!-- Use Case 4 -->
+                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <h3 class="text-lg font-bold mb-2 text-slate-800">For Everyone</h3>
+                    <p class="text-sm text-slate-600">Share clean links with friends without the ugly <code class="bg-slate-100 px-1 rounded">?utm_...</code> tracking parameters attached.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works Section -->
+    <section id="how-it-works" class="py-24 bg-white border-y border-slate-200">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-balance">How it Works</h2>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-12 max-w-5xl mx-auto">
+                <!-- Step 1 -->
+                <div class="flex-1 text-center group">
+                    <div class="w-20 h-20 mx-auto bg-slate-50 border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center text-2xl font-bold mb-6 shadow-sm group-hover:border-blue-500 group-hover:text-blue-600 transition-colors">1</div>
+                    <h3 class="text-xl font-bold mb-3">Install Extension</h3>
+                    <p class="text-slate-600">Add to Chrome in seconds. No account required.</p>
+                </div>
+                <!-- Arrow -->
+                <div class="hidden md:block text-slate-300">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </div>
+                <!-- Step 2 -->
+                <div class="flex-1 text-center group">
+                    <div class="w-20 h-20 mx-auto bg-slate-50 border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center text-2xl font-bold mb-6 shadow-sm group-hover:border-blue-500 group-hover:text-blue-600 transition-colors">2</div>
+                    <h3 class="text-xl font-bold mb-3">Setup Templates</h3>
+                    <p class="text-slate-600">Configure your favorite formats like Markdown, Org-mode, or HTML.</p>
+                </div>
+                <!-- Arrow -->
+                <div class="hidden md:block text-slate-300">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </div>
+                <!-- Step 3 -->
+                <div class="flex-1 text-center group">
+                    <div class="w-20 h-20 mx-auto bg-slate-50 border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center text-2xl font-bold mb-6 shadow-sm group-hover:border-blue-500 group-hover:text-blue-600 transition-colors">3</div>
+                    <h3 class="text-xl font-bold mb-3">One-Click Copy</h3>
+                    <p class="text-slate-600">Click the icon or use a shortcut to grab the link instantly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-slate-50">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-balance">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+                <!-- Q1 -->
+                <div class="p-6 bg-white rounded-2xl border border-slate-200">
+                    <h3 class="text-lg font-bold mb-2">Is it completely free?</h3>
+                    <p class="text-slate-600">Yes, Link & Title Copy Pro is open-source and 100% free forever. No hidden subscriptions.</p>
+                </div>
+                <!-- Q2 -->
+                <div class="p-6 bg-white rounded-2xl border border-slate-200">
+                    <h3 class="text-lg font-bold mb-2">Does it track my data?</h3>
+                    <p class="text-slate-600">Absolutely not. We do not collect, store, or transmit any usage data. Everything happens locally on your browser. See our <a href="privacy.html" class="text-blue-600 hover:underline">Privacy Policy</a>.</p>
+                </div>
+                <!-- Q3 -->
+                <div class="p-6 bg-white rounded-2xl border border-slate-200">
+                    <h3 class="text-lg font-bold mb-2">Can I create my own formats?</h3>
+                    <p class="text-slate-600">Yes! You can create unlimited custom templates using placeholders like <code class="text-sm bg-slate-50 px-1 border border-slate-200 rounded">{title}</code> and <code class="text-sm bg-slate-50 px-1 border border-slate-200 rounded">{url}</code>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 text-slate-400 py-16">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <span class="text-2xl font-bold text-white tracking-tight">Link & Title Copy Pro</span>
+                    <p class="mt-2 text-slate-500">Open source productivity for the modern web.</p>
+                </div>
+                <div class="flex space-x-8">
+                    <a href="https://github.com/Deguang/link-and-title-copy-pro" aria-label="GitHub Repository" class="hover:text-white transition">GitHub</a>
+                    <a href="privacy.html" class="hover:text-white transition">Privacy</a>
+                    <a href="https://chromewebstore.google.com/detail/kakoelinbkchhkjcbgjgmailplkhpkod?authuser=0&hl=en" class="hover:text-white transition">Chrome Store</a>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-center md:text-left text-sm text-slate-600 flex flex-col md:flex-row justify-between">
+                <p>&copy; 2026 Deguang. All rights reserved.</p>
+                <p>Made with ❤️ by extension lovers.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

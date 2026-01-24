@@ -222,5 +222,17 @@
     "confirmDelete": {
         "message": "Are you sure you want to delete this template?",
         "description": ""
+    },
+    "toastCopied": {
+        "message": "Copied to Clipboard!",
+        "description": ""
+    },
+    "toastFailed": {
+        "message": "Copy Failed",
+        "description": ""
+    },
+    "toastFallback": {
+        "message": "Copied (Fallback)",
+        "description": ""
     }
 }
