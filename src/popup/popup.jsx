@@ -126,7 +126,10 @@ function Popup() {
       {/* Footer */}
       <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center text-xs text-slate-400">
          <span>v0.5.0</span>
-         <a href="https://github.com/Deguang/link-and-title-copy-pro" target="_blank" className="hover:text-slate-600 dark:hover:text-slate-300 transition">GitHub</a>
+         <div className="flex gap-3">
+            <a href="https://app.lideguang.com/" target="_blank" rel="noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Website</a>
+            <a href="https://github.com/Deguang/link-and-title-copy-pro" target="_blank" rel="noreferrer" className="hover:text-slate-600 dark:hover:text-slate-300 transition">GitHub</a>
+         </div>
       </div>
     </div>
   );
