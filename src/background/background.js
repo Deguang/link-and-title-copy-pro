@@ -235,69 +235,7 @@ async function setupOffscreenDocument(path) {
   });
 }
 
-function copyToClipboard(index) {
-  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-    if (chrome.runtime.lastError) {
-      console.error('Error querying tabs:', chrome.runtime.lastError);
-      return;
-    }
 
-    if (tabs.length === 0) {
-      console.error('No active tabs found');
-      return;
-    }
-
-    const activeTab = tabs[0];
-
-    if (activeTab.url.startsWith('chrome://') ||
-      activeTab.url.startsWith('chrome-extension://') ||
-      activeTab.url.startsWith('edge://') ||
-      activeTab.url.startsWith('about:')) {
-      console.log('Cannot inject into system pages');
-      // 对于系统页面，我们只能直接回退到 fallbackCopy，它现在使用 offscreen
-      fallbackCopy(index, activeTab);
-      return;
-    }
-
-    // 尝试发送消息
-    chrome.tabs.sendMessage(activeTab.id, {
-      action: 'copyToClipboard',
-      templateIndex: index
-    }, (response) => {
-      // 如果出错（通常是 content script 未加载），尝试注入脚本
-      if (chrome.runtime.lastError) {
-        console.log('Content script not ready, attempting injection...', chrome.runtime.lastError);
-
-        chrome.scripting.executeScript({
-          target: { tabId: activeTab.id },
-          files: ['content.js']
-        }, () => {
-          if (chrome.runtime.lastError) {
-            console.error('Script injection failed:', chrome.runtime.lastError);
-            fallbackCopy(index, activeTab);
-            return;
-          }
-
-          // 注入成功后重试发送消息
-          setTimeout(() => {
-            chrome.tabs.sendMessage(activeTab.id, {
-              action: 'copyToClipboard',
-              templateIndex: index
-            }, (retryResponse) => {
-              if (chrome.runtime.lastError) {
-                console.error('Retry failed:', chrome.runtime.lastError);
-                fallbackCopy(index, activeTab);
-              }
-            });
-          }, 100);
-        });
-      } else if (response && !response.success) {
-        console.error('Content script error:', response.error);
-        fallbackCopy(index, activeTab);
-      }
-    });
-  });
-}
 
 async function fallbackCopy(index, tab) {
   try {
@@ -323,6 +261,7 @@ async function fallbackCopy(index, tab) {
       target: 'offscreen-doc',
       data: text
     }, (response) => {
+      /* ... */
       if (chrome.runtime.lastError) {
         console.error('Error sending to offscreen:', chrome.runtime.lastError);
         // Fallback to system notification if offscreen fails
@@ -367,34 +306,35 @@ function showNotification(title, message) {
   }
 }
 
-chrome.commands.onCommand.addListener(function (command) {
-  console.log('Command received:', command);
-  const match = command.match(/copy-template-(\d+)/);
-  if (match) {
-    const index = parseInt(match[1]);
-    copyToClipboard(index);
-  }
-});
+// Function to handle copy, targeting a specific frame if provided
+function copyToClipboard(index, senderFrameId = 0) {
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    if (chrome.runtime.lastError || tabs.length === 0) {
+      console.error('Error querying tabs:', chrome.runtime.lastError);
+      return;
+    }
 
-chrome.contextMenus.onClicked.addListener(function (info, tab) {
-  console.log('Context menu clicked:', info.menuItemId);
+    const activeTab = tabs[0];
+    const targetFrameId = typeof senderFrameId === 'number' ? senderFrameId : 0;
 
-  if (info.menuItemId === 'openOptions') {
-    chrome.runtime.openOptionsPage();
-    return;
-  }
-
-  const pageMatch = info.menuItemId.match(/copyTemplate_page_(\d+)/);
-  const selectionMatch = info.menuItemId.match(/copyTemplate_selection_(\d+)/);
-
-  if (pageMatch) {
-    const index = parseInt(pageMatch[1]);
-    copyToClipboard(index);
-  } else if (selectionMatch) {
-    const index = parseInt(selectionMatch[1]);
-    copyToClipboard(index);
-  }
-});
+    // Send to specific frame
+    chrome.tabs.sendMessage(activeTab.id, {
+      action: 'copyToClipboard',
+      templateIndex: index,
+      title: activeTab.title, // Pass top-level title
+      url: activeTab.url      // Pass top-level URL
+    }, { frameId: targetFrameId }, (response) => {
+      if (chrome.runtime.lastError) {
+         console.warn('Could not send to frame', targetFrameId, 'Trying top frame', chrome.runtime.lastError);
+         // Fallback to top frame if sender frame is gone or errored?
+         // But if sender frame is gone, selection is gone. relying on top frame logic might be safer fallback for title/url only.
+         if (targetFrameId !== 0) {
+             fallbackCopy(index, activeTab);
+         }
+      }
+    });
+  });
+}
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   try {
@@ -404,6 +344,21 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     } else if (request.action === 'reloadConfigurations') {
       loadConfigurations();
       sendResponse({ success: true });
+    } else if (request.action === 'triggerCopyByIndex') {
+       // Capture sender frame ID to reply to the correct frame
+       const senderFrameId = sender.frameId;
+       copyToClipboard(request.index, senderFrameId);
+       sendResponse({ success: true });
+    } else if (request.action === 'showToastRequest') {
+        // Route toast to TOP frame (frameId: 0) so it is always visible
+        if (sender.tab) {
+             chrome.tabs.sendMessage(sender.tab.id, {
+                action: 'showToast',
+                message: request.message,
+                contentPreview: request.contentPreview
+             }, { frameId: 0 }); // TARGET TOP FRAME
+        }
+        sendResponse({ success: true });
     } else {
       console.log('Unknown action:', request.action);
       sendResponse({ success: false, error: 'Unknown action' });
@@ -415,6 +370,18 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
   return true;
 });
+
+/* 
+// Deprecated: Native commands removed in favor of JS content script injection
+chrome.commands.onCommand.addListener(function (command) {
+  console.log('Command received:', command);
+  const match = command.match(/copy-template-(\d+)/);
+  if (match) {
+    const index = parseInt(match[1]);
+    copyToClipboard(index);
+  }
+});
+*/
 
 chrome.storage.onChanged.addListener((changes, namespace) => {
   if (namespace === 'local' && changes[STORAGE_KEY]) {

@@ -7,8 +7,8 @@ const STORAGE_KEY = 'CopyTitleAndUrlConfigs';
 
 function Popup() {
   const [configs, setConfigs] = useState([]);
+
   const [tabInfo, setTabInfo] = useState({ title: '', url: '' });
-  const [status, setStatus] = useState(''); // 'copied' or ''
 
   useEffect(() => {
     // 1. Get current tab info
@@ -36,25 +36,6 @@ function Popup() {
     }
   }, []);
 
-  const handleCopy = (config) => {
-    const text = processTemplate(config.template, {
-      title: tabInfo.title,
-      url: tabInfo.url,
-      selectedText: '' // Cannot easily get selected text from popup without injection, keeping simple for now
-    });
-
-    navigator.clipboard.writeText(text).then(() => {
-      setStatus('copied');
-      setTimeout(() => setStatus(''), 2000);
-      
-      // Close popup after short delay? Optional. 
-      // For cheat sheet purpose, maybe keep it open or show feedback.
-      // Let's show feedback in the UI instead of toast to avoid context switching confusion.
-    }).catch(err => {
-      console.error('Failed to copy', err);
-    });
-  };
-
   const openOptions = () => {
     chrome.runtime.openOptionsPage();
   };
@@ -77,21 +58,12 @@ function Popup() {
         </button>
       </div>
 
-      {/* Copy Feedback Overlay */}
-      {status === 'copied' && (
-        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-1 rounded-full shadow-lg z-50 animate-fade-in-down text-sm font-medium flex items-center">
-            <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-            {chrome.i18n.getMessage('toastCopied') || "Copied!"}
-        </div>
-      )}
-
       {/* List */}
       <div className="flex-1 overflow-y-auto space-y-2 pr-1">
         {configs.map((config, index) => (
           <div 
             key={index}
-            onClick={() => handleCopy(config)}
-            className="group relative flex items-center justify-between p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-blue-500 dark:hover:border-blue-500 hover:shadow-md cursor-pointer transition-all duration-200"
+            className="group relative flex items-center justify-between p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-blue-500 dark:hover:border-blue-500 hover:shadow-md transition-all duration-200"
           >
             <div className="flex-1 min-w-0 mr-3">
               <div className="flex items-center gap-2 mb-1">
@@ -108,9 +80,6 @@ function Popup() {
                <span className="inline-flex items-center justify-center px-2 py-1 rounded bg-slate-100 dark:bg-slate-700 text-xs font-bold text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-600 min-w-[20px]">
                  {config.shortcut ? config.shortcut.replace('Command', '⌘').replace('Shift', '⇧').replace('Ctrl', '⌃').replace('Alt', '⌥').replace(/\+/g, '') : ''}
                </span>
-               <div className="opacity-0 group-hover:opacity-100 text-[10px] text-blue-600 dark:text-blue-400 font-medium transition-opacity">
-                   Click to Copy
-               </div>
             </div>
           </div>
         ))}

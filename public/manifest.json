@@ -36,32 +36,11 @@
       "js": [
         "content.js"
       ],
-      "run_at": "document_end"
+      "run_at": "document_end",
+      "all_frames": true
     }
   ],
-  "commands": {
-    "copy-template-0": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+P",
-        "mac": "Command+Shift+P"
-      },
-      "description": "Smart copy: Selected text or title + URL"
-    },
-    "copy-template-1": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+O",
-        "mac": "Command+Shift+O"
-      },
-      "description": "Copy as Markdown link"
-    },
-    "copy-template-2": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+U",
-        "mac": "Command+Shift+U"
-      },
-      "description": "Copy with smart quotes for selected text"
-    }
-  },
+
   "default_locale": "zh_CN",
   "icons": {
     "16": "icons/icon.webp",

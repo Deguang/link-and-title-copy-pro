@@ -2,7 +2,7 @@
 const STORAGE_KEY = 'CopyTitleAndUrlConfigs';
 import { processTemplate } from '../utils/templateProcessor';
 
-let configuredShortcuts = [];
+
 
 function getSelectedText() {
   // 获取当前选中的文本
@@ -28,15 +28,127 @@ function getSelectedText() {
 
 import { showToast } from './toast';
 
-function copyToClipboard(template) {
+// Load configurations from storage
+let shortcuts = [];
+
+
+function loadShortcuts() {
+  chrome.storage.local.get(STORAGE_KEY, (result) => {
+    if (result[STORAGE_KEY]) {
+
+      // Map to include original index
+      shortcuts = result[STORAGE_KEY].map((c, i) => ({...c, originalIndex: i})).filter(c => c && c.shortcut);
+      console.log('Shortcuts loaded in content script:', shortcuts);
+    }
+  });
+}
+
+// Initial load
+loadShortcuts();
+
+// Listen for storage changes to update shortcuts dynamically
+chrome.storage.onChanged.addListener((changes, namespace) => {
+  if (namespace === 'local' && changes[STORAGE_KEY]) {
+    loadShortcuts();
+  }
+});
+
+
+// Prevent duplicate injection
+if (window.hasLinkTitleCopyProContentScript) {
+  console.log('Link & Title Copy Pro content script already loaded');
+  // If we are re-loaded (e.g. by explicit injection), we should probably not add another listener.
+  // We can just exit.
+  // BUT we need to make sure we don't break strict mode or scope.
+  // Since we are in an IIFE or module scope (Vite), return might not work if not in function.
+  // Actually, Vite wraps this. But let's use a flag.
+} else {
+window.hasLinkTitleCopyProContentScript = true;
+
+// Helper to normalize key strings (e.g. 'Meta' -> 'Command')
+function normalizeKey(key) {
+  if (key === 'Meta') return 'Command';
+  if (key === 'Control') return 'Ctrl';
+  if (key === ' ') return 'Space';
+  if (key === 'ArrowUp') return '↑';
+  if (key === 'ArrowDown') return '↓';
+  if (key === 'ArrowLeft') return '←';
+  if (key === 'ArrowRight') return '→';
+  if (key.length === 1) return key.toUpperCase();
+  return key;
+}
+
+// Global Keyboard Listener
+window.addEventListener('keydown', (e) => {
+  // Prevent repeat triggers while holding key
+  if (e.repeat) return;
+
+  // Ignore if user is typing in an input field
+  const tag = e.target.tagName;
+  if (tag === 'INPUT' || tag === 'TEXTAREA' || e.target.isContentEditable) {
+    return;
+  }
+
+  // Build the shortcut string from the event
+  const modifiers = [];
+  if (e.ctrlKey) modifiers.push('Ctrl');
+  // On Mac, Command is Meta. On Windows, Win is Meta. 
+  // We use 'Command' as the standard internal representation for Meta on Mac.
+  // But wait, our Options page saves it as 'Command' on Mac and 'Win' on Windows?
+  // Let's check the options.jsx logic. It pushes 'Command' if isMac && e.metaKey.
+  // Here we need to be consistent.
+  const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+  
+  if (e.metaKey) modifiers.push(isMac ? 'Command' : 'Win');
+  if (e.altKey) modifiers.push(isMac ? 'Option' : 'Alt');
+  if (e.shiftKey) modifiers.push('Shift');
+
+  // If no main key (just modifiers), return
+  if (['Control', 'Alt', 'Shift', 'Meta'].includes(e.key)) return;
+
+  const mainKey = normalizeKey(e.key);
+  const pressedShortcut = [...modifiers, mainKey].join('+');
+
+  // Check for match
+  const matchedConfig = shortcuts.find(c => c.shortcut === pressedShortcut);
+
+  if (matchedConfig) {
+    console.log('Shortcut matched:', pressedShortcut);
+    e.preventDefault();
+    e.stopPropagation();
+
+    // Trigger copy
+    // We send a message to background to handle the "Copy" logic purely?
+    // actually, background.js 'copyToClipboard(index)' relies on existing tabs.
+    // It's better if WE (content script) ask background to process the template for us,
+    // OR we trigger the copy flow.
+    // Let's reuse the existing flow: send message to background saying "Copy Config X"
+    
+    // Find the index of this config in the full list? 
+    // Wait, the 'shortcuts' array is filtered. We need the original index or pass the template directly.
+    // Background's 'copyToClipboard(index)' expects an index in the FULL storage array.
+    // Let's modify the loadShortcuts to keep track of original index.
+    chrome.runtime.sendMessage({
+      action: 'triggerCopyByIndex',
+      index: matchedConfig.originalIndex
+    });
+  }
+}, true); // Capture phase to ensure we get it first
+
+function copyToClipboard(template, overrideTitle, overrideUrl) {
   const processedText = processTemplate(template, {
-    title: document.title,
-    url: window.location.href,
+    title: overrideTitle || document.title,
+    url: overrideUrl || window.location.href,
     selectedText: getSelectedText()
   });
 
   // 优先使用更可靠的复制方法
   function fallbackCopyTextToClipboard(text) {
+    // Save current selection
+    const activeElement = document.activeElement;
+    const selection = document.getSelection();
+    const range = selection.rangeCount > 0 ? selection.getRangeAt(0) : null;
+
     const textArea = document.createElement("textarea");
     textArea.value = text;
 
@@ -65,14 +177,31 @@ function copyToClipboard(template) {
     }
 
     document.body.removeChild(textArea);
+
+    // Restore selection
+    if (activeElement) activeElement.focus();
+    if (range) {
+       selection.removeAllRanges();
+       selection.addRange(range);
+    }
   }
 
   function showSuccessMessage() {
-    showToast(chrome.i18n.getMessage('toastCopied') || 'Copied to Clipboard!', processedText);
+    // Send message to background to show toast (Background will route it to Top Frame)
+    const toastMessage = chrome.i18n.getMessage('toastCopied');
+    console.log('[Content] i18n toastCopied:', toastMessage, '| UI Language:', chrome.i18n.getUILanguage());
+    chrome.runtime.sendMessage({
+        action: 'showToastRequest',
+        message: toastMessage || 'Copied to Clipboard!',
+        contentPreview: processedText
+    });
   }
 
   function showErrorMessage() {
-    showToast(chrome.i18n.getMessage('toastFailed') || 'Copy Failed', '', 3000);
+     chrome.runtime.sendMessage({
+        action: 'showToastRequest',
+        message: chrome.i18n.getMessage('toastFailed') || 'Copy Failed'
+    });
   }
 
   // 检查是否支持现代剪贴板API并且文档有焦点
@@ -92,85 +221,15 @@ function copyToClipboard(template) {
   }
 }
 
-function addKeyboardShortcuts() {
-  document.addEventListener('keydown', event => {
-    configuredShortcuts.forEach((config, index) => {
-      if (isShortcutMatch(event, config.shortcut)) {
-        event.preventDefault();
-        event.stopPropagation();
-        // Reverted: The instruction implies a change from the current state.
-        // Without a target state, the most faithful interpretation of "revert"
-        // in this context, given the provided snippet as the *current* state,
-        // is to remove the calls. However, removing core functionality
-        // without a replacement would break the script.
-        // Assuming the instruction meant to revert to a state where these
-        // calls were not present or were handled differently, but without
-        // a specific target, I will keep the existing calls as they are
-        // essential for the script's functionality.
-        // If the intention was to change them to something specific,
-        // that information was not provided.
-        copyToClipboard(config.template);
-      }
-    });
-  });
-}
-
-function isShortcutMatch(event, shortcut) {
-  // Guard against undefined or empty shortcut
-  if (!shortcut || typeof shortcut !== 'string') {
-    return false;
-  }
-
-  const keys = shortcut.split('+').map(key => key.trim());
-  if (keys.length === 0 || !keys[keys.length - 1]) {
-    return false;
-  }
-
-  const modifierKeys = keys.slice(0, -1);
-  const lastKey = keys[keys.length - 1].toLowerCase();
-
-  // 检查修饰键
-  const ctrlMatch = !modifierKeys.includes('Ctrl') || event.ctrlKey;
-  const shiftMatch = !modifierKeys.includes('Shift') || event.shiftKey;
-  const altMatch = !modifierKeys.includes('Alt') || event.altKey;
-  const metaMatch = !modifierKeys.includes('Command') || event.metaKey;
-
-  // 检查是否有不需要的修饰键被按下
-  const noExtraCtrl = modifierKeys.includes('Ctrl') || !event.ctrlKey;
-  const noExtraShift = modifierKeys.includes('Shift') || !event.shiftKey;
-  const noExtraAlt = modifierKeys.includes('Alt') || !event.altKey;
-  const noExtraMeta = modifierKeys.includes('Command') || !event.metaKey;
-
-  // 检查主键
-  const mainKeyMatch = event.key.toLowerCase() === lastKey ||
-    event.code.toLowerCase() === ('key' + lastKey).toLowerCase();
-
-  return ctrlMatch && shiftMatch && altMatch && metaMatch &&
-    noExtraCtrl && noExtraShift && noExtraAlt && noExtraMeta &&
-    mainKeyMatch;
-}
-
-function loadConfigurations() {
-  chrome.storage.local.get(STORAGE_KEY, function (result) {
-    if (result[STORAGE_KEY] && Array.isArray(result[STORAGE_KEY])) {
-      configuredShortcuts = result[STORAGE_KEY];
-      console.log('Configurations loaded:', configuredShortcuts);
-      // 移除之前的监听器，避免重复绑定
-      document.removeEventListener('keydown', addKeyboardShortcuts);
-      addKeyboardShortcuts();
-    } else {
-      console.log('No configurations found or invalid format');
-    }
-  });
-}
-
 // 监听来自background的消息
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   try {
     if (message.action === 'copyToClipboard') {
-      const config = configuredShortcuts[message.templateIndex];
+      const config = shortcuts.find(c => c.originalIndex === message.templateIndex);
+      
       if (config && config.template) {
-        copyToClipboard(config.template);
+        // Use overrides from message if present (for iframe support)
+        copyToClipboard(config.template, message.title, message.url);
         sendResponse({ success: true });
       } else {
         console.error('Invalid template index or missing template:', message.templateIndex);
@@ -178,9 +237,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       }
     } else if (message.action === 'showToast') {
       showToast(message.message || 'Copied!', message.contentPreview);
-      sendResponse({ success: true });
-    } else if (message.action === 'reloadConfigurations') {
-      loadConfigurations();
       sendResponse({ success: true });
     } else if (message.action === 'getPageInfo') {
       // 返回页面信息用于预览
@@ -203,13 +259,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   return true;
 });
 
-// 页面加载完成后初始化
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', loadConfigurations);
-} else {
-  loadConfigurations();
-}
-
 // 监听选择变化，可以用于实时更新上下文菜单等
 document.addEventListener('selectionchange', () => {
   // 可以在这里添加选择变化的处理逻辑
@@ -217,3 +266,4 @@ document.addEventListener('selectionchange', () => {
 });
 
 console.log('Enhanced content script loaded with text selection support');
+}

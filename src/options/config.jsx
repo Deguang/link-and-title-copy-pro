@@ -218,7 +218,9 @@ const ConfigItem = ({ config, index, onUpdate, onDelete, onOpenHelp, isNew = fal
         key = specialKeys[key] || key;
 
         if (!['Control', 'Alt', 'Shift', 'Meta', 'Command'].includes(key)) {
-            const shortcut = [...modifiers, key.toLowerCase()].join('+');
+            // Use upper case for single letters to match content.js normalization
+            const displayKey = key.length === 1 ? key.toUpperCase() : key;
+            const shortcut = [...modifiers, displayKey].join('+');
 
             if (isValidShortcut(shortcut)) {
                 setEditedConfig(prev => ({ ...prev, shortcut }));
@@ -495,6 +497,13 @@ export default function Config() {
     const { t } = useTranslate();
     const [configs, setConfigs, storageError] = useChromeStorage(STORAGE_KEY, []);
     const [showHelp, setShowHelp] = useState(false);
+
+    useEffect(() => {
+        const uiLanguage = chrome.i18n.getUILanguage();
+        const acceptLanguages = navigator.languages;
+        console.log('[Options] Current UI Language:', uiLanguage);
+        console.log('[Options] Accept Languages:', acceptLanguages);
+    }, []);
 
     const handleOpenHelp = () => {
         setShowHelp(true);
