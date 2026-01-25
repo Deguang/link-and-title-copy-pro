@@ -128,6 +128,16 @@ export default defineConfig(({ command, mode }) => {
               },
             },
           },
+          {
+            entry: '/src/popup/popup.jsx',
+            filename: 'popup.html',
+            template: 'src/popup/popup.html',
+            injectOptions: {
+              data: {
+                title: 'Link & Title Copy Pro',
+              },
+            },
+          },
         ],
       }),
       fileHandlingPlugin // Only copy static files during main build
@@ -138,6 +148,7 @@ export default defineConfig(({ command, mode }) => {
         input: {
           options: resolve(__dirname, 'src/options/options.html'),
           offscreen: resolve(__dirname, 'src/offscreen/offscreen.html'),
+          popup: resolve(__dirname, 'src/popup/popup.html'),
         },
         output: {
           entryFileNames: '[name].js',
