@@ -53,6 +53,12 @@ Link&TitleCopyPro是一个可以同时复制浏览器标签页的标题和URL链
 
 ## Version History / 版本历史
 
+### v1.0.0
+
+- Enhanced toast notification with content preview / 增强的 Toast 通知，支持内容预览
+- Improved i18n support / 改进国际化支持
+- Launch landing page / 上线官网页面
+
 ### v0.5.0
 
 - Added URL component placeholders

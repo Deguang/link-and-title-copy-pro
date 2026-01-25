@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && BUILD_TARGET=background vite build && BUILD_TARGET=content vite build",
+    "release": "npm run build && ./scripts/release.sh",
     "preview": "vite preview",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix"
