@@ -2,6 +2,7 @@
   "name": "Copy Page Title and URL Pro",
   "version": "1.0.1",
   "description": "Enhanced Chrome extension for copying page title, URL, and selected text with customizable templates and smart fallback.",
+  "homepage_url": "https://app.lideguang.com/link-and-title-copy-pro/",
   "manifest_version": 3,
   "permissions": [
     "clipboardWrite",

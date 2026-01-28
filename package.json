@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/Deguang/link-and-title-copy-pro/issues"
   },
-  "homepage": "https://github.com/Deguang/link-and-title-copy-pro#readme",
+  "homepage": "https://app.lideguang.com/link-and-title-copy-pro/",
   "keywords": [],
   "dependencies": {
     "@types/chrome": "^0.0.270",
