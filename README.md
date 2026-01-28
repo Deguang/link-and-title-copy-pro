@@ -7,8 +7,9 @@ Link&TitleCopyPro is a browser extension that allows you to copy both the title 
 Link&TitleCopyPro是一个可以同时复制浏览器标签页的标题和URL链接的浏览器扩展，支持自定义模板和智能功能。
 
 <p align="center">
-  <img src="docs/images/feature-config.png" alt="Shortcut Configuration" width="45%">
-  <img src="docs/images/feature-paste.png" alt="Paste Result" width="45%">
+  <img src="docs/images/feature-toast.png" alt="Toast Notification" width="30%">
+  <img src="docs/images/feature-paste.png" alt="Paste Result" width="30%">
+  <img src="docs/images/feature-config.png" alt="Shortcut Configuration" width="30%">
 </p>
 
 ## Features / 功能特性
