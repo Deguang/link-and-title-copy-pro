@@ -1,6 +1,6 @@
 # Link & Title Copy Pro
 
-- [Link & Title Copy Pro Website](https://deguang.github.io/link-and-title-copy-pro/)
+- [Link & Title Copy Pro Website](https://app.lideguang.com/link-and-title-copy-pro/)
 
 Link&TitleCopyPro is a browser extension that allows you to copy both the title and URL link of a browser tab at the same time, with customizable templates and smart features.
 
