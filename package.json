@@ -1,6 +1,6 @@
 {
   "name": "link-and-title-copy-pro",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "description": "Link&amp;TitleCopyPro is a browser extension that allows you to copy both the title and URL link of a browser tab at the same time.",
   "main": "background.js",
@@ -40,9 +40,11 @@
     "@eslint/js": "^9.9.1",
     "@typescript-eslint/eslint-plugin": "^8.2.0",
     "@typescript-eslint/parser": "^8.2.0",
+    "dotenv": "^17.2.3",
     "eslint": "^9.9.1",
     "eslint-plugin-react": "^7.35.0",
     "globals": "^15.9.0",
+    "tinify": "^1.8.2",
     "typescript-eslint": "^8.2.0",
     "vite-plugin-html": "^3.2.2",
     "vite-plugin-html-config": "^2.0.1"

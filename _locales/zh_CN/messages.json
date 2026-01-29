@@ -3,6 +3,14 @@
         "message": "复制页面标题和链接专业版",
         "description": ""
     },
+    "appName": {
+        "message": "网页标题与链接复制 Pro: 支持 Markdown",
+        "description": "The name of the application, displayed in the Chrome Web Store and extensions management page."
+    },
+    "appDescription": {
+        "message": "一键复制网页标题与链接。支持 Markdown、HTML、Jira 格式。自动去除 UTM 追踪参数，自定义模板，提升开发与写作效率。",
+        "description": "The description of the application."
+    },
     "successTip": {
         "message": "复制成功",
         "description": ""

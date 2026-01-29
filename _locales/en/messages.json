@@ -3,6 +3,14 @@
         "message": "Copy Page Title and URL Pro",
         "description": ""
     },
+    "appName": {
+        "message": "Copy Page Title and URL Pro: Markdown & Custom Link",
+        "description": "The name of the application, displayed in the Chrome Web Store and extensions management page."
+    },
+    "appDescription": {
+        "message": "Copy title & URL as Markdown, HTML, or Jira. Clean tracking params (UTM), custom templates, and smart selection support.",
+        "description": "The description of the application."
+    },
     "successTip": {
         "message": "Copied Successfully",
         "description": ""
