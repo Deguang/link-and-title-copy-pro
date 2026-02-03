@@ -74,6 +74,13 @@
         .text-balance {
             text-wrap: balance;
         }
+        /* Language dropdown - hidden by default, show on hover */
+        .lang-dropdown {
+            display: none;
+        }
+        .lang-switcher:hover .lang-dropdown {
+            display: block;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 antialiased selection:bg-blue-100 selection:text-blue-900" style="touch-action: manipulation">
@@ -92,9 +99,9 @@
                 <a href="#faq" class="text-slate-600 hover:text-blue-600 transition">よくある質問</a>
                 <div class="h-4 w-px bg-slate-300"></div>
                 <!-- Language Switcher -->
-                <div class="relative group">
+                <div class="relative group lang-switcher">
                     <button class="text-slate-600 hover:text-blue-600 transition font-medium">日本語 ▾</button>
-                    <div class="absolute right-0 mt-2 w-28 bg-white border border-slate-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div class="lang-dropdown absolute right-0 mt-2 w-28 bg-white border border-slate-200 rounded-lg shadow-lg z-50">
                         
                         <a href="index.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">EN</a>
                         
