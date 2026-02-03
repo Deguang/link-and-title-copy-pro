@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="scroll-smooth">
+<html lang="{{htmlLang}}" class="scroll-smooth">
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-49HSQQVZ1F"></script>
@@ -12,24 +12,24 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Link & Title Copy Pro - 链接和标题复制工具</title>
-    <meta name="description" content="最好用的 Chrome 扩展，一键同时复制标签页标题和链接。支持导出为 Markdown、HTML、Jira 或自定义格式。开发者、研究人员和写作者的必备神器。">
-    <meta name="keywords" content="Chrome扩展, 复制链接, Markdown复制, URL清理, 生产力工具, Notion链接, Jira格式, Obsidian引用">
+    <title>{{title}}</title>
+    <meta name="description" content="{{description}}">
+    <meta name="keywords" content="{{keywords}}">
     <meta name="author" content="Deguang">
-    <link rel="canonical" href="https://app.lideguang.com/link-and-title-copy-pro/zh.html">
+    <link rel="canonical" href="{{canonical}}">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://app.lideguang.com/link-and-title-copy-pro/zh.html">
-    <meta property="og:title" content="Link & Title Copy Pro - 极致的复制工具">
-    <meta property="og:description" content="更智能的复制，更高效的粘贴。开发者和研究人员的终极浏览器扩展，一键清理 URL 并格式化链接。">
+    <meta property="og:url" content="{{canonical}}">
+    <meta property="og:title" content="{{ogTitle}}">
+    <meta property="og:description" content="{{ogDescription}}">
     <meta property="og:image" content="https://app.lideguang.com/link-and-title-copy-pro/icon.webp">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://app.lideguang.com/link-and-title-copy-pro/zh.html">
-    <meta property="twitter:title" content="Link & Title Copy Pro - 极致的复制工具">
-    <meta property="twitter:description" content="更智能的复制，更高效的粘贴。开发者和研究人员的终极浏览器扩展，一键清理 URL 并格式化链接。">
+    <meta property="twitter:url" content="{{canonical}}">
+    <meta property="twitter:title" content="{{ogTitle}}">
+    <meta property="twitter:description" content="{{ogDescription}}">
     <meta property="twitter:image" content="https://app.lideguang.com/link-and-title-copy-pro/icon.webp">
 
     <!-- Schema.org JSON-LD -->
@@ -45,8 +45,8 @@
         "price": "0",
         "priceCurrency": "USD"
       },
-      "description": "一个浏览器扩展，允许您同时复制浏览器标签的标题和URL链接，支持自定义模板和智能功能。",
-      "featureList": "复制标题和链接, 自定义模板, URL清理, 国际化支持",
+      "description": "{{schemaDescription}}",
+      "featureList": "{{schemaFeatures}}",
       "author": {
         "@type": "Person",
         "name": "Deguang"
@@ -86,33 +86,25 @@
                 <span class="text-lg font-bold tracking-tight text-slate-800">Link & Title Copy Pro</span>
             </div>
             <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                <a href="#features" class="text-slate-600 hover:text-blue-600 transition">功能</a>
-                <a href="#use-cases" class="text-slate-600 hover:text-blue-600 transition">使用场景</a>
-                <a href="#how-it-works" class="text-slate-600 hover:text-blue-600 transition">如何使用</a>
-                <a href="#faq" class="text-slate-600 hover:text-blue-600 transition">常见问题</a>
+                <a href="#features" class="text-slate-600 hover:text-blue-600 transition">{{nav.features}}</a>
+                <a href="#use-cases" class="text-slate-600 hover:text-blue-600 transition">{{nav.useCases}}</a>
+                <a href="#how-it-works" class="text-slate-600 hover:text-blue-600 transition">{{nav.howItWorks}}</a>
+                <a href="#faq" class="text-slate-600 hover:text-blue-600 transition">{{nav.faq}}</a>
                 <div class="h-4 w-px bg-slate-300"></div>
                 <!-- Language Switcher -->
                 <div class="relative group">
-                    <button class="text-slate-600 hover:text-blue-600 transition font-medium">简中 ▾</button>
+                    <button class="text-slate-600 hover:text-blue-600 transition font-medium">{{langSwitch.current}} ▾</button>
                     <div class="absolute right-0 mt-2 w-28 bg-white border border-slate-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                        
-                        <a href="index.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">EN</a>
-                        
-                        <a href="zh-TW.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">繁中</a>
-                        
-                        <a href="ja.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">日本語</a>
-                        
-                        <a href="ru.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">Русский</a>
-                        
-                        <a href="hi.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">हिंदी</a>
-                        
+                        {{#langSwitch.items}}
+                        <a href="{{code}}.html" class="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50">{{name}}</a>
+                        {{/langSwitch.items}}
                     </div>
                 </div>
                 <a href="https://github.com/Deguang/link-and-title-copy-pro" aria-label="GitHub Repository" class="text-slate-600 hover:text-slate-900 transition">
                     <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
                 </a>
                 <a href="https://chromewebstore.google.com/detail/kakoelinbkchhkjcbgjgmailplkhpkod?authuser=0&hl=en" class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-full transition shadow-lg hover:shadow-xl hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-slate-900 outline-none">
-                    下载插件
+                    {{nav.download}}
                 </a>
             </div>
         </div>
@@ -128,23 +120,23 @@
 
         <div class="container mx-auto px-6 relative z-10 text-center">
             <span class="inline-block px-4 py-1.5 mb-6 text-sm font-medium tracking-wide text-blue-200 bg-blue-900/30 border border-blue-500/30 rounded-full backdrop-blur-sm">
-                v1.1.0 全新发布 🚀
+                {{hero.badge}}
             </span>
             <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-8 tracking-tight text-balance">
-                更智能的复制，<br>
-                <span class="text-gradient">更高效的粘贴。</span>
+                {{hero.title1}}<br>
+                <span class="text-gradient">{{hero.title2}}</span>
             </h1>
             <p class="text-xl md:text-2xl text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed text-balance">
-                开发者和研究人员的终极浏览器扩展。一键清理 URL，生成 Markdown，让你的工作流如丝般顺滑。
+                {{hero.subtitle}}
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-5">
                 <a href="https://chromewebstore.google.com/detail/kakoelinbkchhkjcbgjgmailplkhpkod?authuser=0&hl=en" class="group px-8 py-4 bg-white text-slate-900 font-bold rounded-2xl transition hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)] transform hover:-translate-y-1 flex items-center justify-center gap-2 focus-visible:ring-4 focus-visible:ring-blue-500/30 outline-none">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg" width="20" height="20" class="w-5 h-5" alt="Chrome">
-                    添加到 Chrome
-                    <span class="text-slate-400 font-normal text-sm ml-1 group-hover:text-slate-600 transition">— 永久免费</span>
+                    {{hero.ctaChrome}}
+                    <span class="text-slate-400 font-normal text-sm ml-1 group-hover:text-slate-600 transition">{{hero.ctaFree}}</span>
                 </a>
                 <a href="https://github.com/Deguang/link-and-title-copy-pro" class="px-8 py-4 bg-slate-800/50 hover:bg-slate-800 text-white font-semibold border border-slate-700/50 rounded-2xl transition transform hover:-translate-y-1 backdrop-blur-sm focus-visible:ring-4 focus-visible:ring-slate-500/30 outline-none">
-                    查看源码
+                    {{hero.ctaSource}}
                 </a>
             </div>
         </div>
@@ -154,8 +146,8 @@
     <section id="features" class="py-24 bg-white relative">
         <div class="container mx-auto px-6">
             <div class="text-center mb-20">
-                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6 text-balance">强大功能，触手可及</h2>
-                <p class="text-xl text-slate-600 max-w-2xl mx-auto text-balance">你需要的一切链接管理功能，告别繁琐。</p>
+                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6 text-balance">{{features.title}}</h2>
+                <p class="text-xl text-slate-600 max-w-2xl mx-auto text-balance">{{features.subtitle}}</p>
             </div>
 
             <!-- Toast Feature Highlight -->
@@ -172,24 +164,24 @@
                           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                           <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                         </span>
-                        新功能
+                        {{features.toast.badge}}
                     </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">即时可视化反馈</h3>
+                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">{{features.toast.title}}</h3>
                     <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        不再怀疑是否复制成功。我们全新的 <strong>智能 Toast</strong> 会准确显示剪贴板中的内容，并提供格式化链接的实时预览。
+                        {{features.toast.desc}}
                     </p>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center text-slate-700">
                             <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            实时内容预览
+                            {{features.toast.item1}}
                         </li>
                         <li class="flex items-center text-slate-700">
                             <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            支持快捷键显示
+                            {{features.toast.item2}}
                         </li>
                         <li class="flex items-center text-slate-700">
                             <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            精美的暗色模式设计
+                            {{features.toast.item3}}
                         </li>
                     </ul>
                 </div>
@@ -206,24 +198,24 @@
                 <div class="flex-1 order-1 md:order-1 text-left">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-sm font-medium mb-6">
                         <span class="text-lg">✨</span>
-                        智能上下文
+                        {{features.paste.badge}}
                     </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">随处粘贴</h3>
+                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">{{features.paste.title}}</h3>
                     <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        智能适应你的需求。为笔记复制 Markdown，为博客复制 HTML，或者分享纯净的链接。
+                        {{features.paste.desc}}
                     </p>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center text-slate-700">
                             <svg class="w-5 h-5 text-purple-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Markdown 和富文本支持
+                            {{features.paste.item1}}
                         </li>
                         <li class="flex items-center text-slate-700">
                             <svg class="w-5 h-5 text-purple-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            智能回退逻辑
+                            {{features.paste.item2}}
                         </li>
                         <li class="flex items-center text-slate-700">
                             <svg class="w-5 h-5 text-purple-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            完全自定义模板
+                            {{features.paste.item3}}
                         </li>
                     </ul>
                 </div>
@@ -240,24 +232,24 @@
                 <div class="flex-1 order-1 md:order-2 text-left">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium mb-6">
                         <span class="text-lg">⚙️</span>
-                        完全掌控
+                        {{features.config.badge}}
                     </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">强大的配置能力</h3>
+                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">{{features.config.title}}</h3>
                     <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        完全掌控你的工作流。通过直观的界面自定义快捷键、管理模板和开关智能功能。
+                        {{features.config.desc}}
                     </p>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center text-slate-700">
                             <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            拖拽排序
+                            {{features.config.item1}}
                         </li>
                         <li class="flex items-center text-slate-700">
                             <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            实时预览
+                            {{features.config.item2}}
                         </li>
                         <li class="flex items-center text-slate-700">
                             <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            一键开关功能
+                            {{features.config.item3}}
                         </li>
                     </ul>
                 </div>
@@ -269,24 +261,24 @@
                     <div class="w-14 h-14 bg-blue-600/10 text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">
                         📝
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-slate-900">自定义模板</h3>
-                    <p class="text-slate-600 leading-relaxed">使用 <code class="bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono">{title}</code>, <code class="bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono">{url}</code> 等变量定义你自己的格式，完美支持 Markdown。</p>
+                    <h3 class="text-2xl font-bold mb-3 text-slate-900">{{features.cards.templates.title}}</h3>
+                    <p class="text-slate-600 leading-relaxed">{{features.cards.templates.desc}}</p>
                 </div>
                 <!-- Feature 2 -->
                 <div class="group p-8 rounded-3xl bg-slate-50 hover:bg-white border border-slate-100 hover:border-purple-100 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300">
                     <div class="w-14 h-14 bg-purple-600/10 text-purple-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">
                         🧹
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-slate-900">纯净链接</h3>
-                    <p class="text-slate-600 leading-relaxed">告别几百个字符的追踪链接。自动移除 <code class="bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono">utm_source</code> 和其他营销参数，还你清爽的 URL。</p>
+                    <h3 class="text-2xl font-bold mb-3 text-slate-900">{{features.cards.clean.title}}</h3>
+                    <p class="text-slate-600 leading-relaxed">{{features.cards.clean.desc}}</p>
                 </div>
                 <!-- Feature 3 -->
                 <div class="group p-8 rounded-3xl bg-slate-50 hover:bg-white border border-slate-100 hover:border-green-100 hover:shadow-2xl hover:shadow-green-500/10 transition-all duration-300">
                     <div class="w-14 h-14 bg-green-600/10 text-green-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">
                         ⌨️
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-slate-900">快捷键 & 国际化</h3>
-                    <p class="text-slate-600 leading-relaxed">把你最常用的模板绑定到快捷键。界面支持多种语言。</p>
+                    <h3 class="text-2xl font-bold mb-3 text-slate-900">{{features.cards.shortcuts.title}}</h3>
+                    <p class="text-slate-600 leading-relaxed">{{features.cards.shortcuts.desc}}</p>
                 </div>
             </div>
         </div>
@@ -295,27 +287,27 @@
     <!-- Use Cases Section -->
     <section id="use-cases" class="py-24 bg-slate-50 border-t border-slate-200">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-balance">为所有工作流打造</h2>
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-balance">{{useCases.title}}</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Use Case 1 -->
                 <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <h3 class="text-lg font-bold mb-2 text-slate-800">开发者</h3>
-                    <p class="text-sm text-slate-600">快速复制用于 <strong class="text-slate-800">Git 提交信息</strong>、Jira 工单或 Markdown 文档的链接。</p>
+                    <h3 class="text-lg font-bold mb-2 text-slate-800">{{useCases.developers.title}}</h3>
+                    <p class="text-sm text-slate-600">{{useCases.developers.desc}}</p>
                 </div>
                 <!-- Use Case 2 -->
                 <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <h3 class="text-lg font-bold mb-2 text-slate-800">写作者</h3>
-                    <p class="text-sm text-slate-600">简化引用流程。轻松抓取博客文章、HTML 格式链接或周刊素材。</p>
+                    <h3 class="text-lg font-bold mb-2 text-slate-800">{{useCases.writers.title}}</h3>
+                    <p class="text-sm text-slate-600">{{useCases.writers.desc}}</p>
                 </div>
                 <!-- Use Case 3 -->
                 <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <h3 class="text-lg font-bold mb-2 text-slate-800">研究人员</h3>
-                    <p class="text-sm text-slate-600">完美集成 <strong class="text-slate-800">Obsidian</strong>、<strong class="text-slate-800">Logseq</strong> 和 Notion，加速构建你的第二大脑。</p>
+                    <h3 class="text-lg font-bold mb-2 text-slate-800">{{useCases.research.title}}</h3>
+                    <p class="text-sm text-slate-600">{{useCases.research.desc}}</p>
                 </div>
                 <!-- Use Case 4 -->
                 <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <h3 class="text-lg font-bold mb-2 text-slate-800">所有人</h3>
-                    <p class="text-sm text-slate-600">分享清爽的链接给朋友，不再带有恶心的 <code class="bg-slate-100 px-1 rounded">?utm_...</code> 追踪尾巴。</p>
+                    <h3 class="text-lg font-bold mb-2 text-slate-800">{{useCases.everyone.title}}</h3>
+                    <p class="text-sm text-slate-600">{{useCases.everyone.desc}}</p>
                 </div>
             </div>
         </div>
@@ -324,13 +316,13 @@
     <!-- How it works Section -->
     <section id="how-it-works" class="py-24 bg-white border-y border-slate-200">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-balance">如何使用</h2>
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-balance">{{howItWorks.title}}</h2>
             <div class="flex flex-col md:flex-row items-center justify-center gap-12 max-w-5xl mx-auto">
                 <!-- Step 1 -->
                 <div class="flex-1 text-center group">
                     <div class="w-20 h-20 mx-auto bg-slate-50 border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center text-2xl font-bold mb-6 shadow-sm group-hover:border-blue-500 group-hover:text-blue-600 transition-colors">1</div>
-                    <h3 class="text-xl font-bold mb-3">安装扩展</h3>
-                    <p class="text-slate-600">几秒钟即可添加到 Chrome。无需注册账号。</p>
+                    <h3 class="text-xl font-bold mb-3">{{howItWorks.step1.title}}</h3>
+                    <p class="text-slate-600">{{howItWorks.step1.desc}}</p>
                 </div>
                 <!-- Arrow -->
                 <div class="hidden md:block text-slate-300">
@@ -339,8 +331,8 @@
                 <!-- Step 2 -->
                 <div class="flex-1 text-center group">
                     <div class="w-20 h-20 mx-auto bg-slate-50 border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center text-2xl font-bold mb-6 shadow-sm group-hover:border-blue-500 group-hover:text-blue-600 transition-colors">2</div>
-                    <h3 class="text-xl font-bold mb-3">配置模板</h3>
-                    <p class="text-slate-600">配置你喜欢的格式，如 Markdown、Org-mode 或 HTML。</p>
+                    <h3 class="text-xl font-bold mb-3">{{howItWorks.step2.title}}</h3>
+                    <p class="text-slate-600">{{howItWorks.step2.desc}}</p>
                 </div>
                 <!-- Arrow -->
                 <div class="hidden md:block text-slate-300">
@@ -349,8 +341,8 @@
                 <!-- Step 3 -->
                 <div class="flex-1 text-center group">
                     <div class="w-20 h-20 mx-auto bg-slate-50 border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center text-2xl font-bold mb-6 shadow-sm group-hover:border-blue-500 group-hover:text-blue-600 transition-colors">3</div>
-                    <h3 class="text-xl font-bold mb-3">一键复制</h3>
-                    <p class="text-slate-600">点击图标或按下快捷键，立刻获取格式化好的链接。</p>
+                    <h3 class="text-xl font-bold mb-3">{{howItWorks.step3.title}}</h3>
+                    <p class="text-slate-600">{{howItWorks.step3.desc}}</p>
                 </div>
             </div>
         </div>
@@ -359,22 +351,22 @@
     <!-- FAQ Section -->
     <section id="faq" class="py-24 bg-slate-50">
         <div class="container mx-auto px-6 max-w-4xl">
-            <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-balance">常见问题</h2>
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-balance">{{faq.title}}</h2>
             <div class="space-y-6">
                 <!-- Q1 -->
                 <div class="p-6 bg-white rounded-2xl border border-slate-200">
-                    <h3 class="text-lg font-bold mb-2">完全免费吗？</h3>
-                    <p class="text-slate-600">是的，Link & Title Copy Pro 是开源的，并且永久免费。没有任何隐藏收费。</p>
+                    <h3 class="text-lg font-bold mb-2">{{faq.q1.q}}</h3>
+                    <p class="text-slate-600">{{faq.q1.a}}</p>
                 </div>
                 <!-- Q2 -->
                 <div class="p-6 bg-white rounded-2xl border border-slate-200">
-                    <h3 class="text-lg font-bold mb-2">它会收集我的数据吗？</h3>
-                    <p class="text-slate-600">绝对不会。我们不收集、存储或传输任何用户数据。所有操作都在你的浏览器本地完成。请查看我们的<a href="privacy.html" class="text-blue-600 hover:underline">隐私政策</a>。</p>
+                    <h3 class="text-lg font-bold mb-2">{{faq.q2.q}}</h3>
+                    <p class="text-slate-600">{{faq.q2.a}}</p>
                 </div>
                 <!-- Q3 -->
                 <div class="p-6 bg-white rounded-2xl border border-slate-200">
-                    <h3 class="text-lg font-bold mb-2">我可以创建自定义格式吗？</h3>
-                    <p class="text-slate-600">可以！你可以使用 <code class="text-sm bg-slate-50 px-1 border border-slate-200 rounded">{title}</code> 和 <code class="text-sm bg-slate-50 px-1 border border-slate-200 rounded">{url}</code> 等变量创建无限数量的自定义模板。</p>
+                    <h3 class="text-lg font-bold mb-2">{{faq.q3.q}}</h3>
+                    <p class="text-slate-600">{{faq.q3.a}}</p>
                 </div>
             </div>
         </div>
@@ -386,17 +378,17 @@
             <div class="flex flex-col md:flex-row justify-between items-center mb-8">
                 <div class="mb-6 md:mb-0 text-center md:text-left">
                     <span class="text-2xl font-bold text-white tracking-tight">Link & Title Copy Pro</span>
-                    <p class="mt-2 text-slate-500">为现代 Web 打造的开源生产力工具。</p>
+                    <p class="mt-2 text-slate-500">{{footer.tagline}}</p>
                 </div>
                 <div class="flex space-x-8">
                     <a href="https://github.com/Deguang/link-and-title-copy-pro" aria-label="GitHub Repository" class="hover:text-white transition">GitHub</a>
-                    <a href="privacy.html" class="hover:text-white transition">隐私政策</a>
-                    <a href="https://chromewebstore.google.com/detail/kakoelinbkchhkjcbgjgmailplkhpkod?authuser=0&hl=en" class="hover:text-white transition">Chrome 商店</a>
+                    <a href="privacy.html" class="hover:text-white transition">{{footer.privacy}}</a>
+                    <a href="https://chromewebstore.google.com/detail/kakoelinbkchhkjcbgjgmailplkhpkod?authuser=0&hl=en" class="hover:text-white transition">{{footer.store}}</a>
                 </div>
             </div>
             <div class="border-t border-slate-800 pt-8 text-center md:text-left text-sm text-slate-600 flex flex-col md:flex-row justify-between">
-                <p>© 2026 Deguang. 保留所有权利。</p>
-                <p>Made with ❤️ by extension lovers.</p>
+                <p>{{footer.copyright}}</p>
+                <p>{{footer.madeWith}}</p>
             </div>
         </div>
     </footer>

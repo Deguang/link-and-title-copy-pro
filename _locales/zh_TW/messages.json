@@ -1,0 +1,246 @@
+{
+    "name": {
+        "message": "複製頁面標題和連結專業版",
+        "description": ""
+    },
+    "appName": {
+        "message": "網頁標題與連結複製 Pro: 支援 Markdown",
+        "description": "The name of the application, displayed in the Chrome Web Store and extensions management page."
+    },
+    "appDescription": {
+        "message": "一鍵複製網頁標題與連結。支援 Markdown、HTML、Jira 格式。自動移除 UTM 追蹤參數，自訂模板，提升開發與寫作效率。",
+        "description": "The description of the application."
+    },
+    "successTip": {
+        "message": "複製成功",
+        "description": ""
+    },
+    "errorTip": {
+        "message": "複製失敗",
+        "description": ""
+    },
+    "config": {
+        "message": "設定",
+        "description": ""
+    },
+    "addNewConfig": {
+        "message": "新增模板",
+        "description": ""
+    },
+    "edit": {
+        "message": "編輯",
+        "description": ""
+    },
+    "delete": {
+        "message": "刪除",
+        "description": ""
+    },
+    "shortcut": {
+        "message": "快捷鍵",
+        "description": ""
+    },
+    "template": {
+        "message": "模板",
+        "description": ""
+    },
+    "description": {
+        "message": "描述",
+        "description": ""
+    },
+    "save": {
+        "message": "儲存",
+        "description": ""
+    },
+    "cancel": {
+        "message": "取消",
+        "description": ""
+    },
+    "preview": {
+        "message": "預覽",
+        "description": ""
+    },
+    "supportedPlaceholders": {
+        "message": "支援的佔位符",
+        "description": ""
+    },
+    "configDescription": {
+        "message": "模板描述",
+        "description": ""
+    },
+    "shortCutRemind": {
+        "message": "按下組合鍵即可錄入",
+        "description": ""
+    },
+    "exampleShortcuts": {
+        "message": "快捷鍵範例",
+        "description": ""
+    },
+    "switchToAutomaticCapture": {
+        "message": "切換到自動擷取快捷鍵",
+        "description": ""
+    },
+    "switchToManualInput": {
+        "message": "切換到手動輸入快捷鍵",
+        "description": ""
+    },
+    "enterShortcutManually": {
+        "message": "手動輸入快捷鍵",
+        "description": ""
+    },
+    "pressKeyCombination": {
+        "message": "按下組合鍵自動錄入",
+        "description": ""
+    },
+    "selectedTextCopied": {
+        "message": "已複製選取文字",
+        "description": ""
+    },
+    "titleUrlCopied": {
+        "message": "已複製標題和連結",
+        "description": ""
+    },
+    "smartCopy": {
+        "message": "智慧複製",
+        "description": ""
+    },
+    "withSelectedText": {
+        "message": "包含選取文字",
+        "description": ""
+    },
+    "withoutSelectedText": {
+        "message": "無選取文字",
+        "description": ""
+    },
+    "templateHelp": {
+        "message": "模板說明與範例",
+        "description": ""
+    },
+    "basicPlaceholders": {
+        "message": "基礎佔位符",
+        "description": ""
+    },
+    "smartPlaceholders": {
+        "message": "智慧佔位符",
+        "description": ""
+    },
+    "urlComponentPlaceholders": {
+        "message": "URL 元件佔位符",
+        "description": ""
+    },
+    "conditionalTemplates": {
+        "message": "條件模板",
+        "description": ""
+    },
+    "exampleTemplates": {
+        "message": "模板範例",
+        "description": ""
+    },
+    "pageTitle": {
+        "message": "頁面標題",
+        "description": ""
+    },
+    "pageUrl": {
+        "message": "頁面 URL",
+        "description": ""
+    },
+    "selectedTextEmpty": {
+        "message": "選取文字（無選取時為空）",
+        "description": ""
+    },
+    "selectedTextOrTitle": {
+        "message": "優先選取文字，否則使用標題",
+        "description": ""
+    },
+    "sameAsAbove": {
+        "message": "同上",
+        "description": ""
+    },
+    "urlClean": {
+        "message": "不含查詢參數和錨點的 URL",
+        "description": ""
+    },
+    "urlProtocol": {
+        "message": "僅協定（如 https）",
+        "description": ""
+    },
+    "urlDomain": {
+        "message": "網域",
+        "description": ""
+    },
+    "urlPath": {
+        "message": "僅路徑",
+        "description": ""
+    },
+    "urlQuery": {
+        "message": "查詢參數（含 ?）",
+        "description": ""
+    },
+    "urlHash": {
+        "message": "錨點（含 #）",
+        "description": ""
+    },
+    "urlOrigin": {
+        "message": "協定 + 網域",
+        "description": ""
+    },
+    "onlyWhenTextSelected": {
+        "message": "僅當有選取文字時",
+        "description": ""
+    },
+    "onlyWhenNoTextSelected": {
+        "message": "僅當無選取文字時",
+        "description": ""
+    },
+    "smartCopyDesc": {
+        "message": "智慧複製 - 選取文字或標題 + URL",
+        "description": ""
+    },
+    "markdownLinkFormat": {
+        "message": "Markdown 連結格式",
+        "description": ""
+    },
+    "quotedSelectedText": {
+        "message": "帶引號的選取文字和標題，或僅標題",
+        "description": ""
+    },
+    "templateConfigurations": {
+        "message": "模板設定",
+        "description": ""
+    },
+    "emptyResult": {
+        "message": "結果為空",
+        "description": ""
+    },
+    "invalidShortcut": {
+        "message": "無效的快捷鍵組合",
+        "description": ""
+    },
+    "invalidShortcutFormat": {
+        "message": "無效的快捷鍵格式",
+        "description": ""
+    },
+    "templatePlaceholder": {
+        "message": "輸入模板內容...",
+        "description": ""
+    },
+    "descriptionPlaceholder": {
+        "message": "模板描述",
+        "description": ""
+    },
+    "confirmDelete": {
+        "message": "確定要刪除此模板嗎？",
+        "description": ""
+    },
+    "toastCopied": {
+        "message": "複製成功！",
+        "description": ""
+    },
+    "toastFailed": {
+        "message": "複製失敗",
+        "description": ""
+    },
+    "toastFallback": {
+        "message": "已複製（Fallback）",
+        "description": ""
+    }
+}

@@ -1,0 +1,246 @@
+{
+    "name": {
+        "message": "ページタイトルとURLをコピー Pro",
+        "description": ""
+    },
+    "appName": {
+        "message": "ページタイトルとURLをコピー Pro: Markdown対応",
+        "description": "The name of the application, displayed in the Chrome Web Store and extensions management page."
+    },
+    "appDescription": {
+        "message": "タイトルとURLをワンクリックでコピー。Markdown、HTML、Jira形式対応。UTMパラメータ自動削除、カスタムテンプレート機能搭載。",
+        "description": "The description of the application."
+    },
+    "successTip": {
+        "message": "コピー成功",
+        "description": ""
+    },
+    "errorTip": {
+        "message": "コピー失敗",
+        "description": ""
+    },
+    "config": {
+        "message": "設定",
+        "description": ""
+    },
+    "addNewConfig": {
+        "message": "テンプレート追加",
+        "description": ""
+    },
+    "edit": {
+        "message": "編集",
+        "description": ""
+    },
+    "delete": {
+        "message": "削除",
+        "description": ""
+    },
+    "shortcut": {
+        "message": "ショートカット",
+        "description": ""
+    },
+    "template": {
+        "message": "テンプレート",
+        "description": ""
+    },
+    "description": {
+        "message": "説明",
+        "description": ""
+    },
+    "save": {
+        "message": "保存",
+        "description": ""
+    },
+    "cancel": {
+        "message": "キャンセル",
+        "description": ""
+    },
+    "preview": {
+        "message": "プレビュー",
+        "description": ""
+    },
+    "supportedPlaceholders": {
+        "message": "対応プレースホルダー",
+        "description": ""
+    },
+    "configDescription": {
+        "message": "テンプレート説明",
+        "description": ""
+    },
+    "shortCutRemind": {
+        "message": "キーの組み合わせを押してください",
+        "description": ""
+    },
+    "exampleShortcuts": {
+        "message": "ショートカット例",
+        "description": ""
+    },
+    "switchToAutomaticCapture": {
+        "message": "自動キャプチャに切替",
+        "description": ""
+    },
+    "switchToManualInput": {
+        "message": "手動入力に切替",
+        "description": ""
+    },
+    "enterShortcutManually": {
+        "message": "ショートカットを手動入力",
+        "description": ""
+    },
+    "pressKeyCombination": {
+        "message": "キーの組み合わせを押す",
+        "description": ""
+    },
+    "selectedTextCopied": {
+        "message": "選択テキストをコピーしました",
+        "description": ""
+    },
+    "titleUrlCopied": {
+        "message": "タイトルとURLをコピーしました",
+        "description": ""
+    },
+    "smartCopy": {
+        "message": "スマートコピー",
+        "description": ""
+    },
+    "withSelectedText": {
+        "message": "選択テキストあり",
+        "description": ""
+    },
+    "withoutSelectedText": {
+        "message": "選択テキストなし",
+        "description": ""
+    },
+    "templateHelp": {
+        "message": "テンプレートヘルプと例",
+        "description": ""
+    },
+    "basicPlaceholders": {
+        "message": "基本プレースホルダー",
+        "description": ""
+    },
+    "smartPlaceholders": {
+        "message": "スマートプレースホルダー",
+        "description": ""
+    },
+    "urlComponentPlaceholders": {
+        "message": "URLコンポーネントプレースホルダー",
+        "description": ""
+    },
+    "conditionalTemplates": {
+        "message": "条件付きテンプレート",
+        "description": ""
+    },
+    "exampleTemplates": {
+        "message": "テンプレート例",
+        "description": ""
+    },
+    "pageTitle": {
+        "message": "ページタイトル",
+        "description": ""
+    },
+    "pageUrl": {
+        "message": "ページURL",
+        "description": ""
+    },
+    "selectedTextEmpty": {
+        "message": "選択テキスト（未選択時は空）",
+        "description": ""
+    },
+    "selectedTextOrTitle": {
+        "message": "選択テキスト優先、なければタイトル",
+        "description": ""
+    },
+    "sameAsAbove": {
+        "message": "同上",
+        "description": ""
+    },
+    "urlClean": {
+        "message": "クエリパラメータとハッシュなしのURL",
+        "description": ""
+    },
+    "urlProtocol": {
+        "message": "プロトコルのみ（例：https）",
+        "description": ""
+    },
+    "urlDomain": {
+        "message": "ドメイン/ホスト名",
+        "description": ""
+    },
+    "urlPath": {
+        "message": "パスのみ",
+        "description": ""
+    },
+    "urlQuery": {
+        "message": "クエリパラメータ（?含む）",
+        "description": ""
+    },
+    "urlHash": {
+        "message": "ハッシュフラグメント（#含む）",
+        "description": ""
+    },
+    "urlOrigin": {
+        "message": "プロトコル + ドメイン",
+        "description": ""
+    },
+    "onlyWhenTextSelected": {
+        "message": "テキスト選択時のみ",
+        "description": ""
+    },
+    "onlyWhenNoTextSelected": {
+        "message": "テキスト未選択時のみ",
+        "description": ""
+    },
+    "smartCopyDesc": {
+        "message": "スマートコピー - 選択テキストまたはタイトル + URL",
+        "description": ""
+    },
+    "markdownLinkFormat": {
+        "message": "Markdownリンク形式",
+        "description": ""
+    },
+    "quotedSelectedText": {
+        "message": "引用付き選択テキストとタイトル、またはタイトルのみ",
+        "description": ""
+    },
+    "templateConfigurations": {
+        "message": "テンプレート設定",
+        "description": ""
+    },
+    "emptyResult": {
+        "message": "結果が空です",
+        "description": ""
+    },
+    "invalidShortcut": {
+        "message": "無効なショートカット組み合わせ",
+        "description": ""
+    },
+    "invalidShortcutFormat": {
+        "message": "無効なショートカット形式",
+        "description": ""
+    },
+    "templatePlaceholder": {
+        "message": "プレースホルダー付きテンプレート...",
+        "description": ""
+    },
+    "descriptionPlaceholder": {
+        "message": "このテンプレートの簡単な説明",
+        "description": ""
+    },
+    "confirmDelete": {
+        "message": "このテンプレートを削除してもよろしいですか？",
+        "description": ""
+    },
+    "toastCopied": {
+        "message": "クリップボードにコピーしました！",
+        "description": ""
+    },
+    "toastFailed": {
+        "message": "コピー失敗",
+        "description": ""
+    },
+    "toastFallback": {
+        "message": "コピー完了（フォールバック）",
+        "description": ""
+    }
+}

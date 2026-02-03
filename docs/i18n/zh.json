@@ -1,0 +1,136 @@
+{
+  "lang": "zh-CN",
+  "htmlLang": "zh-CN",
+  "title": "Link & Title Copy Pro - 链接和标题复制工具",
+  "description": "最好用的 Chrome 扩展，一键同时复制标签页标题和链接。支持导出为 Markdown、HTML、Jira 或自定义格式。开发者、研究人员和写作者的必备神器。",
+  "keywords": "Chrome扩展, 复制链接, Markdown复制, URL清理, 生产力工具, Notion链接, Jira格式, Obsidian引用",
+  "canonical": "https://app.lideguang.com/link-and-title-copy-pro/zh.html",
+  "ogTitle": "Link & Title Copy Pro - 极致的复制工具",
+  "ogDescription": "更智能的复制，更高效的粘贴。开发者和研究人员的终极浏览器扩展，一键清理 URL 并格式化链接。",
+  "schemaDescription": "一个浏览器扩展，允许您同时复制浏览器标签的标题和URL链接，支持自定义模板和智能功能。",
+  "schemaFeatures": "复制标题和链接, 自定义模板, URL清理, 国际化支持",
+  "nav": {
+    "features": "功能",
+    "useCases": "使用场景",
+    "howItWorks": "如何使用",
+    "faq": "常见问题",
+    "download": "下载插件"
+  },
+  "langSwitch": {
+    "current": "简中",
+    "items": [
+      {"code": "index", "name": "EN"},
+      {"code": "zh-TW", "name": "繁中"},
+      {"code": "ja", "name": "日本語"},
+      {"code": "ru", "name": "Русский"},
+      {"code": "hi", "name": "हिंदी"}
+    ]
+  },
+  "hero": {
+    "badge": "v1.1.0 全新发布 🚀",
+    "title1": "更智能的复制，",
+    "title2": "更高效的粘贴。",
+    "subtitle": "开发者和研究人员的终极浏览器扩展。一键清理 URL，生成 Markdown，让你的工作流如丝般顺滑。",
+    "ctaChrome": "添加到 Chrome",
+    "ctaFree": "— 永久免费",
+    "ctaSource": "查看源码"
+  },
+  "features": {
+    "title": "强大功能，触手可及",
+    "subtitle": "你需要的一切链接管理功能，告别繁琐。",
+    "toast": {
+      "badge": "新功能",
+      "title": "即时可视化反馈",
+      "desc": "不再怀疑是否复制成功。我们全新的 <strong>智能 Toast</strong> 会准确显示剪贴板中的内容，并提供格式化链接的实时预览。",
+      "item1": "实时内容预览",
+      "item2": "支持快捷键显示",
+      "item3": "精美的暗色模式设计"
+    },
+    "paste": {
+      "badge": "智能上下文",
+      "title": "随处粘贴",
+      "desc": "智能适应你的需求。为笔记复制 Markdown，为博客复制 HTML，或者分享纯净的链接。",
+      "item1": "Markdown 和富文本支持",
+      "item2": "智能回退逻辑",
+      "item3": "完全自定义模板"
+    },
+    "config": {
+      "badge": "完全掌控",
+      "title": "强大的配置能力",
+      "desc": "完全掌控你的工作流。通过直观的界面自定义快捷键、管理模板和开关智能功能。",
+      "item1": "拖拽排序",
+      "item2": "实时预览",
+      "item3": "一键开关功能"
+    },
+    "cards": {
+      "templates": {
+        "title": "自定义模板",
+        "desc": "使用 <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{title}</code>, <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{url}</code> 等变量定义你自己的格式，完美支持 Markdown。"
+      },
+      "clean": {
+        "title": "纯净链接",
+        "desc": "告别几百个字符的追踪链接。自动移除 <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">utm_source</code> 和其他营销参数，还你清爽的 URL。"
+      },
+      "shortcuts": {
+        "title": "快捷键 & 国际化",
+        "desc": "把你最常用的模板绑定到快捷键。界面支持多种语言。"
+      }
+    }
+  },
+  "useCases": {
+    "title": "为所有工作流打造",
+    "developers": {
+      "title": "开发者",
+      "desc": "快速复制用于 <strong class=\"text-slate-800\">Git 提交信息</strong>、Jira 工单或 Markdown 文档的链接。"
+    },
+    "writers": {
+      "title": "写作者",
+      "desc": "简化引用流程。轻松抓取博客文章、HTML 格式链接或周刊素材。"
+    },
+    "research": {
+      "title": "研究人员",
+      "desc": "完美集成 <strong class=\"text-slate-800\">Obsidian</strong>、<strong class=\"text-slate-800\">Logseq</strong> 和 Notion，加速构建你的第二大脑。"
+    },
+    "everyone": {
+      "title": "所有人",
+      "desc": "分享清爽的链接给朋友，不再带有恶心的 <code class=\"bg-slate-100 px-1 rounded\">?utm_...</code> 追踪尾巴。"
+    }
+  },
+  "howItWorks": {
+    "title": "如何使用",
+    "step1": {
+      "title": "安装扩展",
+      "desc": "几秒钟即可添加到 Chrome。无需注册账号。"
+    },
+    "step2": {
+      "title": "配置模板",
+      "desc": "配置你喜欢的格式，如 Markdown、Org-mode 或 HTML。"
+    },
+    "step3": {
+      "title": "一键复制",
+      "desc": "点击图标或按下快捷键，立刻获取格式化好的链接。"
+    }
+  },
+  "faq": {
+    "title": "常见问题",
+    "q1": {
+      "q": "完全免费吗？",
+      "a": "是的，Link & Title Copy Pro 是开源的，并且永久免费。没有任何隐藏收费。"
+    },
+    "q2": {
+      "q": "它会收集我的数据吗？",
+      "a": "绝对不会。我们不收集、存储或传输任何用户数据。所有操作都在你的浏览器本地完成。请查看我们的<a href=\"privacy.html\" class=\"text-blue-600 hover:underline\">隐私政策</a>。"
+    },
+    "q3": {
+      "q": "我可以创建自定义格式吗？",
+      "a": "可以！你可以使用 <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code> 和 <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code> 等变量创建无限数量的自定义模板。"
+    }
+  },
+  "footer": {
+    "tagline": "为现代 Web 打造的开源生产力工具。",
+    "privacy": "隐私政策",
+    "store": "Chrome 商店",
+    "copyright": "© 2026 Deguang. 保留所有权利。",
+    "madeWith": "Made with ❤️ by extension lovers."
+  }
+}

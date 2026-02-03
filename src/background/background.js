@@ -2,6 +2,47 @@
 const STORAGE_KEY = 'CopyTitleAndUrlConfigs';
 import { processTemplate } from '../utils/templateProcessor';
 
+// Google Analytics Measurement Protocol configuration
+const GA_MEASUREMENT_ID = 'G-49HSQQVZ1F';
+const GA_API_SECRET = ''; // Optional: Add API secret for server-side validation
+
+// Send event to Google Analytics 4
+async function sendGAEvent(eventName, eventParams = {}) {
+  try {
+    const clientId = await getOrCreateClientId();
+    const payload = {
+      client_id: clientId,
+      events: [{
+        name: eventName,
+        params: {
+          engagement_time_msec: '100',
+          ...eventParams
+        }
+      }]
+    };
+
+    const url = `https://www.google-analytics.com/mp/collect?measurement_id=${GA_MEASUREMENT_ID}&api_secret=${GA_API_SECRET}`;
+    
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(payload)
+    }).catch(err => console.log('GA event send failed:', err));
+  } catch (error) {
+    console.log('GA tracking error:', error);
+  }
+}
+
+// Get or create a persistent client ID for GA
+async function getOrCreateClientId() {
+  const result = await chrome.storage.local.get('ga_client_id');
+  if (result.ga_client_id) {
+    return result.ga_client_id;
+  }
+  const clientId = crypto.randomUUID();
+  await chrome.storage.local.set({ ga_client_id: clientId });
+  return clientId;
+}
+
 const DEFAULT_CONFIGS = [
   {
     windows: {
@@ -345,6 +386,12 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       loadConfigurations();
       sendResponse({ success: true });
     } else if (request.action === 'triggerCopyByIndex') {
+       // Track copy event in GA
+       const config = configuredShortcuts[request.index];
+       sendGAEvent('copy', {
+         template_index: request.index,
+         template_desc: config?.description || 'unknown'
+       });
        // Capture sender frame ID to reply to the correct frame
        const senderFrameId = sender.frameId;
        copyToClipboard(request.index, senderFrameId);

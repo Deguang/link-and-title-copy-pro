@@ -1,0 +1,246 @@
+{
+    "name": {
+        "message": "पेज टाइटल और URL कॉपी Pro",
+        "description": ""
+    },
+    "appName": {
+        "message": "पेज टाइटल और URL कॉपी Pro: Markdown सपोर्ट",
+        "description": "The name of the application, displayed in the Chrome Web Store and extensions management page."
+    },
+    "appDescription": {
+        "message": "एक क्लिक में टाइटल और URL कॉपी करें। Markdown, HTML, Jira फॉर्मैट सपोर्ट। UTM पैरामीटर ऑटो-रिमूव, कस्टम टेम्पलेट।",
+        "description": "The description of the application."
+    },
+    "successTip": {
+        "message": "कॉपी सफल",
+        "description": ""
+    },
+    "errorTip": {
+        "message": "कॉपी विफल",
+        "description": ""
+    },
+    "config": {
+        "message": "सेटिंग्स",
+        "description": ""
+    },
+    "addNewConfig": {
+        "message": "टेम्पलेट जोड़ें",
+        "description": ""
+    },
+    "edit": {
+        "message": "संपादित करें",
+        "description": ""
+    },
+    "delete": {
+        "message": "हटाएं",
+        "description": ""
+    },
+    "shortcut": {
+        "message": "शॉर्टकट",
+        "description": ""
+    },
+    "template": {
+        "message": "टेम्पलेट",
+        "description": ""
+    },
+    "description": {
+        "message": "विवरण",
+        "description": ""
+    },
+    "save": {
+        "message": "सेव करें",
+        "description": ""
+    },
+    "cancel": {
+        "message": "रद्द करें",
+        "description": ""
+    },
+    "preview": {
+        "message": "प्रीव्यू",
+        "description": ""
+    },
+    "supportedPlaceholders": {
+        "message": "समर्थित प्लेसहोल्डर",
+        "description": ""
+    },
+    "configDescription": {
+        "message": "टेम्पलेट विवरण",
+        "description": ""
+    },
+    "shortCutRemind": {
+        "message": "की कॉम्बिनेशन दबाएं",
+        "description": ""
+    },
+    "exampleShortcuts": {
+        "message": "शॉर्टकट उदाहरण",
+        "description": ""
+    },
+    "switchToAutomaticCapture": {
+        "message": "ऑटो कैप्चर पर स्विच करें",
+        "description": ""
+    },
+    "switchToManualInput": {
+        "message": "मैन्युअल इनपुट पर स्विच करें",
+        "description": ""
+    },
+    "enterShortcutManually": {
+        "message": "मैन्युअल रूप से शॉर्टकट दर्ज करें",
+        "description": ""
+    },
+    "pressKeyCombination": {
+        "message": "की कॉम्बिनेशन दबाएं",
+        "description": ""
+    },
+    "selectedTextCopied": {
+        "message": "चयनित टेक्स्ट कॉपी किया गया",
+        "description": ""
+    },
+    "titleUrlCopied": {
+        "message": "टाइटल और URL कॉपी किया गया",
+        "description": ""
+    },
+    "smartCopy": {
+        "message": "स्मार्ट कॉपी",
+        "description": ""
+    },
+    "withSelectedText": {
+        "message": "चयनित टेक्स्ट के साथ",
+        "description": ""
+    },
+    "withoutSelectedText": {
+        "message": "चयनित टेक्स्ट के बिना",
+        "description": ""
+    },
+    "templateHelp": {
+        "message": "टेम्पलेट सहायता और उदाहरण",
+        "description": ""
+    },
+    "basicPlaceholders": {
+        "message": "बेसिक प्लेसहोल्डर",
+        "description": ""
+    },
+    "smartPlaceholders": {
+        "message": "स्मार्ट प्लेसहोल्डर",
+        "description": ""
+    },
+    "urlComponentPlaceholders": {
+        "message": "URL कंपोनेंट प्लेसहोल्डर",
+        "description": ""
+    },
+    "conditionalTemplates": {
+        "message": "कंडीशनल टेम्पलेट",
+        "description": ""
+    },
+    "exampleTemplates": {
+        "message": "टेम्पलेट उदाहरण",
+        "description": ""
+    },
+    "pageTitle": {
+        "message": "पेज टाइटल",
+        "description": ""
+    },
+    "pageUrl": {
+        "message": "पेज URL",
+        "description": ""
+    },
+    "selectedTextEmpty": {
+        "message": "चयनित टेक्स्ट (अगर नहीं तो खाली)",
+        "description": ""
+    },
+    "selectedTextOrTitle": {
+        "message": "चयनित टेक्स्ट अगर है, वरना टाइटल",
+        "description": ""
+    },
+    "sameAsAbove": {
+        "message": "ऊपर जैसा ही",
+        "description": ""
+    },
+    "urlClean": {
+        "message": "क्वेरी पैरामीटर और हैश के बिना URL",
+        "description": ""
+    },
+    "urlProtocol": {
+        "message": "केवल प्रोटोकॉल (जैसे https)",
+        "description": ""
+    },
+    "urlDomain": {
+        "message": "डोमेन/होस्टनेम",
+        "description": ""
+    },
+    "urlPath": {
+        "message": "केवल पाथ",
+        "description": ""
+    },
+    "urlQuery": {
+        "message": "क्वेरी पैरामीटर ? के साथ",
+        "description": ""
+    },
+    "urlHash": {
+        "message": "हैश फ्रैगमेंट # के साथ",
+        "description": ""
+    },
+    "urlOrigin": {
+        "message": "प्रोटोकॉल + डोमेन",
+        "description": ""
+    },
+    "onlyWhenTextSelected": {
+        "message": "केवल जब टेक्स्ट चयनित हो",
+        "description": ""
+    },
+    "onlyWhenNoTextSelected": {
+        "message": "केवल जब टेक्स्ट चयनित न हो",
+        "description": ""
+    },
+    "smartCopyDesc": {
+        "message": "स्मार्ट कॉपी - चयनित टेक्स्ट या टाइटल + URL",
+        "description": ""
+    },
+    "markdownLinkFormat": {
+        "message": "Markdown लिंक फॉर्मैट",
+        "description": ""
+    },
+    "quotedSelectedText": {
+        "message": "कोटेड चयनित टेक्स्ट और टाइटल, या केवल टाइटल",
+        "description": ""
+    },
+    "templateConfigurations": {
+        "message": "टेम्पलेट कॉन्फ़िगरेशन",
+        "description": ""
+    },
+    "emptyResult": {
+        "message": "खाली परिणाम",
+        "description": ""
+    },
+    "invalidShortcut": {
+        "message": "अमान्य शॉर्टकट कॉम्बिनेशन",
+        "description": ""
+    },
+    "invalidShortcutFormat": {
+        "message": "अमान्य शॉर्टकट फॉर्मैट",
+        "description": ""
+    },
+    "templatePlaceholder": {
+        "message": "प्लेसहोल्डर के साथ टेम्पलेट...",
+        "description": ""
+    },
+    "descriptionPlaceholder": {
+        "message": "इस टेम्पलेट का संक्षिप्त विवरण",
+        "description": ""
+    },
+    "confirmDelete": {
+        "message": "क्या आप वाकई इस टेम्पलेट को हटाना चाहते हैं?",
+        "description": ""
+    },
+    "toastCopied": {
+        "message": "क्लिपबोर्ड पर कॉपी किया गया!",
+        "description": ""
+    },
+    "toastFailed": {
+        "message": "कॉपी विफल",
+        "description": ""
+    },
+    "toastFallback": {
+        "message": "कॉपी किया गया (फॉलबैक)",
+        "description": ""
+    }
+}

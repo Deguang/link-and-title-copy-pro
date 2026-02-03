@@ -1,6 +1,6 @@
 {
   "name": "link-and-title-copy-pro",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "private": true,
   "description": "Link&amp;TitleCopyPro is a browser extension that allows you to copy both the title and URL link of a browser tab at the same time.",
   "main": "background.js",

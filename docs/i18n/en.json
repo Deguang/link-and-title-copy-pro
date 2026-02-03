@@ -1,0 +1,136 @@
+{
+  "lang": "en",
+  "htmlLang": "en",
+  "title": "Link & Title Copy Pro - Copy Links as Markdown, HTML, & Custom Formats",
+  "description": "The best Chrome extension to copy browser tab titles and URLs simultaneously. Export links as Markdown, HTML, Jira, or custom formats. Perfect for developers, researchers, and writers.",
+  "keywords": "chrome extension, copy link, markdown copy, url cleaner, productivity tool, notion links, jira format, obsidian citations",
+  "canonical": "https://app.lideguang.com/link-and-title-copy-pro/",
+  "ogTitle": "Link & Title Copy Pro - The Ultimate Copy Tool",
+  "ogDescription": "Copy smarter, paste faster. The ultimate browser extension for developers and researchers to clean URLs and format links instantly.",
+  "schemaDescription": "A browser extension that allows you to copy both the title and URL link of a browser tab at the same time, with customizable templates and smart features.",
+  "schemaFeatures": "Copy title & link, Custom templates, URL cleaning, i18n support",
+  "nav": {
+    "features": "Features",
+    "useCases": "Use Cases",
+    "howItWorks": "How it Works",
+    "faq": "FAQ",
+    "download": "Download"
+  },
+  "langSwitch": {
+    "current": "EN",
+    "items": [
+      {"code": "zh", "name": "简中"},
+      {"code": "zh-TW", "name": "繁中"},
+      {"code": "ja", "name": "日本語"},
+      {"code": "ru", "name": "Русский"},
+      {"code": "hi", "name": "हिंदी"}
+    ]
+  },
+  "hero": {
+    "badge": "v1.1.0 is now available 🚀",
+    "title1": "Copy smarter,",
+    "title2": "paste faster.",
+    "subtitle": "The ultimate browser extension for developers and researchers. Clean URLs, format markdown, and streamline your workflow in one click.",
+    "ctaChrome": "Add to Chrome",
+    "ctaFree": "— It's Free",
+    "ctaSource": "View Source"
+  },
+  "features": {
+    "title": "Packed with Power",
+    "subtitle": "Everything you need to manage links, without the clutter.",
+    "toast": {
+      "badge": "New Feature",
+      "title": "Instant Visual Feedback",
+      "desc": "Never guess if you copied correctly. Our new <strong>Smart Toast</strong> shows you exactly what's in your clipboard, complete with a preview of the formatted link.",
+      "item1": "Live content preview",
+      "item2": "Keyboard shortcut support",
+      "item3": "Dark mode aesthetics"
+    },
+    "paste": {
+      "badge": "Smart Contexts",
+      "title": "Paste Anywhere",
+      "desc": "Intelligently adapts to your needs. Copy as Markdown for your notes, HTML for your blog, or clean URLs for sharing.",
+      "item1": "Markdown & Rich Text support",
+      "item2": "Smart fallback logic",
+      "item3": "Customizable templates"
+    },
+    "config": {
+      "badge": "Total Control",
+      "title": "Powerful Configuration",
+      "desc": "Take full control of your workflow. Customize shortcuts, manage templates, and toggle smart features with an intuitive interface.",
+      "item1": "Drag-and-drop ordering",
+      "item2": "Real-time preview",
+      "item3": "One-click feature toggles"
+    },
+    "cards": {
+      "templates": {
+        "title": "Custom Templates",
+        "desc": "Define your own formats using placeholders like <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{title}</code>, <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{url}</code>, and markdown syntax."
+      },
+      "clean": {
+        "title": "Clean URLs",
+        "desc": "Say goodbye to 500-character tracking links. Automatically strip <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">utm_source</code> and other analytics garbage."
+      },
+      "shortcuts": {
+        "title": "Shortcuts & i18n",
+        "desc": "Bind your favorite templates to keyboard shortcuts. Fully localized in multiple languages."
+      }
+    }
+  },
+  "useCases": {
+    "title": "Built for Every Workflow",
+    "developers": {
+      "title": "For Developers",
+      "desc": "Copy links for <strong class=\"text-slate-800\">Git commit messages</strong>, Jira tickets, or generic Markdown documentation instantly."
+    },
+    "writers": {
+      "title": "For Writers",
+      "desc": "Streamline your citations. Perfect for grabbing links for blog posts, formatted HTML, or newsletter curation."
+    },
+    "research": {
+      "title": "For Research",
+      "desc": "Integrates perfectly with <strong class=\"text-slate-800\">Obsidian</strong>, <strong class=\"text-slate-800\">Logseq</strong>, and Notion to build your second brain faster."
+    },
+    "everyone": {
+      "title": "For Everyone",
+      "desc": "Share clean links with friends without the ugly <code class=\"bg-slate-100 px-1 rounded\">?utm_...</code> tracking parameters attached."
+    }
+  },
+  "howItWorks": {
+    "title": "How it Works",
+    "step1": {
+      "title": "Install Extension",
+      "desc": "Add to Chrome in seconds. No account required."
+    },
+    "step2": {
+      "title": "Setup Templates",
+      "desc": "Configure your favorite formats like Markdown, Org-mode, or HTML."
+    },
+    "step3": {
+      "title": "One-Click Copy",
+      "desc": "Click the icon or use a shortcut to grab the link instantly."
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "q1": {
+      "q": "Is it completely free?",
+      "a": "Yes, Link & Title Copy Pro is open-source and 100% free forever. No hidden subscriptions."
+    },
+    "q2": {
+      "q": "Does it track my data?",
+      "a": "Absolutely not. We do not collect, store, or transmit any usage data. Everything happens locally on your browser. See our <a href=\"privacy.html\" class=\"text-blue-600 hover:underline\">Privacy Policy</a>."
+    },
+    "q3": {
+      "q": "Can I create my own formats?",
+      "a": "Yes! You can create unlimited custom templates using placeholders like <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code> and <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code>."
+    }
+  },
+  "footer": {
+    "tagline": "Open source productivity for the modern web.",
+    "privacy": "Privacy",
+    "store": "Chrome Store",
+    "copyright": "© 2026 Deguang. All rights reserved.",
+    "madeWith": "Made with ❤️ by extension lovers."
+  }
+}

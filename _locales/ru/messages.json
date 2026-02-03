@@ -1,0 +1,246 @@
+{
+    "name": {
+        "message": "Копировать заголовок и URL Pro",
+        "description": ""
+    },
+    "appName": {
+        "message": "Копировать заголовок и URL Pro: Markdown",
+        "description": "The name of the application, displayed in the Chrome Web Store and extensions management page."
+    },
+    "appDescription": {
+        "message": "Копируйте заголовок и URL одним кликом. Поддержка Markdown, HTML, Jira. Автоматическое удаление UTM-параметров, настраиваемые шаблоны.",
+        "description": "The description of the application."
+    },
+    "successTip": {
+        "message": "Скопировано успешно",
+        "description": ""
+    },
+    "errorTip": {
+        "message": "Ошибка копирования",
+        "description": ""
+    },
+    "config": {
+        "message": "Настройки",
+        "description": ""
+    },
+    "addNewConfig": {
+        "message": "Добавить шаблон",
+        "description": ""
+    },
+    "edit": {
+        "message": "Редактировать",
+        "description": ""
+    },
+    "delete": {
+        "message": "Удалить",
+        "description": ""
+    },
+    "shortcut": {
+        "message": "Горячая клавиша",
+        "description": ""
+    },
+    "template": {
+        "message": "Шаблон",
+        "description": ""
+    },
+    "description": {
+        "message": "Описание",
+        "description": ""
+    },
+    "save": {
+        "message": "Сохранить",
+        "description": ""
+    },
+    "cancel": {
+        "message": "Отмена",
+        "description": ""
+    },
+    "preview": {
+        "message": "Предпросмотр",
+        "description": ""
+    },
+    "supportedPlaceholders": {
+        "message": "Поддерживаемые плейсхолдеры",
+        "description": ""
+    },
+    "configDescription": {
+        "message": "Описание шаблона",
+        "description": ""
+    },
+    "shortCutRemind": {
+        "message": "Нажмите комбинацию клавиш",
+        "description": ""
+    },
+    "exampleShortcuts": {
+        "message": "Примеры горячих клавиш",
+        "description": ""
+    },
+    "switchToAutomaticCapture": {
+        "message": "Автоматический захват",
+        "description": ""
+    },
+    "switchToManualInput": {
+        "message": "Ручной ввод",
+        "description": ""
+    },
+    "enterShortcutManually": {
+        "message": "Ввести вручную",
+        "description": ""
+    },
+    "pressKeyCombination": {
+        "message": "Нажмите комбинацию",
+        "description": ""
+    },
+    "selectedTextCopied": {
+        "message": "Выделенный текст скопирован",
+        "description": ""
+    },
+    "titleUrlCopied": {
+        "message": "Заголовок и URL скопированы",
+        "description": ""
+    },
+    "smartCopy": {
+        "message": "Умное копирование",
+        "description": ""
+    },
+    "withSelectedText": {
+        "message": "С выделенным текстом",
+        "description": ""
+    },
+    "withoutSelectedText": {
+        "message": "Без выделенного текста",
+        "description": ""
+    },
+    "templateHelp": {
+        "message": "Справка и примеры шаблонов",
+        "description": ""
+    },
+    "basicPlaceholders": {
+        "message": "Базовые плейсхолдеры",
+        "description": ""
+    },
+    "smartPlaceholders": {
+        "message": "Умные плейсхолдеры",
+        "description": ""
+    },
+    "urlComponentPlaceholders": {
+        "message": "URL-компоненты",
+        "description": ""
+    },
+    "conditionalTemplates": {
+        "message": "Условные шаблоны",
+        "description": ""
+    },
+    "exampleTemplates": {
+        "message": "Примеры шаблонов",
+        "description": ""
+    },
+    "pageTitle": {
+        "message": "Заголовок страницы",
+        "description": ""
+    },
+    "pageUrl": {
+        "message": "URL страницы",
+        "description": ""
+    },
+    "selectedTextEmpty": {
+        "message": "Выделенный текст (пусто, если нет)",
+        "description": ""
+    },
+    "selectedTextOrTitle": {
+        "message": "Выделенный текст или заголовок",
+        "description": ""
+    },
+    "sameAsAbove": {
+        "message": "То же самое",
+        "description": ""
+    },
+    "urlClean": {
+        "message": "URL без параметров и хеша",
+        "description": ""
+    },
+    "urlProtocol": {
+        "message": "Только протокол (напр., https)",
+        "description": ""
+    },
+    "urlDomain": {
+        "message": "Домен/хост",
+        "description": ""
+    },
+    "urlPath": {
+        "message": "Только путь",
+        "description": ""
+    },
+    "urlQuery": {
+        "message": "Параметры запроса с ?",
+        "description": ""
+    },
+    "urlHash": {
+        "message": "Хеш-фрагмент с #",
+        "description": ""
+    },
+    "urlOrigin": {
+        "message": "Протокол + домен",
+        "description": ""
+    },
+    "onlyWhenTextSelected": {
+        "message": "Только при выделенном тексте",
+        "description": ""
+    },
+    "onlyWhenNoTextSelected": {
+        "message": "Только без выделенного текста",
+        "description": ""
+    },
+    "smartCopyDesc": {
+        "message": "Умное копирование - текст или заголовок + URL",
+        "description": ""
+    },
+    "markdownLinkFormat": {
+        "message": "Формат Markdown-ссылки",
+        "description": ""
+    },
+    "quotedSelectedText": {
+        "message": "Цитата с заголовком или только заголовок",
+        "description": ""
+    },
+    "templateConfigurations": {
+        "message": "Настройки шаблонов",
+        "description": ""
+    },
+    "emptyResult": {
+        "message": "Пустой результат",
+        "description": ""
+    },
+    "invalidShortcut": {
+        "message": "Недопустимая комбинация клавиш",
+        "description": ""
+    },
+    "invalidShortcutFormat": {
+        "message": "Недопустимый формат горячей клавиши",
+        "description": ""
+    },
+    "templatePlaceholder": {
+        "message": "Шаблон с плейсхолдерами...",
+        "description": ""
+    },
+    "descriptionPlaceholder": {
+        "message": "Краткое описание шаблона",
+        "description": ""
+    },
+    "confirmDelete": {
+        "message": "Вы уверены, что хотите удалить этот шаблон?",
+        "description": ""
+    },
+    "toastCopied": {
+        "message": "Скопировано в буфер обмена!",
+        "description": ""
+    },
+    "toastFailed": {
+        "message": "Ошибка копирования",
+        "description": ""
+    },
+    "toastFallback": {
+        "message": "Скопировано (резервный метод)",
+        "description": ""
+    }
+}

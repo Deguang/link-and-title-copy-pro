@@ -1,0 +1,136 @@
+{
+  "lang": "ja",
+  "htmlLang": "ja",
+  "title": "Link & Title Copy Pro - Markdown、HTML、カスタム形式でリンクをコピー",
+  "description": "ブラウザタブのタイトルとURLを同時にコピーできる最高のChrome拡張機能。Markdown、HTML、Jira、カスタム形式でエクスポート。開発者、研究者、ライター必携のツール。",
+  "keywords": "Chrome拡張, リンクコピー, Markdownコピー, URL クリーナー, 生産性ツール, Notionリンク, Jira形式, Obsidian引用",
+  "canonical": "https://app.lideguang.com/link-and-title-copy-pro/ja.html",
+  "ogTitle": "Link & Title Copy Pro - 究極のコピーツール",
+  "ogDescription": "よりスマートにコピー、より速くペースト。開発者と研究者のための究極のブラウザ拡張機能。URLをクリーンにし、リンクを瞬時にフォーマット。",
+  "schemaDescription": "ブラウザタブのタイトルとURLリンクを同時にコピーできる拡張機能。カスタマイズ可能なテンプレートとスマート機能を搭載。",
+  "schemaFeatures": "タイトル＆リンクコピー, カスタムテンプレート, URLクリーニング, 多言語対応",
+  "nav": {
+    "features": "機能",
+    "useCases": "活用シーン",
+    "howItWorks": "使い方",
+    "faq": "よくある質問",
+    "download": "ダウンロード"
+  },
+  "langSwitch": {
+    "current": "日本語",
+    "items": [
+      {"code": "index", "name": "EN"},
+      {"code": "zh", "name": "简中"},
+      {"code": "zh-TW", "name": "繁中"},
+      {"code": "ru", "name": "Русский"},
+      {"code": "hi", "name": "हिंदी"}
+    ]
+  },
+  "hero": {
+    "badge": "v1.1.0 リリース 🚀",
+    "title1": "よりスマートにコピー、",
+    "title2": "より速くペースト。",
+    "subtitle": "開発者と研究者のための究極のブラウザ拡張機能。URLをクリーンにし、Markdownを生成し、ワークフローをワンクリックで効率化。",
+    "ctaChrome": "Chromeに追加",
+    "ctaFree": "— 無料",
+    "ctaSource": "ソースを見る"
+  },
+  "features": {
+    "title": "パワフルな機能",
+    "subtitle": "リンク管理に必要なすべてが、シンプルに。",
+    "toast": {
+      "badge": "新機能",
+      "title": "即座の視覚フィードバック",
+      "desc": "コピーが成功したか迷う必要はありません。新しい<strong>スマートトースト</strong>がクリップボードの内容を正確に表示し、フォーマット済みリンクのプレビューを提供します。",
+      "item1": "リアルタイムコンテンツプレビュー",
+      "item2": "キーボードショートカット対応",
+      "item3": "ダークモード対応"
+    },
+    "paste": {
+      "badge": "スマートコンテキスト",
+      "title": "どこでもペースト",
+      "desc": "あなたのニーズに賢く対応。ノート用にMarkdown、ブログ用にHTML、共有用にクリーンなURLをコピー。",
+      "item1": "Markdown＆リッチテキスト対応",
+      "item2": "スマートフォールバックロジック",
+      "item3": "カスタマイズ可能なテンプレート"
+    },
+    "config": {
+      "badge": "完全コントロール",
+      "title": "強力な設定機能",
+      "desc": "ワークフローを完全にコントロール。直感的なインターフェースでショートカットのカスタマイズ、テンプレート管理、スマート機能の切り替えが可能。",
+      "item1": "ドラッグ＆ドロップで並び替え",
+      "item2": "リアルタイムプレビュー",
+      "item3": "ワンクリック機能切り替え"
+    },
+    "cards": {
+      "templates": {
+        "title": "カスタムテンプレート",
+        "desc": "<code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{title}</code>、<code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{url}</code>などのプレースホルダーとMarkdown構文で独自のフォーマットを定義。"
+      },
+      "clean": {
+        "title": "クリーンURL",
+        "desc": "500文字のトラッキングリンクにさよなら。<code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">utm_source</code>などの分析パラメータを自動削除。"
+      },
+      "shortcuts": {
+        "title": "ショートカット＆多言語対応",
+        "desc": "よく使うテンプレートをキーボードショートカットにバインド。複数言語に完全対応。"
+      }
+    }
+  },
+  "useCases": {
+    "title": "あらゆるワークフローに対応",
+    "developers": {
+      "title": "開発者向け",
+      "desc": "<strong class=\"text-slate-800\">Gitコミットメッセージ</strong>、Jiraチケット、Markdownドキュメント用のリンクを瞬時にコピー。"
+    },
+    "writers": {
+      "title": "ライター向け",
+      "desc": "引用作業を効率化。ブログ記事、HTML形式リンク、ニュースレター素材の取得に最適。"
+    },
+    "research": {
+      "title": "研究者向け",
+      "desc": "<strong class=\"text-slate-800\">Obsidian</strong>、<strong class=\"text-slate-800\">Logseq</strong>、Notionと完璧に統合し、セカンドブレインの構築を加速。"
+    },
+    "everyone": {
+      "title": "すべての人向け",
+      "desc": "醜い<code class=\"bg-slate-100 px-1 rounded\">?utm_...</code>トラッキングパラメータなしで、クリーンなリンクを友人と共有。"
+    }
+  },
+  "howItWorks": {
+    "title": "使い方",
+    "step1": {
+      "title": "拡張機能をインストール",
+      "desc": "数秒でChromeに追加。アカウント登録不要。"
+    },
+    "step2": {
+      "title": "テンプレートを設定",
+      "desc": "Markdown、Org-mode、HTMLなど好みのフォーマットを設定。"
+    },
+    "step3": {
+      "title": "ワンクリックでコピー",
+      "desc": "アイコンをクリックするかショートカットを使用して、瞬時にリンクを取得。"
+    }
+  },
+  "faq": {
+    "title": "よくある質問",
+    "q1": {
+      "q": "完全に無料ですか？",
+      "a": "はい、Link & Title Copy Proはオープンソースで、永久に100%無料です。隠れたサブスクリプションはありません。"
+    },
+    "q2": {
+      "q": "データを追跡しますか？",
+      "a": "絶対にしません。使用データの収集、保存、送信は一切行いません。すべてがブラウザ内でローカルに処理されます。<a href=\"privacy.html\" class=\"text-blue-600 hover:underline\">プライバシーポリシー</a>をご覧ください。"
+    },
+    "q3": {
+      "q": "独自のフォーマットを作成できますか？",
+      "a": "はい！<code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code>と<code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code>などのプレースホルダーを使用して、無制限のカスタムテンプレートを作成できます。"
+    }
+  },
+  "footer": {
+    "tagline": "モダンWeb向けのオープンソース生産性ツール。",
+    "privacy": "プライバシー",
+    "store": "Chrome ストア",
+    "copyright": "© 2026 Deguang. All rights reserved.",
+    "madeWith": "Made with ❤️ by extension lovers."
+  }
+}

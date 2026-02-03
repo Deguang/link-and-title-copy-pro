@@ -15,7 +15,7 @@ Link&TitleCopyPro是一个可以同时复制浏览器标签页的标题和URL链
 ## Features / 功能特性
 
 - [x] Copy title & link / 复制标题和链接
-- [x] i18n support (EN & ZH-CN) / 国际化支持（中英文）
+- [x] i18n support (EN, 简中, 繁中, 日本語, Русский, हिंदी) / 国际化支持（6 种语言）
 - [x] Copy selected text & link / 复制选中文本和链接
 - [x] Custom copy templates / 自定义复制模板
 - [x] Custom shortcuts / 自定义快捷键
@@ -58,6 +58,12 @@ Link&TitleCopyPro是一个可以同时复制浏览器标签页的标题和URL链
 - `{noSelectedText?}...{/noSelectedText?}` - Shorthand for above / 简写
 
 ## Version History / 版本历史
+
+### v1.1.0
+
+- Multi-language support: Japanese, Russian, Hindi, Traditional Chinese / 多语言支持：日语、俄语、印地语、繁体中文
+- Landing page i18n with build-time generation / 落地页国际化构建系统
+- Google Analytics event tracking for copy actions / 复制操作 GA 事件追踪
 
 ### v1.0.0
 
