@@ -1,11 +1,11 @@
 {
   "lang": "en",
   "htmlLang": "en",
-  "title": "Link & Title Copy Pro - Copy Links as Markdown, HTML, & Custom Formats",
+  "title": "Copy Page Title and URL Pro - Copy Links as Markdown, HTML, & Custom Formats",
   "description": "The best Chrome extension to copy browser tab titles and URLs simultaneously. Export links as Markdown, HTML, Jira, or custom formats. Perfect for developers, researchers, and writers.",
   "keywords": "chrome extension, copy link, markdown copy, url cleaner, productivity tool, notion links, jira format, obsidian citations",
   "canonical": "https://app.lideguang.com/link-and-title-copy-pro/",
-  "ogTitle": "Link & Title Copy Pro - The Ultimate Copy Tool",
+  "ogTitle": "Copy Page Title and URL Pro - The Ultimate Copy Tool",
   "ogDescription": "Copy smarter, paste faster. The ultimate browser extension for developers and researchers to clean URLs and format links instantly.",
   "schemaDescription": "A browser extension that allows you to copy both the title and URL link of a browser tab at the same time, with customizable templates and smart features.",
   "schemaFeatures": "Copy title & link, Custom templates, URL cleaning, i18n support",
@@ -115,7 +115,7 @@
     "title": "Frequently Asked Questions",
     "q1": {
       "q": "Is it completely free?",
-      "a": "Yes, Link & Title Copy Pro is open-source and 100% free forever. No hidden subscriptions."
+      "a": "Yes, Copy Page Title and URL Pro is open-source and 100% free forever. No hidden subscriptions."
     },
     "q2": {
       "q": "Does it track my data?",

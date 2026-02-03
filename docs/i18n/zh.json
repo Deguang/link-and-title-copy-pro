@@ -1,11 +1,11 @@
 {
   "lang": "zh-CN",
   "htmlLang": "zh-CN",
-  "title": "Link & Title Copy Pro - 链接和标题复制工具",
+  "title": "复制页面标题和链接 Pro - Markdown 链接复制工具",
   "description": "最好用的 Chrome 扩展，一键同时复制标签页标题和链接。支持导出为 Markdown、HTML、Jira 或自定义格式。开发者、研究人员和写作者的必备神器。",
   "keywords": "Chrome扩展, 复制链接, Markdown复制, URL清理, 生产力工具, Notion链接, Jira格式, Obsidian引用",
   "canonical": "https://app.lideguang.com/link-and-title-copy-pro/zh.html",
-  "ogTitle": "Link & Title Copy Pro - 极致的复制工具",
+  "ogTitle": "复制页面标题和链接 Pro - 极致的复制工具",
   "ogDescription": "更智能的复制，更高效的粘贴。开发者和研究人员的终极浏览器扩展，一键清理 URL 并格式化链接。",
   "schemaDescription": "一个浏览器扩展，允许您同时复制浏览器标签的标题和URL链接，支持自定义模板和智能功能。",
   "schemaFeatures": "复制标题和链接, 自定义模板, URL清理, 国际化支持",

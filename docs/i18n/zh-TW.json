@@ -1,11 +1,11 @@
 {
   "lang": "zh-TW",
   "htmlLang": "zh-TW",
-  "title": "Link & Title Copy Pro - 連結和標題複製工具",
+  "title": "複製頁面標題和連結 Pro - Markdown 連結複製工具",
   "description": "最好用的 Chrome 擴充功能，一鍵同時複製分頁標題和連結。支援匯出為 Markdown、HTML、Jira 或自訂格式。開發者、研究人員和寫作者的必備神器。",
   "keywords": "Chrome擴充, 複製連結, Markdown複製, URL清理, 生產力工具, Notion連結, Jira格式, Obsidian引用",
   "canonical": "https://app.lideguang.com/link-and-title-copy-pro/zh-TW.html",
-  "ogTitle": "Link & Title Copy Pro - 極致的複製工具",
+  "ogTitle": "複製頁面標題和連結 Pro - 極致的複製工具",
   "ogDescription": "更智慧的複製，更高效的貼上。開發者和研究人員的終極瀏覽器擴充功能，一鍵清理 URL 並格式化連結。",
   "schemaDescription": "一個瀏覽器擴充功能，允許您同時複製瀏覽器分頁的標題和URL連結，支援自訂模板和智慧功能。",
   "schemaFeatures": "複製標題和連結, 自訂模板, URL清理, 國際化支援",
