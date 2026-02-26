@@ -242,5 +242,29 @@
     "toastFallback": {
         "message": "Copied (Fallback)",
         "description": ""
-    }
+    },
+    "onboardingWelcomeTitle": { "message": "Welcome!" },
+    "onboardingWelcomeDesc": { "message": "Copy links and page titles in one keystroke. Press your shortcut to confirm it works." },
+    "onboardingDetected": { "message": "Detected:" },
+    "onboardingListening": { "message": "Press the shortcut to confirm\u2026" },
+    "onboardingConflictHint": { "message": "Shortcut conflict? Change it in Settings \u2192" },
+    "onboardingItWorks": { "message": "It works! \uD83C\uDF89" },
+    "onboardingReadyToUse": { "message": "Your shortcut is ready to use" },
+    "onboardingContinue": { "message": "Continue \u2192" },
+    "onboardingSkipStep": { "message": "Skip this step \u2192" },
+    "onboardingAllSet": { "message": "You\u2019re all set!" },
+    "onboardingFormatsReady": { "message": "$COUNT$ formats ready. Press a shortcut to preview it.", "placeholders": { "count": { "content": "$1" } } },
+    "onboardingOutputPreview": { "message": "Output preview" },
+    "onboardingCopiedBadge": { "message": "\u2713 Copied!" },
+    "onboardingCustomize": { "message": "Customize all formats anytime via Settings" },
+    "onboardingStartCopying": { "message": "Start copying!" },
+    "onboardingSkipSetup": { "message": "Skip setup" },
+    "onboardingTplPlainName": { "message": "Plain Text" },
+    "onboardingTplPlainDesc": { "message": "Title + URL on separate lines" },
+    "onboardingTplMarkdownName": { "message": "Markdown" },
+    "onboardingTplMarkdownDesc": { "message": "Inline link in Markdown syntax" },
+    "onboardingTplSmartName": { "message": "Smart Copy" },
+    "onboardingTplSmartDesc": { "message": "Quoted selection or title + URL" },
+    "onboardingStepVerify": { "message": "Verify" },
+    "onboardingStepPreview": { "message": "Preview" }
 }

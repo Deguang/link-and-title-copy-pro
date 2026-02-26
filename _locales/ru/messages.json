@@ -242,5 +242,29 @@
     "toastFallback": {
         "message": "Скопировано (резервный метод)",
         "description": ""
-    }
+    },
+    "onboardingWelcomeTitle": { "message": "Добро пожаловать!" },
+    "onboardingWelcomeDesc": { "message": "Копируйте ссылки и заголовки одним нажатием. Нажмите ваш ярлык для подтверждения." },
+    "onboardingDetected": { "message": "Обнаружено:" },
+    "onboardingListening": { "message": "Нажмите ярлык для подтверждения\u2026" },
+    "onboardingConflictHint": { "message": "Конфликт ярлыка? Измените в настройках \u2192" },
+    "onboardingItWorks": { "message": "\uD83C\uDF89 Работает!" },
+    "onboardingReadyToUse": { "message": "Ярлык готов к использованию" },
+    "onboardingContinue": { "message": "Продолжить \u2192" },
+    "onboardingSkipStep": { "message": "Пропустить шаг \u2192" },
+    "onboardingAllSet": { "message": "Всё готово!" },
+    "onboardingFormatsReady": { "message": "$COUNT$ формата готовы. Нажмите ярлык для предпросмотра.", "placeholders": { "count": { "content": "$1" } } },
+    "onboardingOutputPreview": { "message": "Предпросмотр" },
+    "onboardingCopiedBadge": { "message": "\u2713 Скопировано!" },
+    "onboardingCustomize": { "message": "Настройте форматы в любое время в Настройках" },
+    "onboardingStartCopying": { "message": "Начать копирование!" },
+    "onboardingSkipSetup": { "message": "Пропустить настройку" },
+    "onboardingTplPlainName": { "message": "Обычный текст" },
+    "onboardingTplPlainDesc": { "message": "Заголовок и URL на отдельных строках" },
+    "onboardingTplMarkdownName": { "message": "Markdown" },
+    "onboardingTplMarkdownDesc": { "message": "Встроенная ссылка в синтаксисе Markdown" },
+    "onboardingTplSmartName": { "message": "Умное копирование" },
+    "onboardingTplSmartDesc": { "message": "Выделенный текст в кавычках или заголовок + URL" },
+    "onboardingStepVerify": { "message": "Проверка" },
+    "onboardingStepPreview": { "message": "Предпросмотр" }
 }

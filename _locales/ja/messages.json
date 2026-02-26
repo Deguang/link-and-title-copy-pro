@@ -242,5 +242,29 @@
     "toastFallback": {
         "message": "コピー完了（フォールバック）",
         "description": ""
-    }
+    },
+    "onboardingWelcomeTitle": { "message": "ようこそ！" },
+    "onboardingWelcomeDesc": { "message": "ショートカット一つでリンクとページタイトルをコピー。ショートカットを押して動作確認しましょう。" },
+    "onboardingDetected": { "message": "検出済み：" },
+    "onboardingListening": { "message": "ショートカットを押して確認\u2026" },
+    "onboardingConflictHint": { "message": "ショートカットが競合？設定で変更 \u2192" },
+    "onboardingItWorks": { "message": "\uD83C\uDF89 動作確認完了！" },
+    "onboardingReadyToUse": { "message": "ショートカットが使えます" },
+    "onboardingContinue": { "message": "次へ \u2192" },
+    "onboardingSkipStep": { "message": "このステップをスキップ \u2192" },
+    "onboardingAllSet": { "message": "準備完了！" },
+    "onboardingFormatsReady": { "message": "$COUNT$ 種類のフォーマットが利用可能。ショートカットを押してプレビュー。", "placeholders": { "count": { "content": "$1" } } },
+    "onboardingOutputPreview": { "message": "出力プレビュー" },
+    "onboardingCopiedBadge": { "message": "\u2713 コピー済み！" },
+    "onboardingCustomize": { "message": "設定でいつでもフォーマットをカスタマイズ" },
+    "onboardingStartCopying": { "message": "コピー開始！" },
+    "onboardingSkipSetup": { "message": "セットアップをスキップ" },
+    "onboardingTplPlainName": { "message": "プレーンテキスト" },
+    "onboardingTplPlainDesc": { "message": "タイトルとURLを別々の行に" },
+    "onboardingTplMarkdownName": { "message": "Markdown" },
+    "onboardingTplMarkdownDesc": { "message": "Markdown形式のインラインリンク" },
+    "onboardingTplSmartName": { "message": "スマートコピー" },
+    "onboardingTplSmartDesc": { "message": "引用付き選択テキストまたはタイトル + URL" },
+    "onboardingStepVerify": { "message": "確認" },
+    "onboardingStepPreview": { "message": "プレビュー" }
 }

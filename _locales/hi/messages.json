@@ -242,5 +242,29 @@
     "toastFallback": {
         "message": "कॉपी किया गया (फॉलबैक)",
         "description": ""
-    }
+    },
+    "onboardingWelcomeTitle": { "message": "स्वागत है!" },
+    "onboardingWelcomeDesc": { "message": "एक कीस्ट्रोक में लिंक और पेज टाइटल कॉपी करें। पुष्टि के लिए शॉर्टकट दबाएं।" },
+    "onboardingDetected": { "message": "पहचाना गया:" },
+    "onboardingListening": { "message": "पुष्टि के लिए शॉर्टकट दबाएं\u2026" },
+    "onboardingConflictHint": { "message": "शॉर्टकट विवाद? सेटिंग में बदलें \u2192" },
+    "onboardingItWorks": { "message": "\uD83C\uDF89 काम कर रहा है!" },
+    "onboardingReadyToUse": { "message": "आपका शॉर्टकट उपयोग के लिए तैयार है" },
+    "onboardingContinue": { "message": "जारी रखें \u2192" },
+    "onboardingSkipStep": { "message": "इस चरण को छोड़ें \u2192" },
+    "onboardingAllSet": { "message": "सब तैयार है!" },
+    "onboardingFormatsReady": { "message": "$COUNT$ फॉर्मेट तैयार हैं। प्रीव्यू के लिए शॉर्टकट दबाएं।", "placeholders": { "count": { "content": "$1" } } },
+    "onboardingOutputPreview": { "message": "आउटपुट प्रीव्यू" },
+    "onboardingCopiedBadge": { "message": "\u2713 कॉपी हो गया!" },
+    "onboardingCustomize": { "message": "सेटिंग में कभी भी फॉर्मेट कस्टमाइज़ करें" },
+    "onboardingStartCopying": { "message": "कॉपी शुरू करें!" },
+    "onboardingSkipSetup": { "message": "सेटअप छोड़ें" },
+    "onboardingTplPlainName": { "message": "सादा पाठ" },
+    "onboardingTplPlainDesc": { "message": "टाइटल और URL अलग-अलग लाइनों पर" },
+    "onboardingTplMarkdownName": { "message": "Markdown" },
+    "onboardingTplMarkdownDesc": { "message": "Markdown सिंटैक्स में इनलाइन लिंक" },
+    "onboardingTplSmartName": { "message": "स्मार्ट कॉपी" },
+    "onboardingTplSmartDesc": { "message": "उद्धृत चयनित पाठ या टाइटल + URL" },
+    "onboardingStepVerify": { "message": "सत्यापन" },
+    "onboardingStepPreview": { "message": "प्रीव्यू" }
 }

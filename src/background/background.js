@@ -165,6 +165,9 @@ chrome.runtime.onInstalled.addListener(async (details) => {
   if (details.reason === 'install' || details.reason === 'update') {
     await setupDefaultConfigs();
   }
+  if (details.reason === 'install') {
+    chrome.tabs.create({ url: chrome.runtime.getURL('onboarding.html') });
+  }
 });
 
 function loadConfigurations() {

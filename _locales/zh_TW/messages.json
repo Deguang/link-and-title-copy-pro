@@ -242,5 +242,29 @@
     "toastFallback": {
         "message": "已複製（Fallback）",
         "description": ""
-    }
+    },
+    "onboardingWelcomeTitle": { "message": "歡迎！" },
+    "onboardingWelcomeDesc": { "message": "一鍵複製連結和頁面標題。按下快速鍵確認正常運作。" },
+    "onboardingDetected": { "message": "已偵測到：" },
+    "onboardingListening": { "message": "按下快速鍵確認\u2026" },
+    "onboardingConflictHint": { "message": "快速鍵衝突？在設定中修改 \u2192" },
+    "onboardingItWorks": { "message": "\uD83C\uDF89 成功！" },
+    "onboardingReadyToUse": { "message": "快速鍵已就緒" },
+    "onboardingContinue": { "message": "繼續 \u2192" },
+    "onboardingSkipStep": { "message": "跳過此步 \u2192" },
+    "onboardingAllSet": { "message": "一切就緒！" },
+    "onboardingFormatsReady": { "message": "已準備好 $COUNT$ 種格式。按下快速鍵預覽。", "placeholders": { "count": { "content": "$1" } } },
+    "onboardingOutputPreview": { "message": "輸出預覽" },
+    "onboardingCopiedBadge": { "message": "\u2713 已複製！" },
+    "onboardingCustomize": { "message": "隨時在設定中自訂格式" },
+    "onboardingStartCopying": { "message": "開始複製！" },
+    "onboardingSkipSetup": { "message": "跳過引導" },
+    "onboardingTplPlainName": { "message": "純文字" },
+    "onboardingTplPlainDesc": { "message": "標題和連結各占一行" },
+    "onboardingTplMarkdownName": { "message": "Markdown" },
+    "onboardingTplMarkdownDesc": { "message": "Markdown 格式的內嵌連結" },
+    "onboardingTplSmartName": { "message": "智慧複製" },
+    "onboardingTplSmartDesc": { "message": "帶引號的選取文字或標題 + 連結" },
+    "onboardingStepVerify": { "message": "驗證" },
+    "onboardingStepPreview": { "message": "預覽" }
 }

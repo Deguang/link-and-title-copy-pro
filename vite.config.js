@@ -138,6 +138,16 @@ export default defineConfig(({ command, mode }) => {
               },
             },
           },
+          {
+            entry: '/src/onboarding/onboarding.jsx',
+            filename: 'onboarding.html',
+            template: 'src/onboarding/onboarding.html',
+            injectOptions: {
+              data: {
+                title: 'Welcome - Copy Page Title and URL Pro',
+              },
+            },
+          },
         ],
       }),
       fileHandlingPlugin // Only copy static files during main build
@@ -149,6 +159,7 @@ export default defineConfig(({ command, mode }) => {
           options: resolve(__dirname, 'src/options/options.html'),
           offscreen: resolve(__dirname, 'src/offscreen/offscreen.html'),
           popup: resolve(__dirname, 'src/popup/popup.html'),
+          onboarding: resolve(__dirname, 'src/onboarding/onboarding.html'),
         },
         output: {
           entryFileNames: '[name].js',

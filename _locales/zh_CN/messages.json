@@ -242,5 +242,29 @@
     "toastFallback": {
         "message": "已复制 (Fallback)",
         "description": ""
-    }
+    },
+    "onboardingWelcomeTitle": { "message": "欢迎！" },
+    "onboardingWelcomeDesc": { "message": "一键复制链接和页面标题。按下快捷键确认它正常工作。" },
+    "onboardingDetected": { "message": "已检测到：" },
+    "onboardingListening": { "message": "按下快捷键确认\u2026" },
+    "onboardingConflictHint": { "message": "快捷键冲突？在设置中修改 \u2192" },
+    "onboardingItWorks": { "message": "\uD83C\uDF89 成功！" },
+    "onboardingReadyToUse": { "message": "快捷键已就绪" },
+    "onboardingContinue": { "message": "继续 \u2192" },
+    "onboardingSkipStep": { "message": "跳过此步 \u2192" },
+    "onboardingAllSet": { "message": "一切就绪！" },
+    "onboardingFormatsReady": { "message": "已准备好 $COUNT$ 种格式。按下快捷键预览。", "placeholders": { "count": { "content": "$1" } } },
+    "onboardingOutputPreview": { "message": "输出预览" },
+    "onboardingCopiedBadge": { "message": "\u2713 已复制！" },
+    "onboardingCustomize": { "message": "随时在设置中自定义格式" },
+    "onboardingStartCopying": { "message": "开始复制！" },
+    "onboardingSkipSetup": { "message": "跳过引导" },
+    "onboardingTplPlainName": { "message": "纯文本" },
+    "onboardingTplPlainDesc": { "message": "标题和链接各占一行" },
+    "onboardingTplMarkdownName": { "message": "Markdown" },
+    "onboardingTplMarkdownDesc": { "message": "Markdown 格式的内联链接" },
+    "onboardingTplSmartName": { "message": "智能复制" },
+    "onboardingTplSmartDesc": { "message": "带引号的选中文本或标题 + 链接" },
+    "onboardingStepVerify": { "message": "验证" },
+    "onboardingStepPreview": { "message": "预览" }
 }
