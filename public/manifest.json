@@ -10,7 +10,6 @@
     "contextMenus",
     "storage",
     "notifications",
-    "scripting",
     "offscreen"
   ],
   "action": {
