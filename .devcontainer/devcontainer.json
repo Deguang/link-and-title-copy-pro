@@ -1,0 +1,32 @@
+{
+  "name": "Link & Title Copy Pro",
+  "image": "mcr.microsoft.com/devcontainers/node:22",
+
+  "postCreateCommand": "npm install",
+
+  // Forward Vite dev server port (for landing page preview)
+  "forwardPorts": [5173],
+  "portsAttributes": {
+    "5173": {
+      "label": "Vite Dev Server",
+      "onAutoForward": "openPreview"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "dsznajder.es7-react-js-snippets",
+        "antfu.vite"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "eslint.validate": ["javascript", "javascriptreact"]
+      }
+    }
+  }
+}
