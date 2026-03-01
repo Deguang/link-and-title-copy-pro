@@ -59,12 +59,13 @@ Link&TitleCopyPro是一个可以同时复制浏览器标签页的标题和URL链
 
 ## Version History / 版本历史
 
-### v1.2.0
+### v1.2.1
 
 - Interactive onboarding page on first install / 首次安装时展示交互式引导页
 - OS detection with real-time shortcut validation / 自动检测系统并实时验证快捷键
 - Template preview with per-shortcut copy feedback / 模板预览，按下快捷键直接复制内容
 - Full i18n for onboarding (en, zh_CN, zh_TW, ja, ru, hi) / 引导页完整多语言支持
+- Remove unused scripting permission / 移除未使用的 scripting 权限
 
 ### v1.1.0
 
