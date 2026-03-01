@@ -2,7 +2,7 @@
   "name": "Link & Title Copy Pro",
   "image": "mcr.microsoft.com/devcontainers/node:22",
 
-  "postCreateCommand": "npm install",
+  "postCreateCommand": "npm install && npm install -g @anthropic-ai/claude-code",
 
   // Forward Vite dev server port (for landing page preview)
   "forwardPorts": [5173],
