@@ -6,6 +6,8 @@
   "main": "background.js",
   "scripts": {
     "dev": "vite",
+    "sync-version": "node scripts/sync-version.js",
+    "prebuild": "npm run sync-version",
     "build": "vite build && BUILD_TARGET=background vite build && BUILD_TARGET=content vite build",
     "release": "npm run build && ./scripts/release.sh",
     "publish-release": "./scripts/publish.sh",
