@@ -173,8 +173,8 @@ function Step1({ os, shortcutKeys, valState, onOpenSettings, onNext }) {
 
   const OS_ICONS = {
     mac: <svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>,
-    linux: <svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M20.581 19.049c-.55-.446-.336-1.431-.907-1.917.553-3.365-.997-6.331-2.845-8.232-1.551-1.595-1.639-3.743-1.194-5.377.376-1.381-.665-1.82-1.635-1.523-2.382.73-4.254 3.592-4.424 6.21-.081 1.263.234 2.66-.299 3.784-.494 1.044-1.961 1.555-2.36 2.632-.382 1.027.227 2.249.606 2.891.502.852 1.097 1.258 1.814 1.393.26.049.489.063.73.088.578.06 1.013.373 1.476.726.273.208.578.406.896.566 1.123.562 2.614.472 3.54-.226.67-.505 1.246-1.126 1.839-1.698.326-.314.648-.594.965-.837.303-.233.674-.361.948-.625l.073-.073c.29-.29.488-.556.563-.793.077-.24.053-.46-.083-.675-.177-.276-.485-.451-.857-.587z"/></svg>,
-    windows: <svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M3 12V6.75l6-1.32v6.48L3 12zm6.98.09l.02 6.63 6 .87V12.09h-6.02zM10 5.9L16 5v7.09h-6V5.9zM16.98 12.09V20l7.02.99V12.09h-7.02zM3 13.01V18.3l6 .97v-6.27l-6 .01z"/></svg>,
+    linux: <svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.424.424 0 00-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.132 1.884 1.071.771-.06 1.592-.536 2.257-1.306.631-.765 1.683-1.084 2.378-1.503.348-.199.629-.469.649-.853.023-.4-.2-.811-.714-1.376v-.097l-.003-.003c-.17-.2-.25-.535-.338-.926-.085-.401-.182-.786-.492-1.046h-.003c-.059-.054-.123-.067-.188-.135a.357.357 0 00-.19-.064c.431-1.278.264-2.55-.173-3.694-.533-1.41-1.465-2.638-2.175-3.483-.796-1.005-1.576-1.957-1.56-3.368.026-2.152.236-6.133-3.544-6.139zM10.68 8.945c.332 0 .733.065 1.216.399.293.2.523.269 1.052.468h.003c.255.136.405.266.478.399v-.131a.571.571 0 01.016.47c-.123.31-.516.643-1.063.842v.002c-.268.135-.501.333-.775.465-.276.135-.588.292-1.012.267a1.139 1.139 0 01-.448-.067 3.566 3.566 0 01-.322-.198c-.195-.135-.363-.332-.612-.465v-.005h-.005c-.4-.246-.616-.512-.686-.71-.07-.268-.005-.47.193-.6.224-.135.38-.271.483-.336.104-.074.143-.102.176-.131h.002v-.003c.169-.202.436-.47.839-.601.139-.036.294-.065.466-.065z"/></svg>,
+    windows: <svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-13.051-1.851"/></svg>,
   };
   const OS_LABELS = { mac: 'macOS', linux: 'Linux', windows: 'Windows' };
   const osIcon = OS_ICONS[os];
@@ -347,7 +347,7 @@ function Step2({ os, configs, selectedTpl, onSelect, onFinish }) {
             </div>
             {/* Per-template shortcut badge */}
             {tpl.shortcutKeys.length > 0 && (
-              <span className={`flex-shrink-0 inline-flex items-center gap-0.5 text-xs font-mono px-2 py-1 rounded-md border transition-all duration-300 ${
+              <span className={`flex-shrink-0 inline-flex items-center gap-1 text-[11px] font-mono px-2 py-1 rounded-md border whitespace-nowrap transition-all duration-300 ${
                 selectedTpl === i && keyState === 'success'
                   ? 'bg-green-600/20 border-green-500/40 text-green-400'
                   : selectedTpl === i
@@ -356,8 +356,8 @@ function Step2({ os, configs, selectedTpl, onSelect, onFinish }) {
               }`}>
                 {tpl.shortcutKeys.map((k, j) => (
                   <React.Fragment key={j}>
-                    {j > 0 && <span className="text-[10px] opacity-60">+</span>}
-                    <kbd className="inline-flex items-center justify-center w-4 h-4 leading-none text-center">{sym[k] ?? k}</kbd>
+                    {j > 0 && <span className="opacity-50">+</span>}
+                    <kbd className="inline-flex items-center justify-center leading-none">{sym[k] ?? k}</kbd>
                   </React.Fragment>
                 ))}
               </span>
@@ -411,7 +411,8 @@ function Onboarding() {
   // Init: detect OS, load shortcuts, optionally load dev lang override
   useEffect(() => {
     document.documentElement.classList.add('dark');
-    const detectedOs = detectOS();
+    const osOverride = new URLSearchParams(location.search).get('os');
+    const detectedOs = osOverride || detectOS();
     setOs(detectedOs);
 
     // Dev: ?lang=zh_CN overrides chrome.i18n at runtime
