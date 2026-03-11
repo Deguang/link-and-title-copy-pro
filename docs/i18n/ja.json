@@ -19,15 +19,30 @@
   "langSwitch": {
     "current": "日本語",
     "items": [
-      {"code": "index", "name": "EN"},
-      {"code": "zh", "name": "简中"},
-      {"code": "zh-TW", "name": "繁中"},
-      {"code": "ru", "name": "Русский"},
-      {"code": "hi", "name": "हिंदी"}
+      {
+        "code": "index",
+        "name": "EN"
+      },
+      {
+        "code": "zh",
+        "name": "简中"
+      },
+      {
+        "code": "zh-TW",
+        "name": "繁中"
+      },
+      {
+        "code": "ru",
+        "name": "Русский"
+      },
+      {
+        "code": "hi",
+        "name": "हिंदी"
+      }
     ]
   },
   "hero": {
-    "badge": "v1.2.1 リリース 🚀",
+    "badge": "v1.2.2 リリース 🚀",
     "title1": "よりスマートにコピー、",
     "title2": "より速くペースト。",
     "subtitle": "開発者と研究者のための究極のブラウザ拡張機能。URLをクリーンにし、Markdownを生成し、ワークフローをワンクリックで効率化。",
