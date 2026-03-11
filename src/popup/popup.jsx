@@ -2,8 +2,28 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { processTemplate } from '../utils/templateProcessor';
+import { getKeySymbols } from '../utils/shortcutFormatter';
 
 const STORAGE_KEY = 'CopyTitleAndUrlConfigs';
+const os = (navigator.userAgentData?.platform || navigator.platform || '').toLowerCase().includes('mac') ? 'mac' : 'windows';
+const sym = getKeySymbols(os);
+
+function ShortcutKeys({ shortcut }) {
+  if (!shortcut) return null;
+  const keys = shortcut.split('+');
+  return (
+    <span className="inline-flex items-center gap-0.5">
+      {keys.map((k, i) => (
+        <React.Fragment key={i}>
+          {i > 0 && <span className="text-slate-400 dark:text-slate-500 text-[10px]">+</span>}
+          <kbd className="inline-flex items-center justify-center px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-700 text-[11px] font-bold text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-600 min-w-[18px] h-5 leading-none">
+            {sym[k] ?? k}
+          </kbd>
+        </React.Fragment>
+      ))}
+    </span>
+  );
+}
 
 function Popup() {
   const [configs, setConfigs] = useState([]);
@@ -61,26 +81,19 @@ function Popup() {
       {/* List */}
       <div className="flex-1 overflow-y-auto space-y-2 pr-1">
         {configs.map((config, index) => (
-          <div 
+          <div
             key={index}
-            className="group relative flex items-center justify-between p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-blue-500 dark:hover:border-blue-500 hover:shadow-md transition-all duration-200"
+            className="group relative p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-blue-500 dark:hover:border-blue-500 hover:shadow-md transition-all duration-200 space-y-1.5"
           >
-            <div className="flex-1 min-w-0 mr-3">
-              <div className="flex items-center gap-2 mb-1">
-                <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-200 truncate">
-                   {config.description || `Template ${index + 1}`}
-                </h3>
-              </div>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-mono truncate bg-slate-50 dark:bg-slate-900/50 p-1 rounded border border-slate-100 dark:border-slate-800/50">
-                {processTemplate(config.template, { title: tabInfo.title || 'Example Title', url: tabInfo.url || 'https://example.com', selectedText: '...' })}
-              </p>
+            <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-200 truncate">
+               {config.description || `Template ${index + 1}`}
+            </h3>
+            <div>
+               <ShortcutKeys shortcut={config.shortcut} />
             </div>
-
-            <div className="flex flex-col items-end gap-1.5 flex-shrink-0">
-               <span className="inline-flex items-center justify-center px-2 py-1 rounded bg-slate-100 dark:bg-slate-700 text-xs font-bold text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-600 min-w-[20px]">
-                 {config.shortcut ? config.shortcut.replace('Command', '⌘').replace('Shift', '⇧').replace('Ctrl', '⌃').replace('Alt', '⌥').replace(/\+/g, '') : ''}
-               </span>
-            </div>
+            <p className="text-xs text-slate-500 dark:text-slate-400 font-mono whitespace-pre-wrap break-all bg-slate-50 dark:bg-slate-900/50 p-1 rounded border border-slate-100 dark:border-slate-800/50">
+              {processTemplate(config.template, { title: tabInfo.title || 'Example Title', url: tabInfo.url || 'https://example.com', selectedText: '' })}
+            </p>
           </div>
         ))}
         
@@ -94,8 +107,9 @@ function Popup() {
 
       {/* Footer */}
       <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center text-xs text-slate-400">
-         <span>v1.2.1</span>
+         <span>v1.2.2</span>
          <div className="flex gap-3">
+            <a href="https://github.com/Deguang/link-and-title-copy-pro/issues/new" target="_blank" rel="noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition">{chrome.i18n.getMessage('reportIssue') || "Feedback"}</a>
             <a href="https://app.lideguang.com/link-and-title-copy-pro/" target="_blank" rel="noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Website</a>
             <a href="https://github.com/Deguang/link-and-title-copy-pro" target="_blank" rel="noreferrer" className="hover:text-slate-600 dark:hover:text-slate-300 transition">GitHub</a>
          </div>

@@ -567,6 +567,14 @@ export default function Config() {
                             {t('addNewConfig')}
                         </button>
                     </div>
+
+                    <div className="mt-4 pt-3 border-t border-gray-200 flex-shrink-0 flex justify-between items-center text-xs text-gray-400">
+                        <div className="flex gap-4">
+                            <a href="https://github.com/Deguang/link-and-title-copy-pro/issues/new" target="_blank" rel="noreferrer" className="hover:text-blue-600 transition">
+                                {t('reportIssue')}
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

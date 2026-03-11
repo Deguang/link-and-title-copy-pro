@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import { getKeySymbols } from '../utils/shortcutFormatter';
 
 const STORAGE_KEY = 'CopyTitleAndUrlConfigs';
 
@@ -36,9 +37,6 @@ function detectOS() {
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
-const KEY_SYMBOLS = {
-  Command: '⌘', Ctrl: '⌃', Shift: '⇧', Alt: '⌥', Option: '⌥', Win: '⊞',
-};
 
 function buildPressedShortcut(e, isMac) {
   const mods = [];
@@ -53,25 +51,26 @@ function buildPressedShortcut(e, isMac) {
 
 // ── Reusable components ───────────────────────────────────────────────────────
 
-function KeyCap({ k, variant = 'default' }) {
+function KeyCap({ k, variant = 'default', os = 'windows' }) {
   const styles = {
     default: 'bg-slate-800 border-slate-700 text-slate-200',
     active:  'bg-blue-700 border-blue-900 text-white shadow-lg shadow-blue-500/20 key-active',
     success: 'bg-green-600 border-green-800 text-white shadow-lg shadow-green-500/20',
   };
+  const sym = getKeySymbols(os);
   return (
     <kbd className={`inline-flex items-center justify-center px-3 py-2 min-w-[48px] h-11 rounded-lg border-b-[3px] text-sm font-mono font-bold select-none transition-all duration-300 ${styles[variant]}`}>
-      {KEY_SYMBOLS[k] ?? k}
+      {sym[k] ?? k}
     </kbd>
   );
 }
 
-function ShortcutDisplay({ keys, variant = 'default', size = 'md' }) {
+function ShortcutDisplay({ keys, variant = 'default', size = 'md', os = 'windows' }) {
   return (
     <div className={`flex items-center gap-2 justify-center ${size === 'sm' ? 'scale-75 origin-center' : ''}`}>
       {keys.map((k, i) => (
         <React.Fragment key={i}>
-          <KeyCap k={k} variant={variant} />
+          <KeyCap k={k} variant={variant} os={os} />
           {i < keys.length - 1 && (
             <span className="text-slate-600 text-lg select-none font-light">+</span>
           )}
@@ -172,12 +171,14 @@ function Step1({ os, shortcutKeys, valState, onOpenSettings, onNext }) {
     return () => clearTimeout(t);
   }, [isListening]);
 
-  const OS_META = {
-    mac:     { label: 'macOS',   icon: '🍎' },
-    linux:   { label: 'Linux',   icon: '🐧' },
-    windows: { label: 'Windows', icon: '🪟' },
+  const OS_ICONS = {
+    mac: <svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>,
+    linux: <svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M20.581 19.049c-.55-.446-.336-1.431-.907-1.917.553-3.365-.997-6.331-2.845-8.232-1.551-1.595-1.639-3.743-1.194-5.377.376-1.381-.665-1.82-1.635-1.523-2.382.73-4.254 3.592-4.424 6.21-.081 1.263.234 2.66-.299 3.784-.494 1.044-1.961 1.555-2.36 2.632-.382 1.027.227 2.249.606 2.891.502.852 1.097 1.258 1.814 1.393.26.049.489.063.73.088.578.06 1.013.373 1.476.726.273.208.578.406.896.566 1.123.562 2.614.472 3.54-.226.67-.505 1.246-1.126 1.839-1.698.326-.314.648-.594.965-.837.303-.233.674-.361.948-.625l.073-.073c.29-.29.488-.556.563-.793.077-.24.053-.46-.083-.675-.177-.276-.485-.451-.857-.587z"/></svg>,
+    windows: <svg className="w-4 h-4 inline-block" viewBox="0 0 24 24" fill="currentColor"><path d="M3 12V6.75l6-1.32v6.48L3 12zm6.98.09l.02 6.63 6 .87V12.09h-6.02zM10 5.9L16 5v7.09h-6V5.9zM16.98 12.09V20l7.02.99V12.09h-7.02zM3 13.01V18.3l6 .97v-6.27l-6 .01z"/></svg>,
   };
-  const { label, icon } = OS_META[os];
+  const OS_LABELS = { mac: 'macOS', linux: 'Linux', windows: 'Windows' };
+  const osIcon = OS_ICONS[os];
+  const label = OS_LABELS[os];
   const keyCap = isSuccess ? 'success' : 'active';
 
   return (
@@ -191,13 +192,13 @@ function Step1({ os, shortcutKeys, valState, onOpenSettings, onNext }) {
       {/* OS badge */}
       <div className="flex justify-center mb-5">
         <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-green-400 bg-green-400/10 border border-green-400/20 px-2.5 py-1 rounded-full">
-          <span>✓</span> {t('onboardingDetected')} {icon} {label}
+          <span>✓</span> {t('onboardingDetected')} {osIcon} {label}
         </span>
       </div>
 
       {/* Key caps — always shown, animate to success */}
       <div className={`mb-6 transition-transform duration-300 ${isSuccess ? 'scale-110' : 'scale-100'}`}>
-        <ShortcutDisplay keys={shortcutKeys} variant={keyCap} />
+        <ShortcutDisplay keys={shortcutKeys} variant={keyCap} os={os} />
       </div>
 
       {/* Status */}
@@ -254,6 +255,7 @@ const EX_TITLE = 'Link & Title Copy Pro – GitHub';
 const EX_URL   = 'https://github.com/Deguang/link-and-title-copy-pro';
 
 function Step2({ os, configs, selectedTpl, onSelect, onFinish }) {
+  const sym = getKeySymbols(os);
   const [keyState, setKeyState] = useState('idle'); // 'idle' | 'success'
   const [copied,   setCopied]   = useState(false);
   const timerRef  = useRef(null);
@@ -322,7 +324,7 @@ function Step2({ os, configs, selectedTpl, onSelect, onFinish }) {
         {/* Shortcut display — updates per selection, flashes on keypress */}
         {current.shortcutKeys.length > 0 && (
           <div className={`transition-transform duration-200 ${keyState === 'success' ? 'scale-110' : 'scale-100'}`}>
-            <ShortcutDisplay keys={current.shortcutKeys} variant={keyCap} />
+            <ShortcutDisplay keys={current.shortcutKeys} variant={keyCap} os={os} />
           </div>
         )}
       </div>
@@ -345,14 +347,19 @@ function Step2({ os, configs, selectedTpl, onSelect, onFinish }) {
             </div>
             {/* Per-template shortcut badge */}
             {tpl.shortcutKeys.length > 0 && (
-              <span className={`flex-shrink-0 text-xs font-mono px-2 py-1 rounded-md border transition-all duration-300 ${
+              <span className={`flex-shrink-0 inline-flex items-center gap-0.5 text-xs font-mono px-2 py-1 rounded-md border transition-all duration-300 ${
                 selectedTpl === i && keyState === 'success'
                   ? 'bg-green-600/20 border-green-500/40 text-green-400'
                   : selectedTpl === i
                   ? 'bg-blue-600/20 border-blue-500/30 text-blue-300'
                   : 'bg-slate-800 border-slate-700 text-slate-500'
               }`}>
-                {tpl.shortcutKeys.map((k) => KEY_SYMBOLS[k] ?? k).join('')}
+                {tpl.shortcutKeys.map((k, j) => (
+                  <React.Fragment key={j}>
+                    {j > 0 && <span className="text-[10px] opacity-60">+</span>}
+                    <kbd className="inline-flex items-center justify-center w-4 h-4 leading-none text-center">{sym[k] ?? k}</kbd>
+                  </React.Fragment>
+                ))}
               </span>
             )}
           </button>
