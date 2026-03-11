@@ -266,5 +266,7 @@
     "onboardingTplSmartName": { "message": "智慧複製" },
     "onboardingTplSmartDesc": { "message": "帶引號的選取文字或標題 + 連結" },
     "onboardingStepVerify": { "message": "驗證" },
-    "onboardingStepPreview": { "message": "預覽" }
+    "onboardingStepPreview": { "message": "預覽" },
+    "reportIssue": { "message": "回報問題" },
+    "feedbackSurvey": { "message": "意見回饋 / 卸載問卷" }
 }

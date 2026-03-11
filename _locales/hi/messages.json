@@ -266,5 +266,7 @@
     "onboardingTplSmartName": { "message": "स्मार्ट कॉपी" },
     "onboardingTplSmartDesc": { "message": "उद्धृत चयनित पाठ या टाइटल + URL" },
     "onboardingStepVerify": { "message": "सत्यापन" },
-    "onboardingStepPreview": { "message": "प्रीव्यू" }
+    "onboardingStepPreview": { "message": "प्रीव्यू" },
+    "reportIssue": { "message": "समस्या रिपोर्ट करें" },
+    "feedbackSurvey": { "message": "फ़ीडबैक / अनइंस्टॉल सर्वे" }
 }

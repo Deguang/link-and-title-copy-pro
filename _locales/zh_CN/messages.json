@@ -266,5 +266,7 @@
     "onboardingTplSmartName": { "message": "智能复制" },
     "onboardingTplSmartDesc": { "message": "带引号的选中文本或标题 + 链接" },
     "onboardingStepVerify": { "message": "验证" },
-    "onboardingStepPreview": { "message": "预览" }
+    "onboardingStepPreview": { "message": "预览" },
+    "reportIssue": { "message": "报告问题" },
+    "feedbackSurvey": { "message": "反馈 / 卸载问卷" }
 }

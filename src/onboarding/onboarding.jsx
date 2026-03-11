@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import { getKeySymbols } from '../utils/shortcutFormatter';
 
 const STORAGE_KEY = 'CopyTitleAndUrlConfigs';
 
@@ -36,9 +37,6 @@ function detectOS() {
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
-const KEY_SYMBOLS = {
-  Command: '⌘', Ctrl: '⌃', Shift: '⇧', Alt: '⌥', Option: '⌥', Win: '⊞',
-};
 
 function buildPressedShortcut(e, isMac) {
   const mods = [];
@@ -53,25 +51,26 @@ function buildPressedShortcut(e, isMac) {
 
 // ── Reusable components ───────────────────────────────────────────────────────
 
-function KeyCap({ k, variant = 'default' }) {
+function KeyCap({ k, variant = 'default', os = 'windows' }) {
   const styles = {
     default: 'bg-slate-800 border-slate-700 text-slate-200',
     active:  'bg-blue-700 border-blue-900 text-white shadow-lg shadow-blue-500/20 key-active',
     success: 'bg-green-600 border-green-800 text-white shadow-lg shadow-green-500/20',
   };
+  const sym = getKeySymbols(os);
   return (
     <kbd className={`inline-flex items-center justify-center px-3 py-2 min-w-[48px] h-11 rounded-lg border-b-[3px] text-sm font-mono font-bold select-none transition-all duration-300 ${styles[variant]}`}>
-      {KEY_SYMBOLS[k] ?? k}
+      {sym[k] ?? k}
     </kbd>
   );
 }
 
-function ShortcutDisplay({ keys, variant = 'default', size = 'md' }) {
+function ShortcutDisplay({ keys, variant = 'default', size = 'md', os = 'windows' }) {
   return (
     <div className={`flex items-center gap-2 justify-center ${size === 'sm' ? 'scale-75 origin-center' : ''}`}>
       {keys.map((k, i) => (
         <React.Fragment key={i}>
-          <KeyCap k={k} variant={variant} />
+          <KeyCap k={k} variant={variant} os={os} />
           {i < keys.length - 1 && (
             <span className="text-slate-600 text-lg select-none font-light">+</span>
           )}
@@ -197,7 +196,7 @@ function Step1({ os, shortcutKeys, valState, onOpenSettings, onNext }) {
 
       {/* Key caps — always shown, animate to success */}
       <div className={`mb-6 transition-transform duration-300 ${isSuccess ? 'scale-110' : 'scale-100'}`}>
-        <ShortcutDisplay keys={shortcutKeys} variant={keyCap} />
+        <ShortcutDisplay keys={shortcutKeys} variant={keyCap} os={os} />
       </div>
 
       {/* Status */}
@@ -254,6 +253,7 @@ const EX_TITLE = 'Link & Title Copy Pro – GitHub';
 const EX_URL   = 'https://github.com/Deguang/link-and-title-copy-pro';
 
 function Step2({ os, configs, selectedTpl, onSelect, onFinish }) {
+  const sym = getKeySymbols(os);
   const [keyState, setKeyState] = useState('idle'); // 'idle' | 'success'
   const [copied,   setCopied]   = useState(false);
   const timerRef  = useRef(null);
@@ -322,7 +322,7 @@ function Step2({ os, configs, selectedTpl, onSelect, onFinish }) {
         {/* Shortcut display — updates per selection, flashes on keypress */}
         {current.shortcutKeys.length > 0 && (
           <div className={`transition-transform duration-200 ${keyState === 'success' ? 'scale-110' : 'scale-100'}`}>
-            <ShortcutDisplay keys={current.shortcutKeys} variant={keyCap} />
+            <ShortcutDisplay keys={current.shortcutKeys} variant={keyCap} os={os} />
           </div>
         )}
       </div>
@@ -352,7 +352,7 @@ function Step2({ os, configs, selectedTpl, onSelect, onFinish }) {
                   ? 'bg-blue-600/20 border-blue-500/30 text-blue-300'
                   : 'bg-slate-800 border-slate-700 text-slate-500'
               }`}>
-                {tpl.shortcutKeys.map((k) => KEY_SYMBOLS[k] ?? k).join('')}
+                {tpl.shortcutKeys.map((k) => sym[k] ?? k).join('')}
               </span>
             )}
           </button>

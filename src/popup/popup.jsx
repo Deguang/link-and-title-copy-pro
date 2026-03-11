@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { processTemplate } from '../utils/templateProcessor';
+import { formatShortcut } from '../utils/shortcutFormatter';
 
 const STORAGE_KEY = 'CopyTitleAndUrlConfigs';
+const isMac = (navigator.userAgentData?.platform || navigator.platform || '').toLowerCase().includes('mac');
 
 function Popup() {
   const [configs, setConfigs] = useState([]);
@@ -78,7 +80,7 @@ function Popup() {
 
             <div className="flex flex-col items-end gap-1.5 flex-shrink-0">
                <span className="inline-flex items-center justify-center px-2 py-1 rounded bg-slate-100 dark:bg-slate-700 text-xs font-bold text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-600 min-w-[20px]">
-                 {config.shortcut ? config.shortcut.replace('Command', '⌘').replace('Shift', '⇧').replace('Ctrl', '⌃').replace('Alt', '⌥').replace(/\+/g, '') : ''}
+                 {formatShortcut(config.shortcut, isMac)}
                </span>
             </div>
           </div>
@@ -94,10 +96,11 @@ function Popup() {
 
       {/* Footer */}
       <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center text-xs text-slate-400">
-         <span>v1.2.1</span>
+         <span>v1.2.2</span>
          <div className="flex gap-3">
             <a href="https://app.lideguang.com/link-and-title-copy-pro/" target="_blank" rel="noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Website</a>
             <a href="https://github.com/Deguang/link-and-title-copy-pro" target="_blank" rel="noreferrer" className="hover:text-slate-600 dark:hover:text-slate-300 transition">GitHub</a>
+            {/* <a href="https://buymeacoffee.com/lideguang" target="_blank" rel="noreferrer" className="hover:text-yellow-500 transition">☕</a> */}
          </div>
       </div>
     </div>

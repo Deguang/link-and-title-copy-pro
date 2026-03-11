@@ -266,5 +266,7 @@
     "onboardingTplSmartName": { "message": "Умное копирование" },
     "onboardingTplSmartDesc": { "message": "Выделенный текст в кавычках или заголовок + URL" },
     "onboardingStepVerify": { "message": "Проверка" },
-    "onboardingStepPreview": { "message": "Предпросмотр" }
+    "onboardingStepPreview": { "message": "Предпросмотр" },
+    "reportIssue": { "message": "Сообщить о проблеме" },
+    "feedbackSurvey": { "message": "Отзыв / Опрос при удалении" }
 }

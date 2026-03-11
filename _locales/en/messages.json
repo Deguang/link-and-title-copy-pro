@@ -266,5 +266,7 @@
     "onboardingTplSmartName": { "message": "Smart Copy" },
     "onboardingTplSmartDesc": { "message": "Quoted selection or title + URL" },
     "onboardingStepVerify": { "message": "Verify" },
-    "onboardingStepPreview": { "message": "Preview" }
+    "onboardingStepPreview": { "message": "Preview" },
+    "reportIssue": { "message": "Report an Issue" },
+    "feedbackSurvey": { "message": "Feedback / Uninstall Survey" }
 }

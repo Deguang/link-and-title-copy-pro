@@ -160,11 +160,29 @@ async function setupDefaultConfigs() {
   }
 }
 
+// Set uninstall survey URL — replace with your actual Google Form / Typeform URL
+// chrome.runtime.setUninstallURL('https://forms.gle/REPLACE_WITH_YOUR_FORM_ID');
+
 chrome.runtime.onInstalled.addListener(async (details) => {
   console.log('Extension installed/updated:', details.reason);
   if (details.reason === 'install' || details.reason === 'update') {
     await setupDefaultConfigs();
   }
+
+  // Inject content script into all already-open tabs so users don't need to refresh.
+  // Without this, pre-existing pages have no keydown listener and shortcuts fall through
+  // to the page/browser (e.g. triggering print dialogs on some sites).
+  chrome.tabs.query({ url: ['http://*/*', 'https://*/*'] }, (tabs) => {
+    for (const tab of tabs) {
+      chrome.scripting.executeScript({
+        target: { tabId: tab.id, allFrames: true },
+        files: ['content.js'],
+      }).catch(() => {
+        // Silently ignore tabs that reject injection (e.g. chrome:// pages, PDFs)
+      });
+    }
+  });
+
   if (details.reason === 'install') {
     chrome.tabs.create({ url: chrome.runtime.getURL('onboarding.html') });
   }
