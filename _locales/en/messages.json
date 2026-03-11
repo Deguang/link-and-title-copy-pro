@@ -268,5 +268,8 @@
     "onboardingStepVerify": { "message": "Verify" },
     "onboardingStepPreview": { "message": "Preview" },
     "reportIssue": { "message": "Report an Issue" },
-    "feedbackSurvey": { "message": "Feedback / Uninstall Survey" }
+    "feedbackSurvey": { "message": "Feedback / Uninstall Survey" },
+    "defaultDescPlain": { "message": "Copy selected text (or title) and URL" },
+    "defaultDescMarkdown": { "message": "Copy as Markdown link" },
+    "defaultDescSmart": { "message": "Smart copy with quotes for selected text" }
 }

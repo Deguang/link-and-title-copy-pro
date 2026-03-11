@@ -84,6 +84,22 @@ const clean = await session.prompt(
 
 ---
 
+### 6. Side Panel 替代 Popup + Options
+
+**背景**：当前 popup 空间有限（350px 宽），且点击外部会关闭；Options 是独立页面，操作割裂。
+
+- 使用 Chrome **Side Panel API**（Chrome 114+）在浏览器右侧打开持久面板
+- 合并 popup 预览列表 + options 编辑功能到同一个面板
+- 不会意外关闭，空间更大（约 300-500px 宽，全高）
+- 点击扩展图标打开 side panel 而非 popup
+
+**改动范围**：
+- manifest.json 添加 `side_panel` 配置
+- 新建 side panel 页面，整合 popup + options 功能
+- 点击扩展图标触发 `chrome.sidePanel.open()`
+
+---
+
 ### 优先级参考
 
 | 功能 | 依赖 | 难度 | 用户价值 |
@@ -93,3 +109,4 @@ const clean = await session.prompt(
 | 标题清洗 | Chrome 内置 AI | 中 | 中 |
 | 自然语言生成模板 | Chrome 内置 AI | 中 | 中 |
 | 选中文本摘要 | Chrome 内置 AI | 中 | 中（重度笔记用户）|
+| Side Panel 合并 UI | Chrome 114+ | 中 | 高 |

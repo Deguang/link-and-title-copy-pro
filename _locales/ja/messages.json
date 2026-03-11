@@ -268,5 +268,8 @@
     "onboardingStepVerify": { "message": "確認" },
     "onboardingStepPreview": { "message": "プレビュー" },
     "reportIssue": { "message": "問題を報告" },
-    "feedbackSurvey": { "message": "フィードバック / アンインストールアンケート" }
+    "feedbackSurvey": { "message": "フィードバック / アンインストールアンケート" },
+    "defaultDescPlain": { "message": "選択テキスト（またはタイトル）とURLをコピー" },
+    "defaultDescMarkdown": { "message": "Markdownリンクとしてコピー" },
+    "defaultDescSmart": { "message": "スマートコピー：選択テキストを引用付きでコピー" }
 }

@@ -268,5 +268,8 @@
     "onboardingStepVerify": { "message": "सत्यापन" },
     "onboardingStepPreview": { "message": "प्रीव्यू" },
     "reportIssue": { "message": "समस्या रिपोर्ट करें" },
-    "feedbackSurvey": { "message": "फ़ीडबैक / अनइंस्टॉल सर्वे" }
+    "feedbackSurvey": { "message": "फ़ीडबैक / अनइंस्टॉल सर्वे" },
+    "defaultDescPlain": { "message": "चयनित पाठ (या टाइटल) और URL कॉपी करें" },
+    "defaultDescMarkdown": { "message": "Markdown लिंक के रूप में कॉपी करें" },
+    "defaultDescSmart": { "message": "स्मार्ट कॉपी: चयनित पाठ उद्धरण के साथ" }
 }

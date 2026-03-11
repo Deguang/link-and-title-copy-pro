@@ -43,59 +43,29 @@ async function getOrCreateClientId() {
   return clientId;
 }
 
-const DEFAULT_CONFIGS = [
-  {
-    windows: {
-      shortcut: 'Ctrl+Shift+P',
-      template: '{selectedText|title}\n{url}',
-      description: 'Copy selected text (or title) and URL'
+function getDefaultConfigs() {
+  const descPlain = chrome.i18n.getMessage('defaultDescPlain') || 'Copy selected text (or title) and URL';
+  const descMarkdown = chrome.i18n.getMessage('defaultDescMarkdown') || 'Copy as Markdown link';
+  const descSmart = chrome.i18n.getMessage('defaultDescSmart') || 'Smart copy with quotes for selected text';
+
+  return [
+    {
+      windows: { shortcut: 'Ctrl+Shift+P', template: '{selectedText|title}\n{url}', description: descPlain },
+      mac:     { shortcut: 'Command+Shift+P', template: '{selectedText|title}\n{url}', description: descPlain },
+      linux:   { shortcut: 'Ctrl+Shift+P', template: '{selectedText|title}\n{url}', description: descPlain }
     },
-    mac: {
-      shortcut: 'Command+Shift+P',
-      template: '{selectedText|title}\n{url}',
-      description: 'Copy selected text (or title) and URL'
+    {
+      windows: { shortcut: 'Ctrl+Shift+O', template: '[{selectedText|title}]({url})', description: descMarkdown },
+      mac:     { shortcut: 'Command+Shift+O', template: '[{selectedText|title}]({url})', description: descMarkdown },
+      linux:   { shortcut: 'Ctrl+Shift+O', template: '[{selectedText|title}]({url})', description: descMarkdown }
     },
-    linux: {
-      shortcut: 'Ctrl+Shift+P',
-      template: '{selectedText|title}\n{url}',
-      description: 'Copy selected text (or title) and URL'
+    {
+      windows: { shortcut: 'Ctrl+Shift+U', template: '{if:selectedText}"{selectedText}" - {title}\n{url}{/if:selectedText}{if:noSelectedText}{title}\n{url}{/if:noSelectedText}', description: descSmart },
+      mac:     { shortcut: 'Command+Shift+U', template: '{if:selectedText}"{selectedText}" - {title}\n{url}{/if:selectedText}{if:noSelectedText}{title}\n{url}{/if:noSelectedText}', description: descSmart },
+      linux:   { shortcut: 'Ctrl+Shift+U', template: '{if:selectedText}"{selectedText}" - {title}\n{url}{/if:selectedText}{if:noSelectedText}{title}\n{url}{/if:noSelectedText}', description: descSmart }
     }
-  },
-  {
-    windows: {
-      shortcut: 'Ctrl+Shift+O',
-      template: '[{selectedText|title}]({url})',
-      description: 'Copy as Markdown link'
-    },
-    mac: {
-      shortcut: 'Command+Shift+O',
-      template: '[{selectedText|title}]({url})',
-      description: 'Copy as Markdown link'
-    },
-    linux: {
-      shortcut: 'Ctrl+Shift+O',
-      template: '[{selectedText|title}]({url})',
-      description: 'Copy as Markdown link'
-    }
-  },
-  {
-    windows: {
-      shortcut: 'Ctrl+Shift+U',
-      template: '{if:selectedText}"{selectedText}" - {title}\n{url}{/if:selectedText}{if:noSelectedText}{title}\n{url}{/if:noSelectedText}',
-      description: 'Smart copy with quotes for selected text'
-    },
-    mac: {
-      shortcut: 'Command+Shift+U',
-      template: '{if:selectedText}"{selectedText}" - {title}\n{url}{/if:selectedText}{if:noSelectedText}{title}\n{url}{/if:noSelectedText}',
-      description: 'Smart copy with quotes for selected text'
-    },
-    linux: {
-      shortcut: 'Ctrl+Shift+U',
-      template: '{if:selectedText}"{selectedText}" - {title}\n{url}{/if:selectedText}{if:noSelectedText}{title}\n{url}{/if:noSelectedText}',
-      description: 'Smart copy with quotes for selected text'
-    }
-  }
-];
+  ];
+}
 
 let configuredShortcuts = [];
 
@@ -138,7 +108,7 @@ async function setupDefaultConfigs() {
       }
 
       if (!result[STORAGE_KEY] || !Array.isArray(result[STORAGE_KEY]) || result[STORAGE_KEY].length === 0) {
-        const platformConfigs = DEFAULT_CONFIGS.map(config => {
+        const platformConfigs = getDefaultConfigs().map(config => {
           return config[platform] || config.windows;
         });
 

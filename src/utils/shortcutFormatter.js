@@ -15,10 +15,8 @@ export function formatShortcut(shortcut, isMac) {
   if (isMac) {
     return shortcut
       .replace('Command', '⌘').replace('Ctrl', '⌃')
-      .replace('Shift', '⇧').replace(/Alt|Option/g, '⌥')
-      .replace(/\+/g, '');
+      .replace('Shift', '⇧').replace(/Alt|Option/g, '⌥');
   }
   return shortcut
-    .replace('Command', '⌘').replace('Win', '⊞')
-    .replace(/\+/g, ' ');
+    .replace('Command', '⌘').replace('Win', '⊞');
 }

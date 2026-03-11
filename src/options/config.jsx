@@ -573,13 +573,7 @@ export default function Config() {
                             <a href="https://github.com/Deguang/link-and-title-copy-pro/issues/new" target="_blank" rel="noreferrer" className="hover:text-blue-600 transition">
                                 {t('reportIssue')}
                             </a>
-                            <a href="https://forms.gle/REPLACE_WITH_YOUR_FORM_ID" target="_blank" rel="noreferrer" className="hover:text-blue-600 transition">
-                                {t('feedbackSurvey')}
-                            </a>
                         </div>
-                        {/* <a href="https://buymeacoffee.com/lideguang" target="_blank" rel="noreferrer" className="hover:text-yellow-500 transition">
-                            ☕ Buy me a coffee
-                        </a> */}
                     </div>
                 </div>
             </div>

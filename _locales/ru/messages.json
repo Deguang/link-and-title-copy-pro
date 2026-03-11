@@ -268,5 +268,8 @@
     "onboardingStepVerify": { "message": "Проверка" },
     "onboardingStepPreview": { "message": "Предпросмотр" },
     "reportIssue": { "message": "Сообщить о проблеме" },
-    "feedbackSurvey": { "message": "Отзыв / Опрос при удалении" }
+    "feedbackSurvey": { "message": "Отзыв / Опрос при удалении" },
+    "defaultDescPlain": { "message": "Копировать выделенный текст (или заголовок) и URL" },
+    "defaultDescMarkdown": { "message": "Копировать как Markdown-ссылку" },
+    "defaultDescSmart": { "message": "Умное копирование: выделение в кавычках" }
 }

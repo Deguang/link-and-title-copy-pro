@@ -268,5 +268,8 @@
     "onboardingStepVerify": { "message": "驗證" },
     "onboardingStepPreview": { "message": "預覽" },
     "reportIssue": { "message": "回報問題" },
-    "feedbackSurvey": { "message": "意見回饋 / 卸載問卷" }
+    "feedbackSurvey": { "message": "意見回饋 / 卸載問卷" },
+    "defaultDescPlain": { "message": "複製選取文字（或標題）和連結" },
+    "defaultDescMarkdown": { "message": "複製為 Markdown 連結" },
+    "defaultDescSmart": { "message": "智慧複製：選取文字加引號" }
 }
