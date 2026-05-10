@@ -1,5 +1,7 @@
 *.zip
 /node_modules
 /dist
+/memory
+/releases
 .DS_Store
 .env

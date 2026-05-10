@@ -130,8 +130,24 @@ async function setupDefaultConfigs() {
   }
 }
 
-// Set uninstall survey URL — replace with your actual Google Form / Typeform URL
-// chrome.runtime.setUninstallURL('https://forms.gle/REPLACE_WITH_YOUR_FORM_ID');
+// Set uninstall survey URL with language detection
+function setUninstallSurveyURL() {
+  const uiLang = chrome.i18n.getUILanguage().toLowerCase(); // e.g. "zh-cn", "ja", "en-us"
+  const langMap = {
+    'zh-cn': 'ZH-CN',
+    'zh-tw': 'ZH-TW',
+    'zh-hk': 'ZH-TW',
+    'ja': 'JA',
+    'ru': 'RU',
+    'hi': 'HI',
+  };
+  // Exact match first, then prefix match (e.g. "ja-JP" → "ja"), fallback to EN
+  const lang = langMap[uiLang] || langMap[uiLang.split('-')[0]] || 'EN';
+  chrome.runtime.setUninstallURL(
+    `https://page.lideguang.com/s/copy-page-title-and-url-uninstall-report?lang=${lang}`
+  );
+}
+setUninstallSurveyURL();
 
 chrome.runtime.onInstalled.addListener(async (details) => {
   console.log('Extension installed/updated:', details.reason);
