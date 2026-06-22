@@ -1,6 +1,7 @@
 // 直接定义常量和默认配置，而不是导入
 const STORAGE_KEY = 'CopyTitleAndUrlConfigs';
 import { processTemplate } from '../utils/templateProcessor';
+import { WHATS_NEW_KEY, WHATS_NEW_VERSION } from '../constant';
 
 // Google Analytics Measurement Protocol configuration
 const GA_MEASUREMENT_ID = 'G-49HSQQVZ1F';
@@ -55,9 +56,9 @@ function getDefaultConfigs() {
       linux:   { shortcut: 'Ctrl+Shift+P', template: '{selectedText|title}\n{url}', description: descPlain }
     },
     {
-      windows: { shortcut: 'Ctrl+Shift+O', template: '[{selectedText|title}]({url})', description: descMarkdown },
-      mac:     { shortcut: 'Command+Shift+O', template: '[{selectedText|title}]({url})', description: descMarkdown },
-      linux:   { shortcut: 'Ctrl+Shift+O', template: '[{selectedText|title}]({url})', description: descMarkdown }
+      windows: { shortcut: 'Ctrl+Shift+L', template: '[{selectedText|title}]({url})', description: descMarkdown },
+      mac:     { shortcut: 'Command+Shift+L', template: '[{selectedText|title}]({url})', description: descMarkdown },
+      linux:   { shortcut: 'Ctrl+Shift+L', template: '[{selectedText|title}]({url})', description: descMarkdown }
     },
     {
       windows: { shortcut: 'Ctrl+Shift+U', template: '{if:selectedText}"{selectedText}" - {title}\n{url}{/if:selectedText}{if:noSelectedText}{title}\n{url}{/if:noSelectedText}', description: descSmart },
@@ -170,7 +171,17 @@ chrome.runtime.onInstalled.addListener(async (details) => {
   });
 
   if (details.reason === 'install') {
+    // New users get onboarding, not the what's-new nudge.
+    chrome.storage.local.set({ [WHATS_NEW_KEY]: WHATS_NEW_VERSION });
     chrome.tabs.create({ url: chrome.runtime.getURL('onboarding.html') });
+  } else if (details.reason === 'update') {
+    // Existing users: badge the toolbar icon if they haven't seen this version's update.
+    chrome.storage.local.get(WHATS_NEW_KEY, (r) => {
+      if (r[WHATS_NEW_KEY] !== WHATS_NEW_VERSION) {
+        chrome.action.setBadgeText({ text: 'NEW' });
+        chrome.action.setBadgeBackgroundColor({ color: '#f59e0b' });
+      }
+    });
   }
 });
 

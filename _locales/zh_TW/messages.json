@@ -243,33 +243,168 @@
         "message": "已複製（Fallback）",
         "description": ""
     },
-    "onboardingWelcomeTitle": { "message": "歡迎！" },
-    "onboardingWelcomeDesc": { "message": "一鍵複製連結和頁面標題。按下快速鍵確認正常運作。" },
-    "onboardingDetected": { "message": "已偵測到：" },
-    "onboardingListening": { "message": "按下快速鍵確認\u2026" },
-    "onboardingConflictHint": { "message": "快速鍵衝突？在設定中修改 \u2192" },
-    "onboardingItWorks": { "message": "\uD83C\uDF89 成功！" },
-    "onboardingReadyToUse": { "message": "快速鍵已就緒" },
-    "onboardingContinue": { "message": "繼續 \u2192" },
-    "onboardingSkipStep": { "message": "跳過此步 \u2192" },
-    "onboardingAllSet": { "message": "一切就緒！" },
-    "onboardingFormatsReady": { "message": "已準備好 $COUNT$ 種格式。按下快速鍵預覽。", "placeholders": { "count": { "content": "$1" } } },
-    "onboardingOutputPreview": { "message": "輸出預覽" },
-    "onboardingCopiedBadge": { "message": "\u2713 已複製！" },
-    "onboardingCustomize": { "message": "隨時在設定中自訂格式" },
-    "onboardingStartCopying": { "message": "開始複製！" },
-    "onboardingSkipSetup": { "message": "跳過引導" },
-    "onboardingTplPlainName": { "message": "純文字" },
-    "onboardingTplPlainDesc": { "message": "標題和連結各占一行" },
-    "onboardingTplMarkdownName": { "message": "Markdown" },
-    "onboardingTplMarkdownDesc": { "message": "Markdown 格式的內嵌連結" },
-    "onboardingTplSmartName": { "message": "智慧複製" },
-    "onboardingTplSmartDesc": { "message": "帶引號的選取文字或標題 + 連結" },
-    "onboardingStepVerify": { "message": "驗證" },
-    "onboardingStepPreview": { "message": "預覽" },
-    "reportIssue": { "message": "回報問題" },
-    "feedbackSurvey": { "message": "意見回饋 / 卸載問卷" },
-    "defaultDescPlain": { "message": "複製選取文字（或標題）和連結" },
-    "defaultDescMarkdown": { "message": "複製為 Markdown 連結" },
-    "defaultDescSmart": { "message": "智慧複製：選取文字加引號" }
+    "onboardingWelcomeTitle": {
+        "message": "歡迎！"
+    },
+    "onboardingWelcomeDesc": {
+        "message": "一鍵複製連結和頁面標題。按下快速鍵確認正常運作。"
+    },
+    "onboardingDetected": {
+        "message": "已偵測到："
+    },
+    "onboardingListening": {
+        "message": "按下快速鍵確認…"
+    },
+    "onboardingConflictHint": {
+        "message": "快速鍵衝突？在設定中修改 →"
+    },
+    "onboardingItWorks": {
+        "message": "🎉 成功！"
+    },
+    "onboardingReadyToUse": {
+        "message": "快速鍵已就緒"
+    },
+    "onboardingContinue": {
+        "message": "繼續 →"
+    },
+    "onboardingSkipStep": {
+        "message": "跳過此步 →"
+    },
+    "onboardingAllSet": {
+        "message": "一切就緒！"
+    },
+    "onboardingFormatsReady": {
+        "message": "已準備好 $COUNT$ 種格式。按下快速鍵預覽。",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
+    "onboardingOutputPreview": {
+        "message": "輸出預覽"
+    },
+    "onboardingCopiedBadge": {
+        "message": "✓ 已複製！"
+    },
+    "onboardingCustomize": {
+        "message": "隨時在設定中自訂格式"
+    },
+    "onboardingStartCopying": {
+        "message": "開始複製！"
+    },
+    "onboardingSkipSetup": {
+        "message": "跳過引導"
+    },
+    "onboardingTplPlainName": {
+        "message": "純文字"
+    },
+    "onboardingTplPlainDesc": {
+        "message": "標題和連結各占一行"
+    },
+    "onboardingTplMarkdownName": {
+        "message": "Markdown"
+    },
+    "onboardingTplMarkdownDesc": {
+        "message": "Markdown 格式的內嵌連結"
+    },
+    "onboardingTplSmartName": {
+        "message": "智慧複製"
+    },
+    "onboardingTplSmartDesc": {
+        "message": "帶引號的選取文字或標題 + 連結"
+    },
+    "onboardingStepVerify": {
+        "message": "驗證"
+    },
+    "onboardingStepPreview": {
+        "message": "預覽"
+    },
+    "reportIssue": {
+        "message": "回報問題"
+    },
+    "feedbackSurvey": {
+        "message": "意見回饋 / 卸載問卷"
+    },
+    "defaultDescPlain": {
+        "message": "複製選取文字（或標題）和連結"
+    },
+    "defaultDescMarkdown": {
+        "message": "複製為 Markdown 連結"
+    },
+    "defaultDescSmart": {
+        "message": "智慧複製：選取文字加引號"
+    },
+    "batchCurrentTab": {
+        "message": "目前分頁"
+    },
+    "batchAllTabs": {
+        "message": "所有分頁"
+    },
+    "batchFormat": {
+        "message": "複製格式"
+    },
+    "batchSelectAll": {
+        "message": "全選"
+    },
+    "batchCopyButton": {
+        "message": "複製"
+    },
+    "batchCopied": {
+        "message": "已複製 $COUNT$ 個分頁！",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
+    "batchNoTabs": {
+        "message": "目前視窗沒有可複製的分頁"
+    },
+    "batchUpsellDesc": {
+        "message": "免費版一次最多複製 $LIMIT$ 個分頁。升級 Pro 可一次複製全部分頁。",
+        "placeholders": {
+            "limit": {
+                "content": "$1"
+            }
+        }
+    },
+    "batchUpgrade": {
+        "message": "升級到 Pro"
+    },
+    "licenseSectionTitle": {
+        "message": "啟用 Pro"
+    },
+    "licenseActivated": {
+        "message": "Pro 已啟用"
+    },
+    "licenseEnterKey": {
+        "message": "貼上你的授權金鑰"
+    },
+    "licenseActivate": {
+        "message": "啟用"
+    },
+    "licenseDeactivate": {
+        "message": "取消啟用"
+    },
+    "licenseInvalid": {
+        "message": "無效的授權金鑰"
+    },
+    "licenseBuyPro": {
+        "message": "購買 Pro"
+    },
+    "licenseComingSoon": {
+        "message": "Pro · 即將推出"
+    },
+    "batchUpsellWaiting": {
+        "message": "一次複製超過 $LIMIT$ 個分頁將是 Pro 功能，即將開放。",
+        "placeholders": {
+            "limit": {
+                "content": "$1"
+            }
+        }
+    },
+    "shortcutConflictHint": {
+        "message": "此快捷鍵可能與瀏覽器快捷鍵衝突，點擊「編輯」可修改。"
+    }
 }

@@ -243,33 +243,168 @@
         "message": "コピー完了（フォールバック）",
         "description": ""
     },
-    "onboardingWelcomeTitle": { "message": "ようこそ！" },
-    "onboardingWelcomeDesc": { "message": "ショートカット一つでリンクとページタイトルをコピー。ショートカットを押して動作確認しましょう。" },
-    "onboardingDetected": { "message": "検出済み：" },
-    "onboardingListening": { "message": "ショートカットを押して確認\u2026" },
-    "onboardingConflictHint": { "message": "ショートカットが競合？設定で変更 \u2192" },
-    "onboardingItWorks": { "message": "\uD83C\uDF89 動作確認完了！" },
-    "onboardingReadyToUse": { "message": "ショートカットが使えます" },
-    "onboardingContinue": { "message": "次へ \u2192" },
-    "onboardingSkipStep": { "message": "このステップをスキップ \u2192" },
-    "onboardingAllSet": { "message": "準備完了！" },
-    "onboardingFormatsReady": { "message": "$COUNT$ 種類のフォーマットが利用可能。ショートカットを押してプレビュー。", "placeholders": { "count": { "content": "$1" } } },
-    "onboardingOutputPreview": { "message": "出力プレビュー" },
-    "onboardingCopiedBadge": { "message": "\u2713 コピー済み！" },
-    "onboardingCustomize": { "message": "設定でいつでもフォーマットをカスタマイズ" },
-    "onboardingStartCopying": { "message": "コピー開始！" },
-    "onboardingSkipSetup": { "message": "セットアップをスキップ" },
-    "onboardingTplPlainName": { "message": "プレーンテキスト" },
-    "onboardingTplPlainDesc": { "message": "タイトルとURLを別々の行に" },
-    "onboardingTplMarkdownName": { "message": "Markdown" },
-    "onboardingTplMarkdownDesc": { "message": "Markdown形式のインラインリンク" },
-    "onboardingTplSmartName": { "message": "スマートコピー" },
-    "onboardingTplSmartDesc": { "message": "引用付き選択テキストまたはタイトル + URL" },
-    "onboardingStepVerify": { "message": "確認" },
-    "onboardingStepPreview": { "message": "プレビュー" },
-    "reportIssue": { "message": "問題を報告" },
-    "feedbackSurvey": { "message": "フィードバック / アンインストールアンケート" },
-    "defaultDescPlain": { "message": "選択テキスト（またはタイトル）とURLをコピー" },
-    "defaultDescMarkdown": { "message": "Markdownリンクとしてコピー" },
-    "defaultDescSmart": { "message": "スマートコピー：選択テキストを引用付きでコピー" }
+    "onboardingWelcomeTitle": {
+        "message": "ようこそ！"
+    },
+    "onboardingWelcomeDesc": {
+        "message": "ショートカット一つでリンクとページタイトルをコピー。ショートカットを押して動作確認しましょう。"
+    },
+    "onboardingDetected": {
+        "message": "検出済み："
+    },
+    "onboardingListening": {
+        "message": "ショートカットを押して確認…"
+    },
+    "onboardingConflictHint": {
+        "message": "ショートカットが競合？設定で変更 →"
+    },
+    "onboardingItWorks": {
+        "message": "🎉 動作確認完了！"
+    },
+    "onboardingReadyToUse": {
+        "message": "ショートカットが使えます"
+    },
+    "onboardingContinue": {
+        "message": "次へ →"
+    },
+    "onboardingSkipStep": {
+        "message": "このステップをスキップ →"
+    },
+    "onboardingAllSet": {
+        "message": "準備完了！"
+    },
+    "onboardingFormatsReady": {
+        "message": "$COUNT$ 種類のフォーマットが利用可能。ショートカットを押してプレビュー。",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
+    "onboardingOutputPreview": {
+        "message": "出力プレビュー"
+    },
+    "onboardingCopiedBadge": {
+        "message": "✓ コピー済み！"
+    },
+    "onboardingCustomize": {
+        "message": "設定でいつでもフォーマットをカスタマイズ"
+    },
+    "onboardingStartCopying": {
+        "message": "コピー開始！"
+    },
+    "onboardingSkipSetup": {
+        "message": "セットアップをスキップ"
+    },
+    "onboardingTplPlainName": {
+        "message": "プレーンテキスト"
+    },
+    "onboardingTplPlainDesc": {
+        "message": "タイトルとURLを別々の行に"
+    },
+    "onboardingTplMarkdownName": {
+        "message": "Markdown"
+    },
+    "onboardingTplMarkdownDesc": {
+        "message": "Markdown形式のインラインリンク"
+    },
+    "onboardingTplSmartName": {
+        "message": "スマートコピー"
+    },
+    "onboardingTplSmartDesc": {
+        "message": "引用付き選択テキストまたはタイトル + URL"
+    },
+    "onboardingStepVerify": {
+        "message": "確認"
+    },
+    "onboardingStepPreview": {
+        "message": "プレビュー"
+    },
+    "reportIssue": {
+        "message": "問題を報告"
+    },
+    "feedbackSurvey": {
+        "message": "フィードバック / アンインストールアンケート"
+    },
+    "defaultDescPlain": {
+        "message": "選択テキスト（またはタイトル）とURLをコピー"
+    },
+    "defaultDescMarkdown": {
+        "message": "Markdownリンクとしてコピー"
+    },
+    "defaultDescSmart": {
+        "message": "スマートコピー：選択テキストを引用付きでコピー"
+    },
+    "batchCurrentTab": {
+        "message": "現在のタブ"
+    },
+    "batchAllTabs": {
+        "message": "すべてのタブ"
+    },
+    "batchFormat": {
+        "message": "コピー形式"
+    },
+    "batchSelectAll": {
+        "message": "すべて選択"
+    },
+    "batchCopyButton": {
+        "message": "コピー"
+    },
+    "batchCopied": {
+        "message": "$COUNT$ 件のタブをコピーしました！",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
+    "batchNoTabs": {
+        "message": "このウィンドウにコピー可能なタブがありません"
+    },
+    "batchUpsellDesc": {
+        "message": "無料プランは一度に最大$LIMIT$タブまでコピーできます。Proにアップグレードすると全タブを一括コピーできます。",
+        "placeholders": {
+            "limit": {
+                "content": "$1"
+            }
+        }
+    },
+    "batchUpgrade": {
+        "message": "Proにアップグレード"
+    },
+    "licenseSectionTitle": {
+        "message": "Proを有効化"
+    },
+    "licenseActivated": {
+        "message": "Pro有効"
+    },
+    "licenseEnterKey": {
+        "message": "ライセンスキーを貼り付け"
+    },
+    "licenseActivate": {
+        "message": "有効化"
+    },
+    "licenseDeactivate": {
+        "message": "無効化"
+    },
+    "licenseInvalid": {
+        "message": "無効なライセンスキー"
+    },
+    "licenseBuyPro": {
+        "message": "Proを購入"
+    },
+    "licenseComingSoon": {
+        "message": "Pro · 近日公開"
+    },
+    "batchUpsellWaiting": {
+        "message": "一度に$LIMIT$タブを超えるコピーはPro機能になります（近日公開）。",
+        "placeholders": {
+            "limit": {
+                "content": "$1"
+            }
+        }
+    },
+    "shortcutConflictHint": {
+        "message": "このショートカットはブラウザのショートカットと競合する可能性があります。「編集」で変更できます。"
+    }
 }

@@ -2,6 +2,12 @@
 
 export const STORAGE_KEY = 'CopyTitleAndUrlConfigs';
 
+// "What's new" nudge: bump WHATS_NEW_VERSION when a release adds a user-facing
+// feature worth pointing existing users at. Stored value = last version the user
+// acknowledged. New installs are set to current (they get onboarding instead).
+export const WHATS_NEW_KEY = 'whatsNewSeenVersion';
+export const WHATS_NEW_VERSION = '1.4.0';
+
 export const DEFAULT_CONFIGS = [
   {
     windows: { shortcut: 'Ctrl+Shift+P', template: '{title}\n{url}' },
@@ -9,8 +15,8 @@ export const DEFAULT_CONFIGS = [
     linux: { shortcut: 'Ctrl+Shift+P', template: '{title}\n{url}' }
   },
   {
-    windows: { shortcut: 'Ctrl+Shift+O', template: '[{title}]({url})' },
-    mac: { shortcut: 'Command+Shift+O', template: '[{title}]({url})' },
-    linux: { shortcut: 'Ctrl+Shift+O', template: '[{title}]({url})' }
+    windows: { shortcut: 'Ctrl+Shift+L', template: '[{title}]({url})' },
+    mac: { shortcut: 'Command+Shift+L', template: '[{title}]({url})' },
+    linux: { shortcut: 'Ctrl+Shift+L', template: '[{title}]({url})' }
   }
 ];

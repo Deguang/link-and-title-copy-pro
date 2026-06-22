@@ -243,33 +243,168 @@
         "message": "Copied (Fallback)",
         "description": ""
     },
-    "onboardingWelcomeTitle": { "message": "Welcome!" },
-    "onboardingWelcomeDesc": { "message": "Copy links and page titles in one keystroke. Press your shortcut to confirm it works." },
-    "onboardingDetected": { "message": "Detected:" },
-    "onboardingListening": { "message": "Press the shortcut to confirm\u2026" },
-    "onboardingConflictHint": { "message": "Shortcut conflict? Change it in Settings \u2192" },
-    "onboardingItWorks": { "message": "It works! \uD83C\uDF89" },
-    "onboardingReadyToUse": { "message": "Your shortcut is ready to use" },
-    "onboardingContinue": { "message": "Continue \u2192" },
-    "onboardingSkipStep": { "message": "Skip this step \u2192" },
-    "onboardingAllSet": { "message": "You\u2019re all set!" },
-    "onboardingFormatsReady": { "message": "$COUNT$ formats ready. Press a shortcut to preview it.", "placeholders": { "count": { "content": "$1" } } },
-    "onboardingOutputPreview": { "message": "Output preview" },
-    "onboardingCopiedBadge": { "message": "\u2713 Copied!" },
-    "onboardingCustomize": { "message": "Customize all formats anytime via Settings" },
-    "onboardingStartCopying": { "message": "Start copying!" },
-    "onboardingSkipSetup": { "message": "Skip setup" },
-    "onboardingTplPlainName": { "message": "Plain Text" },
-    "onboardingTplPlainDesc": { "message": "Title + URL on separate lines" },
-    "onboardingTplMarkdownName": { "message": "Markdown" },
-    "onboardingTplMarkdownDesc": { "message": "Inline link in Markdown syntax" },
-    "onboardingTplSmartName": { "message": "Smart Copy" },
-    "onboardingTplSmartDesc": { "message": "Quoted selection or title + URL" },
-    "onboardingStepVerify": { "message": "Verify" },
-    "onboardingStepPreview": { "message": "Preview" },
-    "reportIssue": { "message": "Report an Issue" },
-    "feedbackSurvey": { "message": "Feedback / Uninstall Survey" },
-    "defaultDescPlain": { "message": "Copy selected text (or title) and URL" },
-    "defaultDescMarkdown": { "message": "Copy as Markdown link" },
-    "defaultDescSmart": { "message": "Smart copy with quotes for selected text" }
+    "onboardingWelcomeTitle": {
+        "message": "Welcome!"
+    },
+    "onboardingWelcomeDesc": {
+        "message": "Copy links and page titles in one keystroke. Press your shortcut to confirm it works."
+    },
+    "onboardingDetected": {
+        "message": "Detected:"
+    },
+    "onboardingListening": {
+        "message": "Press the shortcut to confirm…"
+    },
+    "onboardingConflictHint": {
+        "message": "Shortcut conflict? Change it in Settings →"
+    },
+    "onboardingItWorks": {
+        "message": "It works! 🎉"
+    },
+    "onboardingReadyToUse": {
+        "message": "Your shortcut is ready to use"
+    },
+    "onboardingContinue": {
+        "message": "Continue →"
+    },
+    "onboardingSkipStep": {
+        "message": "Skip this step →"
+    },
+    "onboardingAllSet": {
+        "message": "You’re all set!"
+    },
+    "onboardingFormatsReady": {
+        "message": "$COUNT$ formats ready. Press a shortcut to preview it.",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
+    "onboardingOutputPreview": {
+        "message": "Output preview"
+    },
+    "onboardingCopiedBadge": {
+        "message": "✓ Copied!"
+    },
+    "onboardingCustomize": {
+        "message": "Customize all formats anytime via Settings"
+    },
+    "onboardingStartCopying": {
+        "message": "Start copying!"
+    },
+    "onboardingSkipSetup": {
+        "message": "Skip setup"
+    },
+    "onboardingTplPlainName": {
+        "message": "Plain Text"
+    },
+    "onboardingTplPlainDesc": {
+        "message": "Title + URL on separate lines"
+    },
+    "onboardingTplMarkdownName": {
+        "message": "Markdown"
+    },
+    "onboardingTplMarkdownDesc": {
+        "message": "Inline link in Markdown syntax"
+    },
+    "onboardingTplSmartName": {
+        "message": "Smart Copy"
+    },
+    "onboardingTplSmartDesc": {
+        "message": "Quoted selection or title + URL"
+    },
+    "onboardingStepVerify": {
+        "message": "Verify"
+    },
+    "onboardingStepPreview": {
+        "message": "Preview"
+    },
+    "reportIssue": {
+        "message": "Report an Issue"
+    },
+    "feedbackSurvey": {
+        "message": "Feedback / Uninstall Survey"
+    },
+    "defaultDescPlain": {
+        "message": "Copy selected text (or title) and URL"
+    },
+    "defaultDescMarkdown": {
+        "message": "Copy as Markdown link"
+    },
+    "defaultDescSmart": {
+        "message": "Smart copy with quotes for selected text"
+    },
+    "batchCurrentTab": {
+        "message": "Current Tab"
+    },
+    "batchAllTabs": {
+        "message": "All Tabs"
+    },
+    "batchFormat": {
+        "message": "Copy format"
+    },
+    "batchSelectAll": {
+        "message": "Select all"
+    },
+    "batchCopyButton": {
+        "message": "Copy"
+    },
+    "batchCopied": {
+        "message": "Copied $COUNT$ tab(s)!",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
+    "batchNoTabs": {
+        "message": "No copyable tabs in this window"
+    },
+    "batchUpsellDesc": {
+        "message": "Free plan copies up to $LIMIT$ tabs at once. Upgrade to Pro to copy all open tabs.",
+        "placeholders": {
+            "limit": {
+                "content": "$1"
+            }
+        }
+    },
+    "batchUpgrade": {
+        "message": "Upgrade to Pro"
+    },
+    "licenseSectionTitle": {
+        "message": "Activate Pro"
+    },
+    "licenseActivated": {
+        "message": "Pro activated"
+    },
+    "licenseEnterKey": {
+        "message": "Paste your license key"
+    },
+    "licenseActivate": {
+        "message": "Activate"
+    },
+    "licenseDeactivate": {
+        "message": "Deactivate"
+    },
+    "licenseInvalid": {
+        "message": "Invalid license key"
+    },
+    "licenseBuyPro": {
+        "message": "Buy Pro"
+    },
+    "licenseComingSoon": {
+        "message": "Pro · Coming soon"
+    },
+    "batchUpsellWaiting": {
+        "message": "Copying more than $LIMIT$ tabs at once will be a Pro feature — coming soon.",
+        "placeholders": {
+            "limit": {
+                "content": "$1"
+            }
+        }
+    },
+    "shortcutConflictHint": {
+        "message": "This shortcut may conflict with a browser shortcut. Click Edit to change it."
+    }
 }

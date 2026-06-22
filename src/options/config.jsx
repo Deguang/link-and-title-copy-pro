@@ -3,6 +3,15 @@ import { useTranslate } from '@/hooks/useTranslate.js';
 import { useChromeStorage } from '@/hooks/useChromeStorage.js';
 import { processTemplate } from '@/utils/templateProcessor';
 import { STORAGE_KEY } from '../constant';
+import LicenseSection from './LicenseSection';
+
+// Shortcuts the browser itself reserves — pages often can't intercept these, so a
+// configured copy shortcut using one may silently open a browser feature instead.
+// Display-only: we warn, we never change the user's saved shortcut.
+const _isMacOptions = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+const BROWSER_CONFLICTS = _isMacOptions
+    ? new Set(['Command+Shift+N', 'Command+Shift+T', 'Command+Shift+W', 'Command+Shift+I', 'Command+Shift+J', 'Command+Shift+C'])
+    : new Set(['Ctrl+Shift+O', 'Ctrl+Shift+B', 'Ctrl+Shift+N', 'Ctrl+Shift+T', 'Ctrl+Shift+W', 'Ctrl+Shift+Q', 'Ctrl+Shift+M', 'Ctrl+Shift+D', 'Ctrl+Shift+I', 'Ctrl+Shift+J', 'Ctrl+Shift+C', 'Ctrl+Shift+Delete']);
 
 const TemplateHelp = ({ t, showHelp, setShowHelp }) => {
 
@@ -414,6 +423,9 @@ const ConfigItem = ({ config, index, onUpdate, onDelete, onOpenHelp, isNew = fal
                     <span className="font-mono bg-gray-100 px-2 py-1 rounded text-sm font-medium whitespace-nowrap">
                         {config.shortcut}
                     </span>
+                    {BROWSER_CONFLICTS.has(config.shortcut) && (
+                        <span title={t('shortcutConflictHint')} className="text-amber-500 text-sm flex-shrink-0 cursor-help">⚠️</span>
+                    )}
                     {config.description && (
                         <span className="text-gray-600 text-sm truncate">{config.description}</span>
                     )}
@@ -567,6 +579,8 @@ export default function Config() {
                             {t('addNewConfig')}
                         </button>
                     </div>
+
+                    <LicenseSection />
 
                     <div className="mt-4 pt-3 border-t border-gray-200 flex-shrink-0 flex justify-between items-center text-xs text-gray-400">
                         <div className="flex gap-4">

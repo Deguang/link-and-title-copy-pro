@@ -1,6 +1,7 @@
 // 直接定义常量，而不是导入
 const STORAGE_KEY = 'CopyTitleAndUrlConfigs';
 import { processTemplate } from '../utils/templateProcessor';
+import { matchShortcut } from '../utils/shortcutMatch.mjs';
 
 
 
@@ -65,19 +66,6 @@ if (window.hasLinkTitleCopyProContentScript) {
 } else {
 window.hasLinkTitleCopyProContentScript = true;
 
-// Helper to normalize key strings (e.g. 'Meta' -> 'Command')
-function normalizeKey(key) {
-  if (key === 'Meta') return 'Command';
-  if (key === 'Control') return 'Ctrl';
-  if (key === ' ') return 'Space';
-  if (key === 'ArrowUp') return '↑';
-  if (key === 'ArrowDown') return '↓';
-  if (key === 'ArrowLeft') return '←';
-  if (key === 'ArrowRight') return '→';
-  if (key.length === 1) return key.toUpperCase();
-  return key;
-}
-
 // Global Keyboard Listener
 window.addEventListener('keydown', (e) => {
   // Prevent repeat triggers while holding key
@@ -89,31 +77,14 @@ window.addEventListener('keydown', (e) => {
     return;
   }
 
-  // Build the shortcut string from the event
-  const modifiers = [];
-  if (e.ctrlKey) modifiers.push('Ctrl');
-  // On Mac, Command is Meta. On Windows, Win is Meta. 
-  // We use 'Command' as the standard internal representation for Meta on Mac.
-  // But wait, our Options page saves it as 'Command' on Mac and 'Win' on Windows?
-  // Let's check the options.jsx logic. It pushes 'Command' if isMac && e.metaKey.
-  // Here we need to be consistent.
-  const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
-  
-  if (e.metaKey) modifiers.push(isMac ? 'Command' : 'Win');
-  if (e.altKey) modifiers.push(isMac ? 'Option' : 'Alt');
-  if (e.shiftKey) modifiers.push('Shift');
-
   // If no main key (just modifiers), return
   if (['Control', 'Alt', 'Shift', 'Meta'].includes(e.key)) return;
 
-  const mainKey = normalizeKey(e.key);
-  const pressedShortcut = [...modifiers, mainKey].join('+');
-
-  // Check for match
-  const matchedConfig = shortcuts.find(c => c.shortcut === pressedShortcut);
+  const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+  const matchedConfig = matchShortcut(e, shortcuts, { isMac });
 
   if (matchedConfig) {
-    console.log('Shortcut matched:', pressedShortcut);
+    console.log('Shortcut matched:', matchedConfig.shortcut);
     e.preventDefault();
     e.stopPropagation();
 

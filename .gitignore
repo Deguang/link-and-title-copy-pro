@@ -5,3 +5,4 @@
 /releases
 .DS_Store
 .env
+scripts/license/.private-key

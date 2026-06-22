@@ -93,3 +93,18 @@ Link&TitleCopyPro是一个可以同时复制浏览器标签页的标题和URL链
 - Initial public release
 - Custom templates support
 - Multiple shortcut configurations
+
+## License / 许可证
+
+Source-available under the [PolyForm Noncommercial License 1.0.0](LICENSE). You may
+read, use, modify, and share the source for **noncommercial purposes**. Commercial
+use — including redistributing or reselling the extension or a derivative, or
+removing the Pro license gate — is **not permitted** without a separate commercial
+license from the author.
+
+源码公开，采用 [PolyForm Noncommercial License 1.0.0](LICENSE)。允许出于**非商业目的**
+查看、使用、修改和分享源码；**商业用途**（包括转售/重新上架本扩展或其衍生版本、移除 Pro
+付费校验）须另行获得作者的商业授权。
+
+Pro features are unlocked with a paid license key — see
+[Link & Title Copy Pro](https://app.lideguang.com/link-and-title-copy-pro/).
