@@ -38,11 +38,23 @@
       {
         "code": "hi",
         "name": "हिंदी"
+      },
+      {
+        "code": "de",
+        "name": "Deutsch"
+      },
+      {
+        "code": "es",
+        "name": "Español"
+      },
+      {
+        "code": "ko",
+        "name": "한국어"
       }
     ]
   },
   "hero": {
-    "badge": "v1.4.0 is now available 🚀",
+    "badge": "v1.5.0 is now available 🚀",
     "title1": "Copy smarter,",
     "title2": "paste faster.",
     "subtitle": "The ultimate browser extension for developers and researchers. Clean URLs, format markdown, and streamline your workflow in one click.",

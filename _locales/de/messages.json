@@ -1,0 +1,410 @@
+{
+    "name": {
+        "message": "Copy Page Title and URL Pro",
+        "description": ""
+    },
+    "appName": {
+        "message": "Seitentitel und URL kopieren Pro: Markdown & benutzerdefinierter Link",
+        "description": "The name of the application, displayed in the Chrome Web Store and extensions management page."
+    },
+    "appDescription": {
+        "message": "Titel & URL als Markdown, HTML oder Jira kopieren. Tracking-Parameter (UTM) entfernen, eigene Vorlagen und intelligente Auswahl.",
+        "description": "The description of the application."
+    },
+    "successTip": {
+        "message": "Erfolgreich kopiert",
+        "description": ""
+    },
+    "errorTip": {
+        "message": "Kopieren fehlgeschlagen",
+        "description": ""
+    },
+    "config": {
+        "message": "Einstellungen",
+        "description": ""
+    },
+    "addNewConfig": {
+        "message": "Vorlage hinzufügen",
+        "description": ""
+    },
+    "edit": {
+        "message": "Bearbeiten",
+        "description": ""
+    },
+    "delete": {
+        "message": "Löschen",
+        "description": ""
+    },
+    "shortcut": {
+        "message": "Tastenkürzel",
+        "description": ""
+    },
+    "template": {
+        "message": "Vorlage",
+        "description": ""
+    },
+    "description": {
+        "message": "Beschreibung",
+        "description": ""
+    },
+    "save": {
+        "message": "Speichern",
+        "description": ""
+    },
+    "cancel": {
+        "message": "Abbrechen",
+        "description": ""
+    },
+    "preview": {
+        "message": "Vorschau",
+        "description": ""
+    },
+    "supportedPlaceholders": {
+        "message": "Unterstützte Platzhalter",
+        "description": ""
+    },
+    "configDescription": {
+        "message": "Vorlagenbeschreibung",
+        "description": ""
+    },
+    "shortCutRemind": {
+        "message": "Tastenkombination drücken zum Erfassen",
+        "description": ""
+    },
+    "exampleShortcuts": {
+        "message": "Beispiel-Tastenkürzel",
+        "description": ""
+    },
+    "switchToAutomaticCapture": {
+        "message": "Zur automatischen Erfassung wechseln",
+        "description": ""
+    },
+    "switchToManualInput": {
+        "message": "Zur manuellen Eingabe wechseln",
+        "description": ""
+    },
+    "enterShortcutManually": {
+        "message": "Tastenkürzel manuell eingeben",
+        "description": ""
+    },
+    "pressKeyCombination": {
+        "message": "Tastenkombination drücken",
+        "description": ""
+    },
+    "selectedTextCopied": {
+        "message": "Markierter Text kopiert",
+        "description": ""
+    },
+    "titleUrlCopied": {
+        "message": "Titel und URL kopiert",
+        "description": ""
+    },
+    "smartCopy": {
+        "message": "Intelligentes Kopieren",
+        "description": ""
+    },
+    "withSelectedText": {
+        "message": "Mit markiertem Text",
+        "description": ""
+    },
+    "withoutSelectedText": {
+        "message": "Ohne markierten Text",
+        "description": ""
+    },
+    "templateHelp": {
+        "message": "Vorlagen-Hilfe & Beispiele",
+        "description": ""
+    },
+    "basicPlaceholders": {
+        "message": "Grundlegende Platzhalter",
+        "description": ""
+    },
+    "smartPlaceholders": {
+        "message": "Intelligente Platzhalter",
+        "description": ""
+    },
+    "urlComponentPlaceholders": {
+        "message": "URL-Komponenten-Platzhalter",
+        "description": ""
+    },
+    "conditionalTemplates": {
+        "message": "Bedingte Vorlagen",
+        "description": ""
+    },
+    "exampleTemplates": {
+        "message": "Beispielvorlagen",
+        "description": ""
+    },
+    "pageTitle": {
+        "message": "Seitentitel",
+        "description": ""
+    },
+    "pageUrl": {
+        "message": "Seiten-URL",
+        "description": ""
+    },
+    "selectedTextEmpty": {
+        "message": "Markierter Text (leer, falls keiner)",
+        "description": ""
+    },
+    "selectedTextOrTitle": {
+        "message": "Markierter Text, falls vorhanden, sonst Titel",
+        "description": ""
+    },
+    "sameAsAbove": {
+        "message": "Wie oben",
+        "description": ""
+    },
+    "urlClean": {
+        "message": "URL ohne Query-Parameter und Hash",
+        "description": ""
+    },
+    "urlProtocol": {
+        "message": "Nur Protokoll (z. B. https)",
+        "description": ""
+    },
+    "urlDomain": {
+        "message": "Domain/Hostname",
+        "description": ""
+    },
+    "urlPath": {
+        "message": "Nur Pfad",
+        "description": ""
+    },
+    "urlQuery": {
+        "message": "Query-Parameter mit ?",
+        "description": ""
+    },
+    "urlHash": {
+        "message": "Hash-Fragment mit #",
+        "description": ""
+    },
+    "urlOrigin": {
+        "message": "Protokoll + Domain",
+        "description": ""
+    },
+    "onlyWhenTextSelected": {
+        "message": "Nur wenn Text markiert ist",
+        "description": ""
+    },
+    "onlyWhenNoTextSelected": {
+        "message": "Nur wenn kein Text markiert ist",
+        "description": ""
+    },
+    "smartCopyDesc": {
+        "message": "Intelligentes Kopieren – markierter Text oder Titel + URL",
+        "description": ""
+    },
+    "markdownLinkFormat": {
+        "message": "Markdown-Linkformat",
+        "description": ""
+    },
+    "quotedSelectedText": {
+        "message": "Zitierter markierter Text mit Titel, oder nur Titel",
+        "description": ""
+    },
+    "templateConfigurations": {
+        "message": "Vorlagenkonfigurationen",
+        "description": ""
+    },
+    "emptyResult": {
+        "message": "Leeres Ergebnis",
+        "description": ""
+    },
+    "invalidShortcut": {
+        "message": "Ungültige Tastenkombination",
+        "description": ""
+    },
+    "invalidShortcutFormat": {
+        "message": "Ungültiges Tastenkürzel-Format",
+        "description": ""
+    },
+    "templatePlaceholder": {
+        "message": "Vorlage mit Platzhaltern …",
+        "description": ""
+    },
+    "descriptionPlaceholder": {
+        "message": "Kurze Beschreibung dieser Vorlage",
+        "description": ""
+    },
+    "confirmDelete": {
+        "message": "Möchten Sie diese Vorlage wirklich löschen?",
+        "description": ""
+    },
+    "toastCopied": {
+        "message": "In die Zwischenablage kopiert!",
+        "description": ""
+    },
+    "toastFailed": {
+        "message": "Kopieren fehlgeschlagen",
+        "description": ""
+    },
+    "toastFallback": {
+        "message": "Kopiert (Fallback)",
+        "description": ""
+    },
+    "onboardingWelcomeTitle": {
+        "message": "Willkommen!"
+    },
+    "onboardingWelcomeDesc": {
+        "message": "Links und Seitentitel mit einem Tastendruck kopieren. Drücken Sie Ihr Tastenkürzel, um es zu bestätigen."
+    },
+    "onboardingDetected": {
+        "message": "Erkannt:"
+    },
+    "onboardingListening": {
+        "message": "Drücken Sie das Tastenkürzel zur Bestätigung …"
+    },
+    "onboardingConflictHint": {
+        "message": "Tastenkürzel-Konflikt? Ändern Sie es in den Einstellungen →"
+    },
+    "onboardingItWorks": {
+        "message": "Es funktioniert! 🎉"
+    },
+    "onboardingReadyToUse": {
+        "message": "Ihr Tastenkürzel ist einsatzbereit"
+    },
+    "onboardingContinue": {
+        "message": "Weiter →"
+    },
+    "onboardingSkipStep": {
+        "message": "Diesen Schritt überspringen →"
+    },
+    "onboardingAllSet": {
+        "message": "Alles bereit!"
+    },
+    "onboardingFormatsReady": {
+        "message": "$COUNT$ Formate bereit. Drücken Sie ein Tastenkürzel für die Vorschau.",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
+    "onboardingOutputPreview": {
+        "message": "Ausgabevorschau"
+    },
+    "onboardingCopiedBadge": {
+        "message": "✓ Kopiert!"
+    },
+    "onboardingCustomize": {
+        "message": "Alle Formate jederzeit über die Einstellungen anpassen"
+    },
+    "onboardingStartCopying": {
+        "message": "Los geht's!"
+    },
+    "onboardingSkipSetup": {
+        "message": "Einrichtung überspringen"
+    },
+    "onboardingTplPlainName": {
+        "message": "Nur Text"
+    },
+    "onboardingTplPlainDesc": {
+        "message": "Titel + URL in separaten Zeilen"
+    },
+    "onboardingTplMarkdownName": {
+        "message": "Markdown"
+    },
+    "onboardingTplMarkdownDesc": {
+        "message": "Inline-Link in Markdown-Syntax"
+    },
+    "onboardingTplSmartName": {
+        "message": "Intelligentes Kopieren"
+    },
+    "onboardingTplSmartDesc": {
+        "message": "Zitierte Auswahl oder Titel + URL"
+    },
+    "onboardingStepVerify": {
+        "message": "Bestätigen"
+    },
+    "onboardingStepPreview": {
+        "message": "Vorschau"
+    },
+    "reportIssue": {
+        "message": "Problem melden"
+    },
+    "feedbackSurvey": {
+        "message": "Feedback / Deinstallationsumfrage"
+    },
+    "defaultDescPlain": {
+        "message": "Markierten Text (oder Titel) und URL kopieren"
+    },
+    "defaultDescMarkdown": {
+        "message": "Als Markdown-Link kopieren"
+    },
+    "defaultDescSmart": {
+        "message": "Intelligentes Kopieren mit Anführungszeichen für markierten Text"
+    },
+    "batchCurrentTab": {
+        "message": "Aktueller Tab"
+    },
+    "batchAllTabs": {
+        "message": "Alle Tabs"
+    },
+    "batchFormat": {
+        "message": "Kopierformat"
+    },
+    "batchSelectAll": {
+        "message": "Alle auswählen"
+    },
+    "batchCopyButton": {
+        "message": "Kopieren"
+    },
+    "batchCopied": {
+        "message": "$COUNT$ Tab(s) kopiert!",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
+    "batchNoTabs": {
+        "message": "Keine kopierbaren Tabs in diesem Fenster"
+    },
+    "batchUpsellDesc": {
+        "message": "Der kostenlose Plan kopiert bis zu $LIMIT$ Tabs gleichzeitig. Upgraden Sie auf Pro, um alle offenen Tabs zu kopieren.",
+        "placeholders": {
+            "limit": {
+                "content": "$1"
+            }
+        }
+    },
+    "batchUpgrade": {
+        "message": "Auf Pro upgraden"
+    },
+    "licenseSectionTitle": {
+        "message": "Pro aktivieren"
+    },
+    "licenseActivated": {
+        "message": "Pro aktiviert"
+    },
+    "licenseEnterKey": {
+        "message": "Lizenzschlüssel einfügen"
+    },
+    "licenseActivate": {
+        "message": "Aktivieren"
+    },
+    "licenseDeactivate": {
+        "message": "Deaktivieren"
+    },
+    "licenseInvalid": {
+        "message": "Ungültiger Lizenzschlüssel"
+    },
+    "licenseBuyPro": {
+        "message": "Pro kaufen"
+    },
+    "licenseComingSoon": {
+        "message": "Pro · Demnächst verfügbar"
+    },
+    "batchUpsellWaiting": {
+        "message": "Das gleichzeitige Kopieren von mehr als $LIMIT$ Tabs wird eine Pro-Funktion – demnächst verfügbar.",
+        "placeholders": {
+            "limit": {
+                "content": "$1"
+            }
+        }
+    },
+    "shortcutConflictHint": {
+        "message": "Dieses Tastenkürzel kann mit einem Browser-Tastenkürzel kollidieren. Klicken Sie auf „Bearbeiten“, um es zu ändern."
+    }
+}

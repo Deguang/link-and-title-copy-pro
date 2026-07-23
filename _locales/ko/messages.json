@@ -1,0 +1,410 @@
+{
+    "name": {
+        "message": "Copy Page Title and URL Pro",
+        "description": ""
+    },
+    "appName": {
+        "message": "페이지 제목 및 URL 복사 Pro: 마크다운 및 맞춤 링크",
+        "description": "The name of the application, displayed in the Chrome Web Store and extensions management page."
+    },
+    "appDescription": {
+        "message": "제목과 URL을 마크다운, HTML, Jira 형식으로 복사하세요. 추적 매개변수(UTM) 제거, 맞춤 템플릿, 스마트 선택을 지원합니다.",
+        "description": "The description of the application."
+    },
+    "successTip": {
+        "message": "복사 완료",
+        "description": ""
+    },
+    "errorTip": {
+        "message": "복사 실패",
+        "description": ""
+    },
+    "config": {
+        "message": "설정",
+        "description": ""
+    },
+    "addNewConfig": {
+        "message": "템플릿 추가",
+        "description": ""
+    },
+    "edit": {
+        "message": "편집",
+        "description": ""
+    },
+    "delete": {
+        "message": "삭제",
+        "description": ""
+    },
+    "shortcut": {
+        "message": "단축키",
+        "description": ""
+    },
+    "template": {
+        "message": "템플릿",
+        "description": ""
+    },
+    "description": {
+        "message": "설명",
+        "description": ""
+    },
+    "save": {
+        "message": "저장",
+        "description": ""
+    },
+    "cancel": {
+        "message": "취소",
+        "description": ""
+    },
+    "preview": {
+        "message": "미리보기",
+        "description": ""
+    },
+    "supportedPlaceholders": {
+        "message": "지원되는 자리표시자",
+        "description": ""
+    },
+    "configDescription": {
+        "message": "템플릿 설명",
+        "description": ""
+    },
+    "shortCutRemind": {
+        "message": "키 조합을 눌러 캡처하세요",
+        "description": ""
+    },
+    "exampleShortcuts": {
+        "message": "단축키 예시",
+        "description": ""
+    },
+    "switchToAutomaticCapture": {
+        "message": "자동 캡처로 전환",
+        "description": ""
+    },
+    "switchToManualInput": {
+        "message": "수동 입력으로 전환",
+        "description": ""
+    },
+    "enterShortcutManually": {
+        "message": "단축키 수동 입력",
+        "description": ""
+    },
+    "pressKeyCombination": {
+        "message": "키 조합을 누르세요",
+        "description": ""
+    },
+    "selectedTextCopied": {
+        "message": "선택한 텍스트 복사됨",
+        "description": ""
+    },
+    "titleUrlCopied": {
+        "message": "제목과 URL 복사됨",
+        "description": ""
+    },
+    "smartCopy": {
+        "message": "스마트 복사",
+        "description": ""
+    },
+    "withSelectedText": {
+        "message": "선택한 텍스트 포함",
+        "description": ""
+    },
+    "withoutSelectedText": {
+        "message": "선택한 텍스트 없이",
+        "description": ""
+    },
+    "templateHelp": {
+        "message": "템플릿 도움말 및 예시",
+        "description": ""
+    },
+    "basicPlaceholders": {
+        "message": "기본 자리표시자",
+        "description": ""
+    },
+    "smartPlaceholders": {
+        "message": "스마트 자리표시자",
+        "description": ""
+    },
+    "urlComponentPlaceholders": {
+        "message": "URL 구성 요소 자리표시자",
+        "description": ""
+    },
+    "conditionalTemplates": {
+        "message": "조건부 템플릿",
+        "description": ""
+    },
+    "exampleTemplates": {
+        "message": "템플릿 예시",
+        "description": ""
+    },
+    "pageTitle": {
+        "message": "페이지 제목",
+        "description": ""
+    },
+    "pageUrl": {
+        "message": "페이지 URL",
+        "description": ""
+    },
+    "selectedTextEmpty": {
+        "message": "선택한 텍스트 (없으면 비어 있음)",
+        "description": ""
+    },
+    "selectedTextOrTitle": {
+        "message": "선택한 텍스트가 있으면 사용, 없으면 제목",
+        "description": ""
+    },
+    "sameAsAbove": {
+        "message": "위와 동일",
+        "description": ""
+    },
+    "urlClean": {
+        "message": "쿼리 매개변수와 해시가 없는 URL",
+        "description": ""
+    },
+    "urlProtocol": {
+        "message": "프로토콜만 (예: https)",
+        "description": ""
+    },
+    "urlDomain": {
+        "message": "도메인/호스트 이름",
+        "description": ""
+    },
+    "urlPath": {
+        "message": "경로만",
+        "description": ""
+    },
+    "urlQuery": {
+        "message": "? 를 포함한 쿼리 매개변수",
+        "description": ""
+    },
+    "urlHash": {
+        "message": "# 를 포함한 해시 조각",
+        "description": ""
+    },
+    "urlOrigin": {
+        "message": "프로토콜 + 도메인",
+        "description": ""
+    },
+    "onlyWhenTextSelected": {
+        "message": "텍스트가 선택된 경우에만",
+        "description": ""
+    },
+    "onlyWhenNoTextSelected": {
+        "message": "텍스트가 선택되지 않은 경우에만",
+        "description": ""
+    },
+    "smartCopyDesc": {
+        "message": "스마트 복사 - 선택한 텍스트 또는 제목 + URL",
+        "description": ""
+    },
+    "markdownLinkFormat": {
+        "message": "마크다운 링크 형식",
+        "description": ""
+    },
+    "quotedSelectedText": {
+        "message": "제목과 함께 인용된 선택 텍스트, 또는 제목만",
+        "description": ""
+    },
+    "templateConfigurations": {
+        "message": "템플릿 구성",
+        "description": ""
+    },
+    "emptyResult": {
+        "message": "빈 결과",
+        "description": ""
+    },
+    "invalidShortcut": {
+        "message": "잘못된 단축키 조합",
+        "description": ""
+    },
+    "invalidShortcutFormat": {
+        "message": "잘못된 단축키 형식",
+        "description": ""
+    },
+    "templatePlaceholder": {
+        "message": "자리표시자가 포함된 템플릿…",
+        "description": ""
+    },
+    "descriptionPlaceholder": {
+        "message": "이 템플릿에 대한 간단한 설명",
+        "description": ""
+    },
+    "confirmDelete": {
+        "message": "이 템플릿을 삭제하시겠습니까?",
+        "description": ""
+    },
+    "toastCopied": {
+        "message": "클립보드에 복사됨!",
+        "description": ""
+    },
+    "toastFailed": {
+        "message": "복사 실패",
+        "description": ""
+    },
+    "toastFallback": {
+        "message": "복사됨 (대체 방식)",
+        "description": ""
+    },
+    "onboardingWelcomeTitle": {
+        "message": "환영합니다!"
+    },
+    "onboardingWelcomeDesc": {
+        "message": "링크와 페이지 제목을 단축키 한 번으로 복사하세요. 단축키를 눌러 작동을 확인하세요."
+    },
+    "onboardingDetected": {
+        "message": "감지됨:"
+    },
+    "onboardingListening": {
+        "message": "단축키를 눌러 확인하세요…"
+    },
+    "onboardingConflictHint": {
+        "message": "단축키가 충돌하나요? 설정에서 변경하세요 →"
+    },
+    "onboardingItWorks": {
+        "message": "작동합니다! 🎉"
+    },
+    "onboardingReadyToUse": {
+        "message": "단축키를 사용할 준비가 되었습니다"
+    },
+    "onboardingContinue": {
+        "message": "계속 →"
+    },
+    "onboardingSkipStep": {
+        "message": "이 단계 건너뛰기 →"
+    },
+    "onboardingAllSet": {
+        "message": "모든 준비가 끝났습니다!"
+    },
+    "onboardingFormatsReady": {
+        "message": "$COUNT$개 형식 준비 완료. 단축키를 눌러 미리 보세요.",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
+    "onboardingOutputPreview": {
+        "message": "출력 미리보기"
+    },
+    "onboardingCopiedBadge": {
+        "message": "✓ 복사됨!"
+    },
+    "onboardingCustomize": {
+        "message": "설정에서 언제든지 모든 형식을 맞춤 설정하세요"
+    },
+    "onboardingStartCopying": {
+        "message": "복사 시작!"
+    },
+    "onboardingSkipSetup": {
+        "message": "설정 건너뛰기"
+    },
+    "onboardingTplPlainName": {
+        "message": "일반 텍스트"
+    },
+    "onboardingTplPlainDesc": {
+        "message": "제목 + URL을 별도의 줄에"
+    },
+    "onboardingTplMarkdownName": {
+        "message": "마크다운"
+    },
+    "onboardingTplMarkdownDesc": {
+        "message": "마크다운 구문의 인라인 링크"
+    },
+    "onboardingTplSmartName": {
+        "message": "스마트 복사"
+    },
+    "onboardingTplSmartDesc": {
+        "message": "인용된 선택 텍스트 또는 제목 + URL"
+    },
+    "onboardingStepVerify": {
+        "message": "확인"
+    },
+    "onboardingStepPreview": {
+        "message": "미리보기"
+    },
+    "reportIssue": {
+        "message": "문제 신고"
+    },
+    "feedbackSurvey": {
+        "message": "피드백 / 제거 설문"
+    },
+    "defaultDescPlain": {
+        "message": "선택한 텍스트(또는 제목)와 URL 복사"
+    },
+    "defaultDescMarkdown": {
+        "message": "마크다운 링크로 복사"
+    },
+    "defaultDescSmart": {
+        "message": "선택한 텍스트를 인용부호와 함께 스마트 복사"
+    },
+    "batchCurrentTab": {
+        "message": "현재 탭"
+    },
+    "batchAllTabs": {
+        "message": "모든 탭"
+    },
+    "batchFormat": {
+        "message": "복사 형식"
+    },
+    "batchSelectAll": {
+        "message": "모두 선택"
+    },
+    "batchCopyButton": {
+        "message": "복사"
+    },
+    "batchCopied": {
+        "message": "$COUNT$개 탭 복사됨!",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
+    "batchNoTabs": {
+        "message": "이 창에 복사 가능한 탭이 없습니다"
+    },
+    "batchUpsellDesc": {
+        "message": "무료 요금제는 한 번에 최대 $LIMIT$개 탭을 복사합니다. Pro로 업그레이드하여 열려 있는 모든 탭을 복사하세요.",
+        "placeholders": {
+            "limit": {
+                "content": "$1"
+            }
+        }
+    },
+    "batchUpgrade": {
+        "message": "Pro로 업그레이드"
+    },
+    "licenseSectionTitle": {
+        "message": "Pro 활성화"
+    },
+    "licenseActivated": {
+        "message": "Pro 활성화됨"
+    },
+    "licenseEnterKey": {
+        "message": "라이선스 키를 붙여넣으세요"
+    },
+    "licenseActivate": {
+        "message": "활성화"
+    },
+    "licenseDeactivate": {
+        "message": "비활성화"
+    },
+    "licenseInvalid": {
+        "message": "잘못된 라이선스 키"
+    },
+    "licenseBuyPro": {
+        "message": "Pro 구매"
+    },
+    "licenseComingSoon": {
+        "message": "Pro · 곧 출시"
+    },
+    "batchUpsellWaiting": {
+        "message": "한 번에 $LIMIT$개가 넘는 탭을 복사하는 기능은 Pro 기능이 됩니다 — 곧 출시됩니다.",
+        "placeholders": {
+            "limit": {
+                "content": "$1"
+            }
+        }
+    },
+    "shortcutConflictHint": {
+        "message": "이 단축키는 브라우저 단축키와 충돌할 수 있습니다. 편집을 클릭하여 변경하세요."
+    }
+}

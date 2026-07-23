@@ -34,7 +34,7 @@ if (manifest.version !== version) {
 }
 
 // 2. Update docs/i18n/*.json — replace version prefix in badge field
-const LOCALES = ['en', 'zh', 'zh-TW', 'ja', 'ru', 'hi'];
+const LOCALES = ['en', 'zh', 'zh-TW', 'ja', 'ru', 'hi', 'de', 'es', 'ko'];
 for (const locale of LOCALES) {
   const filePath = path.join(ROOT, 'docs/i18n', `${locale}.json`);
   const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));

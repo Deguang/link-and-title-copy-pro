@@ -13,7 +13,7 @@ const I18N_DIR = path.join(DOCS_DIR, 'i18n');
 const TEMPLATE_PATH = path.join(DOCS_DIR, 'template.html');
 
 // Languages to build (filename without .json)
-const LANGUAGES = ['en', 'zh', 'zh-TW', 'ja', 'ru', 'hi'];
+const LANGUAGES = ['en', 'zh', 'zh-TW', 'ja', 'ru', 'hi', 'de', 'es', 'ko'];
 
 // Output file mapping
 const OUTPUT_FILES = {
@@ -22,7 +22,10 @@ const OUTPUT_FILES = {
   'zh-TW': 'zh-TW.html',
   'ja': 'ja.html',
   'ru': 'ru.html',
-  'hi': 'hi.html'
+  'hi': 'hi.html',
+  'de': 'de.html',
+  'es': 'es.html',
+  'ko': 'ko.html'
 };
 
 /**

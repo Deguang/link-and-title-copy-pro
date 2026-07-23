@@ -1,0 +1,163 @@
+{
+  "lang": "ko",
+  "htmlLang": "ko",
+  "title": "Copy Page Title and URL Pro – 링크를 마크다운, HTML 및 맞춤 형식으로 복사",
+  "description": "브라우저 탭의 제목과 URL을 동시에 복사하는 최고의 Chrome 확장 프로그램. 링크를 마크다운, HTML, Jira 또는 맞춤 형식으로 내보내세요. 개발자, 연구자, 작가에게 완벽합니다.",
+  "keywords": "크롬 확장, 링크 복사, 마크다운 복사, url 정리, 생산성 도구, 노션 링크, jira 형식, 옵시디언 인용",
+  "canonical": "https://app.lideguang.com/link-and-title-copy-pro/ko.html",
+  "ogTitle": "Copy Page Title and URL Pro – 최고의 복사 도구",
+  "ogDescription": "더 똑똑하게 복사하고, 더 빠르게 붙여넣으세요. URL을 정리하고 링크를 즉시 형식화하는, 개발자와 연구자를 위한 최고의 브라우저 확장 프로그램.",
+  "schemaDescription": "브라우저 탭의 제목과 URL 링크를 동시에 복사할 수 있는 브라우저 확장 프로그램으로, 맞춤 템플릿과 스마트 기능을 제공합니다.",
+  "schemaFeatures": "제목 및 링크 복사, 맞춤 템플릿, URL 정리, 다국어 지원",
+  "nav": {
+    "features": "기능",
+    "useCases": "활용 사례",
+    "howItWorks": "작동 방식",
+    "faq": "자주 묻는 질문",
+    "download": "다운로드"
+  },
+  "langSwitch": {
+    "current": "한국어",
+    "items": [
+      {
+        "code": "index",
+        "name": "EN"
+      },
+      {
+        "code": "zh",
+        "name": "简中"
+      },
+      {
+        "code": "zh-TW",
+        "name": "繁中"
+      },
+      {
+        "code": "ja",
+        "name": "日本語"
+      },
+      {
+        "code": "ru",
+        "name": "Русский"
+      },
+      {
+        "code": "hi",
+        "name": "हिंदी"
+      },
+      {
+        "code": "de",
+        "name": "Deutsch"
+      },
+      {
+        "code": "es",
+        "name": "Español"
+      }
+    ]
+  },
+  "hero": {
+    "badge": "v1.5.0 출시 🚀",
+    "title1": "더 똑똑하게 복사,",
+    "title2": "더 빠르게 붙여넣기.",
+    "subtitle": "개발자와 연구자를 위한 최고의 브라우저 확장 프로그램. 클릭 한 번으로 URL을 정리하고 마크다운을 형식화하며 작업 흐름을 간소화하세요.",
+    "ctaChrome": "Chrome에 추가",
+    "ctaFree": "— 무료입니다",
+    "ctaSource": "소스 보기"
+  },
+  "features": {
+    "title": "강력한 기능으로 가득",
+    "subtitle": "링크 관리에 필요한 모든 것, 군더더기 없이.",
+    "toast": {
+      "badge": "새 기능",
+      "title": "즉각적인 시각적 피드백",
+      "desc": "제대로 복사했는지 더 이상 추측하지 마세요. 새로운 <strong>스마트 토스트</strong>가 형식화된 링크 미리보기와 함께 클립보드에 무엇이 있는지 정확히 보여줍니다.",
+      "item1": "실시간 콘텐츠 미리보기",
+      "item2": "키보드 단축키 지원",
+      "item3": "다크 모드 디자인"
+    },
+    "paste": {
+      "badge": "스마트 컨텍스트",
+      "title": "어디에나 붙여넣기",
+      "desc": "필요에 맞춰 지능적으로 적응합니다. 메모용 마크다운, 블로그용 HTML, 공유용 정리된 URL로 복사하세요.",
+      "item1": "마크다운 및 서식 있는 텍스트 지원",
+      "item2": "스마트 대체 로직",
+      "item3": "맞춤 템플릿"
+    },
+    "config": {
+      "badge": "완벽한 제어",
+      "title": "강력한 구성",
+      "desc": "작업 흐름을 완전히 제어하세요. 직관적인 인터페이스로 단축키를 맞춤 설정하고 템플릿을 관리하며 스마트 기능을 전환하세요.",
+      "item1": "드래그 앤 드롭 정렬",
+      "item2": "실시간 미리보기",
+      "item3": "원클릭 기능 전환"
+    },
+    "cards": {
+      "templates": {
+        "title": "맞춤 템플릿",
+        "desc": "<code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{title}</code>, <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{url}</code> 같은 자리표시자와 마크다운 구문으로 나만의 형식을 정의하세요."
+      },
+      "clean": {
+        "title": "정리된 URL",
+        "desc": "500자짜리 추적 링크에 작별을 고하세요. <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">utm_source</code> 및 기타 분석 쓰레기를 자동으로 제거합니다."
+      },
+      "shortcuts": {
+        "title": "단축키 및 다국어",
+        "desc": "좋아하는 템플릿을 키보드 단축키에 연결하세요. 여러 언어로 완전히 현지화되었습니다."
+      }
+    }
+  },
+  "useCases": {
+    "title": "모든 작업 흐름을 위해 설계",
+    "developers": {
+      "title": "개발자를 위해",
+      "desc": "<strong class=\"text-slate-800\">Git 커밋 메시지</strong>, Jira 티켓 또는 일반 마크다운 문서용 링크를 즉시 복사하세요."
+    },
+    "writers": {
+      "title": "작가를 위해",
+      "desc": "인용을 간소화하세요. 블로그 게시물, 형식화된 HTML 또는 뉴스레터 큐레이션용 링크를 가져오기에 완벽합니다."
+    },
+    "research": {
+      "title": "연구를 위해",
+      "desc": "<strong class=\"text-slate-800\">Obsidian</strong>, <strong class=\"text-slate-800\">Logseq</strong>, Notion과 완벽하게 통합되어 제2의 뇌를 더 빠르게 구축합니다."
+    },
+    "everyone": {
+      "title": "모두를 위해",
+      "desc": "지저분한 <code class=\"bg-slate-100 px-1 rounded\">?utm_...</code> 추적 매개변수 없이 깔끔한 링크를 친구와 공유하세요."
+    }
+  },
+  "howItWorks": {
+    "title": "작동 방식",
+    "step1": {
+      "title": "확장 프로그램 설치",
+      "desc": "몇 초 만에 Chrome에 추가하세요. 계정이 필요 없습니다."
+    },
+    "step2": {
+      "title": "템플릿 설정",
+      "desc": "마크다운, Org-mode 또는 HTML 등 좋아하는 형식을 구성하세요."
+    },
+    "step3": {
+      "title": "원클릭 복사",
+      "desc": "아이콘을 클릭하거나 단축키를 사용해 링크를 즉시 가져오세요."
+    }
+  },
+  "faq": {
+    "title": "자주 묻는 질문",
+    "q1": {
+      "q": "완전히 무료인가요?",
+      "a": "네, Copy Page Title and URL Pro는 오픈 소스이며 영원히 100% 무료입니다. 숨겨진 구독료가 없습니다."
+    },
+    "q2": {
+      "q": "제 데이터를 추적하나요?",
+      "a": "전혀 그렇지 않습니다. 저희는 어떠한 사용 데이터도 수집, 저장, 전송하지 않습니다. 모든 것은 브라우저에서 로컬로 처리됩니다. <a href=\"privacy.html\" class=\"text-blue-600 hover:underline\">개인정보 처리방침</a>을 참고하세요."
+    },
+    "q3": {
+      "q": "나만의 형식을 만들 수 있나요?",
+      "a": "물론입니다! <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code> 및 <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code> 같은 자리표시자를 사용해 무제한으로 맞춤 템플릿을 만들 수 있습니다."
+    }
+  },
+  "footer": {
+    "tagline": "현대 웹을 위한 오픈 소스 생산성.",
+    "privacy": "개인정보",
+    "store": "Chrome 스토어",
+    "copyright": "© 2026 Deguang. All rights reserved.",
+    "madeWith": "확장 프로그램 애호가들이 ❤️로 만들었습니다."
+  }
+}

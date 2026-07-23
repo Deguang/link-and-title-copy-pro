@@ -1,0 +1,410 @@
+{
+    "name": {
+        "message": "Copy Page Title and URL Pro",
+        "description": ""
+    },
+    "appName": {
+        "message": "Copiar título de página y URL Pro: Markdown y enlace personalizado",
+        "description": "The name of the application, displayed in the Chrome Web Store and extensions management page."
+    },
+    "appDescription": {
+        "message": "Copia el título y la URL como Markdown, HTML o Jira. Elimina parámetros de seguimiento (UTM), plantillas personalizadas y selección inteligente.",
+        "description": "The description of the application."
+    },
+    "successTip": {
+        "message": "Copiado correctamente",
+        "description": ""
+    },
+    "errorTip": {
+        "message": "Error al copiar",
+        "description": ""
+    },
+    "config": {
+        "message": "Configuración",
+        "description": ""
+    },
+    "addNewConfig": {
+        "message": "Añadir plantilla",
+        "description": ""
+    },
+    "edit": {
+        "message": "Editar",
+        "description": ""
+    },
+    "delete": {
+        "message": "Eliminar",
+        "description": ""
+    },
+    "shortcut": {
+        "message": "Atajo",
+        "description": ""
+    },
+    "template": {
+        "message": "Plantilla",
+        "description": ""
+    },
+    "description": {
+        "message": "Descripción",
+        "description": ""
+    },
+    "save": {
+        "message": "Guardar",
+        "description": ""
+    },
+    "cancel": {
+        "message": "Cancelar",
+        "description": ""
+    },
+    "preview": {
+        "message": "Vista previa",
+        "description": ""
+    },
+    "supportedPlaceholders": {
+        "message": "Marcadores admitidos",
+        "description": ""
+    },
+    "configDescription": {
+        "message": "Descripción de la plantilla",
+        "description": ""
+    },
+    "shortCutRemind": {
+        "message": "Pulsa la combinación de teclas para capturar",
+        "description": ""
+    },
+    "exampleShortcuts": {
+        "message": "Atajos de ejemplo",
+        "description": ""
+    },
+    "switchToAutomaticCapture": {
+        "message": "Cambiar a captura automática",
+        "description": ""
+    },
+    "switchToManualInput": {
+        "message": "Cambiar a entrada manual",
+        "description": ""
+    },
+    "enterShortcutManually": {
+        "message": "Introducir el atajo manualmente",
+        "description": ""
+    },
+    "pressKeyCombination": {
+        "message": "Pulsa la combinación de teclas",
+        "description": ""
+    },
+    "selectedTextCopied": {
+        "message": "Texto seleccionado copiado",
+        "description": ""
+    },
+    "titleUrlCopied": {
+        "message": "Título y URL copiados",
+        "description": ""
+    },
+    "smartCopy": {
+        "message": "Copia inteligente",
+        "description": ""
+    },
+    "withSelectedText": {
+        "message": "Con texto seleccionado",
+        "description": ""
+    },
+    "withoutSelectedText": {
+        "message": "Sin texto seleccionado",
+        "description": ""
+    },
+    "templateHelp": {
+        "message": "Ayuda y ejemplos de plantillas",
+        "description": ""
+    },
+    "basicPlaceholders": {
+        "message": "Marcadores básicos",
+        "description": ""
+    },
+    "smartPlaceholders": {
+        "message": "Marcadores inteligentes",
+        "description": ""
+    },
+    "urlComponentPlaceholders": {
+        "message": "Marcadores de componentes de URL",
+        "description": ""
+    },
+    "conditionalTemplates": {
+        "message": "Plantillas condicionales",
+        "description": ""
+    },
+    "exampleTemplates": {
+        "message": "Plantillas de ejemplo",
+        "description": ""
+    },
+    "pageTitle": {
+        "message": "Título de la página",
+        "description": ""
+    },
+    "pageUrl": {
+        "message": "URL de la página",
+        "description": ""
+    },
+    "selectedTextEmpty": {
+        "message": "Texto seleccionado (vacío si no hay)",
+        "description": ""
+    },
+    "selectedTextOrTitle": {
+        "message": "Texto seleccionado si lo hay, de lo contrario el título",
+        "description": ""
+    },
+    "sameAsAbove": {
+        "message": "Igual que arriba",
+        "description": ""
+    },
+    "urlClean": {
+        "message": "URL sin parámetros de consulta ni hash",
+        "description": ""
+    },
+    "urlProtocol": {
+        "message": "Solo el protocolo (p. ej., https)",
+        "description": ""
+    },
+    "urlDomain": {
+        "message": "Dominio/nombre de host",
+        "description": ""
+    },
+    "urlPath": {
+        "message": "Solo la ruta",
+        "description": ""
+    },
+    "urlQuery": {
+        "message": "Parámetros de consulta con ?",
+        "description": ""
+    },
+    "urlHash": {
+        "message": "Fragmento hash con #",
+        "description": ""
+    },
+    "urlOrigin": {
+        "message": "Protocolo + dominio",
+        "description": ""
+    },
+    "onlyWhenTextSelected": {
+        "message": "Solo cuando hay texto seleccionado",
+        "description": ""
+    },
+    "onlyWhenNoTextSelected": {
+        "message": "Solo cuando no hay texto seleccionado",
+        "description": ""
+    },
+    "smartCopyDesc": {
+        "message": "Copia inteligente: texto seleccionado o título + URL",
+        "description": ""
+    },
+    "markdownLinkFormat": {
+        "message": "Formato de enlace Markdown",
+        "description": ""
+    },
+    "quotedSelectedText": {
+        "message": "Texto seleccionado entre comillas con el título, o solo el título",
+        "description": ""
+    },
+    "templateConfigurations": {
+        "message": "Configuraciones de plantillas",
+        "description": ""
+    },
+    "emptyResult": {
+        "message": "Resultado vacío",
+        "description": ""
+    },
+    "invalidShortcut": {
+        "message": "Combinación de atajo no válida",
+        "description": ""
+    },
+    "invalidShortcutFormat": {
+        "message": "Formato de atajo no válido",
+        "description": ""
+    },
+    "templatePlaceholder": {
+        "message": "Plantilla con marcadores…",
+        "description": ""
+    },
+    "descriptionPlaceholder": {
+        "message": "Breve descripción de esta plantilla",
+        "description": ""
+    },
+    "confirmDelete": {
+        "message": "¿Seguro que quieres eliminar esta plantilla?",
+        "description": ""
+    },
+    "toastCopied": {
+        "message": "¡Copiado al portapapeles!",
+        "description": ""
+    },
+    "toastFailed": {
+        "message": "Error al copiar",
+        "description": ""
+    },
+    "toastFallback": {
+        "message": "Copiado (alternativo)",
+        "description": ""
+    },
+    "onboardingWelcomeTitle": {
+        "message": "¡Bienvenido!"
+    },
+    "onboardingWelcomeDesc": {
+        "message": "Copia enlaces y títulos de página con una sola pulsación. Pulsa tu atajo para confirmar que funciona."
+    },
+    "onboardingDetected": {
+        "message": "Detectado:"
+    },
+    "onboardingListening": {
+        "message": "Pulsa el atajo para confirmar…"
+    },
+    "onboardingConflictHint": {
+        "message": "¿Conflicto de atajo? Cámbialo en Configuración →"
+    },
+    "onboardingItWorks": {
+        "message": "¡Funciona! 🎉"
+    },
+    "onboardingReadyToUse": {
+        "message": "Tu atajo está listo para usar"
+    },
+    "onboardingContinue": {
+        "message": "Continuar →"
+    },
+    "onboardingSkipStep": {
+        "message": "Omitir este paso →"
+    },
+    "onboardingAllSet": {
+        "message": "¡Todo listo!"
+    },
+    "onboardingFormatsReady": {
+        "message": "$COUNT$ formatos listos. Pulsa un atajo para verlo en vista previa.",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
+    "onboardingOutputPreview": {
+        "message": "Vista previa del resultado"
+    },
+    "onboardingCopiedBadge": {
+        "message": "✓ ¡Copiado!"
+    },
+    "onboardingCustomize": {
+        "message": "Personaliza todos los formatos en cualquier momento desde Configuración"
+    },
+    "onboardingStartCopying": {
+        "message": "¡A copiar!"
+    },
+    "onboardingSkipSetup": {
+        "message": "Omitir configuración"
+    },
+    "onboardingTplPlainName": {
+        "message": "Texto sin formato"
+    },
+    "onboardingTplPlainDesc": {
+        "message": "Título + URL en líneas separadas"
+    },
+    "onboardingTplMarkdownName": {
+        "message": "Markdown"
+    },
+    "onboardingTplMarkdownDesc": {
+        "message": "Enlace en línea con sintaxis Markdown"
+    },
+    "onboardingTplSmartName": {
+        "message": "Copia inteligente"
+    },
+    "onboardingTplSmartDesc": {
+        "message": "Selección entre comillas o título + URL"
+    },
+    "onboardingStepVerify": {
+        "message": "Verificar"
+    },
+    "onboardingStepPreview": {
+        "message": "Vista previa"
+    },
+    "reportIssue": {
+        "message": "Informar de un problema"
+    },
+    "feedbackSurvey": {
+        "message": "Comentarios / Encuesta de desinstalación"
+    },
+    "defaultDescPlain": {
+        "message": "Copiar el texto seleccionado (o el título) y la URL"
+    },
+    "defaultDescMarkdown": {
+        "message": "Copiar como enlace Markdown"
+    },
+    "defaultDescSmart": {
+        "message": "Copia inteligente con comillas para el texto seleccionado"
+    },
+    "batchCurrentTab": {
+        "message": "Pestaña actual"
+    },
+    "batchAllTabs": {
+        "message": "Todas las pestañas"
+    },
+    "batchFormat": {
+        "message": "Formato de copia"
+    },
+    "batchSelectAll": {
+        "message": "Seleccionar todo"
+    },
+    "batchCopyButton": {
+        "message": "Copiar"
+    },
+    "batchCopied": {
+        "message": "¡$COUNT$ pestaña(s) copiada(s)!",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
+    "batchNoTabs": {
+        "message": "No hay pestañas copiables en esta ventana"
+    },
+    "batchUpsellDesc": {
+        "message": "El plan gratuito copia hasta $LIMIT$ pestañas a la vez. Actualiza a Pro para copiar todas las pestañas abiertas.",
+        "placeholders": {
+            "limit": {
+                "content": "$1"
+            }
+        }
+    },
+    "batchUpgrade": {
+        "message": "Actualizar a Pro"
+    },
+    "licenseSectionTitle": {
+        "message": "Activar Pro"
+    },
+    "licenseActivated": {
+        "message": "Pro activado"
+    },
+    "licenseEnterKey": {
+        "message": "Pega tu clave de licencia"
+    },
+    "licenseActivate": {
+        "message": "Activar"
+    },
+    "licenseDeactivate": {
+        "message": "Desactivar"
+    },
+    "licenseInvalid": {
+        "message": "Clave de licencia no válida"
+    },
+    "licenseBuyPro": {
+        "message": "Comprar Pro"
+    },
+    "licenseComingSoon": {
+        "message": "Pro · Muy pronto"
+    },
+    "batchUpsellWaiting": {
+        "message": "Copiar más de $LIMIT$ pestañas a la vez será una función Pro, disponible muy pronto.",
+        "placeholders": {
+            "limit": {
+                "content": "$1"
+            }
+        }
+    },
+    "shortcutConflictHint": {
+        "message": "Este atajo puede entrar en conflicto con un atajo del navegador. Haz clic en Editar para cambiarlo."
+    }
+}

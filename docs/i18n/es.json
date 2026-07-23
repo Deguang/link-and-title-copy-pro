@@ -1,0 +1,163 @@
+{
+  "lang": "es",
+  "htmlLang": "es",
+  "title": "Copy Page Title and URL Pro – Copia enlaces como Markdown, HTML y formatos personalizados",
+  "description": "La mejor extensión de Chrome para copiar títulos y URL de las pestañas del navegador a la vez. Exporta enlaces como Markdown, HTML, Jira o formatos personalizados. Perfecta para desarrolladores, investigadores y escritores.",
+  "keywords": "extensión chrome, copiar enlace, copiar markdown, limpiar url, herramienta productividad, enlaces notion, formato jira, citas obsidian",
+  "canonical": "https://app.lideguang.com/link-and-title-copy-pro/es.html",
+  "ogTitle": "Copy Page Title and URL Pro – La herramienta de copia definitiva",
+  "ogDescription": "Copia con inteligencia, pega más rápido. La extensión de navegador definitiva para desarrolladores e investigadores para limpiar URL y formatear enlaces al instante.",
+  "schemaDescription": "Una extensión de navegador que te permite copiar el título y la URL de una pestaña del navegador al mismo tiempo, con plantillas personalizables y funciones inteligentes.",
+  "schemaFeatures": "Copiar título y enlace, Plantillas personalizadas, Limpieza de URL, Soporte i18n",
+  "nav": {
+    "features": "Funciones",
+    "useCases": "Casos de uso",
+    "howItWorks": "Cómo funciona",
+    "faq": "Preguntas frecuentes",
+    "download": "Descargar"
+  },
+  "langSwitch": {
+    "current": "Español",
+    "items": [
+      {
+        "code": "index",
+        "name": "EN"
+      },
+      {
+        "code": "zh",
+        "name": "简中"
+      },
+      {
+        "code": "zh-TW",
+        "name": "繁中"
+      },
+      {
+        "code": "ja",
+        "name": "日本語"
+      },
+      {
+        "code": "ru",
+        "name": "Русский"
+      },
+      {
+        "code": "hi",
+        "name": "हिंदी"
+      },
+      {
+        "code": "de",
+        "name": "Deutsch"
+      },
+      {
+        "code": "ko",
+        "name": "한국어"
+      }
+    ]
+  },
+  "hero": {
+    "badge": "¡La v1.5.0 ya está disponible 🚀",
+    "title1": "Copia con inteligencia,",
+    "title2": "pega más rápido.",
+    "subtitle": "La extensión de navegador definitiva para desarrolladores e investigadores. Limpia URL, formatea Markdown y optimiza tu flujo de trabajo con un solo clic.",
+    "ctaChrome": "Añadir a Chrome",
+    "ctaFree": "— Es gratis",
+    "ctaSource": "Ver código fuente"
+  },
+  "features": {
+    "title": "Repleta de potencia",
+    "subtitle": "Todo lo que necesitas para gestionar enlaces, sin lo innecesario.",
+    "toast": {
+      "badge": "Nueva función",
+      "title": "Confirmación visual instantánea",
+      "desc": "Nunca más adivines si copiaste correctamente. Nuestro nuevo <strong>Smart Toast</strong> te muestra exactamente qué hay en tu portapapeles, con una vista previa del enlace formateado.",
+      "item1": "Vista previa del contenido en vivo",
+      "item2": "Compatible con atajos de teclado",
+      "item3": "Estética de modo oscuro"
+    },
+    "paste": {
+      "badge": "Contextos inteligentes",
+      "title": "Pega en cualquier lugar",
+      "desc": "Se adapta de forma inteligente a tus necesidades. Copia como Markdown para tus notas, HTML para tu blog o URL limpias para compartir.",
+      "item1": "Compatible con Markdown y texto enriquecido",
+      "item2": "Lógica de reserva inteligente",
+      "item3": "Plantillas personalizables"
+    },
+    "config": {
+      "badge": "Control total",
+      "title": "Configuración potente",
+      "desc": "Toma el control total de tu flujo de trabajo. Personaliza atajos, gestiona plantillas y activa funciones inteligentes con una interfaz intuitiva.",
+      "item1": "Ordenación por arrastrar y soltar",
+      "item2": "Vista previa en tiempo real",
+      "item3": "Activación de funciones con un clic"
+    },
+    "cards": {
+      "templates": {
+        "title": "Plantillas personalizadas",
+        "desc": "Define tus propios formatos usando marcadores como <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{title}</code>, <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{url}</code> y sintaxis Markdown."
+      },
+      "clean": {
+        "title": "URL limpias",
+        "desc": "Dile adiós a los enlaces de seguimiento de 500 caracteres. Elimina automáticamente <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">utm_source</code> y otra basura de analítica."
+      },
+      "shortcuts": {
+        "title": "Atajos e i18n",
+        "desc": "Asigna tus plantillas favoritas a atajos de teclado. Totalmente localizada en varios idiomas."
+      }
+    }
+  },
+  "useCases": {
+    "title": "Diseñada para cada flujo de trabajo",
+    "developers": {
+      "title": "Para desarrolladores",
+      "desc": "Copia enlaces para <strong class=\"text-slate-800\">mensajes de commit de Git</strong>, tickets de Jira o documentación Markdown genérica al instante."
+    },
+    "writers": {
+      "title": "Para escritores",
+      "desc": "Optimiza tus citas. Perfecta para obtener enlaces para entradas de blog, HTML formateado o curación de boletines."
+    },
+    "research": {
+      "title": "Para investigación",
+      "desc": "Se integra perfectamente con <strong class=\"text-slate-800\">Obsidian</strong>, <strong class=\"text-slate-800\">Logseq</strong> y Notion para construir tu segundo cerebro más rápido."
+    },
+    "everyone": {
+      "title": "Para todos",
+      "desc": "Comparte enlaces limpios con tus amigos sin los feos parámetros de seguimiento <code class=\"bg-slate-100 px-1 rounded\">?utm_...</code>."
+    }
+  },
+  "howItWorks": {
+    "title": "Cómo funciona",
+    "step1": {
+      "title": "Instala la extensión",
+      "desc": "Añádela a Chrome en segundos. No se requiere cuenta."
+    },
+    "step2": {
+      "title": "Configura plantillas",
+      "desc": "Configura tus formatos favoritos como Markdown, Org-mode o HTML."
+    },
+    "step3": {
+      "title": "Copia con un clic",
+      "desc": "Haz clic en el icono o usa un atajo para obtener el enlace al instante."
+    }
+  },
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "q1": {
+      "q": "¿Es completamente gratis?",
+      "a": "Sí, Copy Page Title and URL Pro es de código abierto y 100 % gratis para siempre. Sin suscripciones ocultas."
+    },
+    "q2": {
+      "q": "¿Rastrea mis datos?",
+      "a": "En absoluto. No recopilamos, almacenamos ni transmitimos ningún dato de uso. Todo ocurre localmente en tu navegador. Consulta nuestra <a href=\"privacy.html\" class=\"text-blue-600 hover:underline\">Política de privacidad</a>."
+    },
+    "q3": {
+      "q": "¿Puedo crear mis propios formatos?",
+      "a": "¡Sí! Puedes crear plantillas personalizadas ilimitadas usando marcadores como <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code> y <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code>."
+    }
+  },
+  "footer": {
+    "tagline": "Productividad de código abierto para la web moderna.",
+    "privacy": "Privacidad",
+    "store": "Chrome Store",
+    "copyright": "© 2026 Deguang. Todos los derechos reservados.",
+    "madeWith": "Hecho con ❤️ por amantes de las extensiones."
+  }
+}
