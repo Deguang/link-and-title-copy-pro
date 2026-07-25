@@ -1,6 +1,6 @@
 {
   "name": "__MSG_appName__",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "__MSG_appDescription__",
   "homepage_url": "https://app.lideguang.com/link-and-title-copy-pro/",
   "manifest_version": 3,
@@ -38,7 +38,7 @@
       "js": [
         "content.js"
       ],
-      "run_at": "document_end",
+      "run_at": "document_start",
       "all_frames": true
     }
   ],

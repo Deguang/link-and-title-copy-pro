@@ -1,0 +1,10 @@
+# Keep blank issues enabled: the extension's "Report problem" button opens a
+# pre-filled issue via ?body=, which relies on blank issues being allowed.
+blank_issues_enabled: true
+contact_links:
+  - name: Website & docs
+    url: https://app.lideguang.com/link-and-title-copy-pro/
+    about: Features, templates, and usage guide.
+  - name: Chrome Web Store
+    url: https://chromewebstore.google.com/detail/kakoelinbkchhkjcbgjgmailplkhpkod
+    about: Install, rate, or review the extension.

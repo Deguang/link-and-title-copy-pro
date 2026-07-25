@@ -406,5 +406,40 @@
     },
     "shortcutConflictHint": {
         "message": "Это сочетание может конфликтовать с горячими клавишами браузера. Нажмите «Изменить»."
+    },
+    "reviewPrompt": {
+        "message": "Вы уже скопировали $COUNT$ раз с этим расширением 🎉 Если оно экономит время — поделитесь с друзьями!",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
+    "reviewCta": {
+        "message": "⭐ Оценить"
+    },
+    "reviewShare": {
+        "message": "🔗 Поделиться"
+    },
+    "reviewShared": {
+        "message": "✅ Скопировано! Вставьте другу, чтобы поделиться 💬"
+    },
+    "reviewShareText": {
+        "message": "Одним нажатием копирую заголовок и ссылку любой страницы — в Markdown, HTML, Jira или своём формате. Это расширение Chrome реально экономит время каждый день 👇"
+    },
+    "reviewLater": {
+        "message": "Позже"
+    },
+    "reviewGotIt": {
+        "message": "Понятно"
+    },
+    "reviewDontAskAgain": {
+        "message": "Больше не спрашивать"
+    },
+    "reviewRemindersLabel": {
+        "message": "Иногда напоминать оценить или поделиться"
+    },
+    "reportProblem": {
+        "message": "Сообщить о проблеме"
     }
 }

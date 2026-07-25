@@ -5,6 +5,7 @@ import { processTemplate } from '../utils/templateProcessor';
 import { getKeySymbols } from '../utils/shortcutFormatter';
 import { getProStatus, FREE_BATCH_LIMIT, openUpgradePage, PAYMENT_ENABLED } from '../utils/license';
 import { WHATS_NEW_KEY, WHATS_NEW_VERSION } from '../constant';
+import { recordCopies } from '../utils/reviewPrompt';
 
 const STORAGE_KEY = 'CopyTitleAndUrlConfigs';
 const os =(navigator.userAgentData?.platform || navigator.platform || '').toLowerCase().includes('mac') ? 'mac' : 'windows';
@@ -147,6 +148,8 @@ function BatchView({ configs, allTabs, isPro }) {
       const n = selectedIds.size;
       setCopied(n);
       setTimeout(() => setCopied(0), 1800);
+      // Count toward the review nudge (the ask itself surfaces on the on-page toast).
+      recordCopies(n).catch(() => {});
     }
   };
 
@@ -369,7 +372,7 @@ function Popup() {
 
       {/* Footer */}
       <div className="mt-3 pt-3 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center text-xs text-slate-400">
-        <span>v1.5.0</span>
+        <span>v1.6.0</span>
         <div className="flex gap-3">
           <a href="https://github.com/Deguang/link-and-title-copy-pro/issues/new" target="_blank" rel="noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition">{t('reportIssue') || 'Feedback'}</a>
           <a href="https://app.lideguang.com/link-and-title-copy-pro/" target="_blank" rel="noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition">Website</a>

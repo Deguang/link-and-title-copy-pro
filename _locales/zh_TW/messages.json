@@ -406,5 +406,40 @@
     },
     "shortcutConflictHint": {
         "message": "此快捷鍵可能與瀏覽器快捷鍵衝突，點擊「編輯」可修改。"
+    },
+    "reviewPrompt": {
+        "message": "你已經用它複製了 $COUNT$ 次 🎉 如果幫到你了,把它分享給朋友吧!",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
+    "reviewCta": {
+        "message": "⭐ 給好評"
+    },
+    "reviewShare": {
+        "message": "🔗 分享"
+    },
+    "reviewShared": {
+        "message": "✅ 已複製!現在把它貼給朋友,分享一下吧 💬"
+    },
+    "reviewShareText": {
+        "message": "一鍵複製任何網頁的標題和連結 —— 支援 Markdown、HTML、Jira 或自訂範本。這個 Chrome 擴充功能每天都幫我省下不少時間 👇"
+    },
+    "reviewLater": {
+        "message": "稍後再說"
+    },
+    "reviewGotIt": {
+        "message": "知道了"
+    },
+    "reviewDontAskAgain": {
+        "message": "不再提示"
+    },
+    "reviewRemindersLabel": {
+        "message": "偶爾提醒我評分或分享"
+    },
+    "reportProblem": {
+        "message": "回報問題"
     }
 }

@@ -406,5 +406,40 @@
     },
     "shortcutConflictHint": {
         "message": "该快捷键可能与浏览器快捷键冲突，点击「编辑」可修改。"
+    },
+    "reviewPrompt": {
+        "message": "你已经用它复制了 $COUNT$ 次 🎉 如果帮到你了,把它分享给朋友吧!",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
+    "reviewCta": {
+        "message": "⭐ 好评"
+    },
+    "reviewShare": {
+        "message": "🔗 分享"
+    },
+    "reviewShared": {
+        "message": "✅ 已复制!现在把它粘贴给朋友,分享一下吧 💬"
+    },
+    "reviewShareText": {
+        "message": "一键复制任意网页的标题和链接 —— 支持 Markdown、HTML、Jira 或自定义模板。这个 Chrome 扩展每天都帮我省下不少时间 👇"
+    },
+    "reviewLater": {
+        "message": "以后再说"
+    },
+    "reviewGotIt": {
+        "message": "知道了"
+    },
+    "reviewDontAskAgain": {
+        "message": "不再提示"
+    },
+    "reviewRemindersLabel": {
+        "message": "偶尔提醒我评分或分享"
+    },
+    "reportProblem": {
+        "message": "报告问题"
     }
 }

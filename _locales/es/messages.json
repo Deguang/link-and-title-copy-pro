@@ -406,5 +406,40 @@
     },
     "shortcutConflictHint": {
         "message": "Este atajo puede entrar en conflicto con un atajo del navegador. Haz clic en Editar para cambiarlo."
+    },
+    "reviewPrompt": {
+        "message": "Ya has copiado $COUNT$ veces con esta extensión 🎉 Si te ahorra tiempo, ¡compártela con tus amigos!",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
+    "reviewCta": {
+        "message": "⭐ Valorar"
+    },
+    "reviewShare": {
+        "message": "🔗 Compartir"
+    },
+    "reviewShared": {
+        "message": "✅ ¡Copiado! Pégalo a un amigo para compartirlo 💬"
+    },
+    "reviewShareText": {
+        "message": "Copia el título y el enlace de cualquier página con una sola tecla — en Markdown, HTML, Jira o tu propio formato. Esta extensión de Chrome me ahorra tiempo de verdad cada día 👇"
+    },
+    "reviewLater": {
+        "message": "Más tarde"
+    },
+    "reviewGotIt": {
+        "message": "Entendido"
+    },
+    "reviewDontAskAgain": {
+        "message": "No volver a preguntar"
+    },
+    "reviewRemindersLabel": {
+        "message": "Recordarme de vez en cuando valorar o compartir"
+    },
+    "reportProblem": {
+        "message": "Informar de un problema"
     }
 }

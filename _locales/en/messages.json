@@ -406,5 +406,40 @@
     },
     "shortcutConflictHint": {
         "message": "This shortcut may conflict with a browser shortcut. Click Edit to change it."
+    },
+    "reviewPrompt": {
+        "message": "You've copied $COUNT$ links with this extension 🎉 If it saves you time, share it with a friend!",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
+    "reviewCta": {
+        "message": "⭐ Rate it"
+    },
+    "reviewShare": {
+        "message": "🔗 Share"
+    },
+    "reviewShared": {
+        "message": "✅ Copied! Now paste it to a friend to share 💬"
+    },
+    "reviewShareText": {
+        "message": "Copy any page's title and link in one keystroke — as Markdown, HTML, Jira, or your own template. This Chrome extension saves me real time every day 👇"
+    },
+    "reviewLater": {
+        "message": "Later"
+    },
+    "reviewGotIt": {
+        "message": "Got it"
+    },
+    "reviewDontAskAgain": {
+        "message": "Don't ask again"
+    },
+    "reviewRemindersLabel": {
+        "message": "Occasionally remind me to rate or share"
+    },
+    "reportProblem": {
+        "message": "Report problem"
     }
 }

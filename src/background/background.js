@@ -2,47 +2,16 @@
 const STORAGE_KEY = 'CopyTitleAndUrlConfigs';
 import { processTemplate } from '../utils/templateProcessor';
 import { WHATS_NEW_KEY, WHATS_NEW_VERSION } from '../constant';
+import {
+  recordCopies,
+  shouldPromptReview,
+  markReviewDone,
+  REVIEW_URL,
+  STORE_URL,
+} from '../utils/reviewPrompt';
 
-// Google Analytics Measurement Protocol configuration
-const GA_MEASUREMENT_ID = 'G-49HSQQVZ1F';
-const GA_API_SECRET = ''; // Optional: Add API secret for server-side validation
-
-// Send event to Google Analytics 4
-async function sendGAEvent(eventName, eventParams = {}) {
-  try {
-    const clientId = await getOrCreateClientId();
-    const payload = {
-      client_id: clientId,
-      events: [{
-        name: eventName,
-        params: {
-          engagement_time_msec: '100',
-          ...eventParams
-        }
-      }]
-    };
-
-    const url = `https://www.google-analytics.com/mp/collect?measurement_id=${GA_MEASUREMENT_ID}&api_secret=${GA_API_SECRET}`;
-    
-    fetch(url, {
-      method: 'POST',
-      body: JSON.stringify(payload)
-    }).catch(err => console.log('GA event send failed:', err));
-  } catch (error) {
-    console.log('GA tracking error:', error);
-  }
-}
-
-// Get or create a persistent client ID for GA
-async function getOrCreateClientId() {
-  const result = await chrome.storage.local.get('ga_client_id');
-  if (result.ga_client_id) {
-    return result.ga_client_id;
-  }
-  const clientId = crypto.randomUUID();
-  await chrome.storage.local.set({ ga_client_id: clientId });
-  return clientId;
-}
+// No analytics. This extension does not collect, store, or transmit usage data —
+// everything happens locally, matching the stated privacy policy.
 
 function getDefaultConfigs() {
   const descPlain = chrome.i18n.getMessage('defaultDescPlain') || 'Copy selected text (or title) and URL';
@@ -185,23 +154,64 @@ chrome.runtime.onInstalled.addListener(async (details) => {
   }
 });
 
-function loadConfigurations() {
-  chrome.storage.local.get(STORAGE_KEY, function (result) {
-    if (chrome.runtime.lastError) {
-      console.error('Error loading configurations:', chrome.runtime.lastError);
-      return;
-    }
+// Resolves once configuredShortcuts reflects storage. Paths that read the
+// in-memory configs (e.g. fallbackCopy) await this so a copy fired right after the
+// service worker respawns can't race an empty array.
+let configsReady;
 
-    if (result[STORAGE_KEY] && Array.isArray(result[STORAGE_KEY])) {
-      configuredShortcuts = result[STORAGE_KEY];
-      console.log('Configurations loaded in background:', configuredShortcuts);
-      updateContextMenu();
-    } else {
-      console.log('No valid configurations found');
-      configuredShortcuts = [];
-    }
+function loadConfigurations() {
+  configsReady = new Promise((resolve) => {
+    chrome.storage.local.get(STORAGE_KEY, function (result) {
+      if (chrome.runtime.lastError) {
+        console.error('Error loading configurations:', chrome.runtime.lastError);
+        resolve();
+        return;
+      }
+
+      if (result[STORAGE_KEY] && Array.isArray(result[STORAGE_KEY])) {
+        configuredShortcuts = result[STORAGE_KEY];
+        console.log('Configurations loaded in background:', configuredShortcuts);
+        updateContextMenu();
+      } else {
+        console.log('No valid configurations found');
+        configuredShortcuts = [];
+      }
+      resolve();
+    });
   });
+  return configsReady;
 }
+
+// Self-heal for stale content scripts. After an extension update, tabs opened
+// earlier keep running a now-dead content script (its shortcut silently no-ops).
+// When a tab is focused, ping it; if nothing answers, inject a fresh script.
+async function ensureContentScript(tabId, url) {
+  if (!tabId || !url || !/^https?:/.test(url)) return;
+  try {
+    await chrome.tabs.sendMessage(tabId, { action: 'ping' });
+    // A reply means a live content script is already present — nothing to do.
+  } catch {
+    chrome.scripting.executeScript({
+      target: { tabId, allFrames: true },
+      files: ['content.js'],
+    }).catch(() => { /* restricted page (chrome://, PDF, store) — ignore */ });
+  }
+}
+
+chrome.tabs.onActivated.addListener(({ tabId }) => {
+  chrome.tabs.get(tabId, (tab) => {
+    if (!chrome.runtime.lastError && tab) ensureContentScript(tab.id, tab.url);
+  });
+});
+
+// Browser restart: session-restored tabs may not have re-run their content script.
+// Proactively ensure a live one in each open tab. ping-guarded, so it's a no-op
+// where the script is already present, and restricted/discarded tabs are ignored.
+chrome.runtime.onStartup.addListener(() => {
+  chrome.tabs.query({ url: ['http://*/*', 'https://*/*'] }, (tabs) => {
+    for (const tab of tabs) ensureContentScript(tab.id, tab.url);
+  });
+});
 
 // Debounce timer for context menu updates
 let menuUpdateTimer = null;
@@ -298,6 +308,8 @@ async function setupOffscreenDocument(path) {
 
 async function fallbackCopy(index, tab) {
   try {
+    // Ensure configs are loaded — the worker may have just respawned.
+    await configsReady;
     const config = configuredShortcuts[index];
     if (!config) return;
 
@@ -395,6 +407,50 @@ function copyToClipboard(index, senderFrameId = 0) {
   });
 }
 
+// Build a diagnostic from the local copy-failure log + environment and open a
+// pre-filled GitHub issue. User-initiated only; nothing is sent automatically, and
+// the report carries metadata only — no clipboard content, no page content, no
+// template bodies (just the count of configured shortcuts).
+async function openCopyIssueReport() {
+  try {
+    const store = await new Promise((resolve) =>
+      chrome.storage.local.get(['copyIssueLog', STORAGE_KEY], (r) => resolve(r || {}))
+    );
+    const log = Array.isArray(store.copyIssueLog) ? store.copyIssueLog : [];
+    const configs = Array.isArray(store[STORAGE_KEY]) ? store[STORAGE_KEY] : [];
+    const version = chrome.runtime.getManifest().version;
+
+    const failures = log.length
+      ? log.map((e) => `- ${new Date(e.ts).toISOString()} · tier=${e.tier} · ${e.error || '-'} · ${e.domain}`)
+      : ['- (none recorded)'];
+
+    const body = [
+      '### Copy issue report',
+      '',
+      `- Extension: v${version}`,
+      `- Browser: ${navigator.userAgent}`,
+      `- Platform: ${navigator.platform}`,
+      `- Shortcuts configured: ${configs.length}`,
+      '',
+      '#### Recent copy failures (local log)',
+      ...failures,
+      '',
+      '#### What happened',
+      '<!-- Please describe what you expected and what went wrong. -->',
+    ].join('\n');
+
+    const url =
+      'https://github.com/Deguang/link-and-title-copy-pro/issues/new'
+      + `?title=${encodeURIComponent('Copy not working')}`
+      + `&labels=${encodeURIComponent('copy-issue')}`
+      + `&body=${encodeURIComponent(body)}`;
+    chrome.tabs.create({ url });
+  } catch (e) {
+    // Fall back to a blank issue if anything goes wrong building the report.
+    chrome.tabs.create({ url: 'https://github.com/Deguang/link-and-title-copy-pro/issues/new' });
+  }
+}
+
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   try {
     if (request.action === 'showNotification') {
@@ -404,26 +460,73 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       loadConfigurations();
       sendResponse({ success: true });
     } else if (request.action === 'triggerCopyByIndex') {
-       // Track copy event in GA
-       const config = configuredShortcuts[request.index];
-       sendGAEvent('copy', {
-         template_index: request.index,
-         template_desc: config?.description || 'unknown'
-       });
        // Capture sender frame ID to reply to the correct frame
        const senderFrameId = sender.frameId;
        copyToClipboard(request.index, senderFrameId);
        sendResponse({ success: true });
     } else if (request.action === 'showToastRequest') {
-        // Route toast to TOP frame (frameId: 0) so it is always visible
+        // Route toast to TOP frame (frameId: 0) so it is always visible.
         if (sender.tab) {
-             chrome.tabs.sendMessage(sender.tab.id, {
+            const tabId = sender.tab.id;
+            const sendToast = (extra) => chrome.tabs.sendMessage(tabId, {
                 action: 'showToast',
                 message: request.message,
-                contentPreview: request.contentPreview
-             }, { frameId: 0 }); // TARGET TOP FRAME
+                contentPreview: request.contentPreview,
+                review: extra?.review || null,   // milestone rate/share ask
+                report: extra?.report || false,  // failure toast → "Report problem" action
+            }, { frameId: 0 }); // TARGET TOP FRAME
+
+            // Always show the toast immediately — never gate it on storage. A failure
+            // toast carries a report action so the user can file a diagnostic.
+            sendToast(request.failed ? { report: true } : null);
+
+            // Only successful copies count toward the review nudge. When the
+            // milestone is reached we re-render the same toast with the ask added;
+            // any failure here silently leaves the plain toast in place.
+            if (request.success) {
+                recordCopies(1)
+                    .then((count) =>
+                        shouldPromptReview().then((res) => {
+                            if (res.show) sendToast({ review: { reviewUrl: REVIEW_URL, storeUrl: STORE_URL, count, lastAsk: res.lastAsk } });
+                        })
+                    )
+                    .catch(() => {});
+            }
         }
         sendResponse({ success: true });
+    } else if (request.action === 'reviewAction') {
+        // User clicked Review or Share in the milestone toast — stop asking forever.
+        markReviewDone();
+        if (request.kind === 'review') chrome.tabs.create({ url: REVIEW_URL });
+        sendResponse({ success: true });
+    } else if (request.action === 'reportCopyIssue') {
+        // User asked to report a copy problem. Build a diagnostic from the LOCAL
+        // failure log + environment and open a pre-filled GitHub issue for them to
+        // review and submit. Nothing is transmitted automatically.
+        openCopyIssueReport();
+        sendResponse({ success: true });
+    } else if (request.action === 'copyViaOffscreen') {
+        // The in-page clipboard write was blocked (e.g. a page Permissions-Policy
+        // disabling the Clipboard API — see crbug.com/414348233). Write via the
+        // offscreen document, which is extension-origin and not bound by the page.
+        (async () => {
+            try {
+                await setupOffscreenDocument(OFFSCREEN_DOCUMENT_PATH);
+                chrome.runtime.sendMessage(
+                    { type: 'copy-data', target: 'offscreen-doc', data: request.text },
+                    (resp) => {
+                        if (chrome.runtime.lastError || !resp || !resp.success) {
+                            sendResponse({ success: false, error: chrome.runtime.lastError?.message });
+                        } else {
+                            sendResponse({ success: true });
+                        }
+                    }
+                );
+            } catch (e) {
+                sendResponse({ success: false, error: e.message });
+            }
+        })();
+        return true; // async sendResponse
     } else {
       console.log('Unknown action:', request.action);
       sendResponse({ success: false, error: 'Unknown action' });

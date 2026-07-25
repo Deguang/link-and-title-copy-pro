@@ -1,6 +1,6 @@
 {
   "name": "link-and-title-copy-pro",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "private": true,
   "description": "Link&amp;TitleCopyPro is a browser extension that allows you to copy both the title and URL link of a browser tab at the same time.",
   "main": "background.js",
@@ -12,11 +12,13 @@
     "release": "npm run build && ./scripts/release.sh",
     "publish-release": "./scripts/publish.sh",
     "preview": "vite preview",
-    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
-    "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
+    "lint": "eslint 'src/**/*.{js,mjs,jsx,ts,tsx}'",
+    "lint:fix": "eslint 'src/**/*.{js,mjs,jsx,ts,tsx}' --fix",
     "license:keygen": "node scripts/license/gen-keypair.mjs",
     "license:issue": "node scripts/license/issue-key.mjs",
-    "test": "node scripts/test/shortcut-match.test.mjs"
+    "test": "node --test src/utils/*.test.mjs",
+    "test:watch": "node --test --watch src/utils/*.test.mjs",
+    "ship": "./scripts/ship.sh"
   },
   "repository": {
     "type": "git",

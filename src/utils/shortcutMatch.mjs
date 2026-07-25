@@ -1,3 +1,4 @@
+// @ts-check
 // Pure, testable shortcut matching used by the content script.
 //
 // Matches a keydown event against the user's configured shortcut strings. It

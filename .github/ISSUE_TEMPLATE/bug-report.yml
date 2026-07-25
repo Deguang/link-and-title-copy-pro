@@ -1,0 +1,30 @@
+name: "Bug report"
+description: Something else is broken or behaving unexpectedly
+title: "Bug: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: Describe the bug — what you did, what you expected, what you got.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to …
+        2. Press …
+        3. See …
+  - type: input
+    id: env
+    attributes:
+      label: Browser & OS
+      placeholder: "Chrome 150 on macOS 15"
+  - type: input
+    id: version
+    attributes:
+      label: Extension version
+      placeholder: "1.6.0"

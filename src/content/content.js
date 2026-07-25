@@ -54,20 +54,25 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
   }
 });
 
+// Rolling log of copies that did NOT succeed on the primary clipboard path. Stays
+// LOCAL (chrome.storage.local) — never transmitted. It's only ever read when the
+// user chooses to file a report (see the background's reportCopyIssue handler).
+const COPY_ISSUE_LOG_KEY = 'copyIssueLog';
+function recordCopyIssue(tier, errorName) {
+  try {
+    chrome.storage.local.get(COPY_ISSUE_LOG_KEY, (r) => {
+      const log = Array.isArray(r[COPY_ISSUE_LOG_KEY]) ? r[COPY_ISSUE_LOG_KEY] : [];
+      log.push({ tier, error: errorName || '', domain: location.hostname, ts: Date.now() });
+      chrome.storage.local.set({ [COPY_ISSUE_LOG_KEY]: log.slice(-5) });
+    });
+  } catch { /* stale context — ignore */ }
+}
 
-// Prevent duplicate injection
-if (window.hasLinkTitleCopyProContentScript) {
-  console.log('Link & Title Copy Pro content script already loaded');
-  // If we are re-loaded (e.g. by explicit injection), we should probably not add another listener.
-  // We can just exit.
-  // BUT we need to make sure we don't break strict mode or scope.
-  // Since we are in an IIFE or module scope (Vite), return might not work if not in function.
-  // Actually, Vite wraps this. But let's use a flag.
-} else {
-window.hasLinkTitleCopyProContentScript = true;
 
-// Global Keyboard Listener
-window.addEventListener('keydown', (e) => {
+// Keyboard shortcut handler. Named (not an inline listener) so injection can be
+// made idempotent — see initContentScript(): a fresh injection after an extension
+// update unbinds the stale handler and binds this live one.
+function handleKeydown(e) {
   // Prevent repeat triggers while holding key
   if (e.repeat) return;
 
@@ -99,12 +104,21 @@ window.addEventListener('keydown', (e) => {
     // Wait, the 'shortcuts' array is filtered. We need the original index or pass the template directly.
     // Background's 'copyToClipboard(index)' expects an index in the FULL storage array.
     // Let's modify the loadShortcuts to keep track of original index.
-    chrome.runtime.sendMessage({
-      action: 'triggerCopyByIndex',
-      index: matchedConfig.originalIndex
-    });
+    // A content script that outlived an extension update has an invalidated
+    // context; chrome.runtime.id goes undefined and sendMessage throws
+    // "Extension context invalidated". Bail quietly — the background re-injects a
+    // fresh script (see ensureContentScript) so the next keypress works.
+    if (!chrome.runtime?.id) return;
+    try {
+      chrome.runtime.sendMessage({
+        action: 'triggerCopyByIndex',
+        index: matchedConfig.originalIndex
+      });
+    } catch (err) {
+      console.warn('[Content] Copy trigger failed (stale context?):', err);
+    }
   }
-}, true); // Capture phase to ensure we get it first
+}
 
 function copyToClipboard(template, overrideTitle, overrideUrl) {
   const processedText = processTemplate(template, {
@@ -112,6 +126,10 @@ function copyToClipboard(template, overrideTitle, overrideUrl) {
     url: overrideUrl || window.location.href,
     selectedText: getSelectedText()
   });
+
+  // Error name from the primary (navigator.clipboard) attempt, carried into the
+  // local issue log so a report can show why the primary path failed.
+  let primaryError = '';
 
   // 优先使用更可靠的复制方法
   function fallbackCopyTextToClipboard(text) {
@@ -139,12 +157,13 @@ function copyToClipboard(template, overrideTitle, overrideUrl) {
       const successful = document.execCommand('copy');
       if (successful) {
         showSuccessMessage();
+        recordCopyIssue('execCommand', primaryError);
       } else {
-        showErrorMessage();
+        copyViaBackground();
       }
     } catch (err) {
-      console.error('Fallback: Oops, unable to copy', err);
-      showErrorMessage();
+      console.debug('Fallback execCommand blocked, delegating to offscreen:', err?.name || err);
+      copyViaBackground();
     }
 
     document.body.removeChild(textArea);
@@ -164,15 +183,37 @@ function copyToClipboard(template, overrideTitle, overrideUrl) {
     chrome.runtime.sendMessage({
         action: 'showToastRequest',
         message: toastMessage || 'Copied to Clipboard!',
-        contentPreview: processedText
+        contentPreview: processedText,
+        success: true // marks a real copy so it counts toward the review nudge
     });
   }
 
   function showErrorMessage() {
      chrome.runtime.sendMessage({
         action: 'showToastRequest',
-        message: chrome.i18n.getMessage('toastFailed') || 'Copy Failed'
+        message: chrome.i18n.getMessage('toastFailed') || 'Copy Failed',
+        failed: true // ask the toast to offer a "Report problem" action
     });
+  }
+
+  // Last resort when both in-page methods are blocked (e.g. a page Permissions-
+  // Policy disabling the Clipboard API — crbug.com/414348233). The background
+  // writes via its offscreen document, which the page's policy cannot touch.
+  function copyViaBackground() {
+    try {
+      chrome.runtime.sendMessage({ action: 'copyViaOffscreen', text: processedText }, (resp) => {
+        if (chrome.runtime.lastError || !resp || !resp.success) {
+          showErrorMessage();
+          recordCopyIssue('failed', primaryError);
+        } else {
+          showSuccessMessage();
+          recordCopyIssue('offscreen', primaryError);
+        }
+      });
+    } catch {
+      showErrorMessage();
+      recordCopyIssue('failed', primaryError);
+    }
   }
 
   // 检查是否支持现代剪贴板API并且文档有焦点
@@ -181,7 +222,8 @@ function copyToClipboard(template, overrideTitle, overrideUrl) {
       navigator.clipboard.writeText(processedText).then(() => {
         showSuccessMessage();
       }).catch(err => {
-        console.error('Modern clipboard API failed, using fallback:', err);
+        primaryError = err?.name || String(err);
+        console.debug('Clipboard API blocked, using fallback:', primaryError);
         fallbackCopyTextToClipboard(processedText);
       });
     } else {
@@ -192,10 +234,14 @@ function copyToClipboard(template, overrideTitle, overrideUrl) {
   }
 }
 
-// 监听来自background的消息
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+// Message handler (from background). Named for the same idempotency reason.
+function handleMessage(message, sender, sendResponse) {
   try {
-    if (message.action === 'copyToClipboard') {
+    if (message.action === 'ping') {
+      // Liveness probe from the background's self-heal check.
+      sendResponse({ alive: true });
+      return true;
+    } else if (message.action === 'copyToClipboard') {
       const config = shortcuts.find(c => c.originalIndex === message.templateIndex);
       
       if (config && config.template) {
@@ -207,7 +253,31 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         sendResponse({ success: false, error: 'Invalid configuration' });
       }
     } else if (message.action === 'showToast') {
-      showToast(message.message || 'Copied!', message.contentPreview);
+      let review = null;
+      if (message.review) {
+        // Attach localized labels here (content script has i18n) so toast.js
+        // stays free of translation concerns.
+        review = {
+          reviewUrl: message.review.reviewUrl,
+          storeUrl: message.review.storeUrl,
+          prompt: chrome.i18n.getMessage('reviewPrompt', [String(message.review.count || '')]) || 'Enjoying the extension?',
+          reviewLabel: chrome.i18n.getMessage('reviewCta') || '⭐ Rate it',
+          shareLabel: chrome.i18n.getMessage('reviewShare') || '🔗 Share',
+          laterLabel: chrome.i18n.getMessage('reviewLater') || 'Later',
+          gotItLabel: chrome.i18n.getMessage('reviewGotIt') || 'Got it',
+          dontAskAgainLabel: chrome.i18n.getMessage('reviewDontAskAgain') || "Don't ask again",
+          lastAsk: !!message.review.lastAsk,
+          sharedMsg: chrome.i18n.getMessage('reviewShared') || 'Copied! Now paste it to a friend to share.',
+          // Persuasive blurb copied to the clipboard on share (the store link is
+          // appended by the toast), so pasting it anywhere actually sells the tool.
+          shareText: chrome.i18n.getMessage('reviewShareText') || '',
+        };
+      }
+      let report = null;
+      if (message.report) {
+        report = { label: chrome.i18n.getMessage('reportProblem') || 'Report problem' };
+      }
+      showToast(message.message || 'Copied!', message.contentPreview, { review, report });
       sendResponse({ success: true });
     } else if (message.action === 'getPageInfo') {
       // 返回页面信息用于预览
@@ -228,13 +298,43 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
 
   return true;
-});
+}
 
-// 监听选择变化，可以用于实时更新上下文菜单等
-document.addEventListener('selectionchange', () => {
-  // 可以在这里添加选择变化的处理逻辑
-  // 比如更新右键菜单的显示文本等
-});
+// Reserved for future selection-driven behavior. Named so it can be re-bound cleanly.
+function handleSelectionChange() {}
+
+// Idempotent install. Safe to run again after a self-heal re-injection: the page's
+// window still holds the previous handler refs (even when that script's context is
+// dead), so we unbind the stale DOM listeners before binding fresh, live ones. The
+// old context's chrome.runtime.onMessage listener is auto-removed by Chrome, so we
+// only need to (re)add ours.
+function initContentScript() {
+  if (window.__ltcKeydown) window.removeEventListener('keydown', window.__ltcKeydown, true);
+  if (window.__ltcSelChange) document.removeEventListener('selectionchange', window.__ltcSelChange);
+
+  window.__ltcKeydown = handleKeydown;
+  window.addEventListener('keydown', handleKeydown, true); // capture phase — get it first
+
+  window.__ltcSelChange = handleSelectionChange;
+  document.addEventListener('selectionchange', handleSelectionChange);
+
+  // Fully idempotent within a single context too: removeListener is a safe no-op
+  // when the handler isn't registered, so a re-run can never double-bind onMessage
+  // (which would double-copy). This is what makes the load-time retry below safe.
+  chrome.runtime.onMessage.removeListener(handleMessage);
+  chrome.runtime.onMessage.addListener(handleMessage);
+
+  window.hasLinkTitleCopyProContentScript = true;
+}
+
+initContentScript();
+
+// Belt-and-suspenders: if the document_start setup didn't complete for any reason,
+// re-run once the page finishes loading. initContentScript is fully idempotent, so
+// this can never double-bind. (Pages that never fire 'load' don't need it — the
+// listener is already armed from document_start.)
+if (document.readyState !== 'complete') {
+  window.addEventListener('load', initContentScript, { once: true });
+}
 
 console.log('Enhanced content script loaded with text selection support');
-}

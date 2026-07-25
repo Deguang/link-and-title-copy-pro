@@ -406,5 +406,40 @@
     },
     "shortcutConflictHint": {
         "message": "यह शॉर्टकट ब्राउज़र शॉर्टकट से टकरा सकता है। बदलने के लिए «संपादित करें» पर क्लिक करें।"
+    },
+    "reviewPrompt": {
+        "message": "आपने इस एक्सटेंशन से $COUNT$ बार कॉपी किया 🎉 अगर यह समय बचाता है, तो इसे दोस्तों के साथ शेयर करें!",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
+    "reviewCta": {
+        "message": "⭐ रेट करें"
+    },
+    "reviewShare": {
+        "message": "🔗 शेयर करें"
+    },
+    "reviewShared": {
+        "message": "✅ कॉपी हो गया! अब इसे किसी दोस्त को पेस्ट करके शेयर करें 💬"
+    },
+    "reviewShareText": {
+        "message": "एक ही कीस्ट्रोक से किसी भी पेज का टाइटल और लिंक कॉपी करें — Markdown, HTML, Jira या अपने टेम्पलेट में। यह Chrome एक्सटेंशन रोज़ मेरा काफी समय बचाता है 👇"
+    },
+    "reviewLater": {
+        "message": "बाद में"
+    },
+    "reviewGotIt": {
+        "message": "ठीक है"
+    },
+    "reviewDontAskAgain": {
+        "message": "फिर मत पूछें"
+    },
+    "reviewRemindersLabel": {
+        "message": "रेट या शेयर करने के लिए कभी-कभी याद दिलाएँ"
+    },
+    "reportProblem": {
+        "message": "समस्या की रिपोर्ट करें"
     }
 }

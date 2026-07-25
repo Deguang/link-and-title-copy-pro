@@ -4,6 +4,28 @@ import { useChromeStorage } from '@/hooks/useChromeStorage.js';
 import { processTemplate } from '@/utils/templateProcessor';
 import { STORAGE_KEY } from '../constant';
 import LicenseSection from './LicenseSection';
+import { REVIEW_OPT_OUT_KEY } from '@/utils/reviewPrompt';
+
+// Toggle to opt out of the occasional rate/share reminder (stored under
+// REVIEW_OPT_OUT_KEY; true = opted out). shouldPromptReview() honors this.
+function ReviewReminderToggle({ t }) {
+    const [optOut, setOptOut] = useChromeStorage(REVIEW_OPT_OUT_KEY, false);
+    const on = !optOut;
+    return (
+        <div className="mt-4 flex items-center justify-between p-3 bg-white rounded-lg border border-gray-200 flex-shrink-0">
+            <span className="text-sm text-gray-700">{t('reviewRemindersLabel')}</span>
+            <button
+                type="button"
+                role="switch"
+                aria-checked={on}
+                onClick={() => setOptOut(on)}
+                className={`relative inline-flex h-5 w-9 flex-shrink-0 items-center rounded-full transition ${on ? 'bg-blue-500' : 'bg-gray-300'}`}
+            >
+                <span className={`inline-block h-4 w-4 transform rounded-full bg-white shadow transition ${on ? 'translate-x-4' : 'translate-x-0.5'}`} />
+            </button>
+        </div>
+    );
+}
 
 // Shortcuts the browser itself reserves — pages often can't intercept these, so a
 // configured copy shortcut using one may silently open a browser feature instead.
@@ -581,6 +603,8 @@ export default function Config() {
                     </div>
 
                     <LicenseSection />
+
+                    <ReviewReminderToggle t={t} />
 
                     <div className="mt-4 pt-3 border-t border-gray-200 flex-shrink-0 flex justify-between items-center text-xs text-gray-400">
                         <div className="flex gap-4">

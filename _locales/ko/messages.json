@@ -406,5 +406,40 @@
     },
     "shortcutConflictHint": {
         "message": "이 단축키는 브라우저 단축키와 충돌할 수 있습니다. 편집을 클릭하여 변경하세요."
+    },
+    "reviewPrompt": {
+        "message": "이 확장 프로그램으로 벌써 $COUNT$번 복사했어요 🎉 시간을 아껴준다면 친구에게 공유해 주세요!",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
+    "reviewCta": {
+        "message": "⭐ 평가하기"
+    },
+    "reviewShare": {
+        "message": "🔗 공유"
+    },
+    "reviewShared": {
+        "message": "✅ 복사됨! 이제 친구에게 붙여넣어 공유하세요 💬"
+    },
+    "reviewShareText": {
+        "message": "단축키 하나로 어떤 페이지든 제목과 링크를 복사 — Markdown, HTML, Jira 또는 나만의 형식으로. 이 Chrome 확장 프로그램은 매일 정말 시간을 아껴줍니다 👇"
+    },
+    "reviewLater": {
+        "message": "나중에"
+    },
+    "reviewGotIt": {
+        "message": "확인"
+    },
+    "reviewDontAskAgain": {
+        "message": "다시 묻지 않기"
+    },
+    "reviewRemindersLabel": {
+        "message": "가끔 평가 또는 공유를 알려주기"
+    },
+    "reportProblem": {
+        "message": "문제 신고"
     }
 }

@@ -1,0 +1,41 @@
+name: "Copy not working"
+description: A shortcut or format didn't copy as expected
+title: "Copy not working: "
+labels: ["copy-issue"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report! If you clicked **Report problem** in the extension, a
+        diagnostic block was already filled into the issue body — keep it and add
+        what happened below.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What did you expect, and what actually happened?
+      placeholder: "I pressed Ctrl+Shift+P on the page and nothing was copied / the wrong thing was copied…"
+    validations:
+      required: true
+  - type: input
+    id: site
+    attributes:
+      label: Site
+      description: Where did it fail? A domain is enough.
+      placeholder: "gumroad.com"
+  - type: input
+    id: env
+    attributes:
+      label: Browser & OS
+      placeholder: "Chrome 150 on macOS 15"
+  - type: input
+    id: version
+    attributes:
+      label: Extension version
+      placeholder: "1.6.0"
+  - type: textarea
+    id: diagnostic
+    attributes:
+      label: Diagnostic (auto-filled by "Report problem")
+      description: If you used the in-extension report button, paste/keep its diagnostic here.
+      render: text

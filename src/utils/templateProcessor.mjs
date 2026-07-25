@@ -1,3 +1,4 @@
+// @ts-check
 /**
  * Process the template string with the provided context.
  * 

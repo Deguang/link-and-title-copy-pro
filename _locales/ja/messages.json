@@ -406,5 +406,40 @@
     },
     "shortcutConflictHint": {
         "message": "このショートカットはブラウザのショートカットと競合する可能性があります。「編集」で変更できます。"
+    },
+    "reviewPrompt": {
+        "message": "この拡張機能で $COUNT$ 回コピーしました 🎉 役に立っていたら、友だちにもシェアしてください!",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
+    "reviewCta": {
+        "message": "⭐ 評価する"
+    },
+    "reviewShare": {
+        "message": "🔗 シェア"
+    },
+    "reviewShared": {
+        "message": "✅ コピーしました!友だちに貼り付けてシェアしてください 💬"
+    },
+    "reviewShareText": {
+        "message": "ワンキーでどんなページのタイトルとリンクもコピー — Markdown、HTML、Jira、カスタム書式に対応。この Chrome 拡張機能は毎日の時短に本当に役立っています 👇"
+    },
+    "reviewLater": {
+        "message": "後で"
+    },
+    "reviewGotIt": {
+        "message": "OK"
+    },
+    "reviewDontAskAgain": {
+        "message": "今後表示しない"
+    },
+    "reviewRemindersLabel": {
+        "message": "評価やシェアをときどき知らせる"
+    },
+    "reportProblem": {
+        "message": "問題を報告"
     }
 }
