@@ -1,0 +1,54 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Keycap stroke weight</title>
+<style>
+body{background:#F5F7FA;color:#032A4B;font-family:-apple-system,"PingFang SC",sans-serif;padding:24px}
+h2{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#667584;margin:18px 0 7px}
+.row{display:flex;align-items:center;gap:6px;margin-bottom:4px}
+kbd{display:inline-flex;align-items:center;justify-content:center;
+  min-width:20px;padding:2px 6px;border-radius:6px;font-size:11px;font-weight:600;
+  font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;line-height:1;
+  border:1px solid #D3DDE6;background:linear-gradient(180deg,#fff,#EEF3F8);
+  color:#1B3B5C;box-shadow:0 1px 0 rgba(3,42,75,.08)}
+kbd svg{width:1em;height:1em}
+.plus{color:#8795A3;font-size:10px}
+.tag{font-size:10px;color:#667584;width:74px;font-family:ui-monospace,monospace}
+</style></head><body>
+
+<h2>描边宽度对照（11px 实际尺寸）</h2>
+<div id="small"></div>
+
+<h2>放大 5 倍</h2>
+<div id="big" style="zoom:5"></div>
+
+<script>
+var P = {
+  cmd:  'M3.5 2A1.5 1.5 0 0 1 5 3.5V5H3.5a1.5 1.5 0 1 1 0-3M6 5V3.5A2.5 2.5 0 1 0 3.5 6H5v4H3.5A2.5 2.5 0 1 0 6 12.5V11h4v1.5a2.5 2.5 0 1 0 2.5-2.5H11V6h1.5A2.5 2.5 0 1 0 10 3.5V5zm4 1v4H6V6zm1-1V3.5A1.5 1.5 0 1 1 12.5 5zm0 6h1.5a1.5 1.5 0 1 1-1.5 1.5zm-6 0v1.5A1.5 1.5 0 1 1 3.5 11z',
+  shift:'M7.27 2.047a1 1 0 0 1 1.46 0l6.345 6.77c.6.638.146 1.683-.73 1.683H11.5v3a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-3H1.654C.78 10.5.326 9.455.924 8.816zM14.346 9.5 8 2.731 1.654 9.5H4.5a1 1 0 0 1 1 1v3h5v-3a1 1 0 0 1 1-1z',
+  opt:  'M1 2.5a.5.5 0 0 1 .5-.5h3.797a.5.5 0 0 1 .439.26L11 13h3.5a.5.5 0 0 1 0 1h-3.797a.5.5 0 0 1-.439-.26L5 3H1.5a.5.5 0 0 1-.5-.5m10 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5',
+  ctrl: 'M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z'
+};
+
+function icon(d, sw) {
+  var s = '<svg viewBox="0 0 16 16" fill="currentColor"';
+  if (sw > 0) s += ' stroke="currentColor" stroke-width="' + sw + '" stroke-linejoin="round"';
+  return s + '><path d="' + P[d] + '"/></svg>';
+}
+
+function build(target) {
+  var host = document.getElementById(target);
+  [0, 0.4, 0.6, 0.8, 1.0, 1.3].forEach(function (sw) {
+    var row = document.createElement('div');
+    row.className = 'row';
+    row.innerHTML =
+      '<span class="tag">' + (sw === 0 ? 'none' : 'sw ' + sw.toFixed(1)) + '</span>' +
+      '<kbd>' + icon('cmd', sw) + '</kbd><span class="plus">+</span>' +
+      '<kbd>' + icon('shift', sw) + '</kbd><span class="plus">+</span>' +
+      '<kbd>' + icon('opt', sw) + '</kbd><span class="plus">+</span>' +
+      '<kbd>' + icon('ctrl', sw) + '</kbd><span class="plus">+</span>' +
+      '<kbd>C</kbd><kbd>W</kbd>';
+    host.appendChild(row);
+  });
+}
+build('small'); build('big');
+</script>
+</body></html>

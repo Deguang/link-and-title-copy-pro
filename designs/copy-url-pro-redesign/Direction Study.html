@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Copy URL Pro — Direction Study</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ============================================================
+   Four visual directions. Same markup, different token sets.
+   ============================================================ */
+
+/* --- 1. PRECISION — near-black, single electric accent --- */
+body.precision {
+  --page:        #08080B;
+  --canvas:      #0E0E11;
+  --surface:     #17171C;
+  --surface-2:   #1E1E25;
+  --line:        #2A2A33;
+  --line-soft:   #212129;
+  --ink:         #F4F4F6;
+  --ink-2:       #9A9AA6;
+  --ink-3:       #63636E;
+  --accent:      #7C6BFF;
+  --accent-ink:  #A99CFF;
+  --accent-soft: #1D1B33;
+  --ok:          #3DD68C;
+  --warn:        #E0A33B;
+  --warn-soft:   #2A2213;
+  --danger:      #FF6B7A;
+  --danger-soft: #2E1720;
+  --key-bg:      linear-gradient(180deg, #26262E, #1B1B22);
+  --key-line:    #34343F;
+  --key-ink:     #DCDCE4;
+  --radius:      9px;
+  --radius-lg:   13px;
+  --shadow:      0 1px 2px rgba(0,0,0,.5), 0 14px 34px -12px rgba(0,0,0,.7);
+  --title-font:  "SF Pro Display", -apple-system, "PingFang SC", sans-serif;
+  --title-weight: 620;
+  --title-spacing: -.02em;
+}
+
+/* --- 2. WARM INK — warm paper, clay accent --- */
+body.warmink {
+  --page:        #E8E3D9;
+  --canvas:      #F3F0EA;
+  --surface:     #FFFFFF;
+  --surface-2:   #FAF8F4;
+  --line:        #E2DBCF;
+  --line-soft:   #EFEAE1;
+  --ink:         #1F1B16;
+  --ink-2:       #6B6157;
+  --ink-3:       #9A9086;
+  --accent:      #B4532A;
+  --accent-ink:  #8F3F1E;
+  --accent-soft: #FAEFE8;
+  --ok:          #4A7C59;
+  --warn:        #A9761F;
+  --warn-soft:   #FBF3E3;
+  --danger:      #9E3B2E;
+  --danger-soft: #FAEDEA;
+  --key-bg:      linear-gradient(180deg, #FFFFFF, #F1ECE3);
+  --key-line:    #DDD5C7;
+  --key-ink:     #4A4139;
+  --radius:      8px;
+  --radius-lg:   12px;
+  --shadow:      0 1px 2px rgba(60,45,25,.05), 0 12px 30px -10px rgba(60,45,25,.14);
+  --title-font:  "Iowan Old Style", Georgia, "Songti SC", serif;
+  --title-weight: 640;
+  --title-spacing: -.01em;
+}
+
+/* --- 3. INK & JADE — cool grey, jade accent --- */
+body.inkjade {
+  --page:        #E3E7E5;
+  --canvas:      #EFF1F0;
+  --surface:     #FFFFFF;
+  --surface-2:   #F7F9F8;
+  --line:        #D9E0DD;
+  --line-soft:   #E9EEEC;
+  --ink:         #16201D;
+  --ink-2:       #5C6866;
+  --ink-3:       #8A9694;
+  --accent:      #0F766E;
+  --accent-ink:  #0B5A54;
+  --accent-soft: #E4F0EE;
+  --ok:          #0F766E;
+  --warn:        #B4761F;
+  --warn-soft:   #FAF3E5;
+  --danger:      #A03C3C;
+  --danger-soft: #F9ECEC;
+  --key-bg:      linear-gradient(180deg, #FFFFFF, #EDF1F0);
+  --key-line:    #D3DBD9;
+  --key-ink:     #3B4A47;
+  --radius:      10px;
+  --radius-lg:   14px;
+  --shadow:      0 1px 2px rgba(20,40,35,.05), 0 12px 30px -10px rgba(20,40,35,.16);
+  --title-font:  -apple-system, "SF Pro Display", "PingFang SC", sans-serif;
+  --title-weight: 600;
+  --title-spacing: -.015em;
+}
+
+/* --- 4. SIGNAL — neutral grey, signal orange --- */
+body.signal {
+  --page:        #E7E5E4;
+  --canvas:      #F5F5F4;
+  --surface:     #FFFFFF;
+  --surface-2:   #FAFAF9;
+  --line:        #E2E0DE;
+  --line-soft:   #EFEDEB;
+  --ink:         #1C1917;
+  --ink-2:       #78716C;
+  --ink-3:       #A8A29E;
+  --accent:      #EA580C;
+  --accent-ink:  #C2410C;
+  --accent-soft: #FEF0E7;
+  --ok:          #15803D;
+  --warn:        #B45309;
+  --warn-soft:   #FEF4E7;
+  --danger:      #BE3B3B;
+  --danger-soft: #FCEDED;
+  --key-bg:      linear-gradient(180deg, #FFFFFF, #F1EFED);
+  --key-line:    #DEDBD8;
+  --key-ink:     #44403C;
+  --radius:      7px;
+  --radius-lg:   11px;
+  --shadow:      0 1px 2px rgba(28,25,23,.05), 0 12px 30px -10px rgba(28,25,23,.16);
+  --title-font:  -apple-system, "SF Pro Display", "PingFang SC", sans-serif;
+  --title-weight: 680;
+  --title-spacing: -.025em;
+}
+
+/* --- 5. BRAND — derived from the product logo ---
+   Logo colors sampled from src/icons/icon.png:
+     #032A4B navy (outline, largest area) · #FC686D coral (bar)
+     #FAD176 amber ("U") · #03C7E4 cyan ("T")
+   Neutrals are navy-tinted rather than stock slate, so the whole UI reads as
+   one family with the mark. Coral is darkened to #D63A44 wherever it carries
+   text (raw coral is only 2.86:1 on white — decorative fills only). --- */
+body.brand {
+  --page:        #E4EAF0;
+  --canvas:      #F4F7FA;
+  --surface:     #FFFFFF;
+  --surface-2:   #F8FAFC;
+  --line:        #DBE3EB;
+  --line-soft:   #EAF0F5;
+  --ink:         #032A4B;
+  --ink-2:       #5A6B7C;
+  --ink-3:       #8B99A6;
+  --accent:      #D63A44;
+  --accent-ink:  #B82F39;
+  --accent-soft: #FDECEC;
+  --accent-raw:  #FC686D;
+  --ok:          #0C7C95;
+  --warn:        #9A6B12;
+  --warn-soft:   #FEF6E3;
+  --danger:      #C0392B;
+  --danger-soft: #FBEDEB;
+  --key-bg:      linear-gradient(180deg, #FFFFFF, #EEF3F8);
+  --key-line:    #D3DDE6;
+  --key-ink:     #1B3B5C;
+  --radius:      8px;
+  --radius-lg:   12px;
+  --shadow:      0 1px 2px rgba(3,42,75,.06), 0 12px 30px -10px rgba(3,42,75,.20);
+  --title-font:  -apple-system, "SF Pro Display", "PingFang SC", sans-serif;
+  --title-weight: 680;
+  --title-spacing: -.025em;
+}
+
+/* --- 6. BRAND v2 — same logo palette, roles reassigned ---
+   Navy carries every functional action (buttons, focus, selection), so red is
+   free to mean "error" again and nothing in the chrome reads as an alarm.
+   Coral survives only as a brand spark: the mark and one hairline. Amber marks
+   Pro. This keeps the palette brand-derived without inheriting coral's
+   2017-era flavour as the dominant hue. --- */
+body.brandv2 {
+  --page:        #E6EBF0;
+  --canvas:      #F5F7FA;
+  --surface:     #FFFFFF;
+  --surface-2:   #F8FAFC;
+  --line:        #DCE3EA;
+  --line-soft:   #EBF0F5;
+  --ink:         #032A4B;
+  --ink-2:       #55677A;
+  --ink-3:       #8795A3;
+  --accent:      #0B3C63;      /* navy — primary action */
+  --accent-ink:  #032A4B;
+  --accent-soft: #E7EEF5;
+  --accent-raw:  #FC686D;      /* coral — brand spark only */
+  --ok:          #0C7C95;
+  --warn:        #9A6B12;
+  --warn-soft:   #FEF6E3;
+  --danger:      #C0392B;
+  --danger-soft: #FBEDEB;
+  --key-bg:      linear-gradient(180deg, #FFFFFF, #EEF3F8);
+  --key-line:    #D3DDE6;
+  --key-ink:     #1B3B5C;
+  --radius:      8px;
+  --radius-lg:   12px;
+  --shadow:      0 1px 2px rgba(3,42,75,.06), 0 12px 30px -10px rgba(3,42,75,.20);
+  --title-font:  -apple-system, "SF Pro Display", "PingFang SC", sans-serif;
+  --title-weight: 680;
+  --title-spacing: -.025em;
+}
+/* Coral keeps exactly two jobs in v2: the popup hairline and the Pro chip edge. */
+body.brandv2 .popup-accent { background: var(--accent-raw); }
+body.brandv2 .pro-badge { background: #FAD176; color: #032A4B; border-color: #E8BC55; }
+body.brandv2 .tpl-out .u { color: var(--ok); }
+
+/* --- Dark variants -------------------------------------------------------
+   Same token names, different values — a single attribute flip, no per-element
+   ternaries. Navy deepens rather than turning grey, so the dark UI still reads
+   as the same family as the mark. --- */
+body.brandv2[data-theme="dark"],
+body.brand[data-theme="dark"] {
+  --page:        #04141F;
+  --canvas:      #071D2B;
+  --surface:     #0C2637;
+  --surface-2:   #0A2130;
+  --line:        #16394F;
+  --line-soft:   #123044;
+  --ink:         #E8F0F6;
+  --ink-2:       #93A9BA;
+  --ink-3:       #64809A;
+  --accent-soft: #10334C;
+  --key-bg:      linear-gradient(180deg, #164056, #0F3044);
+  --key-line:    #1F526C;
+  --key-ink:     #D3E3EE;
+  --warn-soft:   #33280D;
+  --danger-soft: #3A1A17;
+  --shadow:      0 1px 2px rgba(0,0,0,.5), 0 14px 34px -12px rgba(0,0,0,.65);
+}
+body.brandv2[data-theme="dark"] { --accent: #4A9FD8; --accent-ink: #7FC0EA; --ok: #35B6D1; }
+body.brand[data-theme="dark"]   { --accent: #FC686D; --accent-ink: #FF8A8E; --ok: #35B6D1; }
+
+body.warmink[data-theme="dark"] {
+  --page: #171310; --canvas: #1E1915; --surface: #26201B; --surface-2: #221D18;
+  --line: #382F27; --line-soft: #2E2721;
+  --ink: #F2EBE2; --ink-2: #B0A294; --ink-3: #7E7266;
+  --accent: #E0764A; --accent-ink: #F0946C; --accent-soft: #38251B;
+  --key-bg: linear-gradient(180deg,#332B24,#26201B); --key-line: #43382F; --key-ink: #E4DBD0;
+  --warn-soft: #33280D; --danger-soft: #3A1A17;
+  --shadow: 0 1px 2px rgba(0,0,0,.5), 0 14px 34px -12px rgba(0,0,0,.65);
+}
+body.inkjade[data-theme="dark"] {
+  --page: #0C1614; --canvas: #101D1A; --surface: #162622; --surface-2: #13211E;
+  --line: #233934; --line-soft: #1C302B;
+  --ink: #E6EFEC; --ink-2: #94A8A3; --ink-3: #67807A;
+  --accent: #2FA89C; --accent-ink: #55C4B8; --accent-soft: #123330;
+  --key-bg: linear-gradient(180deg,#1D322D,#162622); --key-line: #2A423C; --key-ink: #D6E4E0;
+  --warn-soft: #33280D; --danger-soft: #3A1A17;
+  --shadow: 0 1px 2px rgba(0,0,0,.5), 0 14px 34px -12px rgba(0,0,0,.65);
+}
+body.signal[data-theme="dark"] {
+  --page: #141312; --canvas: #1A1918; --surface: #232120; --surface-2: #1F1D1C;
+  --line: #333130; --line-soft: #2A2827;
+  --ink: #F2F0EE; --ink-2: #A8A29E; --ink-3: #78716C;
+  --accent: #F97316; --accent-ink: #FB923C; --accent-soft: #3A2312;
+  --key-bg: linear-gradient(180deg,#2E2C2A,#232120); --key-line: #3D3A38; --key-ink: #E5E1DE;
+  --warn-soft: #33280D; --danger-soft: #3A1A17;
+  --shadow: 0 1px 2px rgba(0,0,0,.5), 0 14px 34px -12px rgba(0,0,0,.65);
+}
+/* Precision is dark by nature; its light variant lifts the same hues. */
+body.precision[data-theme="light"] {
+  --page: #E7E7EC; --canvas: #F5F5F8; --surface: #FFFFFF; --surface-2: #FAFAFC;
+  --line: #E0E0E7; --line-soft: #EDEDF2;
+  --ink: #17171C; --ink-2: #61616E; --ink-3: #8E8E9C;
+  --accent: #5B4BE0; --accent-ink: #4738C4; --accent-soft: #EDEBFD;
+  --key-bg: linear-gradient(180deg,#FFFFFF,#F0F0F5); --key-line: #DCDCE4; --key-ink: #3A3A46;
+  --warn-soft: #FEF6E7; --danger-soft: #FDEEF1;
+  --shadow: 0 1px 2px rgba(20,20,35,.05), 0 12px 30px -10px rgba(20,20,35,.18);
+}
+
+body {
+  background: var(--page);
+  color: var(--ink);
+  font-family: -apple-system, "SF Pro Text", "PingFang SC", "Noto Sans SC", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  padding: 30px;
+  display: flex;
+  gap: 26px;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.mono { font-family: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace; }
+
+.label {
+  position: fixed; top: 0; left: 0; right: 0;
+  text-align: center; padding: 7px;
+  font-size: 10px; font-weight: 750; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--ink-3);
+  pointer-events: none;
+}
+
+/* ---------- in-page control panel ---------- */
+#tweaks-toggle {
+  position: fixed; right: 16px; bottom: 16px; z-index: 60;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink-2);
+  border-radius: 99px; padding: 9px 15px; font-size: 12px; font-weight: 600;
+  box-shadow: var(--shadow); cursor: pointer;
+  font-family: inherit;
+}
+#tweaks {
+  position: fixed; right: 16px; bottom: 62px; z-index: 60;
+  width: 250px; padding: 13px;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 13px; box-shadow: var(--shadow);
+}
+#tweaks[hidden] { display: none; }
+#tweaks h4 {
+  font-size: 9.5px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--ink-3); margin-bottom: 8px;
+}
+#tweaks h4 + h4 { margin-top: 14px; }
+.opt {
+  display: flex; align-items: center; gap: 9px;
+  width: 100%; text-align: left; cursor: pointer;
+  padding: 7px 9px; margin-bottom: 3px;
+  border: 1px solid transparent; border-radius: 8px;
+  background: transparent; color: var(--ink-2);
+  font-size: 12px; font-family: inherit;
+}
+.opt:hover { background: var(--surface-2); }
+.opt[aria-pressed="true"] {
+  background: var(--surface-2); border-color: var(--line); color: var(--ink); font-weight: 600;
+}
+.sw-dots { display: flex; gap: 3px; flex-shrink: 0; }
+.sw-dots i { width: 9px; height: 9px; border-radius: 9px; display: block; }
+.row-2 { display: flex; gap: 5px; }
+.row-2 .opt { margin-bottom: 0; justify-content: center; }
+
+/* ---------- shared atoms ---------- */
+.keys { display: flex; align-items: center; gap: 3px; }
+kbd {
+  font-family: inherit; font-size: 10.5px; font-weight: 640;
+  padding: 2.5px 6px; border-radius: 5px;
+  background: var(--key-bg); border: 1px solid var(--key-line);
+  color: var(--key-ink); box-shadow: 0 1px 0 rgba(0,0,0,.06);
+  min-width: 20px; text-align: center; line-height: 1.35;
+}
+.plus { color: var(--ink-3); font-size: 9px; }
+.eyebrow {
+  font-size: 9.5px; font-weight: 750; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+
+/* ---------- POPUP ---------- */
+.popup {
+  width: 350px; flex-shrink: 0;
+  background: var(--canvas);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.popup-accent { height: 3px; background: var(--accent); }
+.popup-inner { padding: 14px; display: flex; flex-direction: column; gap: 11px; }
+
+.p-head { display: flex; align-items: center; justify-content: space-between; }
+.p-brand { display: flex; align-items: center; gap: 8px; }
+.p-mark { width: 22px; height: 22px; border-radius: 6px; display: block; }
+.p-title { font-family: var(--title-font); font-weight: var(--title-weight); letter-spacing: var(--title-spacing); font-size: 14.5px; }
+.p-gear { width: 26px; height: 26px; border-radius: var(--radius); display: grid; place-items: center; color: var(--ink-3); }
+.p-gear svg { width: 15px; height: 15px; }
+
+.segmented {
+  display: flex; gap: 3px; padding: 3px;
+  background: var(--surface-2); border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+}
+.seg {
+  flex: 1; text-align: center; font-size: 11.5px; font-weight: 560;
+  padding: 5px 0; border-radius: 6px; color: var(--ink-2); position: relative;
+}
+.seg.on { background: var(--surface); color: var(--accent); box-shadow: 0 1px 2px rgba(0,0,0,.10); }
+.seg .dot {
+  position: absolute; top: 3px; right: 8px;
+  width: 6px; height: 6px; border-radius: 9px; background: var(--danger);
+}
+
+.tpl-list { display: flex; flex-direction: column; gap: 7px; }
+.tpl {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 9px 10px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.tpl.hot { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.tpl-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.tpl-name { font-size: 12.5px; font-weight: 600; }
+.tpl-out {
+  font-size: 10.5px; line-height: 1.6; color: var(--ink-2);
+  background: var(--surface-2); border: 1px solid var(--line-soft);
+  border-radius: 6px; padding: 6px 8px;
+  white-space: pre-wrap; word-break: break-all;
+}
+.tpl-out .u { color: var(--accent); }
+
+.p-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 9px 14px; border-top: 1px solid var(--line-soft);
+  font-size: 10.5px; color: var(--ink-3); background: var(--surface-2);
+}
+.p-foot .links { display: flex; gap: 11px; }
+/* Amber chip with navy text — 10:1 contrast, straight out of the logo. */
+.pro-badge {
+  font-size: 10px; font-weight: 750; letter-spacing: .04em;
+  padding: 2.5px 8px; border-radius: 99px;
+  background: var(--warn-soft); color: var(--warn);
+  border: 1px solid color-mix(in srgb, var(--warn) 22%, transparent);
+}
+body.brand .pro-badge { background: #FAD176; color: #032A4B; border-color: #E8BC55; }
+
+/* ---------- OPTIONS ---------- */
+.options {
+  width: 700px; flex-shrink: 0;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.o-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 13px 17px; border-bottom: 1px solid var(--line);
+}
+.o-title { font-family: var(--title-font); font-weight: var(--title-weight); letter-spacing: var(--title-spacing); font-size: 15px; }
+.o-sub { font-size: 10.5px; color: var(--ink-3); margin-top: 1px; }
+.o-actions { display: flex; gap: 7px; }
+.btn {
+  font-size: 12px; font-weight: 560; padding: 7px 11px;
+  border-radius: var(--radius); border: 1px solid var(--line);
+  background: var(--surface); color: var(--ink-2);
+  display: flex; align-items: center; gap: 6px;
+}
+.btn .brace { color: var(--accent); font-weight: 600; }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+
+.o-body { display: flex; min-height: 340px; }
+.o-list { width: 208px; flex-shrink: 0; border-right: 1px solid var(--line); background: var(--surface-2); padding: 9px; }
+.o-list-head { display: flex; align-items: center; justify-content: space-between; padding: 3px 7px 9px; }
+.count { font-size: 9.5px; font-weight: 700; padding: 1px 6px; border-radius: 99px; background: var(--line); color: var(--ink-2); }
+.row { padding: 8px 9px; border-radius: var(--radius); position: relative; margin-bottom: 3px; }
+.row.on { background: var(--surface); border: 1px solid var(--line); box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+.row.on::before {
+  content: ""; position: absolute; left: 0; top: 9px; bottom: 9px;
+  width: 2.5px; border-radius: 9px; background: var(--accent);
+}
+.row-sub { font-size: 11px; color: var(--ink-3); margin-top: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chip-warn {
+  margin-left: auto; font-size: 9px; font-weight: 700; padding: 1px 5px;
+  border-radius: 99px; background: var(--warn-soft); color: var(--warn);
+}
+
+.o-editor { flex: 1; padding: 18px; background: var(--canvas); display: flex; flex-direction: column; gap: 11px; }
+.ed-head { display: flex; align-items: flex-start; justify-content: space-between; }
+.ed-title { font-family: var(--title-font); font-weight: var(--title-weight); letter-spacing: var(--title-spacing); font-size: 18px; margin-top: 7px; }
+.saved { font-size: 11px; font-weight: 600; color: var(--ok); display: flex; align-items: center; gap: 4px; }
+
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 13px; }
+.card-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.field {
+  width: 100%; border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 8px 10px; font-size: 12.5px; color: var(--ink); background: var(--surface);
+}
+.field.focused { border-color: var(--accent); box-shadow: 0 0 0 3.5px var(--accent-soft); }
+.field.center { text-align: center; letter-spacing: .04em; }
+.link { font-size: 11px; font-weight: 560; color: var(--accent); display: flex; align-items: center; gap: 4px; }
+.note {
+  margin-top: 8px; font-size: 11px; padding: 7px 9px; border-radius: var(--radius);
+  background: var(--warn-soft); color: var(--warn);
+  display: flex; align-items: flex-start; gap: 6px;
+}
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.plabel { font-size: 10.5px; color: var(--ink-2); margin-bottom: 5px; display: flex; align-items: center; gap: 5px; }
+.pdot { width: 5px; height: 5px; border-radius: 9px; background: var(--accent); }
+.pdot.neutral { background: var(--ink-3); }
+.out {
+  border: 1px solid var(--line); background: var(--surface-2); border-radius: var(--radius);
+  padding: 9px; font-size: 10.5px; line-height: 1.65; color: var(--ink-2);
+}
+</style>
+</head>
+<body class="precision">
+
+<div class="label" id="label"></div>
+
+<!-- ============ POPUP ============ -->
+<div class="popup" data-screen-label="Popup">
+  <div class="popup-accent"></div>
+  <div class="popup-inner">
+    <div class="p-head">
+      <div class="p-brand">
+        <img class="p-mark" src="logo.png" alt="" />
+        <div class="p-title">Link &amp; Title Copy</div>
+      </div>
+      <div class="p-gear">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+      </div>
+    </div>
+
+    <div class="segmented">
+      <div class="seg on">当前标签页</div>
+      <div class="seg">全部标签页 (7)<span class="dot"></span></div>
+    </div>
+
+    <div class="tpl-list">
+      <div class="tpl hot">
+        <div class="tpl-top">
+          <div class="tpl-name">智能复制</div>
+          <div class="keys"><kbd class="mono">⌃</kbd><span class="plus">+</span><kbd class="mono">⇧</kbd><span class="plus">+</span><kbd class="mono">C</kbd></div>
+        </div>
+        <div class="tpl-out mono">设计系统的十条原则<br /><span class="u">https://example.com/design</span></div>
+      </div>
+
+      <div class="tpl">
+        <div class="tpl-top">
+          <div class="tpl-name">Markdown 链接</div>
+          <div class="keys"><kbd class="mono">⌃</kbd><span class="plus">+</span><kbd class="mono">⇧</kbd><span class="plus">+</span><kbd class="mono">L</kbd></div>
+        </div>
+        <div class="tpl-out mono">[设计系统的十条原则](<span class="u">https://example.com/design</span>)</div>
+      </div>
+
+      <div class="tpl">
+        <div class="tpl-top">
+          <div class="tpl-name">纯文本</div>
+          <div class="keys"><kbd class="mono">⌃</kbd><span class="plus">+</span><kbd class="mono">⇧</kbd><span class="plus">+</span><kbd class="mono">P</kbd></div>
+        </div>
+        <div class="tpl-out mono">设计系统的十条原则<br /><span class="u">https://example.com/design</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-foot">
+    <span class="pro-badge">★ Pro</span>
+    <div class="links"><span>反馈</span><span>官网</span><span>GitHub</span></div>
+  </div>
+</div>
+
+<!-- ============ OPTIONS ============ -->
+<div class="options" data-screen-label="Options">
+  <div class="o-head">
+    <div>
+      <div class="o-title">Copy Page Title and URL Pro</div>
+      <div class="o-sub">设置</div>
+    </div>
+    <div class="o-actions">
+      <div class="btn"><span class="brace mono">{ }</span> 占位符</div>
+      <div class="btn btn-primary">+ 新建模板</div>
+    </div>
+  </div>
+
+  <div class="o-body">
+    <div class="o-list">
+      <div class="o-list-head"><span class="eyebrow">模板</span><span class="count">3</span></div>
+
+      <div class="row on">
+        <div class="keys"><kbd class="mono">Ctrl</kbd><span class="plus">+</span><kbd class="mono">⇧</kbd><span class="plus">+</span><kbd class="mono">C</kbd></div>
+        <div class="row-sub">智能复制</div>
+      </div>
+      <div class="row">
+        <div class="keys"><kbd class="mono">Ctrl</kbd><span class="plus">+</span><kbd class="mono">⇧</kbd><span class="plus">+</span><kbd class="mono">L</kbd></div>
+        <div class="row-sub">Markdown 链接</div>
+      </div>
+      <div class="row">
+        <div class="keys"><kbd class="mono">Ctrl</kbd><span class="plus">+</span><kbd class="mono">⇧</kbd><span class="plus">+</span><kbd class="mono">I</kbd><span class="chip-warn">冲突</span></div>
+        <div class="row-sub">纯文本</div>
+      </div>
+    </div>
+
+    <div class="o-editor">
+      <div class="ed-head">
+        <div>
+          <div class="keys"><kbd class="mono">Ctrl</kbd><span class="plus">+</span><kbd class="mono">⇧</kbd><span class="plus">+</span><kbd class="mono">C</kbd></div>
+          <div class="ed-title">智能复制</div>
+        </div>
+        <div class="saved">✓ 已保存</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span class="eyebrow">快捷键</span></div>
+        <div class="field center mono focused">Ctrl + Shift + C</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <span class="eyebrow">模板</span>
+          <span class="link"><span class="brace mono">{ }</span> 占位符参考</span>
+        </div>
+        <div class="field mono">{selectedText|title}<br />{url}</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span class="eyebrow">预览</span></div>
+        <div class="grid2">
+          <div>
+            <div class="plabel"><span class="pdot"></span>选中文字时</div>
+            <div class="out mono">设计系统的十条原则<br />https://example.com</div>
+          </div>
+          <div>
+            <div class="plabel"><span class="pdot neutral"></span>未选中时</div>
+            <div class="out mono">Example Website Title<br />https://example.com</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="tweaks" hidden>
+  <h4>配色方向</h4>
+  <div id="dir-opts"></div>
+  <h4>明暗</h4>
+  <div class="row-2">
+    <button class="opt" data-theme-btn="light">☀ 浅色</button>
+    <button class="opt" data-theme-btn="dark">☾ 深色</button>
+  </div>
+</div>
+<button id="tweaks-toggle">Tweaks</button>
+
+<script>
+  var names = {
+    precision: "1 · Precision — 精密仪器 · 近黑 + 电光紫",
+    warmink:   "2 · Warm Ink — 暖纸墨迹 · 暖米纸 + 黏土红",
+    inkjade:   "3 · Ink & Jade — 墨青 · 冷灰 + 青碧",
+    signal:    "4 · Signal — 橙燧 · 中性灰 + 信号橙",
+    brand:     "5 · Brand — 珊瑚红主色 · 藏青墨 + 珊瑚红 + 琥珀",
+    brandv2:   "6 · Brand v2 — 藏青主色 · 珊瑚红仅作品牌点缀 · 红色归还语义"
+  };
+  // Swatches mirror each direction's canvas / accent / ink so the picker itself
+  // previews the palette.
+  var swatches = {
+    precision: ["#0E0E11", "#7C6BFF", "#F4F4F6"],
+    warmink:   ["#F3F0EA", "#B4532A", "#1F1B16"],
+    inkjade:   ["#EFF1F0", "#0F766E", "#16201D"],
+    signal:    ["#F5F5F4", "#EA580C", "#1C1917"],
+    brand:     ["#F4F7FA", "#D63A44", "#032A4B"],
+    brandv2:   ["#F5F7FA", "#0B3C63", "#FC686D"]
+  };
+  var order = ["brandv2", "brand", "signal", "inkjade", "warmink", "precision"];
+  var shortNames = {
+    precision: "Precision 精密仪器",
+    warmink:   "Warm Ink 暖纸墨迹",
+    inkjade:   "Ink & Jade 墨青",
+    signal:    "Signal 橙燧",
+    brand:     "Brand 珊瑚主色",
+    brandv2:   "Brand v2 藏青主色"
+  };
+
+  var params = new URLSearchParams(location.search);
+  var state = {
+    d: params.get("d") || localStorage.getItem("ds-dir") || "brandv2",
+    theme: params.get("theme") || localStorage.getItem("ds-theme") || "light"
+  };
+
+  function apply() {
+    document.body.className = state.d;
+    document.body.setAttribute("data-theme", state.theme);
+    document.getElementById("label").textContent = names[state.d];
+
+    document.querySelectorAll("[data-dir-btn]").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.dirBtn === state.d));
+    });
+    document.querySelectorAll("[data-theme-btn]").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.themeBtn === state.theme));
+    });
+
+    localStorage.setItem("ds-dir", state.d);
+    localStorage.setItem("ds-theme", state.theme);
+    var u = new URL(location.href);
+    u.searchParams.set("d", state.d);
+    u.searchParams.set("theme", state.theme);
+    history.replaceState(null, "", u);
+  }
+
+  // Build the direction list.
+  var wrap = document.getElementById("dir-opts");
+  order.forEach(function (key) {
+    var b = document.createElement("button");
+    b.className = "opt";
+    b.dataset.dirBtn = key;
+    var dots = swatches[key].map(function (c) {
+      return '<i style="background:' + c + '"></i>';
+    }).join("");
+    b.innerHTML = '<span class="sw-dots">' + dots + "</span><span>" + shortNames[key] + "</span>";
+    b.addEventListener("click", function () { state.d = key; apply(); });
+    wrap.appendChild(b);
+  });
+
+  document.querySelectorAll("[data-theme-btn]").forEach(function (b) {
+    b.addEventListener("click", function () { state.theme = b.dataset.themeBtn; apply(); });
+  });
+
+  var panel = document.getElementById("tweaks");
+  if (params.get("panel") === "1") panel.hidden = false;
+  document.getElementById("tweaks-toggle").addEventListener("click", function () {
+    panel.hidden = !panel.hidden;
+  });
+
+  // Arrow keys cycle directions; D toggles light/dark.
+  window.addEventListener("keydown", function (e) {
+    if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+    var i = order.indexOf(state.d);
+    if (e.key === "ArrowRight") { state.d = order[(i + 1) % order.length]; apply(); }
+    else if (e.key === "ArrowLeft") { state.d = order[(i - 1 + order.length) % order.length]; apply(); }
+    else if (e.key.toLowerCase() === "d") { state.theme = state.theme === "dark" ? "light" : "dark"; apply(); }
+  });
+
+  apply();
+</script>
+</body>
+</html>

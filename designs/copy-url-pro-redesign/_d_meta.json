@@ -1,0 +1,27 @@
+{
+  "type": "design",
+  "designSystems": [],
+  "primaryDesignSystem": null,
+  "assets": {
+    "Direction Study": {
+      "versions": [
+        {
+          "path": "Direction Study.html",
+          "createdAt": "2026-08-09T09:24:00.721Z",
+          "status": "needs-review"
+        }
+      ]
+    },
+    "stroke-test": {
+      "versions": [
+        {
+          "path": "stroke-test.html",
+          "createdAt": "2026-08-09T10:15:59.446Z",
+          "status": "needs-review"
+        }
+      ]
+    }
+  },
+  "createdAt": "2026-08-09T09:24:00.731Z",
+  "updatedAt": "2026-08-09T10:15:59.457Z"
+}
