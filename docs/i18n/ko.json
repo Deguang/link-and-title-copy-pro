@@ -64,16 +64,16 @@
   "features": {
     "cards": {
       "templates": {
-        "title": "맞춤 템플릿",
-        "desc": "<code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{title}</code>, <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{url}</code> 같은 자리표시자와 마크다운 구문으로 나만의 형식을 정의하세요."
+        "title": "템플릿은 직접 씁니다",
+        "desc": "제목, URL, URL의 각 부분, 선택한 텍스트까지 자리표시자로 제공됩니다. 원하는 대로 조합해 편한 단축키에 연결하세요."
       },
-      "clean": {
-        "title": "정리된 URL",
-        "desc": "500자짜리 추적 링크에 작별을 고하세요. <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">utm_source</code> 및 기타 분석 쓰레기를 자동으로 제거합니다."
+      "privacy": {
+        "title": "브라우저 밖으로 나가지 않습니다",
+        "desc": "계정도, 동기화도, 분석도 없습니다. 템플릿과 복사한 페이지는 기기에 남고, 소스는 공개되어 있습니다."
       },
-      "shortcuts": {
-        "title": "단축키 및 다국어",
-        "desc": "좋아하는 템플릿을 키보드 단축키에 연결하세요. 여러 언어로 완전히 현지화되었습니다."
+      "langs": {
+        "title": "9개 언어",
+        "desc": "화면, 온보딩, 설정까지 완전히 현지화했습니다. 단축키 표기도 플랫폼별 관례를 따릅니다."
       }
     },
     "demo": {
@@ -133,7 +133,8 @@
       "send": "보내기",
       "mdSource": "소스",
       "mdPreview": "미리보기"
-    }
+    },
+    "moreTitle": "복사, 그 이상"
   },
   "useCases": {
     "title": "모든 작업 흐름을 위해 설계",

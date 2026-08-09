@@ -64,16 +64,16 @@
   "features": {
     "cards": {
       "templates": {
-        "title": "Custom Templates",
-        "desc": "Define your own formats using placeholders like <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{title}</code>, <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{url}</code>, and markdown syntax."
+        "title": "Templates you write",
+        "desc": "Placeholders for the title, the URL, its parts, and the text you selected — combined however you like, bound to whichever shortcut you prefer."
       },
-      "clean": {
-        "title": "Clean URLs",
-        "desc": "Say goodbye to 500-character tracking links. Automatically strip <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">utm_source</code> and other analytics garbage."
+      "privacy": {
+        "title": "Nothing leaves your browser",
+        "desc": "No account, no sync, no analytics. Your templates and the pages you copy stay on your machine, and the source is public so you can check."
       },
-      "shortcuts": {
-        "title": "Shortcuts & i18n",
-        "desc": "Bind your favorite templates to keyboard shortcuts. Fully localized in multiple languages."
+      "langs": {
+        "title": "Nine languages",
+        "desc": "Interface, onboarding and settings are fully localised — including the shortcut labels, which follow each platform's own conventions."
       }
     },
     "demo": {
@@ -133,7 +133,8 @@
       "send": "Send",
       "mdSource": "Source",
       "mdPreview": "Preview"
-    }
+    },
+    "moreTitle": "Beyond the copy itself"
   },
   "useCases": {
     "title": "Built for Every Workflow",

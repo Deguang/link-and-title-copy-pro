@@ -839,3 +839,34 @@
 
 @media (max-width: 1100px) { .uc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .uc-grid { grid-template-columns: 1fr; } }
+
+/* =============================================================================
+ * The factual strip after the demo. Deliberately plain: the demo carries the
+ * argument, this only states what it can't show.
+ * ========================================================================== */
+.more { max-width: 64rem; margin: 5rem auto 0; }
+.more-title {
+  font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #032a4b;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.more-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+.more-card {
+  background: #f8fafc;
+  border: 1px solid #ebf0f5;
+  border-radius: 14px;
+  padding: 1.5rem 1.4rem;
+}
+.more-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #032a4b;
+  margin-bottom: 0.55rem;
+  letter-spacing: -0.01em;
+}
+.more-card p { font-size: 0.9rem; line-height: 1.7; color: #55677a; }
+
+@media (max-width: 900px) { .more-grid { grid-template-columns: 1fr; } }

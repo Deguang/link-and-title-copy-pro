@@ -64,16 +64,16 @@
   "features": {
     "cards": {
       "templates": {
-        "title": "カスタムテンプレート",
-        "desc": "<code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{title}</code>、<code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{url}</code>などのプレースホルダーとMarkdown構文で独自のフォーマットを定義。"
+        "title": "テンプレートは自分で書けます",
+        "desc": "タイトル、URL、URLの各部分、選択したテキスト。プレースホルダーを好きに組み合わせ、好きなショートカットに割り当てられます。"
       },
-      "clean": {
-        "title": "クリーンURL",
-        "desc": "500文字のトラッキングリンクにさよなら。<code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">utm_source</code>などの分析パラメータを自動削除。"
+      "privacy": {
+        "title": "ブラウザの外に出ません",
+        "desc": "アカウントも同期も計測もありません。テンプレートもコピーしたページも手元に残るだけで、ソースは公開されています。"
       },
-      "shortcuts": {
-        "title": "ショートカット＆多言語対応",
-        "desc": "よく使うテンプレートをキーボードショートカットにバインド。複数言語に完全対応。"
+      "langs": {
+        "title": "9言語対応",
+        "desc": "画面・初期設定・設定画面まで完全ローカライズ。ショートカットの表記も各プラットフォームの慣習に従います。"
       }
     },
     "demo": {
@@ -133,7 +133,8 @@
       "send": "送信",
       "mdSource": "ソース",
       "mdPreview": "プレビュー"
-    }
+    },
+    "moreTitle": "コピーの先にあるもの"
   },
   "useCases": {
     "title": "あらゆるワークフローに対応",

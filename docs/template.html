@@ -323,30 +323,26 @@
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="group p-8 rounded-3xl bg-slate-50 hover:bg-white border border-slate-100 hover:border-blue-100 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300">
-                    <div class="w-14 h-14 bg-blue-600/10 text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">
-                        📝
+            <!-- The short factual list a demo can't carry. Each item is something
+                 no other block on the page covers: templates link the story to
+                 the settings, and privacy and localisation appear nowhere else.
+                 Clean URLs used to sit here as a claim; it's demonstrated in the
+                 use cases instead. -->
+            <div class="more">
+                <h2 class="more-title">{{features.moreTitle}}</h2>
+                <div class="more-grid">
+                    <div class="more-card">
+                        <h3>{{features.cards.templates.title}}</h3>
+                        <p>{{features.cards.templates.desc}}</p>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-slate-900">{{features.cards.templates.title}}</h3>
-                    <p class="text-slate-600 leading-relaxed">{{features.cards.templates.desc}}</p>
-                </div>
-                <!-- Feature 2 -->
-                <div class="group p-8 rounded-3xl bg-slate-50 hover:bg-white border border-slate-100 hover:border-purple-100 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300">
-                    <div class="w-14 h-14 bg-purple-600/10 text-purple-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">
-                        🧹
+                    <div class="more-card">
+                        <h3>{{features.cards.privacy.title}}</h3>
+                        <p>{{features.cards.privacy.desc}}</p>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-slate-900">{{features.cards.clean.title}}</h3>
-                    <p class="text-slate-600 leading-relaxed">{{features.cards.clean.desc}}</p>
-                </div>
-                <!-- Feature 3 -->
-                <div class="group p-8 rounded-3xl bg-slate-50 hover:bg-white border border-slate-100 hover:border-green-100 hover:shadow-2xl hover:shadow-green-500/10 transition-all duration-300">
-                    <div class="w-14 h-14 bg-green-600/10 text-green-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">
-                        ⌨️
+                    <div class="more-card">
+                        <h3>{{features.cards.langs.title}}</h3>
+                        <p>{{features.cards.langs.desc}}</p>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-slate-900">{{features.cards.shortcuts.title}}</h3>
-                    <p class="text-slate-600 leading-relaxed">{{features.cards.shortcuts.desc}}</p>
                 </div>
             </div>
         </div>

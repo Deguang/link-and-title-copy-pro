@@ -64,16 +64,16 @@
   "features": {
     "cards": {
       "templates": {
-        "title": "自定义模板",
-        "desc": "使用 <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{title}</code>, <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{url}</code> 等变量定义你自己的格式，完美支持 Markdown。"
+        "title": "模板由你来写",
+        "desc": "标题、URL、URL 的各个部分、选中的文字，都有占位符；随意组合，绑到你顺手的快捷键上。"
       },
-      "clean": {
-        "title": "纯净链接",
-        "desc": "告别几百个字符的追踪链接。自动移除 <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">utm_source</code> 和其他营销参数，还你清爽的 URL。"
+      "privacy": {
+        "title": "数据不离开浏览器",
+        "desc": "无需账号，不同步，不做统计。你的模板和复制过的页面只留在本机，而且源码公开，可以自己查。"
       },
-      "shortcuts": {
-        "title": "快捷键 & 国际化",
-        "desc": "把你最常用的模板绑定到快捷键。界面支持多种语言。"
+      "langs": {
+        "title": "九种语言",
+        "desc": "界面、引导和设置全部本地化——包括快捷键的写法，会按各平台自己的惯例显示。"
       }
     },
     "demo": {
@@ -133,7 +133,8 @@
       "send": "发送",
       "mdSource": "源码",
       "mdPreview": "预览"
-    }
+    },
+    "moreTitle": "除了复制本身"
   },
   "useCases": {
     "title": "为所有工作流打造",

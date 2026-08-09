@@ -64,16 +64,16 @@
   "features": {
     "cards": {
       "templates": {
-        "title": "Eigene Vorlagen",
-        "desc": "Definieren Sie Ihre eigenen Formate mit Platzhaltern wie <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{title}</code>, <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{url}</code> und Markdown-Syntax."
+        "title": "Vorlagen schreibst du selbst",
+        "desc": "Platzhalter für Titel, URL, ihre Bestandteile und den markierten Text — beliebig kombiniert und auf das Kürzel deiner Wahl gelegt."
       },
-      "clean": {
-        "title": "Bereinigte URLs",
-        "desc": "Verabschieden Sie sich von 500 Zeichen langen Tracking-Links. Entfernen Sie automatisch <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">utm_source</code> und anderen Analyse-Ballast."
+      "privacy": {
+        "title": "Nichts verlässt den Browser",
+        "desc": "Kein Konto, keine Synchronisierung, keine Analyse. Vorlagen und kopierte Seiten bleiben bei dir, und der Quellcode ist offen."
       },
-      "shortcuts": {
-        "title": "Tastenkürzel & i18n",
-        "desc": "Verknüpfen Sie Ihre Lieblingsvorlagen mit Tastenkürzeln. Vollständig in mehreren Sprachen lokalisiert."
+      "langs": {
+        "title": "Neun Sprachen",
+        "desc": "Oberfläche, Einstieg und Einstellungen sind vollständig lokalisiert — auch die Tastenbezeichnungen, die den Konventionen jeder Plattform folgen."
       }
     },
     "demo": {
@@ -133,7 +133,8 @@
       "send": "Senden",
       "mdSource": "Quelltext",
       "mdPreview": "Vorschau"
-    }
+    },
+    "moreTitle": "Über das Kopieren hinaus"
   },
   "useCases": {
     "title": "Für jeden Workflow gemacht",

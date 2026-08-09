@@ -64,16 +64,16 @@
   "features": {
     "cards": {
       "templates": {
-        "title": "自訂模板",
-        "desc": "使用 <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{title}</code>, <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{url}</code> 等變數定義你自己的格式，完美支援 Markdown。"
+        "title": "範本由你來寫",
+        "desc": "標題、URL、URL 的各個部分、選取的文字，都有佔位符；隨意組合，綁到你順手的快捷鍵上。"
       },
-      "clean": {
-        "title": "純淨連結",
-        "desc": "告別數百個字元的追蹤連結。自動移除 <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">utm_source</code> 和其他行銷參數，還你清爽的 URL。"
+      "privacy": {
+        "title": "資料不離開瀏覽器",
+        "desc": "不需帳號，不同步，不做統計。你的範本和複製過的頁面只留在本機，而且原始碼公開，可以自己查。"
       },
-      "shortcuts": {
-        "title": "快捷鍵 & 國際化",
-        "desc": "把你最常用的模板綁定到快捷鍵。介面支援多種語言。"
+      "langs": {
+        "title": "九種語言",
+        "desc": "介面、引導和設定全部在地化——包括快捷鍵的寫法，會依各平台自己的慣例顯示。"
       }
     },
     "demo": {
@@ -133,7 +133,8 @@
       "send": "傳送",
       "mdSource": "原始碼",
       "mdPreview": "預覽"
-    }
+    },
+    "moreTitle": "除了複製本身"
   },
   "useCases": {
     "title": "為所有工作流程打造",

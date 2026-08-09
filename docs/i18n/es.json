@@ -64,16 +64,16 @@
   "features": {
     "cards": {
       "templates": {
-        "title": "Plantillas personalizadas",
-        "desc": "Define tus propios formatos usando marcadores como <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{title}</code>, <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">{url}</code> y sintaxis Markdown."
+        "title": "Las plantillas las escribes tú",
+        "desc": "Marcadores para el título, la URL, sus partes y el texto seleccionado: combínalos como quieras y asígnalos al atajo que prefieras."
       },
-      "clean": {
-        "title": "URL limpias",
-        "desc": "Dile adiós a los enlaces de seguimiento de 500 caracteres. Elimina automáticamente <code class=\"bg-slate-200 px-1 py-0.5 rounded text-sm text-slate-700 font-mono\">utm_source</code> y otra basura de analítica."
+      "privacy": {
+        "title": "Nada sale de tu navegador",
+        "desc": "Sin cuenta, sin sincronización, sin analíticas. Tus plantillas y las páginas que copias se quedan contigo, y el código es público."
       },
-      "shortcuts": {
-        "title": "Atajos e i18n",
-        "desc": "Asigna tus plantillas favoritas a atajos de teclado. Totalmente localizada en varios idiomas."
+      "langs": {
+        "title": "Nueve idiomas",
+        "desc": "Interfaz, introducción y ajustes totalmente localizados, incluidas las etiquetas de teclas, que siguen la convención de cada plataforma."
       }
     },
     "demo": {
@@ -133,7 +133,8 @@
       "send": "Enviar",
       "mdSource": "Código",
       "mdPreview": "Vista previa"
-    }
+    },
+    "moreTitle": "Más allá de copiar"
   },
   "useCases": {
     "title": "Diseñada para cada flujo de trabajo",
