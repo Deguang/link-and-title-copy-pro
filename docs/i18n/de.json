@@ -96,6 +96,11 @@
           "desc": "Ein Kürzel nimmt Titel und Link, das andere die Markierung dazu. So kommt das Zitat samt Quelle an."
         },
         {
+          "badge": "Sichtbar erledigt",
+          "title": "Die Zwischenablage zeigt, was sie genommen hat",
+          "desc": "Die Bestätigung enthält den Text selbst — du weißt vor dem Einfügen, was ankommt."
+        },
+        {
           "badge": "Überall einfügen",
           "title": "Ab in deine Notizen",
           "desc": "Notion, Obsidian, ein Dokument, ein Ticket, eine Nachricht. Es kommt als echter Link an, nicht als zwei Zeilen zum Aufräumen."

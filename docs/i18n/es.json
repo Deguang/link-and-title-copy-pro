@@ -96,6 +96,11 @@
           "desc": "Un atajo toma el título y el enlace; el otro añade tu selección, así la cita llega con su fuente."
         },
         {
+          "badge": "Se ve que funcionó",
+          "title": "El portapapeles te enseña lo que se llevó",
+          "desc": "La confirmación incluye el texto real, así sabes qué vas a pegar antes de pegarlo."
+        },
+        {
           "badge": "Pega donde sea",
           "title": "Suéltalo en tus notas",
           "desc": "Notion, Obsidian, un documento, un ticket, un mensaje. Llega como un enlace de verdad, no como dos líneas por arreglar."

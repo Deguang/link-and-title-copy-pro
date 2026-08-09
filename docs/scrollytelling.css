@@ -59,7 +59,7 @@
 /* ---------- act 1: the page ---------- */
 /* Hands over to the two lanes once its part is done. */
 .cine-hero {
-  --out: clamp(0, (var(--p) - 0.16) * 6, 1);
+  --out: clamp(0, (var(--p) - 0.12) * 7, 1);
   position: absolute;
   width: min(52rem, 84vw);
   background: var(--c-surface);
@@ -156,18 +156,18 @@
 
 /* ---------- acts 2 & 3: the two lanes ---------- */
 .cine-lanes {
-  --in: clamp(0, (var(--p) - 0.2) * 6, 1);
+  --in: clamp(0, (var(--p) - 0.15) * 7, 1);
   /* One grid for both lanes, with the rows named. Each row then sizes to the
      taller of the two panels in it, so the columns stay level instead of
      drifting out of step because one side has an extra line of text. */
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto 4.4rem auto;
+  grid-template-rows: auto auto 4.6rem auto;
   column-gap: 2.6rem;
   width: min(56rem, 88vw);
-  --settle: clamp(0, (var(--p) - 0.56) * 4, 1);
+  --settle: clamp(0, (var(--p) - 0.6) * 5, 1);
   opacity: var(--in);
-  transform: translateY(calc((1 - var(--in)) * 20px + (1 - var(--settle)) * 7.5rem));
+  transform: translateY(calc((1 - var(--in)) * 20px + (1 - var(--settle)) * 6.5rem)) scale(calc(1 - var(--settle) * 0.09));
   will-change: opacity, transform;
 }
 /* The lane is a grouping in the markup only; its children are placed straight
@@ -192,7 +192,7 @@
 /* The source shrinks and steps back once the paste phase begins, the same way
    the hero handed over to it. */
 .lane-src {
-  --recede: clamp(0, (var(--p) - 0.56) * 4, 1);
+  --recede: clamp(0, (var(--p) - 0.62) * 5, 1);
   position: relative;
   background: var(--c-surface);
   border: 1px solid var(--c-line);
@@ -204,7 +204,7 @@
   opacity: calc(1 - var(--recede) * 0.45);
   will-change: transform, opacity;
 }
-.lane-page { padding: 0.7rem 0.9rem 1.9rem; }
+.lane-page { padding: 0.6rem 0.9rem 1.8rem; }
 .lane-para { font-size: 0.66rem; line-height: 1.7; color: var(--c-ink-2); margin-bottom: 0.6rem; }
 .lane .cine-lines { margin-top: 0.7rem; }
 .lane .cine-lines span { height: 0.38rem; }
@@ -214,51 +214,52 @@
   background-image: linear-gradient(#b9dcf5, #b9dcf5);
   background-repeat: no-repeat;
   background-position: left center;
-  background-size: calc(clamp(0, (var(--p) - 0.24) * 6, 1) * 100%) 100%;
+  background-size: calc(clamp(0, (var(--p) - 0.2) * 7, 1) * 100%) 100%;
   border-radius: 3px;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
 
 .lane-keys {
-  --in: clamp(0, (var(--p) - 0.34) * 10, 1);
-  --out: clamp(0, (var(--p) - 0.54) * 10, 1);
+  --in: clamp(0, (var(--p) - 0.26) * 14, 1);
+  --out: clamp(0, (var(--p) - 0.4) * 16, 1);
   position: absolute;
   left: 50%;
   bottom: 0.6rem;
   display: flex;
   align-items: center;
   gap: 0.2rem;
-  padding: 0.3rem 0.5rem;
-  border-radius: 8px;
-  background: var(--c-surface);
-  border: 1px solid var(--c-line);
-  box-shadow: 0 6px 16px -8px rgba(3, 42, 75, 0.45);
+  padding: 0.35rem 0.55rem;
+  border-radius: 9px;
+  background: var(--c-ink);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 24px -10px rgba(3, 42, 75, 0.7);
   opacity: calc(var(--in) - var(--out));
   transform: translate(-50%, calc((1 - var(--in)) * 6px));
   will-change: opacity, transform;
 }
 .lane-keys kbd {
   font-family: var(--c-mono);
-  font-size: 0.58rem;
+  font-size: 0.6rem;
   font-weight: 600;
   color: var(--c-ink);
-  background: linear-gradient(180deg, #fff, #eef3f8);
-  border: 1px solid #d3dde6;
+  background: linear-gradient(180deg, #fff, #dfe8f0);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 4px;
-  padding: 0.1rem 0.3rem;
+  padding: 0.12rem 0.34rem;
 }
-.lane-keys span { color: var(--c-ink-3); font-size: 0.5rem; }
+.lane-keys span { color: rgba(255, 255, 255, 0.5); font-size: 0.52rem; }
 
 
 /* The clipboard readout is the extension's own toast, shown where the content
    is between leaving the page and arriving at its destination. It travels down
    the guide line and fades as it lands, which is the paste. */
 .lane-clip {
-  --in: clamp(0, (var(--p) - 0.5) * 12, 1);
-  --travel: clamp(0, (var(--p) - 0.6) * 5, 1);
+  --in: clamp(0, (var(--p) - 0.47) * 16, 1);
+  --travel: clamp(0, (var(--p) - 0.66) * 6, 1);
   align-self: start;
   justify-self: center;
+  margin-top: 1.1rem;
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: start;
@@ -288,6 +289,7 @@
   font-family: var(--c-mono);
   font-size: 0.53rem;
   line-height: 1.45;
+  white-space: pre-wrap;
   color: rgba(255, 255, 255, 0.62);
   word-break: break-all;
   padding-top: 0.12rem;
@@ -305,7 +307,7 @@
   bottom: 100%;
   width: 2px;
   margin-left: -1px;
-  height: calc(clamp(0, (var(--p) - 0.54) * 6, 1) * 4.4rem);
+  height: calc(clamp(0, (var(--p) - 0.62) * 7, 1) * 3.2rem);
   background: linear-gradient(to bottom, rgba(12, 124, 149, 0.25), var(--c-ok));
   border-radius: 2px;
 }
@@ -319,7 +321,7 @@
 
 .lane-dst {
   position: relative;
-  --in: clamp(0, (var(--p) - 0.62) * 5, 1);
+  --in: clamp(0, (var(--p) - 0.66) * 6, 1);
   opacity: var(--in);
   transform: translateY(calc((1 - var(--in)) * 14px));
   will-change: opacity, transform;
@@ -368,7 +370,7 @@
   padding: 0.08rem 0.4rem;
   white-space: nowrap;
 }
-.app-body { padding: 0.9rem 0.95rem 1.05rem; }
+.app-body { padding: 0.75rem 0.9rem 0.85rem; }
 
 /* skeleton bars */
 .sk { display: block; height: 0.42rem; border-radius: 999px; background: var(--c-line-soft); margin-bottom: 0.4rem; }
@@ -493,8 +495,8 @@
      --paste  the clipboard has landed
      --render the preview is open / the message is away */
 .lane-dst {
-  --paste: clamp(0, (var(--p) - 0.64) * 10, 1);
-  --render: clamp(0, (var(--p) - 0.79) * 10, 1);
+  --paste: clamp(0, (var(--p) - 0.7) * 12, 1);
+  --render: clamp(0, (var(--p) - 0.85) * 12, 1);
 }
 
 .on-paste { opacity: var(--paste); transition: opacity 0.2s linear; }
@@ -539,9 +541,9 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 4.2rem;
+  bottom: 2.6rem;
   width: min(46rem, 88vw);
-  min-height: 8.5rem;
+  min-height: 7rem;
   text-align: center;
 }
 .cine-cap {

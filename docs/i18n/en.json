@@ -96,6 +96,11 @@
           "desc": "One shortcut takes the title and link. Another wraps whatever you selected, so a quote arrives with its source attached."
         },
         {
+          "badge": "You can see it worked",
+          "title": "The clipboard shows you what it took",
+          "desc": "A confirmation with the actual text in it, so you paste knowing what will land — instead of pasting to find out."
+        },
+        {
           "badge": "Paste anywhere",
           "title": "Drop it into your notes",
           "desc": "Notion, Obsidian, a doc, a ticket, a message. It arrives as a real link, not two lines to clean up."

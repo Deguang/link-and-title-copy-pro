@@ -28,7 +28,9 @@
   if (!motionOK || !wideEnough) return;
 
   // Progress windows for each caption, matched to the CSS timeline.
-  var CAPTION_AT = [0.0, 0.22, 0.44, 0.7];
+  // Progress windows for each caption, matched to the CSS timeline:
+  // the question, the two ways to copy, the confirmation, the paste, the format.
+  var CAPTION_AT = [0.0, 0.18, 0.42, 0.62, 0.82];
 
   var ticking = false;
   var lastCap = -1;
@@ -79,6 +81,18 @@
 
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onResize);
+
+  // Geometry is cached, so it has to be re-taken whenever the page can still
+  // move underneath it. Measuring only at script time reads a layout that fonts
+  // and images have not settled yet, and every later frame then maps the scroll
+  // position onto the wrong point in the sequence.
   measure();
   update();
+  window.addEventListener('load', onResize);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(onResize).catch(function () {});
+  }
+  if (window.ResizeObserver) {
+    new ResizeObserver(onResize).observe(track);
+  }
 })();
