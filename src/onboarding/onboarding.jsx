@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { getKeySymbols } from '../utils/shortcutFormatter';
+import { keyLabel } from '../utils/shortcutFormatter.mjs';
+import { GLYPH_ICONS } from '../components/ModifierIcons';
 
 const STORAGE_KEY = 'CopyTitleAndUrlConfigs';
 
@@ -51,16 +52,33 @@ function buildPressedShortcut(e, isMac) {
 
 // ── Reusable components ───────────────────────────────────────────────────────
 
+// Compact inline glyph used by the template chips (no keycap chrome).
+function KeyGlyph({ k, os }) {
+  const label = keyLabel(k, os === 'mac');
+  const Icon = GLYPH_ICONS[label];
+  return (
+    <kbd title={k} className="inline-flex items-center justify-center leading-none">
+      {Icon ? <Icon /> : label}
+    </kbd>
+  );
+}
+
 function KeyCap({ k, variant = 'default', os = 'windows' }) {
   const styles = {
     default: 'bg-slate-800 border-slate-700 text-slate-200',
     active:  'bg-blue-700 border-blue-900 text-white shadow-lg shadow-blue-500/20 key-active',
     success: 'bg-green-600 border-green-800 text-white shadow-lg shadow-green-500/20',
   };
-  const sym = getKeySymbols(os);
+  // Modifier glyphs render as SVG for the same reason as the shared Keycap: they
+  // fall outside the bundled mono subset, so as text they arrive small and light.
+  const label = keyLabel(k, os === 'mac');
+  const Icon = GLYPH_ICONS[label];
   return (
-    <kbd className={`inline-flex items-center justify-center px-3 py-2 min-w-[48px] h-11 rounded-lg border-b-[3px] text-sm font-mono font-bold select-none transition-all duration-300 ${styles[variant]}`}>
-      {sym[k] ?? k}
+    <kbd
+      title={k}
+      className={`inline-flex items-center justify-center px-3 py-2 min-w-[48px] h-11 rounded-lg border-b-[3px] text-sm font-mono font-bold select-none transition-all duration-300 ${styles[variant]}`}
+    >
+      {Icon ? <Icon /> : label}
     </kbd>
   );
 }
@@ -255,7 +273,6 @@ const EX_TITLE = 'Link & Title Copy Pro – GitHub';
 const EX_URL   = 'https://github.com/Deguang/link-and-title-copy-pro';
 
 function Step2({ os, configs, selectedTpl, onSelect, onFinish }) {
-  const sym = getKeySymbols(os);
   const [keyState, setKeyState] = useState('idle'); // 'idle' | 'success'
   const [copied,   setCopied]   = useState(false);
   const timerRef  = useRef(null);
@@ -357,7 +374,7 @@ function Step2({ os, configs, selectedTpl, onSelect, onFinish }) {
                 {tpl.shortcutKeys.map((k, j) => (
                   <React.Fragment key={j}>
                     {j > 0 && <span className="opacity-50">+</span>}
-                    <kbd className="inline-flex items-center justify-center leading-none">{sym[k] ?? k}</kbd>
+                    <KeyGlyph k={k} os={os} />
                   </React.Fragment>
                 ))}
               </span>
@@ -462,7 +479,7 @@ function Onboarding() {
 
       {/* Brand */}
       <div className="flex items-center gap-2.5 mb-8">
-        <img src="../icons/icon.webp" className="w-7 h-7 rounded-lg" alt="" />
+        <img src="/icons/icon.webp" className="w-7 h-7 rounded-lg" alt="" />
         <span className="text-slate-400 text-sm font-medium tracking-wide">
           {t('name')}
         </span>

@@ -31,31 +31,34 @@ export default function LicenseSection() {
     setInfo(null);
   };
 
-  // Payment not live yet: show a "coming soon" waiting entry, free mode otherwise.
+  // Payment isn't live yet. Keep the entry point visible but at footer-meta
+  // weight — a full-width card advertising a feature that doesn't exist yet
+  // outweighs everything that does. It becomes a real card once PAYMENT_ENABLED
+  // flips (see the footer in config.jsx).
   if (!PAYMENT_ENABLED) {
     return (
-      <div className="mt-4 p-3 rounded-lg border border-dashed border-gray-300 bg-gray-50 flex-shrink-0 flex items-center justify-center gap-2 text-sm text-gray-500">
-        <span>⭐</span>
-        <span className="font-medium">{t('licenseComingSoon') || 'Pro · Coming soon'}</span>
-      </div>
+      <span className="inline-flex items-center gap-1.5 rounded-full bg-pro/20 px-2.5 py-1 text-xs font-medium text-warn">
+        <span aria-hidden="true">★</span>
+        {t('licenseComingSoon') || 'Pro · Coming soon'}
+      </span>
     );
   }
 
   return (
-    <div className="mt-4 p-3 rounded-lg border border-gray-200 bg-white flex-shrink-0">
+    <div className="h-full rounded-xl border border-line bg-surface px-4 py-3 shadow-sm">
       {info ? (
         <div className="flex items-center justify-between gap-3">
           <div className="text-sm">
-            <span className="inline-flex items-center gap-1 font-semibold text-green-600">
+            <span className="inline-flex items-center gap-1 font-semibold text-ok">
               <span>✓</span>{t('licenseActivated') || 'Pro activated'}
             </span>
-            <span className="text-gray-500 ml-2">
+            <span className="ml-2 text-ink-3">
               {info.plan}{info.email ? ` · ${info.email}` : ''}
             </span>
           </div>
           <button
             onClick={onDeactivate}
-            className="text-xs text-gray-400 hover:text-red-500 transition flex-shrink-0"
+            className="flex-shrink-0 text-xs text-ink-3 transition hover:text-danger"
           >
             {t('licenseDeactivate') || 'Deactivate'}
           </button>
@@ -63,8 +66,8 @@ export default function LicenseSection() {
       ) : (
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-sm font-medium text-gray-700">{t('licenseSectionTitle') || 'Activate Pro'}</span>
-            <button onClick={openUpgradePage} className="text-xs text-blue-600 hover:underline">
+            <span className="text-sm font-medium text-ink">{t('licenseSectionTitle') || 'Activate Pro'}</span>
+            <button onClick={openUpgradePage} className="text-xs font-medium text-accent hover:underline">
               {t('licenseBuyPro') || 'Buy Pro'}
             </button>
           </div>
@@ -74,17 +77,17 @@ export default function LicenseSection() {
               value={keyInput}
               onChange={(e) => setKeyInput(e.target.value)}
               placeholder={t('licenseEnterKey') || 'Paste your license key'}
-              className="flex-1 text-xs font-mono rounded border border-gray-300 px-2 py-1.5 outline-none focus:border-blue-500"
+              className="flex-1 rounded-lg border border-line bg-surface text-ink px-2.5 py-1.5 font-mono text-xs outline-none transition focus:border-accent focus:ring-4 focus:ring-accent/15"
             />
             <button
               onClick={onActivate}
               disabled={busy || !keyInput.trim()}
-              className="text-sm px-3 py-1.5 rounded bg-blue-600 text-white hover:bg-blue-700 transition disabled:bg-gray-300 disabled:cursor-not-allowed flex-shrink-0"
+              className="flex-shrink-0 rounded-lg bg-accent px-3 py-1.5 text-sm font-medium text-accent-fg transition hover:bg-accent-hover disabled:cursor-not-allowed disabled:bg-line"
             >
               {t('licenseActivate') || 'Activate'}
             </button>
           </div>
-          {error && <p className="text-xs text-red-500">{error}</p>}
+          {error && <p className="text-xs text-danger">{error}</p>}
         </div>
       )}
     </div>
