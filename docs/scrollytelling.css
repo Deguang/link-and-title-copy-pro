@@ -471,11 +471,15 @@
   background: var(--c-line-soft);
 }
 .chat-input .send {
-  width: 1rem;
-  height: 1rem;
-  border-radius: 5px;
-  background: var(--c-ok);
   flex-shrink: 0;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--c-surface);
+  background: var(--c-ok);
+  line-height: 1.4;
 }
 .bubble-line { font-size: 0.63rem; line-height: 1.55; color: var(--c-ink); }
 .bubble-url {
@@ -520,7 +524,7 @@
 .typed {
   position: absolute;
   left: 0.5rem;
-  right: 1.8rem;
+  right: 3.2rem;
   font-size: 0.56rem;
   line-height: 1.45;
   color: var(--c-ink);
@@ -532,6 +536,7 @@
 /* The send button lights up once there is something to send. */
 .chat-input .send {
   background: color-mix(in srgb, var(--c-ok) calc(var(--paste) * 100%), var(--c-line));
+  color: color-mix(in srgb, var(--c-surface) calc(var(--paste) * 100%), var(--c-ink-3));
   transform: scale(calc(1 + var(--render) * 0.12));
   transition: transform 0.2s ease;
 }

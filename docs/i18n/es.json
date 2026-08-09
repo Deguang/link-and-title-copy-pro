@@ -132,7 +132,8 @@
       ],
       "laneFull": "La página entera",
       "laneSel": "Solo lo que seleccionaste",
-      "selText": "Un sistema de diseño es un contrato entre diseño e ingeniería."
+      "selText": "Un sistema de diseño es un contrato entre diseño e ingeniería.",
+      "send": "Enviar"
     }
   },
   "useCases": {

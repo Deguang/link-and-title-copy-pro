@@ -132,7 +132,8 @@
       ],
       "laneFull": "The whole page",
       "laneSel": "Just what you selected",
-      "selText": "A design system is a contract between design and engineering."
+      "selText": "A design system is a contract between design and engineering.",
+      "send": "Send"
     }
   },
   "useCases": {

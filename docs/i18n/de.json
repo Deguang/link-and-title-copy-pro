@@ -132,7 +132,8 @@
       ],
       "laneFull": "Die ganze Seite",
       "laneSel": "Nur das Markierte",
-      "selText": "Ein Designsystem ist ein Vertrag zwischen Design und Entwicklung."
+      "selText": "Ein Designsystem ist ein Vertrag zwischen Design und Entwicklung.",
+      "send": "Senden"
     }
   },
   "useCases": {
