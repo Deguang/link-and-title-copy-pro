@@ -57,6 +57,7 @@
     </script>
 
     <link href="./styles.css" rel="stylesheet">
+    <link href="./scrollytelling.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         .glass-nav {
@@ -191,113 +192,85 @@
         <div class="container mx-auto px-6">
             <div class="text-center mb-20">
                 <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6 text-balance">पावरफुल फीचर्स</h2>
-                <p class="text-xl text-slate-600 max-w-2xl mx-auto text-balance">लिंक मैनेज करने के लिए सब कुछ, बिना किसी झंझट के।</p>
+                <p class="text-xl text-slate-600 max-w-2xl mx-auto text-balance">देखिए एक पेज कैसे ऐसा लिंक बन जाता है जिसे कहीं भी चिपकाया जा सके।</p>
             </div>
 
-            <!-- Toast Feature Highlight -->
-            <div class="mb-24 flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
-                <div class="flex-1 order-2 md:order-1">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 group">
-                         <div class="absolute -inset-1 bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                        <img src="images/feature-toast.png" alt="Instant Visual Feedback Toast" class="relative w-full rounded-2xl transform transition duration-500 hover:scale-[1.02]">
+            <!-- Scroll-driven demo: page -> shortcut -> pasted where you work.
+                 Replaces three alternating image/text blocks. Every word is real
+                 DOM text and stays present when the effect is off, so crawlers
+                 and screen readers see the same content. Static fallback lives in
+                 scrollytelling.css. -->
+            <div class="demo" data-demo data-step="0">
+                <div class="demo-stage">
+                    <!-- source page -->
+                    <div class="win win-src">
+                        <div class="win-bar">
+                            <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                            <div class="win-url">example.com/design-systems</div>
+                        </div>
+                        <div class="src-body">
+                            <h4 class="src-title">डिज़ाइन सिस्टम के दस सिद्धांत</h4>
+                            <div class="src-lines" aria-hidden="true"><span></span><span></span><span></span></div>
+                        </div>
+                    </div>
+
+                    <!-- keystroke + clipboard -->
+                    <div class="demo-bridge">
+                        <div class="keys" aria-hidden="true">
+                            <kbd>Ctrl</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>C</kbd>
+                        </div>
+                        <div class="clip-chip" aria-live="polite">
+                            <span class="clip-out on" data-for="1">[डिज़ाइन सिस्टम के दस सिद्धांत](example.com/design-systems)</span>
+                        </div>
+                    </div>
+
+                    <!-- destination app -->
+                    <div class="win win-dst">
+                        <div class="win-bar">
+                            <span class="win-app"><i aria-hidden="true"></i>नोट्स</span>
+                        </div>
+                        <div class="dst-body">
+                            <div class="dst-crumb">इस हफ़्ते का पठन</div>
+                            <div class="dst-lines" aria-hidden="true"><span></span><span></span></div>
+                            <div class="dst-slot">
+                                <span class="dst-caret" aria-hidden="true"></span>
+                                <span class="dst-out" data-for="2"><span class="as-link">डिज़ाइन सिस्टम के दस सिद्धांत</span></span>
+                                <span class="dst-out" data-for="3"><code>h2. डिज़ाइन सिस्टम के दस सिद्धांत\nexample.com/design-systems</code></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="flex-1 order-1 md:order-2 text-left">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium mb-6">
-                        <span class="relative flex h-2 w-2">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                        </span>
-                        नया फीचर
+
+                <div class="demo-steps">
+                    
+                    <div class="demo-step">
+                        <span class="demo-badge">कोई भी पेज</span>
+                        <h3>जिस पेज पर आप हैं, वहीं से</h3>
+                        <p>न शीर्षक चुनना, न एड्रेस बार ढूँढ़ना। जो खुला है, वही काफ़ी है।</p>
                     </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">इंस्टेंट विज़ुअल फीडबैक</h3>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        कॉपी हुआ या नहीं, अब अंदाज़ा लगाने की ज़रूरत नहीं। हमारा नया <strong>स्मार्ट Toast</strong> आपको दिखाता है कि क्लिपबोर्ड में क्या है।
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            लाइव कंटेंट प्रीव्यू
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            कीबोर्ड शॉर्टकट सपोर्ट
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            डार्क मोड एस्थेटिक्स
-                        </li>
-                    </ul>
+                    
+                    <div class="demo-step">
+                        <span class="demo-badge">एक शॉर्टकट</span>
+                        <h3>अपना शॉर्टकट दबाइए</h3>
+                        <p>शीर्षक और लिंक साथ-साथ क्लिपबोर्ड में आते हैं, ठीक उसी फ़ॉर्मैट में जो आपने तय किया।</p>
+                    </div>
+                    
+                    <div class="demo-step">
+                        <span class="demo-badge">कहीं भी चिपकाएँ</span>
+                        <h3>अपने नोट्स में डालिए</h3>
+                        <p>Notion, Obsidian, कोई डॉक, टिकट या संदेश। यह असली लिंक बनकर पहुँचता है, सुधारने लायक दो पंक्तियाँ नहीं।</p>
+                    </div>
+                    
+                    <div class="demo-step">
+                        <span class="demo-badge">आपका फ़ॉर्मैट</span>
+                        <h3>या कोई भी दूसरा फ़ॉर्मैट</h3>
+                        <p>नोट्स के लिए Markdown, पोस्ट के लिए HTML, टिकट के लिए Jira सिंटैक्स — या आपका अपना टेम्पलेट।</p>
+                    </div>
+                    
                 </div>
             </div>
 
-            <!-- Paste Contexts Feature -->
-            <div class="mb-24 flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
-                <div class="flex-1 order-2 md:order-2">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 group">
-                         <div class="absolute -inset-1 bg-gradient-to-r from-purple-400 to-pink-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                        <img src="images/feature-paste.png" alt="Smart Paste Contexts" class="relative w-full rounded-2xl transform transition duration-500 hover:scale-[1.02]">
-                    </div>
-                </div>
-                <div class="flex-1 order-1 md:order-1 text-left">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-sm font-medium mb-6">
-                        <span class="text-lg">✨</span>
-                        स्मार्ट कॉन्टेक्स्ट
-                    </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">कहीं भी पेस्ट करें</h3>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        आपकी ज़रूरतों के हिसाब से स्मार्ट तरीके से एडाप्ट होता है। नोट्स के लिए Markdown, ब्लॉग के लिए HTML, या शेयरिंग के लिए क्लीन URL।
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-purple-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Markdown और Rich Text सपोर्ट
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-purple-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            स्मार्ट फॉलबैक लॉजिक
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-purple-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            कस्टमाइज़ेबल टेम्पलेट्स
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Shortcut Config Feature -->
-            <div class="mb-24 flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
-                <div class="flex-1 order-2 md:order-1">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 group">
-                         <div class="absolute -inset-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                        <img src="images/feature-config.png" alt="Powerful Shortcut Configuration" class="relative w-full rounded-2xl transform transition duration-500 hover:scale-[1.02]">
-                    </div>
-                </div>
-                <div class="flex-1 order-1 md:order-2 text-left">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium mb-6">
-                        <span class="text-lg">⚙️</span>
-                        पूरा कंट्रोल
-                    </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">पावरफुल कॉन्फ़िगरेशन</h3>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        अपने वर्कफ़्लो पर पूरा कंट्रोल लें। शॉर्टकट्स कस्टमाइज़ करें, टेम्पलेट्स मैनेज करें, और स्मार्ट फीचर्स टॉगल करें।
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            ड्रैग-एंड-ड्रॉप ऑर्डरिंग
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            रियल-टाइम प्रीव्यू
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            वन-क्लिक फीचर टॉगल
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <div class="mt-24"></div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Feature 1 -->
@@ -437,5 +410,6 @@
         </div>
     </footer>
 
+    <script src="./scrollytelling.js" defer></script>
 </body>
 </html>

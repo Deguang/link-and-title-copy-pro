@@ -57,6 +57,7 @@
     </script>
 
     <link href="./styles.css" rel="stylesheet">
+    <link href="./scrollytelling.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         .glass-nav {
@@ -191,113 +192,85 @@
         <div class="container mx-auto px-6">
             <div class="text-center mb-20">
                 <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6 text-balance">Repleta de potencia</h2>
-                <p class="text-xl text-slate-600 max-w-2xl mx-auto text-balance">Todo lo que necesitas para gestionar enlaces, sin lo innecesario.</p>
+                <p class="text-xl text-slate-600 max-w-2xl mx-auto text-balance">Mira cómo una página se convierte en un enlace que puedes pegar donde quieras.</p>
             </div>
 
-            <!-- Toast Feature Highlight -->
-            <div class="mb-24 flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
-                <div class="flex-1 order-2 md:order-1">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 group">
-                         <div class="absolute -inset-1 bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                        <img src="images/feature-toast.png" alt="Instant Visual Feedback Toast" class="relative w-full rounded-2xl transform transition duration-500 hover:scale-[1.02]">
+            <!-- Scroll-driven demo: page -> shortcut -> pasted where you work.
+                 Replaces three alternating image/text blocks. Every word is real
+                 DOM text and stays present when the effect is off, so crawlers
+                 and screen readers see the same content. Static fallback lives in
+                 scrollytelling.css. -->
+            <div class="demo" data-demo data-step="0">
+                <div class="demo-stage">
+                    <!-- source page -->
+                    <div class="win win-src">
+                        <div class="win-bar">
+                            <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                            <div class="win-url">example.com/design-systems</div>
+                        </div>
+                        <div class="src-body">
+                            <h4 class="src-title">Diez principios de los sistemas de diseño</h4>
+                            <div class="src-lines" aria-hidden="true"><span></span><span></span><span></span></div>
+                        </div>
+                    </div>
+
+                    <!-- keystroke + clipboard -->
+                    <div class="demo-bridge">
+                        <div class="keys" aria-hidden="true">
+                            <kbd>Ctrl</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>C</kbd>
+                        </div>
+                        <div class="clip-chip" aria-live="polite">
+                            <span class="clip-out on" data-for="1">[Diez principios de los sistemas de diseño](example.com/design-systems)</span>
+                        </div>
+                    </div>
+
+                    <!-- destination app -->
+                    <div class="win win-dst">
+                        <div class="win-bar">
+                            <span class="win-app"><i aria-hidden="true"></i>Notas</span>
+                        </div>
+                        <div class="dst-body">
+                            <div class="dst-crumb">Lecturas de la semana</div>
+                            <div class="dst-lines" aria-hidden="true"><span></span><span></span></div>
+                            <div class="dst-slot">
+                                <span class="dst-caret" aria-hidden="true"></span>
+                                <span class="dst-out" data-for="2"><span class="as-link">Diez principios de los sistemas de diseño</span></span>
+                                <span class="dst-out" data-for="3"><code>h2. Diez principios de los sistemas de diseño\nexample.com/design-systems</code></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="flex-1 order-1 md:order-2 text-left">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium mb-6">
-                        <span class="relative flex h-2 w-2">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                        </span>
-                        Nueva función
+
+                <div class="demo-steps">
+                    
+                    <div class="demo-step">
+                        <span class="demo-badge">Cualquier página</span>
+                        <h3>Empieza en la página que estás leyendo</h3>
+                        <p>Sin seleccionar el titular ni buscar la barra de direcciones. Basta con lo que ya tienes abierto.</p>
                     </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">Confirmación visual instantánea</h3>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        Nunca más adivines si copiaste correctamente. Nuestro nuevo <strong>Smart Toast</strong> te muestra exactamente qué hay en tu portapapeles, con una vista previa del enlace formateado.
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Vista previa del contenido en vivo
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Compatible con atajos de teclado
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Estética de modo oscuro
-                        </li>
-                    </ul>
+                    
+                    <div class="demo-step">
+                        <span class="demo-badge">Un atajo</span>
+                        <h3>Pulsa tu atajo</h3>
+                        <p>El título y el enlace llegan juntos al portapapeles, ya con el formato que configuraste.</p>
+                    </div>
+                    
+                    <div class="demo-step">
+                        <span class="demo-badge">Pega donde sea</span>
+                        <h3>Suéltalo en tus notas</h3>
+                        <p>Notion, Obsidian, un documento, un ticket, un mensaje. Llega como un enlace de verdad, no como dos líneas por arreglar.</p>
+                    </div>
+                    
+                    <div class="demo-step">
+                        <span class="demo-badge">Tu formato</span>
+                        <h3>O en cualquier otro formato</h3>
+                        <p>Markdown para notas, HTML para el blog, sintaxis de Jira para un ticket, o una plantilla tuya.</p>
+                    </div>
+                    
                 </div>
             </div>
 
-            <!-- Paste Contexts Feature -->
-            <div class="mb-24 flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
-                <div class="flex-1 order-2 md:order-2">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 group">
-                         <div class="absolute -inset-1 bg-gradient-to-r from-purple-400 to-pink-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                        <img src="images/feature-paste.png" alt="Smart Paste Contexts" class="relative w-full rounded-2xl transform transition duration-500 hover:scale-[1.02]">
-                    </div>
-                </div>
-                <div class="flex-1 order-1 md:order-1 text-left">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-sm font-medium mb-6">
-                        <span class="text-lg">✨</span>
-                        Contextos inteligentes
-                    </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">Pega en cualquier lugar</h3>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        Se adapta de forma inteligente a tus necesidades. Copia como Markdown para tus notas, HTML para tu blog o URL limpias para compartir.
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-purple-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Compatible con Markdown y texto enriquecido
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-purple-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Lógica de reserva inteligente
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-purple-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Plantillas personalizables
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Shortcut Config Feature -->
-            <div class="mb-24 flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
-                <div class="flex-1 order-2 md:order-1">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 group">
-                         <div class="absolute -inset-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                        <img src="images/feature-config.png" alt="Powerful Shortcut Configuration" class="relative w-full rounded-2xl transform transition duration-500 hover:scale-[1.02]">
-                    </div>
-                </div>
-                <div class="flex-1 order-1 md:order-2 text-left">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium mb-6">
-                        <span class="text-lg">⚙️</span>
-                        Control total
-                    </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">Configuración potente</h3>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        Toma el control total de tu flujo de trabajo. Personaliza atajos, gestiona plantillas y activa funciones inteligentes con una interfaz intuitiva.
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Ordenación por arrastrar y soltar
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Vista previa en tiempo real
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Activación de funciones con un clic
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <div class="mt-24"></div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Feature 1 -->
@@ -437,5 +410,6 @@
         </div>
     </footer>
 
+    <script src="./scrollytelling.js" defer></script>
 </body>
 </html>

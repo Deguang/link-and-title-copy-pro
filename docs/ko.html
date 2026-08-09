@@ -57,6 +57,7 @@
     </script>
 
     <link href="./styles.css" rel="stylesheet">
+    <link href="./scrollytelling.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         .glass-nav {
@@ -191,113 +192,85 @@
         <div class="container mx-auto px-6">
             <div class="text-center mb-20">
                 <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6 text-balance">강력한 기능으로 가득</h2>
-                <p class="text-xl text-slate-600 max-w-2xl mx-auto text-balance">링크 관리에 필요한 모든 것, 군더더기 없이.</p>
+                <p class="text-xl text-slate-600 max-w-2xl mx-auto text-balance">한 페이지가 어디에나 붙여넣을 수 있는 링크가 되기까지.</p>
             </div>
 
-            <!-- Toast Feature Highlight -->
-            <div class="mb-24 flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
-                <div class="flex-1 order-2 md:order-1">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 group">
-                         <div class="absolute -inset-1 bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                        <img src="images/feature-toast.png" alt="Instant Visual Feedback Toast" class="relative w-full rounded-2xl transform transition duration-500 hover:scale-[1.02]">
+            <!-- Scroll-driven demo: page -> shortcut -> pasted where you work.
+                 Replaces three alternating image/text blocks. Every word is real
+                 DOM text and stays present when the effect is off, so crawlers
+                 and screen readers see the same content. Static fallback lives in
+                 scrollytelling.css. -->
+            <div class="demo" data-demo data-step="0">
+                <div class="demo-stage">
+                    <!-- source page -->
+                    <div class="win win-src">
+                        <div class="win-bar">
+                            <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                            <div class="win-url">example.com/design-systems</div>
+                        </div>
+                        <div class="src-body">
+                            <h4 class="src-title">디자인 시스템의 열 가지 원칙</h4>
+                            <div class="src-lines" aria-hidden="true"><span></span><span></span><span></span></div>
+                        </div>
+                    </div>
+
+                    <!-- keystroke + clipboard -->
+                    <div class="demo-bridge">
+                        <div class="keys" aria-hidden="true">
+                            <kbd>Ctrl</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>C</kbd>
+                        </div>
+                        <div class="clip-chip" aria-live="polite">
+                            <span class="clip-out on" data-for="1">[디자인 시스템의 열 가지 원칙](example.com/design-systems)</span>
+                        </div>
+                    </div>
+
+                    <!-- destination app -->
+                    <div class="win win-dst">
+                        <div class="win-bar">
+                            <span class="win-app"><i aria-hidden="true"></i>노트</span>
+                        </div>
+                        <div class="dst-body">
+                            <div class="dst-crumb">이번 주 읽을거리</div>
+                            <div class="dst-lines" aria-hidden="true"><span></span><span></span></div>
+                            <div class="dst-slot">
+                                <span class="dst-caret" aria-hidden="true"></span>
+                                <span class="dst-out" data-for="2"><span class="as-link">디자인 시스템의 열 가지 원칙</span></span>
+                                <span class="dst-out" data-for="3"><code>h2. 디자인 시스템의 열 가지 원칙\nexample.com/design-systems</code></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="flex-1 order-1 md:order-2 text-left">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium mb-6">
-                        <span class="relative flex h-2 w-2">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                        </span>
-                        새 기능
+
+                <div class="demo-steps">
+                    
+                    <div class="demo-step">
+                        <span class="demo-badge">어떤 페이지든</span>
+                        <h3>지금 보고 있는 페이지에서 그대로</h3>
+                        <p>제목을 선택할 필요도, 주소창을 찾을 필요도 없습니다. 열려 있는 페이지면 충분합니다.</p>
                     </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">즉각적인 시각적 피드백</h3>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        제대로 복사했는지 더 이상 추측하지 마세요. 새로운 <strong>스마트 토스트</strong>가 형식화된 링크 미리보기와 함께 클립보드에 무엇이 있는지 정확히 보여줍니다.
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            실시간 콘텐츠 미리보기
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            키보드 단축키 지원
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            다크 모드 디자인
-                        </li>
-                    </ul>
+                    
+                    <div class="demo-step">
+                        <span class="demo-badge">단축키 하나</span>
+                        <h3>단축키를 누르세요</h3>
+                        <p>제목과 링크가 설정한 형식 그대로 함께 클립보드에 들어옵니다.</p>
+                    </div>
+                    
+                    <div class="demo-step">
+                        <span class="demo-badge">어디에나 붙여넣기</span>
+                        <h3>노트에 붙여넣으세요</h3>
+                        <p>Notion, Obsidian, 문서, 티켓, 메시지. 정리해야 할 두 줄이 아니라 진짜 링크로 도착합니다.</p>
+                    </div>
+                    
+                    <div class="demo-step">
+                        <span class="demo-badge">원하는 형식</span>
+                        <h3>필요한 다른 형식으로도</h3>
+                        <p>노트에는 Markdown, 글에는 HTML, 티켓에는 Jira 문법. 직접 만든 템플릿도 됩니다.</p>
+                    </div>
+                    
                 </div>
             </div>
 
-            <!-- Paste Contexts Feature -->
-            <div class="mb-24 flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
-                <div class="flex-1 order-2 md:order-2">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 group">
-                         <div class="absolute -inset-1 bg-gradient-to-r from-purple-400 to-pink-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                        <img src="images/feature-paste.png" alt="Smart Paste Contexts" class="relative w-full rounded-2xl transform transition duration-500 hover:scale-[1.02]">
-                    </div>
-                </div>
-                <div class="flex-1 order-1 md:order-1 text-left">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-sm font-medium mb-6">
-                        <span class="text-lg">✨</span>
-                        스마트 컨텍스트
-                    </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">어디에나 붙여넣기</h3>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        필요에 맞춰 지능적으로 적응합니다. 메모용 마크다운, 블로그용 HTML, 공유용 정리된 URL로 복사하세요.
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-purple-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            마크다운 및 서식 있는 텍스트 지원
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-purple-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            스마트 대체 로직
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-purple-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            맞춤 템플릿
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Shortcut Config Feature -->
-            <div class="mb-24 flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
-                <div class="flex-1 order-2 md:order-1">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 group">
-                         <div class="absolute -inset-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                        <img src="images/feature-config.png" alt="Powerful Shortcut Configuration" class="relative w-full rounded-2xl transform transition duration-500 hover:scale-[1.02]">
-                    </div>
-                </div>
-                <div class="flex-1 order-1 md:order-2 text-left">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium mb-6">
-                        <span class="text-lg">⚙️</span>
-                        완벽한 제어
-                    </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">강력한 구성</h3>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        작업 흐름을 완전히 제어하세요. 직관적인 인터페이스로 단축키를 맞춤 설정하고 템플릿을 관리하며 스마트 기능을 전환하세요.
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            드래그 앤 드롭 정렬
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            실시간 미리보기
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            원클릭 기능 전환
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <div class="mt-24"></div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Feature 1 -->
@@ -437,5 +410,6 @@
         </div>
     </footer>
 
+    <script src="./scrollytelling.js" defer></script>
 </body>
 </html>

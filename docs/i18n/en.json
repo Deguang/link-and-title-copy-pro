@@ -64,31 +64,7 @@
   },
   "features": {
     "title": "Packed with Power",
-    "subtitle": "Everything you need to manage links, without the clutter.",
-    "toast": {
-      "badge": "New Feature",
-      "title": "Instant Visual Feedback",
-      "desc": "Never guess if you copied correctly. Our new <strong>Smart Toast</strong> shows you exactly what's in your clipboard, complete with a preview of the formatted link.",
-      "item1": "Live content preview",
-      "item2": "Keyboard shortcut support",
-      "item3": "Dark mode aesthetics"
-    },
-    "paste": {
-      "badge": "Smart Contexts",
-      "title": "Paste Anywhere",
-      "desc": "Intelligently adapts to your needs. Copy as Markdown for your notes, HTML for your blog, or clean URLs for sharing.",
-      "item1": "Markdown & Rich Text support",
-      "item2": "Smart fallback logic",
-      "item3": "Customizable templates"
-    },
-    "config": {
-      "badge": "Total Control",
-      "title": "Powerful Configuration",
-      "desc": "Take full control of your workflow. Customize shortcuts, manage templates, and toggle smart features with an intuitive interface.",
-      "item1": "Drag-and-drop ordering",
-      "item2": "Real-time preview",
-      "item3": "One-click feature toggles"
-    },
+    "subtitle": "Watch a page become a link you can paste anywhere.",
     "cards": {
       "templates": {
         "title": "Custom Templates",
@@ -102,6 +78,34 @@
         "title": "Shortcuts & i18n",
         "desc": "Bind your favorite templates to keyboard shortcuts. Fully localized in multiple languages."
       }
+    },
+    "demo": {
+      "srcUrl": "example.com/design-systems",
+      "srcTitle": "Ten Principles of Design Systems",
+      "appDoc": "Notes",
+      "crumb": "Weekly reading",
+      "steps": [
+        {
+          "badge": "Any page",
+          "title": "Start on the page you are reading",
+          "desc": "No copying the heading, no hunting for the address bar. Whatever is open is enough."
+        },
+        {
+          "badge": "One keystroke",
+          "title": "Press your shortcut",
+          "desc": "Title and link land on the clipboard together, already formatted the way you set it up."
+        },
+        {
+          "badge": "Paste anywhere",
+          "title": "Drop it into your notes",
+          "desc": "Notion, Obsidian, a doc, a ticket, a message. It arrives as a real link, not two lines to clean up."
+        },
+        {
+          "badge": "Your format",
+          "title": "Or any other format you need",
+          "desc": "Markdown for notes, HTML for a post, Jira syntax for a ticket, or a template you write yourself."
+        }
+      ]
     }
   },
   "useCases": {

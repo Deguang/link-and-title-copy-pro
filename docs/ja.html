@@ -57,6 +57,7 @@
     </script>
 
     <link href="./styles.css" rel="stylesheet">
+    <link href="./scrollytelling.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         .glass-nav {
@@ -191,113 +192,85 @@
         <div class="container mx-auto px-6">
             <div class="text-center mb-20">
                 <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6 text-balance">パワフルな機能</h2>
-                <p class="text-xl text-slate-600 max-w-2xl mx-auto text-balance">リンク管理に必要なすべてが、シンプルに。</p>
+                <p class="text-xl text-slate-600 max-w-2xl mx-auto text-balance">1つのページが、どこにでも貼れるリンクになるまで。</p>
             </div>
 
-            <!-- Toast Feature Highlight -->
-            <div class="mb-24 flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
-                <div class="flex-1 order-2 md:order-1">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 group">
-                         <div class="absolute -inset-1 bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                        <img src="images/feature-toast.png" alt="Instant Visual Feedback Toast" class="relative w-full rounded-2xl transform transition duration-500 hover:scale-[1.02]">
+            <!-- Scroll-driven demo: page -> shortcut -> pasted where you work.
+                 Replaces three alternating image/text blocks. Every word is real
+                 DOM text and stays present when the effect is off, so crawlers
+                 and screen readers see the same content. Static fallback lives in
+                 scrollytelling.css. -->
+            <div class="demo" data-demo data-step="0">
+                <div class="demo-stage">
+                    <!-- source page -->
+                    <div class="win win-src">
+                        <div class="win-bar">
+                            <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                            <div class="win-url">example.com/design-systems</div>
+                        </div>
+                        <div class="src-body">
+                            <h4 class="src-title">デザインシステム10の原則</h4>
+                            <div class="src-lines" aria-hidden="true"><span></span><span></span><span></span></div>
+                        </div>
+                    </div>
+
+                    <!-- keystroke + clipboard -->
+                    <div class="demo-bridge">
+                        <div class="keys" aria-hidden="true">
+                            <kbd>Ctrl</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>C</kbd>
+                        </div>
+                        <div class="clip-chip" aria-live="polite">
+                            <span class="clip-out on" data-for="1">[デザインシステム10の原則](example.com/design-systems)</span>
+                        </div>
+                    </div>
+
+                    <!-- destination app -->
+                    <div class="win win-dst">
+                        <div class="win-bar">
+                            <span class="win-app"><i aria-hidden="true"></i>ノート</span>
+                        </div>
+                        <div class="dst-body">
+                            <div class="dst-crumb">今週読んだもの</div>
+                            <div class="dst-lines" aria-hidden="true"><span></span><span></span></div>
+                            <div class="dst-slot">
+                                <span class="dst-caret" aria-hidden="true"></span>
+                                <span class="dst-out" data-for="2"><span class="as-link">デザインシステム10の原則</span></span>
+                                <span class="dst-out" data-for="3"><code>h2. デザインシステム10の原則\nexample.com/design-systems</code></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="flex-1 order-1 md:order-2 text-left">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium mb-6">
-                        <span class="relative flex h-2 w-2">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                        </span>
-                        新機能
+
+                <div class="demo-steps">
+                    
+                    <div class="demo-step">
+                        <span class="demo-badge">どんなページでも</span>
+                        <h3>いま読んでいるページのままで</h3>
+                        <p>見出しを選ぶ必要も、アドレスバーを探す必要もありません。開いているページだけで十分です。</p>
                     </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">即座の視覚フィードバック</h3>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        コピーが成功したか迷う必要はありません。新しい<strong>スマートトースト</strong>がクリップボードの内容を正確に表示し、フォーマット済みリンクのプレビューを提供します。
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            リアルタイムコンテンツプレビュー
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            キーボードショートカット対応
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            ダークモード対応
-                        </li>
-                    </ul>
+                    
+                    <div class="demo-step">
+                        <span class="demo-badge">ショートカット1つ</span>
+                        <h3>ショートカットを押す</h3>
+                        <p>タイトルとリンクが、設定した書式のまま同時にクリップボードへ入ります。</p>
+                    </div>
+                    
+                    <div class="demo-step">
+                        <span class="demo-badge">どこへでも貼れる</span>
+                        <h3>ノートに貼り付ける</h3>
+                        <p>Notion、Obsidian、ドキュメント、チケット、チャット。整形前の2行ではなく、そのままリンクとして届きます。</p>
+                    </div>
+                    
+                    <div class="demo-step">
+                        <span class="demo-badge">好きな書式で</span>
+                        <h3>必要な書式に切り替えられます</h3>
+                        <p>ノートには Markdown、記事には HTML、チケットには Jira 記法。自分で書いたテンプレートでも構いません。</p>
+                    </div>
+                    
                 </div>
             </div>
 
-            <!-- Paste Contexts Feature -->
-            <div class="mb-24 flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
-                <div class="flex-1 order-2 md:order-2">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 group">
-                         <div class="absolute -inset-1 bg-gradient-to-r from-purple-400 to-pink-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                        <img src="images/feature-paste.png" alt="Smart Paste Contexts" class="relative w-full rounded-2xl transform transition duration-500 hover:scale-[1.02]">
-                    </div>
-                </div>
-                <div class="flex-1 order-1 md:order-1 text-left">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-sm font-medium mb-6">
-                        <span class="text-lg">✨</span>
-                        スマートコンテキスト
-                    </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">どこでもペースト</h3>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        あなたのニーズに賢く対応。ノート用にMarkdown、ブログ用にHTML、共有用にクリーンなURLをコピー。
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-purple-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Markdown＆リッチテキスト対応
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-purple-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            スマートフォールバックロジック
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-purple-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            カスタマイズ可能なテンプレート
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Shortcut Config Feature -->
-            <div class="mb-24 flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
-                <div class="flex-1 order-2 md:order-1">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 group">
-                         <div class="absolute -inset-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                        <img src="images/feature-config.png" alt="Powerful Shortcut Configuration" class="relative w-full rounded-2xl transform transition duration-500 hover:scale-[1.02]">
-                    </div>
-                </div>
-                <div class="flex-1 order-1 md:order-2 text-left">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium mb-6">
-                        <span class="text-lg">⚙️</span>
-                        完全コントロール
-                    </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">強力な設定機能</h3>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        ワークフローを完全にコントロール。直感的なインターフェースでショートカットのカスタマイズ、テンプレート管理、スマート機能の切り替えが可能。
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            ドラッグ＆ドロップで並び替え
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            リアルタイムプレビュー
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            ワンクリック機能切り替え
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <div class="mt-24"></div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Feature 1 -->
@@ -437,5 +410,6 @@
         </div>
     </footer>
 
+    <script src="./scrollytelling.js" defer></script>
 </body>
 </html>

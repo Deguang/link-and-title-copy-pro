@@ -57,6 +57,7 @@
     </script>
 
     <link href="./styles.css" rel="stylesheet">
+    <link href="./scrollytelling.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         .glass-nav {
@@ -191,113 +192,85 @@
         <div class="container mx-auto px-6">
             <div class="text-center mb-20">
                 <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6 text-balance">强大功能，触手可及</h2>
-                <p class="text-xl text-slate-600 max-w-2xl mx-auto text-balance">你需要的一切链接管理功能，告别繁琐。</p>
+                <p class="text-xl text-slate-600 max-w-2xl mx-auto text-balance">看一个网页，如何变成一条可以随处粘贴的链接。</p>
             </div>
 
-            <!-- Toast Feature Highlight -->
-            <div class="mb-24 flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
-                <div class="flex-1 order-2 md:order-1">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 group">
-                         <div class="absolute -inset-1 bg-gradient-to-r from-green-400 to-blue-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                        <img src="images/feature-toast.png" alt="Instant Visual Feedback Toast" class="relative w-full rounded-2xl transform transition duration-500 hover:scale-[1.02]">
+            <!-- Scroll-driven demo: page -> shortcut -> pasted where you work.
+                 Replaces three alternating image/text blocks. Every word is real
+                 DOM text and stays present when the effect is off, so crawlers
+                 and screen readers see the same content. Static fallback lives in
+                 scrollytelling.css. -->
+            <div class="demo" data-demo data-step="0">
+                <div class="demo-stage">
+                    <!-- source page -->
+                    <div class="win win-src">
+                        <div class="win-bar">
+                            <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                            <div class="win-url">example.com/design-systems</div>
+                        </div>
+                        <div class="src-body">
+                            <h4 class="src-title">设计系统的十条原则</h4>
+                            <div class="src-lines" aria-hidden="true"><span></span><span></span><span></span></div>
+                        </div>
+                    </div>
+
+                    <!-- keystroke + clipboard -->
+                    <div class="demo-bridge">
+                        <div class="keys" aria-hidden="true">
+                            <kbd>Ctrl</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>C</kbd>
+                        </div>
+                        <div class="clip-chip" aria-live="polite">
+                            <span class="clip-out on" data-for="1">[设计系统的十条原则](example.com/design-systems)</span>
+                        </div>
+                    </div>
+
+                    <!-- destination app -->
+                    <div class="win win-dst">
+                        <div class="win-bar">
+                            <span class="win-app"><i aria-hidden="true"></i>笔记</span>
+                        </div>
+                        <div class="dst-body">
+                            <div class="dst-crumb">本周阅读</div>
+                            <div class="dst-lines" aria-hidden="true"><span></span><span></span></div>
+                            <div class="dst-slot">
+                                <span class="dst-caret" aria-hidden="true"></span>
+                                <span class="dst-out" data-for="2"><span class="as-link">设计系统的十条原则</span></span>
+                                <span class="dst-out" data-for="3"><code>h2. 设计系统的十条原则\nexample.com/design-systems</code></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="flex-1 order-1 md:order-2 text-left">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium mb-6">
-                        <span class="relative flex h-2 w-2">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                        </span>
-                        新功能
+
+                <div class="demo-steps">
+                    
+                    <div class="demo-step">
+                        <span class="demo-badge">任意网页</span>
+                        <h3>就在你正在看的页面上</h3>
+                        <p>不用选标题，不用去点地址栏。开着的这个页面就够了。</p>
                     </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">即时可视化反馈</h3>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        不再怀疑是否复制成功。我们全新的 <strong>智能 Toast</strong> 会准确显示剪贴板中的内容，并提供格式化链接的实时预览。
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            实时内容预览
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            支持快捷键显示
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            精美的暗色模式设计
-                        </li>
-                    </ul>
+                    
+                    <div class="demo-step">
+                        <span class="demo-badge">一个快捷键</span>
+                        <h3>按下快捷键</h3>
+                        <p>标题和链接一起进剪贴板，格式就是你事先设定好的那个。</p>
+                    </div>
+                    
+                    <div class="demo-step">
+                        <span class="demo-badge">随处粘贴</span>
+                        <h3>粘进你的笔记里</h3>
+                        <p>Notion、Obsidian、文档、工单、聊天窗口。粘过去就是一条真正的链接，不是两行待整理的文本。</p>
+                    </div>
+                    
+                    <div class="demo-step">
+                        <span class="demo-badge">你的格式</span>
+                        <h3>或者换成任何你需要的格式</h3>
+                        <p>笔记用 Markdown，文章用 HTML，工单用 Jira 语法，也可以是你自己写的模板。</p>
+                    </div>
+                    
                 </div>
             </div>
 
-            <!-- Paste Contexts Feature -->
-            <div class="mb-24 flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
-                <div class="flex-1 order-2 md:order-2">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 group">
-                         <div class="absolute -inset-1 bg-gradient-to-r from-purple-400 to-pink-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                        <img src="images/feature-paste.png" alt="Smart Paste Contexts" class="relative w-full rounded-2xl transform transition duration-500 hover:scale-[1.02]">
-                    </div>
-                </div>
-                <div class="flex-1 order-1 md:order-1 text-left">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-sm font-medium mb-6">
-                        <span class="text-lg">✨</span>
-                        智能上下文
-                    </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">随处粘贴</h3>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        智能适应你的需求。为笔记复制 Markdown，为博客复制 HTML，或者分享纯净的链接。
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-purple-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Markdown 和富文本支持
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-purple-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            智能回退逻辑
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-purple-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            完全自定义模板
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Shortcut Config Feature -->
-            <div class="mb-24 flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
-                <div class="flex-1 order-2 md:order-1">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 group">
-                         <div class="absolute -inset-1 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                        <img src="images/feature-config.png" alt="Powerful Shortcut Configuration" class="relative w-full rounded-2xl transform transition duration-500 hover:scale-[1.02]">
-                    </div>
-                </div>
-                <div class="flex-1 order-1 md:order-2 text-left">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-medium mb-6">
-                        <span class="text-lg">⚙️</span>
-                        完全掌控
-                    </div>
-                    <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">强大的配置能力</h3>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        完全掌控你的工作流。通过直观的界面自定义快捷键、管理模板和开关智能功能。
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            拖拽排序
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            实时预览
-                        </li>
-                        <li class="flex items-center text-slate-700">
-                            <svg class="w-5 h-5 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            一键开关功能
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <div class="mt-24"></div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Feature 1 -->
@@ -437,5 +410,6 @@
         </div>
     </footer>
 
+    <script src="./scrollytelling.js" defer></script>
 </body>
 </html>

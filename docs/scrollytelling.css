@@ -1,0 +1,341 @@
+/* =============================================================================
+ * Scroll-driven demo: a page → one keystroke → pasted where you work.
+ *
+ * Replaces the three alternating image/text blocks in the Features section.
+ * Self-contained on purpose: docs/styles.css is a Tailwind build output with no
+ * rebuild script wired up, so anything relying on new utility classes would ship
+ * unstyled. Everything here is plain CSS scoped under .demo, and the whole thing
+ * comes out by deleting one block plus this file.
+ *
+ * Tokens mirror src/styles/tokens.css — the extension's design system is the
+ * source of truth; these are copies because docs/ is a separate static site that
+ * cannot import from src/. Keep them in sync when the palette moves.
+ *
+ * The scrollbar is never hijacked: the stage is `position: sticky` and the steps
+ * are ordinary flow content, so native scrolling, keyboard paging and
+ * find-in-page keep working.
+ * ========================================================================== */
+
+.demo {
+  --d-surface: #ffffff;
+  --d-surface-2: #f8fafc;
+  --d-line: #dce3ea;
+  --d-line-soft: #ebf0f5;
+  --d-ink: #032a4b;
+  --d-ink-2: #55677a;
+  --d-ink-3: #667584;
+  --d-accent: #0b3c63;
+  --d-brand: #fc686d;
+  --d-ok: #0c7c95;
+  --d-pro: #fad176;
+  --d-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  max-width: 72rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 4rem;
+  align-items: start;
+  color: var(--d-ink);
+}
+
+/* ---------- sticky stage ---------- */
+.demo-stage {
+  position: sticky;
+  top: 11vh;
+  height: 78vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.win {
+  background: var(--d-surface);
+  border: 1px solid var(--d-line);
+  border-radius: 13px;
+  box-shadow: 0 1px 2px rgba(3, 42, 75, 0.05), 0 20px 44px -22px rgba(3, 42, 75, 0.28);
+  overflow: hidden;
+  transition: opacity 0.45s ease, transform 0.45s ease, border-color 0.45s ease;
+}
+
+.win-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid var(--d-line-soft);
+  background: var(--d-surface-2);
+}
+
+.dots { display: flex; gap: 0.28rem; flex-shrink: 0; }
+.dots i { width: 0.55rem; height: 0.55rem; border-radius: 999px; background: var(--d-line); display: block; }
+
+.win-url {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--d-mono);
+  font-size: 0.67rem;
+  color: var(--d-ink-3);
+  background: var(--d-surface);
+  border: 1px solid var(--d-line-soft);
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.win-app {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--d-ink-2);
+}
+.win-app i {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 3px;
+  background: var(--d-ink);
+  display: block;
+  flex-shrink: 0;
+}
+
+/* source page */
+.src-body { padding: 1.1rem 1.05rem 1.25rem; }
+.src-title {
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  display: inline;
+  border-radius: 3px;
+  transition: background 0.4s ease;
+}
+.src-lines { margin-top: 0.9rem; display: flex; flex-direction: column; gap: 0.45rem; }
+.src-lines span { display: block; height: 0.45rem; border-radius: 999px; background: var(--d-line-soft); }
+.src-lines span:nth-child(2) { width: 92%; }
+.src-lines span:nth-child(3) { width: 76%; }
+
+/* ---------- the keystroke + clipboard between the two windows ---------- */
+.demo-bridge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  min-height: 3.6rem;
+}
+
+.keys {
+  display: flex;
+  align-items: center;
+  gap: 0.22rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 9px;
+  background: var(--d-surface);
+  border: 1px solid var(--d-line);
+  box-shadow: 0 1px 2px rgba(3, 42, 75, 0.06);
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.keys kbd {
+  font-family: var(--d-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  color: var(--d-ink);
+  background: linear-gradient(180deg, #fff, #eef3f8);
+  border: 1px solid #d3dde6;
+  border-radius: 4px;
+  padding: 0.12rem 0.36rem;
+  box-shadow: 0 1px 0 rgba(3, 42, 75, 0.08);
+}
+.keys span { color: var(--d-ink-3); font-size: 0.58rem; }
+
+.clip-chip {
+  font-family: var(--d-mono);
+  font-size: 0.66rem;
+  line-height: 1.5;
+  color: var(--d-ink-2);
+  background: var(--d-surface);
+  border: 1px dashed var(--d-line);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  max-width: 18rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+/* destination app */
+.dst-body {
+  padding: 1rem 1.05rem 1.35rem;
+  min-height: 8.5rem;
+}
+.dst-crumb {
+  font-size: 0.62rem;
+  color: var(--d-ink-3);
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.02em;
+}
+.dst-lines { display: flex; flex-direction: column; gap: 0.45rem; margin-bottom: 0.8rem; }
+.dst-lines span { display: block; height: 0.45rem; border-radius: 999px; background: var(--d-line-soft); }
+.dst-lines span:nth-child(2) { width: 68%; }
+
+.dst-slot {
+  border-radius: 6px;
+  min-height: 2.4rem;
+  display: flex;
+  align-items: center;
+  padding: 0.45rem 0.55rem;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  transition: background 0.4s ease;
+}
+.dst-caret {
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  background: var(--d-ink-3);
+  animation: demo-caret 1.1s steps(1) infinite;
+}
+@keyframes demo-caret { 50% { opacity: 0; } }
+
+.dst-out { display: none; }
+.dst-out.on { display: block; }
+.dst-out a,
+.dst-out .as-link {
+  color: var(--d-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.dst-out code {
+  font-family: var(--d-mono);
+  font-size: 0.72rem;
+  color: var(--d-ink-2);
+  word-break: break-all;
+}
+
+/* ---------- steps ---------- */
+.demo-steps { display: flex; flex-direction: column; }
+
+.demo-step {
+  min-height: 76vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 0;
+  opacity: 0.3;
+  transition: opacity 0.45s ease;
+}
+.demo-step.is-active { opacity: 1; }
+
+.demo-badge {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--d-ok);
+  background: rgba(12, 124, 149, 0.1);
+  border: 1px solid rgba(12, 124, 149, 0.22);
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.demo-step h3 {
+  font-size: clamp(1.5rem, 2.6vw, 2.15rem);
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+  color: var(--d-ink);
+}
+
+.demo-step p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--d-ink-2);
+  max-width: 30rem;
+}
+
+/* =============================================================================
+ * Stage states, driven by data-step on .demo
+ * ========================================================================== */
+
+/* 0 — just the page. The destination is still waiting. */
+.demo[data-step="0"] .win-dst { opacity: 0.45; }
+
+/* 1 — the keystroke fires and the clipboard fills */
+.demo[data-step="1"] .src-title { background: #b9dcf5; }
+.demo[data-step="1"] .keys {
+  transform: translateY(1px) scale(0.97);
+  border-color: var(--d-accent);
+  box-shadow: 0 0 0 4px rgba(11, 60, 99, 0.12);
+}
+.demo[data-step="1"] .clip-chip,
+.demo[data-step="2"] .clip-chip,
+.demo[data-step="3"] .clip-chip {
+  opacity: 1;
+  transform: translateY(0);
+  border-color: var(--d-ok);
+  color: var(--d-ink);
+}
+.demo[data-step="1"] .win-dst { opacity: 0.45; }
+
+/* 2 — pasted into the doc, rendered as a real link */
+.demo[data-step="2"] .src-title,
+.demo[data-step="3"] .src-title { background: #b9dcf5; }
+.demo[data-step="2"] .dst-slot,
+.demo[data-step="3"] .dst-slot { background: rgba(12, 124, 149, 0.07); }
+.demo[data-step="2"] .win-dst,
+.demo[data-step="3"] .win-dst {
+  opacity: 1;
+  border-color: var(--d-ok);
+}
+.demo[data-step="2"] .dst-caret,
+.demo[data-step="3"] .dst-caret { display: none; }
+
+/* =============================================================================
+ * Static fallback.
+ *
+ * Below the breakpoint, or when the visitor asks for reduced motion, this
+ * becomes an ordinary stacked list: the stage unsticks and every step reads as a
+ * normal block. All copy stays in the DOM either way, so crawlers and screen
+ * readers get identical content.
+ * ========================================================================== */
+@media (max-width: 900px), (prefers-reduced-motion: reduce) {
+  .demo {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .demo-stage {
+    position: static;
+    height: auto;
+    order: -1;
+  }
+
+  .demo-step {
+    min-height: 0;
+    opacity: 1;
+    padding: 0 0 2rem;
+    border-bottom: 1px solid var(--d-line-soft);
+  }
+  .demo-step:last-child { border-bottom: 0; }
+
+  /* No scroll position to react to: show the finished state outright. */
+  .demo .src-title { background: #b9dcf5; }
+  .demo .clip-chip { opacity: 1; transform: none; border-color: var(--d-ok); color: var(--d-ink); }
+  .demo .win-dst { opacity: 1; }
+  .demo .dst-caret { display: none; }
+  .demo .dst-slot { background: rgba(12, 124, 149, 0.07); }
+  .demo .dst-out { display: block; }
+  .demo .dst-out + .dst-out { margin-top: 0.3rem; }
+}

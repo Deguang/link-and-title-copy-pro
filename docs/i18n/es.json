@@ -64,31 +64,7 @@
   },
   "features": {
     "title": "Repleta de potencia",
-    "subtitle": "Todo lo que necesitas para gestionar enlaces, sin lo innecesario.",
-    "toast": {
-      "badge": "Nueva función",
-      "title": "Confirmación visual instantánea",
-      "desc": "Nunca más adivines si copiaste correctamente. Nuestro nuevo <strong>Smart Toast</strong> te muestra exactamente qué hay en tu portapapeles, con una vista previa del enlace formateado.",
-      "item1": "Vista previa del contenido en vivo",
-      "item2": "Compatible con atajos de teclado",
-      "item3": "Estética de modo oscuro"
-    },
-    "paste": {
-      "badge": "Contextos inteligentes",
-      "title": "Pega en cualquier lugar",
-      "desc": "Se adapta de forma inteligente a tus necesidades. Copia como Markdown para tus notas, HTML para tu blog o URL limpias para compartir.",
-      "item1": "Compatible con Markdown y texto enriquecido",
-      "item2": "Lógica de reserva inteligente",
-      "item3": "Plantillas personalizables"
-    },
-    "config": {
-      "badge": "Control total",
-      "title": "Configuración potente",
-      "desc": "Toma el control total de tu flujo de trabajo. Personaliza atajos, gestiona plantillas y activa funciones inteligentes con una interfaz intuitiva.",
-      "item1": "Ordenación por arrastrar y soltar",
-      "item2": "Vista previa en tiempo real",
-      "item3": "Activación de funciones con un clic"
-    },
+    "subtitle": "Mira cómo una página se convierte en un enlace que puedes pegar donde quieras.",
     "cards": {
       "templates": {
         "title": "Plantillas personalizadas",
@@ -102,6 +78,34 @@
         "title": "Atajos e i18n",
         "desc": "Asigna tus plantillas favoritas a atajos de teclado. Totalmente localizada en varios idiomas."
       }
+    },
+    "demo": {
+      "srcUrl": "example.com/design-systems",
+      "srcTitle": "Diez principios de los sistemas de diseño",
+      "appDoc": "Notas",
+      "crumb": "Lecturas de la semana",
+      "steps": [
+        {
+          "badge": "Cualquier página",
+          "title": "Empieza en la página que estás leyendo",
+          "desc": "Sin seleccionar el titular ni buscar la barra de direcciones. Basta con lo que ya tienes abierto."
+        },
+        {
+          "badge": "Un atajo",
+          "title": "Pulsa tu atajo",
+          "desc": "El título y el enlace llegan juntos al portapapeles, ya con el formato que configuraste."
+        },
+        {
+          "badge": "Pega donde sea",
+          "title": "Suéltalo en tus notas",
+          "desc": "Notion, Obsidian, un documento, un ticket, un mensaje. Llega como un enlace de verdad, no como dos líneas por arreglar."
+        },
+        {
+          "badge": "Tu formato",
+          "title": "O en cualquier otro formato",
+          "desc": "Markdown para notas, HTML para el blog, sintaxis de Jira para un ticket, o una plantilla tuya."
+        }
+      ]
     }
   },
   "useCases": {

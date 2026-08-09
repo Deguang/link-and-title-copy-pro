@@ -64,31 +64,7 @@
   },
   "features": {
     "title": "Vollgepackt mit Power",
-    "subtitle": "Alles, was Sie zum Verwalten von Links brauchen – ohne Ballast.",
-    "toast": {
-      "badge": "Neue Funktion",
-      "title": "Sofortiges visuelles Feedback",
-      "desc": "Raten Sie nie wieder, ob Sie richtig kopiert haben. Unser neuer <strong>Smart Toast</strong> zeigt Ihnen genau, was in Ihrer Zwischenablage liegt – inklusive Vorschau des formatierten Links.",
-      "item1": "Live-Vorschau des Inhalts",
-      "item2": "Unterstützung für Tastenkürzel",
-      "item3": "Dark-Mode-Ästhetik"
-    },
-    "paste": {
-      "badge": "Intelligente Kontexte",
-      "title": "Überall einfügen",
-      "desc": "Passt sich intelligent Ihren Bedürfnissen an. Kopieren Sie als Markdown für Ihre Notizen, als HTML für Ihren Blog oder als bereinigte URL zum Teilen.",
-      "item1": "Markdown- & Rich-Text-Unterstützung",
-      "item2": "Intelligente Fallback-Logik",
-      "item3": "Anpassbare Vorlagen"
-    },
-    "config": {
-      "badge": "Volle Kontrolle",
-      "title": "Leistungsstarke Konfiguration",
-      "desc": "Übernehmen Sie die volle Kontrolle über Ihren Workflow. Passen Sie Tastenkürzel an, verwalten Sie Vorlagen und schalten Sie intelligente Funktionen über eine intuitive Oberfläche um.",
-      "item1": "Drag-and-drop-Sortierung",
-      "item2": "Echtzeit-Vorschau",
-      "item3": "Funktionen per Klick umschalten"
-    },
+    "subtitle": "So wird aus einer Seite ein Link, den du überall einfügen kannst.",
     "cards": {
       "templates": {
         "title": "Eigene Vorlagen",
@@ -102,6 +78,34 @@
         "title": "Tastenkürzel & i18n",
         "desc": "Verknüpfen Sie Ihre Lieblingsvorlagen mit Tastenkürzeln. Vollständig in mehreren Sprachen lokalisiert."
       }
+    },
+    "demo": {
+      "srcUrl": "example.com/design-systems",
+      "srcTitle": "Zehn Prinzipien für Designsysteme",
+      "appDoc": "Notizen",
+      "crumb": "Lesestoff der Woche",
+      "steps": [
+        {
+          "badge": "Jede Seite",
+          "title": "Bleib einfach auf der Seite, die du liest",
+          "desc": "Keine Überschrift markieren, keine Adressleiste suchen. Was offen ist, genügt."
+        },
+        {
+          "badge": "Ein Tastendruck",
+          "title": "Drücke dein Kürzel",
+          "desc": "Titel und Link landen gemeinsam in der Zwischenablage — direkt im eingestellten Format."
+        },
+        {
+          "badge": "Überall einfügen",
+          "title": "Ab in deine Notizen",
+          "desc": "Notion, Obsidian, ein Dokument, ein Ticket, eine Nachricht. Es kommt als echter Link an, nicht als zwei Zeilen zum Aufräumen."
+        },
+        {
+          "badge": "Dein Format",
+          "title": "Oder jedes andere Format",
+          "desc": "Markdown für Notizen, HTML für den Blog, Jira-Syntax fürs Ticket — oder deine eigene Vorlage."
+        }
+      ]
     }
   },
   "useCases": {
