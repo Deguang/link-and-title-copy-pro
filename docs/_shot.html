@@ -1,6 +1,0 @@
-<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0}iframe{border:0;width:1360px;height:900px;display:block}</style></head>
-<body><iframe id="f" src="./index.html"></iframe>
-<script>var p=Number(new URLSearchParams(location.search).get('p')||0);
-document.getElementById('f').addEventListener('load',function(){var d=this.contentDocument,w=this.contentWindow;
-var t=d.querySelector('.cine-track');var top=0;for(var el=t;el;el=el.offsetParent)top+=el.offsetTop;
-var run=t.offsetHeight-w.innerHeight;w.scrollTo(0,top+run*p);setTimeout(function(){w.scrollTo(0,top+run*p);},400);});</script></body></html>
