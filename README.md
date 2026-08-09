@@ -59,6 +59,11 @@ Link&TitleCopyPro是一个可以同时复制浏览器标签页的标题和URL链
 
 ## Version History / 版本历史
 
+### v1.7.3
+
+- Onboarding validates the shortcut through the same matcher as the extension itself / 引导页改用与扩展一致的快捷键匹配逻辑
+- Removed a second, stale copy of the default configs that nothing read / 删除一份无人引用且已过时的默认配置副本
+
 ### v1.7.2
 
 - Onboarding moved onto the design system; it stays dark by intent, using the same navy palette / 引导页并入设计系统，保持深色但改用同一套藏青色板

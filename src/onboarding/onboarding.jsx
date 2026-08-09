@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { keyLabel } from '../utils/shortcutFormatter.mjs';
+import { matchShortcut } from '../utils/shortcutMatch.mjs';
 import { GLYPH_ICONS } from '../components/ModifierIcons';
 
 const STORAGE_KEY = 'CopyTitleAndUrlConfigs';
@@ -38,17 +39,6 @@ function detectOS() {
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
-
-function buildPressedShortcut(e, isMac) {
-  const mods = [];
-  if (e.ctrlKey)  mods.push('Ctrl');
-  if (e.metaKey)  mods.push(isMac ? 'Command' : 'Win');
-  if (e.altKey)   mods.push(isMac ? 'Option' : 'Alt');
-  if (e.shiftKey) mods.push('Shift');
-  if (['Control', 'Alt', 'Shift', 'Meta'].includes(e.key)) return null;
-  const main = e.key.length === 1 ? e.key.toUpperCase() : e.key;
-  return [...mods, main].join('+');
-}
 
 // ── Reusable components ───────────────────────────────────────────────────────
 
@@ -294,9 +284,11 @@ function Step2({ os, configs, selectedTpl, onSelect, onFinish }) {
   useEffect(() => {
     const handler = (e) => {
       if (e.repeat) return;
-      const pressed = buildPressedShortcut(e, isMac);
-      if (!pressed) return;
-      const matchIdx = templates.findIndex((t) => t.shortcutRaw === pressed);
+      // Same shared matcher as the content script, so every template listed here
+      // responds to exactly the presses that would really trigger it.
+      const hit = matchShortcut(e, templates.map((t) => ({ shortcut: t.shortcutRaw })), { isMac });
+      if (!hit) return;
+      const matchIdx = templates.findIndex((t) => t.shortcutRaw === hit.shortcut);
       if (matchIdx !== -1) {
         e.preventDefault();
         const tpl = templates[matchIdx];
@@ -458,8 +450,7 @@ function Onboarding() {
     const isMac = os === 'mac';
     const handler = (e) => {
       if (e.repeat) return;
-      const pressed = buildPressedShortcut(e, isMac);
-      if (pressed === shortcutRaw) {
+      if (matchShortcut(e, [{ shortcut: shortcutRaw }], { isMac })) {
         e.preventDefault();
         setValState('success');
         setConfetti(true);

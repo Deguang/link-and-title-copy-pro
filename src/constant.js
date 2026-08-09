@@ -8,15 +8,3 @@ export const STORAGE_KEY = 'CopyTitleAndUrlConfigs';
 export const WHATS_NEW_KEY = 'whatsNewSeenVersion';
 export const WHATS_NEW_VERSION = '1.4.0';
 
-export const DEFAULT_CONFIGS = [
-  {
-    windows: { shortcut: 'Ctrl+Shift+P', template: '{title}\n{url}' },
-    mac: { shortcut: 'Command+Shift+P', template: '{title}\n{url}' },
-    linux: { shortcut: 'Ctrl+Shift+P', template: '{title}\n{url}' }
-  },
-  {
-    windows: { shortcut: 'Ctrl+Shift+L', template: '[{title}]({url})' },
-    mac: { shortcut: 'Command+Shift+L', template: '[{title}]({url})' },
-    linux: { shortcut: 'Ctrl+Shift+L', template: '[{title}]({url})' }
-  }
-];
