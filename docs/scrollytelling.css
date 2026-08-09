@@ -257,7 +257,7 @@
 .lane-clip {
   --in: clamp(0, (var(--p) - 0.5) * 12, 1);
   --travel: clamp(0, (var(--p) - 0.6) * 5, 1);
-  align-self: center;
+  align-self: start;
   justify-self: center;
   display: grid;
   grid-template-columns: auto 1fr;
