@@ -258,7 +258,7 @@
   --in: clamp(0, (var(--p) - 0.47) * 16, 1);
   --travel: clamp(0, (var(--p) - 0.66) * 6, 1);
   align-self: start;
-  justify-self: center;
+  justify-self: stretch;
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: start;
@@ -290,7 +290,8 @@
   line-height: 1.45;
   white-space: pre-wrap;
   color: rgba(255, 255, 255, 0.62);
-  word-break: break-all;
+  overflow-wrap: anywhere;
+  word-break: normal;
   padding-top: 0.12rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
