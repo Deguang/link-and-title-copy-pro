@@ -12,7 +12,6 @@
   "nav": {
     "features": "機能",
     "useCases": "活用シーン",
-    "howItWorks": "使い方",
     "faq": "よくある質問",
     "download": "ダウンロード"
   },
@@ -63,8 +62,6 @@
     "ctaSource": "ソースを見る"
   },
   "features": {
-    "title": "パワフルな機能",
-    "subtitle": "1つのページが、どこにでも貼れるリンクになるまで。",
     "cards": {
       "templates": {
         "title": "カスタムテンプレート",
@@ -153,21 +150,11 @@
     "everyone": {
       "title": "すべての人向け",
       "desc": "醜い<code class=\"bg-slate-100 px-1 rounded\">?utm_...</code>トラッキングパラメータなしで、クリーンなリンクを友人と共有。"
-    }
-  },
-  "howItWorks": {
-    "title": "使い方",
-    "step1": {
-      "title": "拡張機能をインストール",
-      "desc": "数秒でChromeに追加。アカウント登録不要。"
     },
-    "step2": {
-      "title": "テンプレートを設定",
-      "desc": "Markdown、Org-mode、HTMLなど好みのフォーマットを設定。"
-    },
-    "step3": {
-      "title": "ワンクリックでコピー",
-      "desc": "アイコンをクリックするかショートカットを使用して、瞬時にリンクを取得。"
+    "sample": {
+      "clean": "追跡パラメータを除去",
+      "dirty": "コピー元",
+      "fmtClean": "クリーンなURL"
     }
   },
   "faq": {
@@ -191,5 +178,12 @@
     "store": "Chrome ストア",
     "copyright": "© 2026 Deguang. All rights reserved.",
     "madeWith": "Made with ❤️ by extension lovers."
+  },
+  "batch": {
+    "eyebrow": "まとめて",
+    "title": "開いているタブをまとめて持ち出せます",
+    "desc": "調べ物のあとにタブが20個？ひとつずつ開いてリンクを取る代わりに、いつもの書式のまま一度にコピーできます。",
+    "tabsLabel": "このウィンドウのタブ",
+    "cta": "7 件をコピー"
   }
 }

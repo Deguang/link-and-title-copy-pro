@@ -12,7 +12,6 @@
   "nav": {
     "features": "Funciones",
     "useCases": "Casos de uso",
-    "howItWorks": "Cómo funciona",
     "faq": "Preguntas frecuentes",
     "download": "Descargar"
   },
@@ -63,8 +62,6 @@
     "ctaSource": "Ver código fuente"
   },
   "features": {
-    "title": "Repleta de potencia",
-    "subtitle": "Mira cómo una página se convierte en un enlace que puedes pegar donde quieras.",
     "cards": {
       "templates": {
         "title": "Plantillas personalizadas",
@@ -153,21 +150,11 @@
     "everyone": {
       "title": "Para todos",
       "desc": "Comparte enlaces limpios con tus amigos sin los feos parámetros de seguimiento <code class=\"bg-slate-100 px-1 rounded\">?utm_...</code>."
-    }
-  },
-  "howItWorks": {
-    "title": "Cómo funciona",
-    "step1": {
-      "title": "Instala la extensión",
-      "desc": "Añádela a Chrome en segundos. No se requiere cuenta."
     },
-    "step2": {
-      "title": "Configura plantillas",
-      "desc": "Configura tus formatos favoritos como Markdown, Org-mode o HTML."
-    },
-    "step3": {
-      "title": "Copia con un clic",
-      "desc": "Haz clic en el icono o usa un atajo para obtener el enlace al instante."
+    "sample": {
+      "clean": "Rastreo eliminado",
+      "dirty": "Lo que copiaste",
+      "fmtClean": "URL limpia"
     }
   },
   "faq": {
@@ -191,5 +178,12 @@
     "store": "Chrome Store",
     "copyright": "© 2026 Deguang. Todos los derechos reservados.",
     "madeWith": "Hecho con ❤️ por amantes de las extensiones."
+  },
+  "batch": {
+    "eyebrow": "Muchas a la vez",
+    "title": "O llévate todas las pestañas abiertas",
+    "desc": "¿Veinte pestañas tras una sesión de búsqueda? Cópialas todas de una vez, en el formato de siempre, sin entrar en cada una.",
+    "tabsLabel": "Pestañas de esta ventana",
+    "cta": "Copiar 7 pestañas"
   }
 }

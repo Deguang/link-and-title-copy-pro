@@ -114,7 +114,6 @@
             <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
                 <a href="#features" class="text-slate-600 hover:text-blue-600 transition">Features</a>
                 <a href="#use-cases" class="text-slate-600 hover:text-blue-600 transition">Use Cases</a>
-                <a href="#how-it-works" class="text-slate-600 hover:text-blue-600 transition">How it Works</a>
                 <a href="#faq" class="text-slate-600 hover:text-blue-600 transition">FAQ</a>
                 <div class="h-4 w-px bg-slate-300"></div>
                 <!-- Language Switcher -->
@@ -190,11 +189,6 @@
     <!-- Features Grid -->
     <section id="features" class="py-24 bg-white relative">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-20">
-                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6 text-balance">Packed with Power</h2>
-                <p class="text-xl text-slate-600 max-w-2xl mx-auto text-balance">Watch a page become a link you can paste anywhere.</p>
-            </div>
-
             <!-- Pinned product demo. Choreography comes from one scroll-progress
                  value (see scrollytelling.js); CSS does the rest. Every word is
                  real DOM text and the whole thing renders as a plain stacked
@@ -396,70 +390,81 @@ example.com/design-systems</span>
         </div>
     </section>
 
+    <!-- Batch copy. Absent from the page entirely before this, despite being
+         one of the things that distinguishes the extension. -->
+    <section id="batch" class="py-24 bg-white border-t border-slate-200">
+        <div class="bulk">
+            <div class="bulk-copy">
+                <span class="bulk-eyebrow">Many at once</span>
+                <h2 class="bulk-title">Or take every tab you have open</h2>
+                <p class="bulk-desc">Finished a research session with twenty tabs? Copy the lot in one go, in the format you already use — instead of visiting each one to fetch its link.</p>
+            </div>
+
+            <div class="bulk-panel" aria-hidden="true">
+                <div class="bulk-head">Tabs in this window</div>
+                <ul class="bulk-list">
+                    <li><span class="bulk-check"></span><i class="bulk-fav"></i><span class="bulk-t">Ten Principles of Design Systems</span></li>
+                    <li><span class="bulk-check"></span><i class="bulk-fav b"></i><span class="bulk-t">Designing for the long term</span></li>
+                    <li><span class="bulk-check"></span><i class="bulk-fav c"></i><span class="bulk-t">A field guide to component APIs</span></li>
+                    <li><span class="bulk-check"></span><i class="bulk-fav d"></i><span class="bulk-t">Tokens, themes and the space between</span></li>
+                    <li><span class="bulk-check"></span><i class="bulk-fav e"></i><span class="bulk-t">Notes on accessible colour</span></li>
+                </ul>
+                <div class="bulk-cta">Copy 7 tabs</div>
+            </div>
+        </div>
+    </section>
+
     <!-- Use Cases Section -->
     <section id="use-cases" class="py-24 bg-slate-50 border-t border-slate-200">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-balance">Built for Every Workflow</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Use Case 1 -->
-                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <h3 class="text-lg font-bold mb-2 text-slate-800">For Developers</h3>
-                    <p class="text-sm text-slate-600">Copy links for <strong class="text-slate-800">Git commit messages</strong>, Jira tickets, or generic Markdown documentation instantly.</p>
+            <!-- Each audience gets the output it would actually reach for, so the
+                 section shows four formats rather than restating the demo. The
+                 last one is where clean URLs become visible — nothing else on the
+                 page demonstrates the stripping. -->
+            <div class="uc-grid">
+                <div class="uc">
+                    <h3 class="uc-title">For Developers</h3>
+                    <p class="uc-desc">Copy links for <strong class="text-slate-800">Git commit messages</strong>, Jira tickets, or generic Markdown documentation instantly.</p>
+                    <div class="uc-out">
+                        <span class="uc-fmt">Jira</span>
+                        <code>[Ten Principles of Design Systems|example.com/design-systems]</code>
+                    </div>
                 </div>
-                <!-- Use Case 2 -->
-                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <h3 class="text-lg font-bold mb-2 text-slate-800">For Writers</h3>
-                    <p class="text-sm text-slate-600">Streamline your citations. Perfect for grabbing links for blog posts, formatted HTML, or newsletter curation.</p>
+
+                <div class="uc">
+                    <h3 class="uc-title">For Writers</h3>
+                    <p class="uc-desc">Streamline your citations. Perfect for grabbing links for blog posts, formatted HTML, or newsletter curation.</p>
+                    <div class="uc-out">
+                        <span class="uc-fmt">HTML</span>
+                        <code>&lt;a href="example.com/design-systems"&gt;Ten Principles of Design Systems&lt;/a&gt;</code>
+                    </div>
                 </div>
-                <!-- Use Case 3 -->
-                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <h3 class="text-lg font-bold mb-2 text-slate-800">For Research</h3>
-                    <p class="text-sm text-slate-600">Integrates perfectly with <strong class="text-slate-800">Obsidian</strong>, <strong class="text-slate-800">Logseq</strong>, and Notion to build your second brain faster.</p>
+
+                <div class="uc">
+                    <h3 class="uc-title">For Research</h3>
+                    <p class="uc-desc">Integrates perfectly with <strong class="text-slate-800">Obsidian</strong>, <strong class="text-slate-800">Logseq</strong>, and Notion to build your second brain faster.</p>
+                    <div class="uc-out">
+                        <span class="uc-fmt">Markdown</span>
+                        <code>[Ten Principles of Design Systems](example.com/design-systems)</code>
+                    </div>
                 </div>
-                <!-- Use Case 4 -->
-                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <h3 class="text-lg font-bold mb-2 text-slate-800">For Everyone</h3>
-                    <p class="text-sm text-slate-600">Share clean links with friends without the ugly <code class="bg-slate-100 px-1 rounded">?utm_...</code> tracking parameters attached.</p>
+
+                <div class="uc">
+                    <h3 class="uc-title">For Everyone</h3>
+                    <p class="uc-desc">Share clean links with friends without the ugly <code class="bg-slate-100 px-1 rounded">?utm_...</code> tracking parameters attached.</p>
+                    <div class="uc-out">
+                        <span class="uc-fmt">Clean URL</span>
+                        <code class="uc-dirty">example.com/design-systems?utm_source=newsletter&amp;utm_medium=email</code>
+                        <code class="uc-clean">example.com/design-systems</code>
+                        <span class="uc-note">Tracking stripped</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- How it works Section -->
-    <section id="how-it-works" class="py-24 bg-white border-y border-slate-200">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-balance">How it Works</h2>
-            <div class="flex flex-col md:flex-row items-center justify-center gap-12 max-w-5xl mx-auto">
-                <!-- Step 1 -->
-                <div class="flex-1 text-center group">
-                    <div class="w-20 h-20 mx-auto bg-slate-50 border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center text-2xl font-bold mb-6 shadow-sm group-hover:border-blue-500 group-hover:text-blue-600 transition-colors">1</div>
-                    <h3 class="text-xl font-bold mb-3">Install Extension</h3>
-                    <p class="text-slate-600">Add to Chrome in seconds. No account required.</p>
-                </div>
-                <!-- Arrow -->
-                <div class="hidden md:block text-slate-300">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </div>
-                <!-- Step 2 -->
-                <div class="flex-1 text-center group">
-                    <div class="w-20 h-20 mx-auto bg-slate-50 border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center text-2xl font-bold mb-6 shadow-sm group-hover:border-blue-500 group-hover:text-blue-600 transition-colors">2</div>
-                    <h3 class="text-xl font-bold mb-3">Setup Templates</h3>
-                    <p class="text-slate-600">Configure your favorite formats like Markdown, Org-mode, or HTML.</p>
-                </div>
-                <!-- Arrow -->
-                <div class="hidden md:block text-slate-300">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </div>
-                <!-- Step 3 -->
-                <div class="flex-1 text-center group">
-                    <div class="w-20 h-20 mx-auto bg-slate-50 border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center text-2xl font-bold mb-6 shadow-sm group-hover:border-blue-500 group-hover:text-blue-600 transition-colors">3</div>
-                    <h3 class="text-xl font-bold mb-3">One-Click Copy</h3>
-                    <p class="text-slate-600">Click the icon or use a shortcut to grab the link instantly.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- FAQ Section -->
     <section id="faq" class="py-24 bg-slate-50">
         <div class="container mx-auto px-6 max-w-4xl">

@@ -114,7 +114,6 @@
             <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
                 <a href="#features" class="text-slate-600 hover:text-blue-600 transition">기능</a>
                 <a href="#use-cases" class="text-slate-600 hover:text-blue-600 transition">활용 사례</a>
-                <a href="#how-it-works" class="text-slate-600 hover:text-blue-600 transition">작동 방식</a>
                 <a href="#faq" class="text-slate-600 hover:text-blue-600 transition">자주 묻는 질문</a>
                 <div class="h-4 w-px bg-slate-300"></div>
                 <!-- Language Switcher -->
@@ -190,11 +189,6 @@
     <!-- Features Grid -->
     <section id="features" class="py-24 bg-white relative">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-20">
-                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6 text-balance">강력한 기능으로 가득</h2>
-                <p class="text-xl text-slate-600 max-w-2xl mx-auto text-balance">한 페이지가 어디에나 붙여넣을 수 있는 링크가 되기까지.</p>
-            </div>
-
             <!-- Pinned product demo. Choreography comes from one scroll-progress
                  value (see scrollytelling.js); CSS does the rest. Every word is
                  real DOM text and the whole thing renders as a plain stacked
@@ -396,70 +390,81 @@ example.com/design-systems</span>
         </div>
     </section>
 
+    <!-- Batch copy. Absent from the page entirely before this, despite being
+         one of the things that distinguishes the extension. -->
+    <section id="batch" class="py-24 bg-white border-t border-slate-200">
+        <div class="bulk">
+            <div class="bulk-copy">
+                <span class="bulk-eyebrow">한 번에 여러 개</span>
+                <h2 class="bulk-title">열려 있는 탭을 한꺼번에 가져갈 수도 있습니다</h2>
+                <p class="bulk-desc">자료를 찾고 나니 탭이 스무 개인가요? 하나씩 열어 링크를 챙기는 대신, 쓰던 형식 그대로 한 번에 복사하세요.</p>
+            </div>
+
+            <div class="bulk-panel" aria-hidden="true">
+                <div class="bulk-head">이 창의 탭</div>
+                <ul class="bulk-list">
+                    <li><span class="bulk-check"></span><i class="bulk-fav"></i><span class="bulk-t">디자인 시스템의 열 가지 원칙</span></li>
+                    <li><span class="bulk-check"></span><i class="bulk-fav b"></i><span class="bulk-t">Designing for the long term</span></li>
+                    <li><span class="bulk-check"></span><i class="bulk-fav c"></i><span class="bulk-t">A field guide to component APIs</span></li>
+                    <li><span class="bulk-check"></span><i class="bulk-fav d"></i><span class="bulk-t">Tokens, themes and the space between</span></li>
+                    <li><span class="bulk-check"></span><i class="bulk-fav e"></i><span class="bulk-t">Notes on accessible colour</span></li>
+                </ul>
+                <div class="bulk-cta">탭 7개 복사</div>
+            </div>
+        </div>
+    </section>
+
     <!-- Use Cases Section -->
     <section id="use-cases" class="py-24 bg-slate-50 border-t border-slate-200">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-balance">모든 작업 흐름을 위해 설계</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Use Case 1 -->
-                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <h3 class="text-lg font-bold mb-2 text-slate-800">개발자를 위해</h3>
-                    <p class="text-sm text-slate-600"><strong class="text-slate-800">Git 커밋 메시지</strong>, Jira 티켓 또는 일반 마크다운 문서용 링크를 즉시 복사하세요.</p>
+            <!-- Each audience gets the output it would actually reach for, so the
+                 section shows four formats rather than restating the demo. The
+                 last one is where clean URLs become visible — nothing else on the
+                 page demonstrates the stripping. -->
+            <div class="uc-grid">
+                <div class="uc">
+                    <h3 class="uc-title">개발자를 위해</h3>
+                    <p class="uc-desc"><strong class="text-slate-800">Git 커밋 메시지</strong>, Jira 티켓 또는 일반 마크다운 문서용 링크를 즉시 복사하세요.</p>
+                    <div class="uc-out">
+                        <span class="uc-fmt">Jira</span>
+                        <code>[디자인 시스템의 열 가지 원칙|example.com/design-systems]</code>
+                    </div>
                 </div>
-                <!-- Use Case 2 -->
-                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <h3 class="text-lg font-bold mb-2 text-slate-800">작가를 위해</h3>
-                    <p class="text-sm text-slate-600">인용을 간소화하세요. 블로그 게시물, 형식화된 HTML 또는 뉴스레터 큐레이션용 링크를 가져오기에 완벽합니다.</p>
+
+                <div class="uc">
+                    <h3 class="uc-title">작가를 위해</h3>
+                    <p class="uc-desc">인용을 간소화하세요. 블로그 게시물, 형식화된 HTML 또는 뉴스레터 큐레이션용 링크를 가져오기에 완벽합니다.</p>
+                    <div class="uc-out">
+                        <span class="uc-fmt">HTML</span>
+                        <code>&lt;a href="example.com/design-systems"&gt;디자인 시스템의 열 가지 원칙&lt;/a&gt;</code>
+                    </div>
                 </div>
-                <!-- Use Case 3 -->
-                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <h3 class="text-lg font-bold mb-2 text-slate-800">연구를 위해</h3>
-                    <p class="text-sm text-slate-600"><strong class="text-slate-800">Obsidian</strong>, <strong class="text-slate-800">Logseq</strong>, Notion과 완벽하게 통합되어 제2의 뇌를 더 빠르게 구축합니다.</p>
+
+                <div class="uc">
+                    <h3 class="uc-title">연구를 위해</h3>
+                    <p class="uc-desc"><strong class="text-slate-800">Obsidian</strong>, <strong class="text-slate-800">Logseq</strong>, Notion과 완벽하게 통합되어 제2의 뇌를 더 빠르게 구축합니다.</p>
+                    <div class="uc-out">
+                        <span class="uc-fmt">Markdown</span>
+                        <code>[디자인 시스템의 열 가지 원칙](example.com/design-systems)</code>
+                    </div>
                 </div>
-                <!-- Use Case 4 -->
-                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <h3 class="text-lg font-bold mb-2 text-slate-800">모두를 위해</h3>
-                    <p class="text-sm text-slate-600">지저분한 <code class="bg-slate-100 px-1 rounded">?utm_...</code> 추적 매개변수 없이 깔끔한 링크를 친구와 공유하세요.</p>
+
+                <div class="uc">
+                    <h3 class="uc-title">모두를 위해</h3>
+                    <p class="uc-desc">지저분한 <code class="bg-slate-100 px-1 rounded">?utm_...</code> 추적 매개변수 없이 깔끔한 링크를 친구와 공유하세요.</p>
+                    <div class="uc-out">
+                        <span class="uc-fmt">깔끔한 링크</span>
+                        <code class="uc-dirty">example.com/design-systems?utm_source=newsletter&amp;utm_medium=email</code>
+                        <code class="uc-clean">example.com/design-systems</code>
+                        <span class="uc-note">추적 파라미터 제거됨</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- How it works Section -->
-    <section id="how-it-works" class="py-24 bg-white border-y border-slate-200">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-balance">작동 방식</h2>
-            <div class="flex flex-col md:flex-row items-center justify-center gap-12 max-w-5xl mx-auto">
-                <!-- Step 1 -->
-                <div class="flex-1 text-center group">
-                    <div class="w-20 h-20 mx-auto bg-slate-50 border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center text-2xl font-bold mb-6 shadow-sm group-hover:border-blue-500 group-hover:text-blue-600 transition-colors">1</div>
-                    <h3 class="text-xl font-bold mb-3">확장 프로그램 설치</h3>
-                    <p class="text-slate-600">몇 초 만에 Chrome에 추가하세요. 계정이 필요 없습니다.</p>
-                </div>
-                <!-- Arrow -->
-                <div class="hidden md:block text-slate-300">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </div>
-                <!-- Step 2 -->
-                <div class="flex-1 text-center group">
-                    <div class="w-20 h-20 mx-auto bg-slate-50 border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center text-2xl font-bold mb-6 shadow-sm group-hover:border-blue-500 group-hover:text-blue-600 transition-colors">2</div>
-                    <h3 class="text-xl font-bold mb-3">템플릿 설정</h3>
-                    <p class="text-slate-600">마크다운, Org-mode 또는 HTML 등 좋아하는 형식을 구성하세요.</p>
-                </div>
-                <!-- Arrow -->
-                <div class="hidden md:block text-slate-300">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </div>
-                <!-- Step 3 -->
-                <div class="flex-1 text-center group">
-                    <div class="w-20 h-20 mx-auto bg-slate-50 border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center text-2xl font-bold mb-6 shadow-sm group-hover:border-blue-500 group-hover:text-blue-600 transition-colors">3</div>
-                    <h3 class="text-xl font-bold mb-3">원클릭 복사</h3>
-                    <p class="text-slate-600">아이콘을 클릭하거나 단축키를 사용해 링크를 즉시 가져오세요.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- FAQ Section -->
     <section id="faq" class="py-24 bg-slate-50">
         <div class="container mx-auto px-6 max-w-4xl">

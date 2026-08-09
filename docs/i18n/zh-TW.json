@@ -12,7 +12,6 @@
   "nav": {
     "features": "功能",
     "useCases": "使用場景",
-    "howItWorks": "如何使用",
     "faq": "常見問題",
     "download": "下載擴充"
   },
@@ -63,8 +62,6 @@
     "ctaSource": "檢視原始碼"
   },
   "features": {
-    "title": "強大功能，觸手可及",
-    "subtitle": "看一個網頁，如何變成一條可以隨處貼上的連結。",
     "cards": {
       "templates": {
         "title": "自訂模板",
@@ -153,21 +150,11 @@
     "everyone": {
       "title": "所有人",
       "desc": "分享清爽的連結給朋友，不再帶有討厭的 <code class=\"bg-slate-100 px-1 rounded\">?utm_...</code> 追蹤尾巴。"
-    }
-  },
-  "howItWorks": {
-    "title": "如何使用",
-    "step1": {
-      "title": "安裝擴充",
-      "desc": "幾秒鐘即可新增到 Chrome。無需註冊帳號。"
     },
-    "step2": {
-      "title": "設定模板",
-      "desc": "設定你喜歡的格式，如 Markdown、Org-mode 或 HTML。"
-    },
-    "step3": {
-      "title": "一鍵複製",
-      "desc": "點擊圖示或按下快捷鍵，立刻取得格式化好的連結。"
+    "sample": {
+      "clean": "已移除追蹤參數",
+      "dirty": "你複製到的",
+      "fmtClean": "乾淨連結"
     }
   },
   "faq": {
@@ -191,5 +178,12 @@
     "store": "Chrome 商店",
     "copyright": "© 2026 Deguang. 保留所有權利。",
     "madeWith": "Made with ❤️ by extension lovers."
+  },
+  "batch": {
+    "eyebrow": "一次多條",
+    "title": "也可以把開著的分頁一次全帶走",
+    "desc": "查完資料留下二十個分頁？一次性全部複製，格式還是你慣用的那個——不用再一個個點開去取連結。",
+    "tabsLabel": "目前視窗的分頁",
+    "cta": "複製 7 個分頁"
   }
 }

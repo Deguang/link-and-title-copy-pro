@@ -12,7 +12,6 @@
   "nav": {
     "features": "기능",
     "useCases": "활용 사례",
-    "howItWorks": "작동 방식",
     "faq": "자주 묻는 질문",
     "download": "다운로드"
   },
@@ -63,8 +62,6 @@
     "ctaSource": "소스 보기"
   },
   "features": {
-    "title": "강력한 기능으로 가득",
-    "subtitle": "한 페이지가 어디에나 붙여넣을 수 있는 링크가 되기까지.",
     "cards": {
       "templates": {
         "title": "맞춤 템플릿",
@@ -153,21 +150,11 @@
     "everyone": {
       "title": "모두를 위해",
       "desc": "지저분한 <code class=\"bg-slate-100 px-1 rounded\">?utm_...</code> 추적 매개변수 없이 깔끔한 링크를 친구와 공유하세요."
-    }
-  },
-  "howItWorks": {
-    "title": "작동 방식",
-    "step1": {
-      "title": "확장 프로그램 설치",
-      "desc": "몇 초 만에 Chrome에 추가하세요. 계정이 필요 없습니다."
     },
-    "step2": {
-      "title": "템플릿 설정",
-      "desc": "마크다운, Org-mode 또는 HTML 등 좋아하는 형식을 구성하세요."
-    },
-    "step3": {
-      "title": "원클릭 복사",
-      "desc": "아이콘을 클릭하거나 단축키를 사용해 링크를 즉시 가져오세요."
+    "sample": {
+      "clean": "추적 파라미터 제거됨",
+      "dirty": "복사한 것",
+      "fmtClean": "깔끔한 링크"
     }
   },
   "faq": {
@@ -191,5 +178,12 @@
     "store": "Chrome 스토어",
     "copyright": "© 2026 Deguang. All rights reserved.",
     "madeWith": "확장 프로그램 애호가들이 ❤️로 만들었습니다."
+  },
+  "batch": {
+    "eyebrow": "한 번에 여러 개",
+    "title": "열려 있는 탭을 한꺼번에 가져갈 수도 있습니다",
+    "desc": "자료를 찾고 나니 탭이 스무 개인가요? 하나씩 열어 링크를 챙기는 대신, 쓰던 형식 그대로 한 번에 복사하세요.",
+    "tabsLabel": "이 창의 탭",
+    "cta": "탭 7개 복사"
   }
 }

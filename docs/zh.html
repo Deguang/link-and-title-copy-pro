@@ -114,7 +114,6 @@
             <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
                 <a href="#features" class="text-slate-600 hover:text-blue-600 transition">功能</a>
                 <a href="#use-cases" class="text-slate-600 hover:text-blue-600 transition">使用场景</a>
-                <a href="#how-it-works" class="text-slate-600 hover:text-blue-600 transition">如何使用</a>
                 <a href="#faq" class="text-slate-600 hover:text-blue-600 transition">常见问题</a>
                 <div class="h-4 w-px bg-slate-300"></div>
                 <!-- Language Switcher -->
@@ -190,11 +189,6 @@
     <!-- Features Grid -->
     <section id="features" class="py-24 bg-white relative">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-20">
-                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-6 text-balance">强大功能，触手可及</h2>
-                <p class="text-xl text-slate-600 max-w-2xl mx-auto text-balance">看一个网页，如何变成一条可以随处粘贴的链接。</p>
-            </div>
-
             <!-- Pinned product demo. Choreography comes from one scroll-progress
                  value (see scrollytelling.js); CSS does the rest. Every word is
                  real DOM text and the whole thing renders as a plain stacked
@@ -396,70 +390,81 @@ example.com/design-systems</span>
         </div>
     </section>
 
+    <!-- Batch copy. Absent from the page entirely before this, despite being
+         one of the things that distinguishes the extension. -->
+    <section id="batch" class="py-24 bg-white border-t border-slate-200">
+        <div class="bulk">
+            <div class="bulk-copy">
+                <span class="bulk-eyebrow">一次多条</span>
+                <h2 class="bulk-title">也可以把开着的标签页一次全带走</h2>
+                <p class="bulk-desc">查完资料留下二十个标签页？一次性全部复制，格式还是你惯用的那个——不用再一个个点开去取链接。</p>
+            </div>
+
+            <div class="bulk-panel" aria-hidden="true">
+                <div class="bulk-head">当前窗口的标签页</div>
+                <ul class="bulk-list">
+                    <li><span class="bulk-check"></span><i class="bulk-fav"></i><span class="bulk-t">设计系统的十条原则</span></li>
+                    <li><span class="bulk-check"></span><i class="bulk-fav b"></i><span class="bulk-t">Designing for the long term</span></li>
+                    <li><span class="bulk-check"></span><i class="bulk-fav c"></i><span class="bulk-t">A field guide to component APIs</span></li>
+                    <li><span class="bulk-check"></span><i class="bulk-fav d"></i><span class="bulk-t">Tokens, themes and the space between</span></li>
+                    <li><span class="bulk-check"></span><i class="bulk-fav e"></i><span class="bulk-t">Notes on accessible colour</span></li>
+                </ul>
+                <div class="bulk-cta">复制 7 个标签页</div>
+            </div>
+        </div>
+    </section>
+
     <!-- Use Cases Section -->
     <section id="use-cases" class="py-24 bg-slate-50 border-t border-slate-200">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-balance">为所有工作流打造</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Use Case 1 -->
-                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <h3 class="text-lg font-bold mb-2 text-slate-800">开发者</h3>
-                    <p class="text-sm text-slate-600">快速复制用于 <strong class="text-slate-800">Git 提交信息</strong>、Jira 工单或 Markdown 文档的链接。</p>
+            <!-- Each audience gets the output it would actually reach for, so the
+                 section shows four formats rather than restating the demo. The
+                 last one is where clean URLs become visible — nothing else on the
+                 page demonstrates the stripping. -->
+            <div class="uc-grid">
+                <div class="uc">
+                    <h3 class="uc-title">开发者</h3>
+                    <p class="uc-desc">快速复制用于 <strong class="text-slate-800">Git 提交信息</strong>、Jira 工单或 Markdown 文档的链接。</p>
+                    <div class="uc-out">
+                        <span class="uc-fmt">Jira</span>
+                        <code>[设计系统的十条原则|example.com/design-systems]</code>
+                    </div>
                 </div>
-                <!-- Use Case 2 -->
-                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <h3 class="text-lg font-bold mb-2 text-slate-800">写作者</h3>
-                    <p class="text-sm text-slate-600">简化引用流程。轻松抓取博客文章、HTML 格式链接或周刊素材。</p>
+
+                <div class="uc">
+                    <h3 class="uc-title">写作者</h3>
+                    <p class="uc-desc">简化引用流程。轻松抓取博客文章、HTML 格式链接或周刊素材。</p>
+                    <div class="uc-out">
+                        <span class="uc-fmt">HTML</span>
+                        <code>&lt;a href="example.com/design-systems"&gt;设计系统的十条原则&lt;/a&gt;</code>
+                    </div>
                 </div>
-                <!-- Use Case 3 -->
-                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <h3 class="text-lg font-bold mb-2 text-slate-800">研究人员</h3>
-                    <p class="text-sm text-slate-600">完美集成 <strong class="text-slate-800">Obsidian</strong>、<strong class="text-slate-800">Logseq</strong> 和 Notion，加速构建你的第二大脑。</p>
+
+                <div class="uc">
+                    <h3 class="uc-title">研究人员</h3>
+                    <p class="uc-desc">完美集成 <strong class="text-slate-800">Obsidian</strong>、<strong class="text-slate-800">Logseq</strong> 和 Notion，加速构建你的第二大脑。</p>
+                    <div class="uc-out">
+                        <span class="uc-fmt">Markdown</span>
+                        <code>[设计系统的十条原则](example.com/design-systems)</code>
+                    </div>
                 </div>
-                <!-- Use Case 4 -->
-                <div class="p-6 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
-                    <h3 class="text-lg font-bold mb-2 text-slate-800">所有人</h3>
-                    <p class="text-sm text-slate-600">分享清爽的链接给朋友，不再带有恶心的 <code class="bg-slate-100 px-1 rounded">?utm_...</code> 追踪尾巴。</p>
+
+                <div class="uc">
+                    <h3 class="uc-title">所有人</h3>
+                    <p class="uc-desc">分享清爽的链接给朋友，不再带有恶心的 <code class="bg-slate-100 px-1 rounded">?utm_...</code> 追踪尾巴。</p>
+                    <div class="uc-out">
+                        <span class="uc-fmt">干净链接</span>
+                        <code class="uc-dirty">example.com/design-systems?utm_source=newsletter&amp;utm_medium=email</code>
+                        <code class="uc-clean">example.com/design-systems</code>
+                        <span class="uc-note">已去除追踪参数</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- How it works Section -->
-    <section id="how-it-works" class="py-24 bg-white border-y border-slate-200">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-balance">如何使用</h2>
-            <div class="flex flex-col md:flex-row items-center justify-center gap-12 max-w-5xl mx-auto">
-                <!-- Step 1 -->
-                <div class="flex-1 text-center group">
-                    <div class="w-20 h-20 mx-auto bg-slate-50 border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center text-2xl font-bold mb-6 shadow-sm group-hover:border-blue-500 group-hover:text-blue-600 transition-colors">1</div>
-                    <h3 class="text-xl font-bold mb-3">安装扩展</h3>
-                    <p class="text-slate-600">几秒钟即可添加到 Chrome。无需注册账号。</p>
-                </div>
-                <!-- Arrow -->
-                <div class="hidden md:block text-slate-300">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </div>
-                <!-- Step 2 -->
-                <div class="flex-1 text-center group">
-                    <div class="w-20 h-20 mx-auto bg-slate-50 border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center text-2xl font-bold mb-6 shadow-sm group-hover:border-blue-500 group-hover:text-blue-600 transition-colors">2</div>
-                    <h3 class="text-xl font-bold mb-3">配置模板</h3>
-                    <p class="text-slate-600">配置你喜欢的格式，如 Markdown、Org-mode 或 HTML。</p>
-                </div>
-                <!-- Arrow -->
-                <div class="hidden md:block text-slate-300">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </div>
-                <!-- Step 3 -->
-                <div class="flex-1 text-center group">
-                    <div class="w-20 h-20 mx-auto bg-slate-50 border-2 border-slate-200 text-slate-400 rounded-full flex items-center justify-center text-2xl font-bold mb-6 shadow-sm group-hover:border-blue-500 group-hover:text-blue-600 transition-colors">3</div>
-                    <h3 class="text-xl font-bold mb-3">一键复制</h3>
-                    <p class="text-slate-600">点击图标或按下快捷键，立刻获取格式化好的链接。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- FAQ Section -->
     <section id="faq" class="py-24 bg-slate-50">
         <div class="container mx-auto px-6 max-w-4xl">

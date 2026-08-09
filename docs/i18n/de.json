@@ -12,7 +12,6 @@
   "nav": {
     "features": "Funktionen",
     "useCases": "Anwendungsfälle",
-    "howItWorks": "So funktioniert's",
     "faq": "FAQ",
     "download": "Herunterladen"
   },
@@ -63,8 +62,6 @@
     "ctaSource": "Quellcode ansehen"
   },
   "features": {
-    "title": "Vollgepackt mit Power",
-    "subtitle": "So wird aus einer Seite ein Link, den du überall einfügen kannst.",
     "cards": {
       "templates": {
         "title": "Eigene Vorlagen",
@@ -153,21 +150,11 @@
     "everyone": {
       "title": "Für alle",
       "desc": "Teilen Sie saubere Links mit Freunden – ohne die hässlichen <code class=\"bg-slate-100 px-1 rounded\">?utm_...</code>-Tracking-Parameter."
-    }
-  },
-  "howItWorks": {
-    "title": "So funktioniert's",
-    "step1": {
-      "title": "Erweiterung installieren",
-      "desc": "In Sekunden zu Chrome hinzufügen. Kein Konto erforderlich."
     },
-    "step2": {
-      "title": "Vorlagen einrichten",
-      "desc": "Konfigurieren Sie Ihre Lieblingsformate wie Markdown, Org-Mode oder HTML."
-    },
-    "step3": {
-      "title": "Kopieren mit einem Klick",
-      "desc": "Klicken Sie auf das Symbol oder nutzen Sie ein Tastenkürzel, um den Link sofort zu erfassen."
+    "sample": {
+      "clean": "Tracking entfernt",
+      "dirty": "Was du kopiert hast",
+      "fmtClean": "Saubere URL"
     }
   },
   "faq": {
@@ -191,5 +178,12 @@
     "store": "Chrome Store",
     "copyright": "© 2026 Deguang. Alle Rechte vorbehalten.",
     "madeWith": "Mit ❤️ von Erweiterungs-Fans gemacht."
+  },
+  "batch": {
+    "eyebrow": "Alle auf einmal",
+    "title": "Oder nimm gleich alle offenen Tabs mit",
+    "desc": "Nach der Recherche zwanzig Tabs offen? Kopiere alle auf einmal, im gewohnten Format — statt jeden einzeln aufzurufen.",
+    "tabsLabel": "Tabs in diesem Fenster",
+    "cta": "7 Tabs kopieren"
   }
 }

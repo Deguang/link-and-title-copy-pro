@@ -662,3 +662,179 @@
   }
   .cine-cap { position: static; opacity: 1; transform: none; }
 }
+
+/* =============================================================================
+ * Batch copy.
+ *
+ * The one capability the scroll demo doesn't cover, and one the page never
+ * mentioned at all before. Kept as a still panel rather than another animation —
+ * a second scroll sequence would compete with the first.
+ * ========================================================================== */
+.bulk {
+  --b-surface: #ffffff;
+  --b-surface-2: #f8fafc;
+  --b-line: #dce3ea;
+  --b-line-soft: #ebf0f5;
+  --b-ink: #032a4b;
+  --b-ink-2: #55677a;
+  --b-ink-3: #667584;
+  --b-accent: #0b3c63;
+  --b-ok: #0c7c95;
+  --b-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  color: var(--b-ink);
+}
+
+.bulk-eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--b-ok);
+  background: rgba(12, 124, 149, 0.1);
+  border: 1px solid rgba(12, 124, 149, 0.22);
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+.bulk-title {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  text-wrap: balance;
+}
+.bulk-desc { font-size: 1.05rem; line-height: 1.75; color: var(--b-ink-2); }
+
+.bulk-panel {
+  background: var(--b-surface);
+  border: 1px solid var(--b-line);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(3, 42, 75, 0.05), 0 24px 48px -28px rgba(3, 42, 75, 0.35);
+}
+.bulk-head {
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid var(--b-line-soft);
+  background: var(--b-surface-2);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--b-ink-2);
+}
+.bulk-list { list-style: none; margin: 0; padding: 0.5rem 0.6rem; }
+.bulk-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.4rem 0.35rem;
+  border-radius: 7px;
+}
+.bulk-list li:nth-child(odd) { background: rgba(12, 124, 149, 0.04); }
+.bulk-check {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 4px;
+  background: var(--b-ok);
+  flex-shrink: 0;
+  position: relative;
+}
+.bulk-check::after {
+  content: "";
+  position: absolute;
+  left: 0.28rem;
+  top: 0.12rem;
+  width: 0.2rem;
+  height: 0.38rem;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.bulk-fav { width: 0.7rem; height: 0.7rem; border-radius: 3px; background: #fc686d; flex-shrink: 0; }
+.bulk-fav.b { background: #fad176; }
+.bulk-fav.c { background: #0c7c95; }
+.bulk-fav.d { background: #8795a3; }
+.bulk-fav.e { background: #0b3c63; }
+.bulk-t {
+  font-size: 0.72rem;
+  color: var(--b-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bulk-cta {
+  margin: 0.3rem 0.6rem 0.75rem;
+  padding: 0.55rem;
+  border-radius: 9px;
+  background: var(--b-accent);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .bulk { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+
+/* =============================================================================
+ * Use cases, each showing the output that audience would reach for.
+ * ========================================================================== */
+.uc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+.uc {
+  background: #fff;
+  border: 1px solid #dce3ea;
+  border-radius: 14px;
+  padding: 1.25rem 1.15rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+}
+.uc-title { font-size: 1.02rem; font-weight: 700; color: #032a4b; margin-bottom: 0.45rem; }
+.uc-desc { font-size: 0.85rem; line-height: 1.65; color: #55677a; margin-bottom: 1rem; }
+.uc-out {
+  margin-top: auto;
+  background: #f8fafc;
+  border: 1px solid #ebf0f5;
+  border-radius: 9px;
+  padding: 0.6rem 0.65rem;
+}
+.uc-fmt {
+  display: block;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0c7c95;
+  margin-bottom: 0.4rem;
+}
+.uc-out code {
+  display: block;
+  font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  font-size: 0.62rem;
+  line-height: 1.55;
+  color: #55677a;
+  overflow-wrap: anywhere;
+}
+.uc-dirty { color: #a8b3bd !important; text-decoration: line-through; margin-bottom: 0.3rem; }
+.uc-clean { color: #032a4b !important; font-weight: 600; }
+.uc-note {
+  display: inline-block;
+  margin-top: 0.45rem;
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #0c7c95;
+}
+
+@media (max-width: 1100px) { .uc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .uc-grid { grid-template-columns: 1fr; } }

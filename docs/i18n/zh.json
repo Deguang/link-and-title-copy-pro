@@ -12,7 +12,6 @@
   "nav": {
     "features": "功能",
     "useCases": "使用场景",
-    "howItWorks": "如何使用",
     "faq": "常见问题",
     "download": "下载插件"
   },
@@ -63,8 +62,6 @@
     "ctaSource": "查看源码"
   },
   "features": {
-    "title": "强大功能，触手可及",
-    "subtitle": "看一个网页，如何变成一条可以随处粘贴的链接。",
     "cards": {
       "templates": {
         "title": "自定义模板",
@@ -153,21 +150,11 @@
     "everyone": {
       "title": "所有人",
       "desc": "分享清爽的链接给朋友，不再带有恶心的 <code class=\"bg-slate-100 px-1 rounded\">?utm_...</code> 追踪尾巴。"
-    }
-  },
-  "howItWorks": {
-    "title": "如何使用",
-    "step1": {
-      "title": "安装扩展",
-      "desc": "几秒钟即可添加到 Chrome。无需注册账号。"
     },
-    "step2": {
-      "title": "配置模板",
-      "desc": "配置你喜欢的格式，如 Markdown、Org-mode 或 HTML。"
-    },
-    "step3": {
-      "title": "一键复制",
-      "desc": "点击图标或按下快捷键，立刻获取格式化好的链接。"
+    "sample": {
+      "clean": "已去除追踪参数",
+      "dirty": "你复制到的",
+      "fmtClean": "干净链接"
     }
   },
   "faq": {
@@ -191,5 +178,12 @@
     "store": "Chrome 商店",
     "copyright": "© 2026 Deguang. 保留所有权利。",
     "madeWith": "Made with ❤️ by extension lovers."
+  },
+  "batch": {
+    "eyebrow": "一次多条",
+    "title": "也可以把开着的标签页一次全带走",
+    "desc": "查完资料留下二十个标签页？一次性全部复制，格式还是你惯用的那个——不用再一个个点开去取链接。",
+    "tabsLabel": "当前窗口的标签页",
+    "cta": "复制 7 个标签页"
   }
 }
