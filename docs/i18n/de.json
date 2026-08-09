@@ -130,7 +130,9 @@
       "laneFull": "Die ganze Seite",
       "laneSel": "Nur das Markierte",
       "selText": "Ein Designsystem ist ein Vertrag zwischen Design und Entwicklung.",
-      "send": "Senden"
+      "send": "Senden",
+      "mdSource": "Quelltext",
+      "mdPreview": "Vorschau"
     }
   },
   "useCases": {
@@ -180,10 +182,10 @@
     "madeWith": "Mit ❤️ von Erweiterungs-Fans gemacht."
   },
   "batch": {
-    "eyebrow": "Alle auf einmal",
-    "title": "Oder nimm gleich alle offenen Tabs mit",
-    "desc": "Nach der Recherche zwanzig Tabs offen? Kopiere alle auf einmal, im gewohnten Format — statt jeden einzeln aufzurufen.",
+    "eyebrow": "Mehrere auf einmal",
+    "title": "Oder nimm mehrere Tabs auf einmal mit",
+    "desc": "Nach dem Lesen ein Stapel offener Tabs? Wähle die aus, die du brauchst, und kopiere bis zu fünf auf einmal — im gewohnten Format, ohne jeden einzeln aufzurufen.",
     "tabsLabel": "Tabs in diesem Fenster",
-    "cta": "7 Tabs kopieren"
+    "cta": "5 Tabs kopieren"
   }
 }

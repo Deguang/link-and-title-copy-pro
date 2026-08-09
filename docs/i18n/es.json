@@ -130,7 +130,9 @@
       "laneFull": "La página entera",
       "laneSel": "Solo lo que seleccionaste",
       "selText": "Un sistema de diseño es un contrato entre diseño e ingeniería.",
-      "send": "Enviar"
+      "send": "Enviar",
+      "mdSource": "Código",
+      "mdPreview": "Vista previa"
     }
   },
   "useCases": {
@@ -180,10 +182,10 @@
     "madeWith": "Hecho con ❤️ por amantes de las extensiones."
   },
   "batch": {
-    "eyebrow": "Muchas a la vez",
-    "title": "O llévate todas las pestañas abiertas",
-    "desc": "¿Veinte pestañas tras una sesión de búsqueda? Cópialas todas de una vez, en el formato de siempre, sin entrar en cada una.",
+    "eyebrow": "Varias a la vez",
+    "title": "O llévate varias pestañas de una vez",
+    "desc": "¿Terminaste de leer con un montón de pestañas abiertas? Marca las que quieras y copia hasta cinco de una vez, en tu formato de siempre, sin entrar en cada una.",
     "tabsLabel": "Pestañas de esta ventana",
-    "cta": "Copiar 7 pestañas"
+    "cta": "Copiar 5 pestañas"
   }
 }

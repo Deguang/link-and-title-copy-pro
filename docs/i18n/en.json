@@ -130,7 +130,9 @@
       "laneFull": "The whole page",
       "laneSel": "Just what you selected",
       "selText": "A design system is a contract between design and engineering.",
-      "send": "Send"
+      "send": "Send",
+      "mdSource": "Source",
+      "mdPreview": "Preview"
     }
   },
   "useCases": {
@@ -180,10 +182,10 @@
     "madeWith": "Made with ❤️ by extension lovers."
   },
   "batch": {
-    "eyebrow": "Many at once",
-    "title": "Or take every tab you have open",
-    "desc": "Finished a research session with twenty tabs? Copy the lot in one go, in the format you already use — instead of visiting each one to fetch its link.",
+    "eyebrow": "Several at once",
+    "title": "Or take several tabs in one go",
+    "desc": "Finished reading with a stack of tabs open? Pick the ones you want and copy up to five at once, in the format you already use — instead of visiting each to fetch its link.",
     "tabsLabel": "Tabs in this window",
-    "cta": "Copy 7 tabs"
+    "cta": "Copy 5 tabs"
   }
 }
