@@ -441,5 +441,47 @@
     },
     "reportProblem": {
         "message": "समस्या की रिपोर्ट करें"
+    },
+    "editorEmptyHint": {
+        "message": "संपादित करने के लिए बाईं ओर से टेम्पलेट चुनें, या नया जोड़ें।"
+    },
+    "savedIndicator": {
+        "message": "सहेजा गया"
+    },
+    "validationMissingShortcut": {
+        "message": "कोई शॉर्टकट सेट नहीं — यह टेम्पलेट कभी ट्रिगर नहीं हो सकता।"
+    },
+    "validationDuplicateShortcut": {
+        "message": "$SHORTCUT$ पहले से किसी अन्य टेम्पलेट में उपयोग हो रहा है। केवल पहला ही चलेगा।",
+        "placeholders": {
+            "shortcut": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationEmptyTemplate": {
+        "message": "टेम्पलेट खाली है — कॉपी करने पर कुछ नहीं मिलेगा।"
+    },
+    "validationUnknownPlaceholder": {
+        "message": "अज्ञात प्लेसहोल्डर $NAME$ जैसा है वैसा ही कॉपी होगा।",
+        "placeholders": {
+            "name": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationUnclosedTag": {
+        "message": "$TAG$ का कोई समापन टैग नहीं है और यह जैसा है वैसा कॉपी होगा।",
+        "placeholders": {
+            "tag": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationNegativeConditionalOnly": {
+        "message": "यह कंडीशनल केवल {if:selectedText} के साथ काम करता है। अकेले में टैग जैसे हैं वैसे कॉपी होंगे।"
+    },
+    "validationIncomplete": {
+        "message": "अपूर्ण"
     }
 }

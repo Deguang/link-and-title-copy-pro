@@ -441,5 +441,47 @@
     },
     "reportProblem": {
         "message": "Report problem"
+    },
+    "editorEmptyHint": {
+        "message": "Select a template to edit, or add a new one."
+    },
+    "savedIndicator": {
+        "message": "Saved"
+    },
+    "validationMissingShortcut": {
+        "message": "No shortcut set — this template can never be triggered."
+    },
+    "validationDuplicateShortcut": {
+        "message": "$SHORTCUT$ is already used by another template. Only the first one will run.",
+        "placeholders": {
+            "shortcut": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationEmptyTemplate": {
+        "message": "Template is empty — copying would produce nothing."
+    },
+    "validationUnknownPlaceholder": {
+        "message": "Unknown placeholder $NAME$ will be copied as-is.",
+        "placeholders": {
+            "name": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationUnclosedTag": {
+        "message": "$TAG$ has no matching closing tag and will be copied as-is.",
+        "placeholders": {
+            "tag": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationNegativeConditionalOnly": {
+        "message": "This conditional only works alongside {if:selectedText}. On its own the tags are copied as-is."
+    },
+    "validationIncomplete": {
+        "message": "Incomplete"
     }
 }

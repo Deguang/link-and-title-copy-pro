@@ -441,5 +441,47 @@
     },
     "reportProblem": {
         "message": "Informar de un problema"
+    },
+    "editorEmptyHint": {
+        "message": "Selecciona una plantilla a la izquierda para editarla o crea una nueva."
+    },
+    "savedIndicator": {
+        "message": "Guardado"
+    },
+    "validationMissingShortcut": {
+        "message": "Sin atajo configurado: esta plantilla nunca podrá activarse."
+    },
+    "validationDuplicateShortcut": {
+        "message": "$SHORTCUT$ ya lo usa otra plantilla. Solo se ejecutará la primera.",
+        "placeholders": {
+            "shortcut": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationEmptyTemplate": {
+        "message": "La plantilla está vacía: copiar no produciría nada."
+    },
+    "validationUnknownPlaceholder": {
+        "message": "El marcador desconocido $NAME$ se copiará tal cual.",
+        "placeholders": {
+            "name": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationUnclosedTag": {
+        "message": "$TAG$ no tiene etiqueta de cierre y se copiará tal cual.",
+        "placeholders": {
+            "tag": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationNegativeConditionalOnly": {
+        "message": "Esta condición solo funciona junto a {if:selectedText}. Por sí sola, las etiquetas se copian tal cual."
+    },
+    "validationIncomplete": {
+        "message": "Incompleta"
     }
 }

@@ -441,5 +441,47 @@
     },
     "reportProblem": {
         "message": "报告问题"
+    },
+    "editorEmptyHint": {
+        "message": "选择左侧的模板进行编辑，或新建一个。"
+    },
+    "savedIndicator": {
+        "message": "已保存"
+    },
+    "validationMissingShortcut": {
+        "message": "未设置快捷键 — 该模板永远不会被触发。"
+    },
+    "validationDuplicateShortcut": {
+        "message": "$SHORTCUT$ 已被其他模板占用,只有第一个会生效。",
+        "placeholders": {
+            "shortcut": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationEmptyTemplate": {
+        "message": "模板为空 — 复制将得不到任何内容。"
+    },
+    "validationUnknownPlaceholder": {
+        "message": "未知占位符 $NAME$ 将被原样复制。",
+        "placeholders": {
+            "name": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationUnclosedTag": {
+        "message": "$TAG$ 缺少配对的结束标签,将被原样复制。",
+        "placeholders": {
+            "tag": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationNegativeConditionalOnly": {
+        "message": "该条件标签需与 {if:selectedText} 搭配使用,单独使用时会被原样复制。"
+    },
+    "validationIncomplete": {
+        "message": "未完成"
     }
 }

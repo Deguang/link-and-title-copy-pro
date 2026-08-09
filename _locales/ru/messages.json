@@ -441,5 +441,47 @@
     },
     "reportProblem": {
         "message": "Сообщить о проблеме"
+    },
+    "editorEmptyHint": {
+        "message": "Выберите шаблон слева для редактирования или добавьте новый."
+    },
+    "savedIndicator": {
+        "message": "Сохранено"
+    },
+    "validationMissingShortcut": {
+        "message": "Сочетание клавиш не задано — этот шаблон никогда не сработает."
+    },
+    "validationDuplicateShortcut": {
+        "message": "$SHORTCUT$ уже используется другим шаблоном. Сработает только первый.",
+        "placeholders": {
+            "shortcut": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationEmptyTemplate": {
+        "message": "Шаблон пуст — копирование ничего не даст."
+    },
+    "validationUnknownPlaceholder": {
+        "message": "Неизвестный плейсхолдер $NAME$ будет скопирован как есть.",
+        "placeholders": {
+            "name": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationUnclosedTag": {
+        "message": "$TAG$ не имеет парного закрывающего тега и будет скопирован как есть.",
+        "placeholders": {
+            "tag": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationNegativeConditionalOnly": {
+        "message": "Это условие работает только вместе с {if:selectedText}. Само по себе теги копируются как есть."
+    },
+    "validationIncomplete": {
+        "message": "Не завершён"
     }
 }

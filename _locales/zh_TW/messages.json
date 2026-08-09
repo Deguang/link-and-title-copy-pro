@@ -441,5 +441,47 @@
     },
     "reportProblem": {
         "message": "回報問題"
+    },
+    "editorEmptyHint": {
+        "message": "選擇左側的範本進行編輯，或新增一個。"
+    },
+    "savedIndicator": {
+        "message": "已儲存"
+    },
+    "validationMissingShortcut": {
+        "message": "未設定快捷鍵 — 此範本永遠不會被觸發。"
+    },
+    "validationDuplicateShortcut": {
+        "message": "$SHORTCUT$ 已被其他範本佔用,只有第一個會生效。",
+        "placeholders": {
+            "shortcut": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationEmptyTemplate": {
+        "message": "範本為空 — 複製將得不到任何內容。"
+    },
+    "validationUnknownPlaceholder": {
+        "message": "未知佔位符 $NAME$ 將被原樣複製。",
+        "placeholders": {
+            "name": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationUnclosedTag": {
+        "message": "$TAG$ 缺少配對的結束標籤,將被原樣複製。",
+        "placeholders": {
+            "tag": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationNegativeConditionalOnly": {
+        "message": "此條件標籤需與 {if:selectedText} 搭配使用,單獨使用時會被原樣複製。"
+    },
+    "validationIncomplete": {
+        "message": "未完成"
     }
 }

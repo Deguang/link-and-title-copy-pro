@@ -441,5 +441,47 @@
     },
     "reportProblem": {
         "message": "問題を報告"
+    },
+    "editorEmptyHint": {
+        "message": "左側のテンプレートを選択して編集するか、新規作成してください。"
+    },
+    "savedIndicator": {
+        "message": "保存しました"
+    },
+    "validationMissingShortcut": {
+        "message": "ショートカットが未設定です — このテンプレートは実行できません。"
+    },
+    "validationDuplicateShortcut": {
+        "message": "$SHORTCUT$ は他のテンプレートで使用中です。最初の1つだけが動作します。",
+        "placeholders": {
+            "shortcut": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationEmptyTemplate": {
+        "message": "テンプレートが空です — コピーしても何も得られません。"
+    },
+    "validationUnknownPlaceholder": {
+        "message": "不明なプレースホルダー $NAME$ はそのままコピーされます。",
+        "placeholders": {
+            "name": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationUnclosedTag": {
+        "message": "$TAG$ に対応する終了タグがなく、そのままコピーされます。",
+        "placeholders": {
+            "tag": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationNegativeConditionalOnly": {
+        "message": "この条件タグは {if:selectedText} と併用してください。単独ではそのままコピーされます。"
+    },
+    "validationIncomplete": {
+        "message": "未完成"
     }
 }

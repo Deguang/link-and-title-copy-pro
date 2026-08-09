@@ -441,5 +441,47 @@
     },
     "reportProblem": {
         "message": "Problem melden"
+    },
+    "editorEmptyHint": {
+        "message": "Wähle links eine Vorlage zum Bearbeiten oder erstelle eine neue."
+    },
+    "savedIndicator": {
+        "message": "Gespeichert"
+    },
+    "validationMissingShortcut": {
+        "message": "Kein Kürzel festgelegt – diese Vorlage kann nie ausgelöst werden."
+    },
+    "validationDuplicateShortcut": {
+        "message": "$SHORTCUT$ wird bereits von einer anderen Vorlage verwendet. Nur die erste wird ausgeführt.",
+        "placeholders": {
+            "shortcut": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationEmptyTemplate": {
+        "message": "Vorlage ist leer – Kopieren würde nichts ergeben."
+    },
+    "validationUnknownPlaceholder": {
+        "message": "Unbekannter Platzhalter $NAME$ wird unverändert kopiert.",
+        "placeholders": {
+            "name": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationUnclosedTag": {
+        "message": "$TAG$ hat kein passendes schließendes Tag und wird unverändert kopiert.",
+        "placeholders": {
+            "tag": {
+                "content": "$1"
+            }
+        }
+    },
+    "validationNegativeConditionalOnly": {
+        "message": "Diese Bedingung funktioniert nur zusammen mit {if:selectedText}. Allein werden die Tags unverändert kopiert."
+    },
+    "validationIncomplete": {
+        "message": "Unvollständig"
     }
 }
