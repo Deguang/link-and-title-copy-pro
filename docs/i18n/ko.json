@@ -105,6 +105,25 @@
           "title": "필요한 다른 형식으로도",
           "desc": "노트에는 Markdown, 글에는 HTML, 티켓에는 Jira 문법. 직접 만든 템플릿도 됩니다."
         }
+      ],
+      "toast": "클립보드에 복사됨",
+      "targets": [
+        {
+          "app": "노트",
+          "fmt": "Markdown"
+        },
+        {
+          "app": "블로그 글",
+          "fmt": "HTML"
+        },
+        {
+          "app": "Jira 티켓",
+          "fmt": "Jira"
+        },
+        {
+          "app": "채팅",
+          "fmt": "일반 텍스트"
+        }
       ]
     }
   },

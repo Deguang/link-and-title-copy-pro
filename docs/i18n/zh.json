@@ -105,6 +105,25 @@
           "title": "或者换成任何你需要的格式",
           "desc": "笔记用 Markdown，文章用 HTML，工单用 Jira 语法，也可以是你自己写的模板。"
         }
+      ],
+      "toast": "已复制到剪贴板",
+      "targets": [
+        {
+          "app": "笔记",
+          "fmt": "Markdown"
+        },
+        {
+          "app": "博客文章",
+          "fmt": "HTML"
+        },
+        {
+          "app": "Jira 工单",
+          "fmt": "Jira"
+        },
+        {
+          "app": "聊天",
+          "fmt": "纯文本"
+        }
       ]
     }
   },

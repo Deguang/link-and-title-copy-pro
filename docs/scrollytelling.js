@@ -1,63 +1,67 @@
 /**
- * Drives the page -> shortcut -> paste demo from scroll position.
+ * Drives the pinned product demo from scroll position.
  *
- * Deliberately does NOT touch the scrollbar. Steps are ordinary flow content and
- * the stage is CSS `position: sticky`; this file only observes which step is in
- * the reading band and stamps `data-step` on the section for CSS to react to.
- * Native scrolling, keyboard paging, and find-in-page keep working.
+ * Publishes one number — `--p`, progress through the pinned track from 0 to 1 —
+ * and lets CSS do all the choreography from it. That's why the motion is
+ * continuous rather than snapping between states, and it's the job a library
+ * like GSAP ScrollTrigger would otherwise be carrying.
  *
- * If IntersectionObserver is missing, or the visitor asked for reduced motion,
- * it bails out and leaves the static state the stylesheet already renders.
+ * The scrollbar is never touched. The stage is CSS `position: sticky` inside a
+ * tall track; this only reads scroll position, so native scrolling, keyboard
+ * paging and find-in-page keep working.
+ *
+ * Bails out entirely when the visitor asks for reduced motion or the viewport is
+ * narrow — the stylesheet already renders the finished state there.
  */
 (function () {
   'use strict';
 
-  var section = document.querySelector('[data-demo]');
-  if (!section) return;
+  var root = document.querySelector('[data-cine]');
+  if (!root) return;
 
-  var steps = Array.prototype.slice.call(section.querySelectorAll('.demo-step'));
-  if (!steps.length) return;
+  var track = root.querySelector('.cine-track');
+  var caps = Array.prototype.slice.call(root.querySelectorAll('.cine-cap'));
+  if (!track) return;
 
-  // Number the steps from DOM order — the i18n array section can't emit an index.
-  steps.forEach(function (el, i) {
-    el.setAttribute('data-index', String(i));
-  });
+  var motionOK = !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var wideEnough = window.matchMedia && window.matchMedia('(min-width: 901px)').matches;
+  if (!motionOK || !wideEnough) return;
 
-  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduced || !('IntersectionObserver' in window)) return;
+  // Progress windows for each caption, matched to the CSS timeline.
+  var CAPTION_AT = [0.0, 0.22, 0.44, 0.7];
 
-  var current = null;
+  var ticking = false;
+  var lastCap = -1;
 
-  function setStep(n) {
-    if (current === n) return;
-    current = n;
-    section.setAttribute('data-step', String(n));
+  function update() {
+    ticking = false;
 
-    steps.forEach(function (el) {
-      // Step 0 is the setup shot; the payoff (last state) has no step block.
-      el.classList.toggle('is-active', Number(el.getAttribute('data-index')) === n);
-    });
+    var rect = track.getBoundingClientRect();
+    var runway = rect.height - window.innerHeight;
+    if (runway <= 0) return;
 
-    // Show only the clipboard / destination content belonging to this state.
-    // The clipboard keeps its last value once filled — a real clipboard would.
-    Array.prototype.forEach.call(section.querySelectorAll('.dst-out'), function (el) {
-      el.classList.toggle('on', Number(el.getAttribute('data-for')) === n);
-    });
+    // 0 when the track's top hits the viewport top, 1 when its bottom does.
+    var p = Math.min(1, Math.max(0, -rect.top / runway));
+    root.style.setProperty('--p', p.toFixed(4));
+
+    // Captions are discrete — cross-fading text mid-sentence reads as a glitch.
+    var idx = 0;
+    for (var i = 0; i < CAPTION_AT.length; i++) {
+      if (p >= CAPTION_AT[i]) idx = i;
+    }
+    if (idx !== lastCap) {
+      lastCap = idx;
+      caps.forEach(function (el, i) { el.classList.toggle('on', i === idx); });
+    }
   }
 
-  // A narrow band across the middle of the viewport decides the active step, so
-  // the change lands when a step reaches reading position rather than on entry.
-  var observer = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        setStep(Number(entry.target.getAttribute('data-index')));
-      });
-    },
-    { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
-  );
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(update);
+  }
 
-  steps.forEach(function (el) { observer.observe(el); });
-
-  setStep(0);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
 })();

@@ -195,82 +195,137 @@
                 <p class="text-xl text-slate-600 max-w-2xl mx-auto text-balance">Mira cómo una página se convierte en un enlace que puedes pegar donde quieras.</p>
             </div>
 
-            <!-- Scroll-driven demo: page -> shortcut -> pasted where you work.
-                 Replaces three alternating image/text blocks. Every word is real
-                 DOM text and stays present when the effect is off, so crawlers
-                 and screen readers see the same content. Static fallback lives in
-                 scrollytelling.css. -->
-            <div class="demo" data-demo data-step="0">
-                <div class="demo-stage">
-                    <!-- source page -->
-                    <div class="win win-src">
-                        <div class="win-bar">
-                            <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
-                            <div class="win-url">example.com/design-systems</div>
-                        </div>
-                        <div class="src-body">
-                            <h4 class="src-title">Diez principios de los sistemas de diseño</h4>
-                            <div class="src-lines" aria-hidden="true"><span></span><span></span><span></span></div>
-                        </div>
-                    </div>
+            <!-- Pinned product demo. Choreography comes from one scroll-progress
+                 value (see scrollytelling.js); CSS does the rest. Every word is
+                 real DOM text and the whole thing renders as a plain stacked
+                 block when motion is off, so crawlers and screen readers see the
+                 same content. -->
+            <div class="cine" data-cine>
+                <div class="cine-track">
+                    <div class="cine-stage">
 
-                    <!-- keystroke + clipboard -->
-                    <div class="demo-bridge">
-                        <div class="keys" aria-hidden="true">
-                            <kbd>Ctrl</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>C</kbd>
-                        </div>
-                        <div class="clip-chip" aria-live="polite">
-                            <span class="clip-out on" data-for="1">[Diez principios de los sistemas de diseño](example.com/design-systems)</span>
-                        </div>
-                    </div>
+                        <div class="cine-browser">
+                            <div class="cine-bar">
+                                <div class="cine-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                                <div class="cine-url">example.com/design-systems</div>
+                            </div>
+                            <div class="cine-page">
+                                <h4 class="cine-title">Diez principios de los sistemas de diseño</h4>
+                                <div class="cine-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+                            </div>
 
-                    <!-- destination app -->
-                    <div class="win win-dst">
-                        <div class="win-bar">
-                            <span class="win-app"><i aria-hidden="true"></i>Notas</span>
-                        </div>
-                        <div class="dst-body">
-                            <div class="dst-crumb">Lecturas de la semana</div>
-                            <div class="dst-lines" aria-hidden="true"><span></span><span></span></div>
-                            <div class="dst-slot">
-                                <span class="dst-caret" aria-hidden="true"></span>
-                                <span class="dst-out" data-for="2"><span class="as-link">Diez principios de los sistemas de diseño</span></span>
-                                <span class="dst-out" data-for="3"><code>h2. Diez principios de los sistemas de diseño\nexample.com/design-systems</code></span>
+                            <div class="cine-keys" aria-hidden="true">
+                                <kbd>Ctrl</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>C</kbd>
+                            </div>
+
+                            <div class="cine-toast" role="status">
+                                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4l3.8 3.8 6.8-6.8a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>
+                                <span class="t-label">Copiado al portapapeles</span>
+                                <span class="t-preview">[Diez principios de los sistemas de diseño](example.com/design-systems)</span>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="demo-steps">
-                    
-                    <div class="demo-step">
-                        <span class="demo-badge">Cualquier página</span>
-                        <h3>Empieza en la página que estás leyendo</h3>
-                        <p>Sin seleccionar el titular ni buscar la barra de direcciones. Basta con lo que ya tienes abierto.</p>
+                        <div class="cine-targets" aria-hidden="true">
+                            <!-- Notes: the pasted link as the newest bullet -->
+                            <div class="cine-app">
+                                <div class="app-bar">
+                                    <i class="app-ico"></i>Notas
+                                    <span class="app-fmt">Markdown</span>
+                                </div>
+                                <div class="app-body">
+                                    <span class="sk sk-h"></span>
+                                    <span class="sk"></span>
+                                    <span class="sk w70"></span>
+                                    <ul class="note-list">
+                                        <li><span class="bullet"></span><span class="sk w55"></span></li>
+                                        <li><span class="bullet"></span><span class="sk w45"></span></li>
+                                        <li class="is-new"><span class="bullet"></span><span class="lk">Diez principios de los sistemas de diseño</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Chat: the link posted, with the preview a client renders -->
+                            <div class="cine-app">
+                                <div class="app-bar">
+                                    <i class="app-ico is-chat"></i>Chat
+                                    <span class="app-fmt">Texto plano</span>
+                                </div>
+                                <div class="app-body">
+                                    <div class="msg">
+                                        <span class="ava"></span>
+                                        <div class="msg-body">
+                                            <span class="msg-name"></span>
+                                            <span class="sk"></span>
+                                            <span class="sk w60"></span>
+                                        </div>
+                                    </div>
+                                    <div class="msg">
+                                        <span class="ava me"></span>
+                                        <div class="msg-body">
+                                            <span class="msg-name w35"></span>
+                                            <div class="bubble">
+                                                <span class="lk">Diez principios de los sistemas de diseño</span>
+                                                <div class="preview">
+                                                    <i class="fav"></i>
+                                                    <div>
+                                                        <div class="pv-t">Diez principios de los sistemas de diseño</div>
+                                                        <div class="pv-d">example.com/design-systems</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- and the same clipboard in whatever syntax the target wants -->
+                            <div class="cine-app">
+                                <div class="app-bar"><i class="app-ico"></i>Entrada de blog</div>
+                                <div class="app-body">
+                                    <div class="fmt-row">
+                                        <div class="fmt-tag">HTML</div>
+                                        <div class="fmt-code">&lt;a href="example.com/design-systems"&gt;Diez principios de los sistemas de diseño&lt;/a&gt;</div>
+                                    </div>
+                                    <div class="fmt-row">
+                                        <div class="fmt-tag">Jira</div>
+                                        <div class="fmt-code">[Diez principios de los sistemas de diseño|example.com/design-systems]</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cine-caption">
+                            
+                            <div class="cine-cap">
+                                <span class="cine-badge">Cualquier página</span>
+                                <h3>Empieza en la página que estás leyendo</h3>
+                                <p>Sin seleccionar el titular ni buscar la barra de direcciones. Basta con lo que ya tienes abierto.</p>
+                            </div>
+                            
+                            <div class="cine-cap">
+                                <span class="cine-badge">Un atajo</span>
+                                <h3>Pulsa tu atajo</h3>
+                                <p>El título y el enlace llegan juntos al portapapeles, ya con el formato que configuraste.</p>
+                            </div>
+                            
+                            <div class="cine-cap">
+                                <span class="cine-badge">Pega donde sea</span>
+                                <h3>Suéltalo en tus notas</h3>
+                                <p>Notion, Obsidian, un documento, un ticket, un mensaje. Llega como un enlace de verdad, no como dos líneas por arreglar.</p>
+                            </div>
+                            
+                            <div class="cine-cap">
+                                <span class="cine-badge">Tu formato</span>
+                                <h3>O en cualquier otro formato</h3>
+                                <p>Markdown para notas, HTML para el blog, sintaxis de Jira para un ticket, o una plantilla tuya.</p>
+                            </div>
+                            
+                        </div>
+
+                        <div class="cine-rail" aria-hidden="true"><i></i></div>
                     </div>
-                    
-                    <div class="demo-step">
-                        <span class="demo-badge">Un atajo</span>
-                        <h3>Pulsa tu atajo</h3>
-                        <p>El título y el enlace llegan juntos al portapapeles, ya con el formato que configuraste.</p>
-                    </div>
-                    
-                    <div class="demo-step">
-                        <span class="demo-badge">Pega donde sea</span>
-                        <h3>Suéltalo en tus notas</h3>
-                        <p>Notion, Obsidian, un documento, un ticket, un mensaje. Llega como un enlace de verdad, no como dos líneas por arreglar.</p>
-                    </div>
-                    
-                    <div class="demo-step">
-                        <span class="demo-badge">Tu formato</span>
-                        <h3>O en cualquier otro formato</h3>
-                        <p>Markdown para notas, HTML para el blog, sintaxis de Jira para un ticket, o una plantilla tuya.</p>
-                    </div>
-                    
                 </div>
             </div>
-
-            <div class="mt-24"></div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Feature 1 -->

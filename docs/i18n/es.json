@@ -105,6 +105,25 @@
           "title": "O en cualquier otro formato",
           "desc": "Markdown para notas, HTML para el blog, sintaxis de Jira para un ticket, o una plantilla tuya."
         }
+      ],
+      "toast": "Copiado al portapapeles",
+      "targets": [
+        {
+          "app": "Notas",
+          "fmt": "Markdown"
+        },
+        {
+          "app": "Entrada de blog",
+          "fmt": "HTML"
+        },
+        {
+          "app": "Ticket de Jira",
+          "fmt": "Jira"
+        },
+        {
+          "app": "Chat",
+          "fmt": "Texto plano"
+        }
       ]
     }
   },

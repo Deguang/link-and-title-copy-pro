@@ -195,82 +195,137 @@
                 <p class="text-xl text-slate-600 max-w-2xl mx-auto text-balance">看一个网页，如何变成一条可以随处粘贴的链接。</p>
             </div>
 
-            <!-- Scroll-driven demo: page -> shortcut -> pasted where you work.
-                 Replaces three alternating image/text blocks. Every word is real
-                 DOM text and stays present when the effect is off, so crawlers
-                 and screen readers see the same content. Static fallback lives in
-                 scrollytelling.css. -->
-            <div class="demo" data-demo data-step="0">
-                <div class="demo-stage">
-                    <!-- source page -->
-                    <div class="win win-src">
-                        <div class="win-bar">
-                            <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
-                            <div class="win-url">example.com/design-systems</div>
-                        </div>
-                        <div class="src-body">
-                            <h4 class="src-title">设计系统的十条原则</h4>
-                            <div class="src-lines" aria-hidden="true"><span></span><span></span><span></span></div>
-                        </div>
-                    </div>
+            <!-- Pinned product demo. Choreography comes from one scroll-progress
+                 value (see scrollytelling.js); CSS does the rest. Every word is
+                 real DOM text and the whole thing renders as a plain stacked
+                 block when motion is off, so crawlers and screen readers see the
+                 same content. -->
+            <div class="cine" data-cine>
+                <div class="cine-track">
+                    <div class="cine-stage">
 
-                    <!-- keystroke + clipboard -->
-                    <div class="demo-bridge">
-                        <div class="keys" aria-hidden="true">
-                            <kbd>Ctrl</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>C</kbd>
-                        </div>
-                        <div class="clip-chip" aria-live="polite">
-                            <span class="clip-out on" data-for="1">[设计系统的十条原则](example.com/design-systems)</span>
-                        </div>
-                    </div>
+                        <div class="cine-browser">
+                            <div class="cine-bar">
+                                <div class="cine-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                                <div class="cine-url">example.com/design-systems</div>
+                            </div>
+                            <div class="cine-page">
+                                <h4 class="cine-title">设计系统的十条原则</h4>
+                                <div class="cine-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+                            </div>
 
-                    <!-- destination app -->
-                    <div class="win win-dst">
-                        <div class="win-bar">
-                            <span class="win-app"><i aria-hidden="true"></i>笔记</span>
-                        </div>
-                        <div class="dst-body">
-                            <div class="dst-crumb">本周阅读</div>
-                            <div class="dst-lines" aria-hidden="true"><span></span><span></span></div>
-                            <div class="dst-slot">
-                                <span class="dst-caret" aria-hidden="true"></span>
-                                <span class="dst-out" data-for="2"><span class="as-link">设计系统的十条原则</span></span>
-                                <span class="dst-out" data-for="3"><code>h2. 设计系统的十条原则\nexample.com/design-systems</code></span>
+                            <div class="cine-keys" aria-hidden="true">
+                                <kbd>Ctrl</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>C</kbd>
+                            </div>
+
+                            <div class="cine-toast" role="status">
+                                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4l3.8 3.8 6.8-6.8a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>
+                                <span class="t-label">已复制到剪贴板</span>
+                                <span class="t-preview">[设计系统的十条原则](example.com/design-systems)</span>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="demo-steps">
-                    
-                    <div class="demo-step">
-                        <span class="demo-badge">任意网页</span>
-                        <h3>就在你正在看的页面上</h3>
-                        <p>不用选标题，不用去点地址栏。开着的这个页面就够了。</p>
+                        <div class="cine-targets" aria-hidden="true">
+                            <!-- Notes: the pasted link as the newest bullet -->
+                            <div class="cine-app">
+                                <div class="app-bar">
+                                    <i class="app-ico"></i>笔记
+                                    <span class="app-fmt">Markdown</span>
+                                </div>
+                                <div class="app-body">
+                                    <span class="sk sk-h"></span>
+                                    <span class="sk"></span>
+                                    <span class="sk w70"></span>
+                                    <ul class="note-list">
+                                        <li><span class="bullet"></span><span class="sk w55"></span></li>
+                                        <li><span class="bullet"></span><span class="sk w45"></span></li>
+                                        <li class="is-new"><span class="bullet"></span><span class="lk">设计系统的十条原则</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Chat: the link posted, with the preview a client renders -->
+                            <div class="cine-app">
+                                <div class="app-bar">
+                                    <i class="app-ico is-chat"></i>聊天
+                                    <span class="app-fmt">纯文本</span>
+                                </div>
+                                <div class="app-body">
+                                    <div class="msg">
+                                        <span class="ava"></span>
+                                        <div class="msg-body">
+                                            <span class="msg-name"></span>
+                                            <span class="sk"></span>
+                                            <span class="sk w60"></span>
+                                        </div>
+                                    </div>
+                                    <div class="msg">
+                                        <span class="ava me"></span>
+                                        <div class="msg-body">
+                                            <span class="msg-name w35"></span>
+                                            <div class="bubble">
+                                                <span class="lk">设计系统的十条原则</span>
+                                                <div class="preview">
+                                                    <i class="fav"></i>
+                                                    <div>
+                                                        <div class="pv-t">设计系统的十条原则</div>
+                                                        <div class="pv-d">example.com/design-systems</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- and the same clipboard in whatever syntax the target wants -->
+                            <div class="cine-app">
+                                <div class="app-bar"><i class="app-ico"></i>博客文章</div>
+                                <div class="app-body">
+                                    <div class="fmt-row">
+                                        <div class="fmt-tag">HTML</div>
+                                        <div class="fmt-code">&lt;a href="example.com/design-systems"&gt;设计系统的十条原则&lt;/a&gt;</div>
+                                    </div>
+                                    <div class="fmt-row">
+                                        <div class="fmt-tag">Jira</div>
+                                        <div class="fmt-code">[设计系统的十条原则|example.com/design-systems]</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cine-caption">
+                            
+                            <div class="cine-cap">
+                                <span class="cine-badge">任意网页</span>
+                                <h3>就在你正在看的页面上</h3>
+                                <p>不用选标题，不用去点地址栏。开着的这个页面就够了。</p>
+                            </div>
+                            
+                            <div class="cine-cap">
+                                <span class="cine-badge">一个快捷键</span>
+                                <h3>按下快捷键</h3>
+                                <p>标题和链接一起进剪贴板，格式就是你事先设定好的那个。</p>
+                            </div>
+                            
+                            <div class="cine-cap">
+                                <span class="cine-badge">随处粘贴</span>
+                                <h3>粘进你的笔记里</h3>
+                                <p>Notion、Obsidian、文档、工单、聊天窗口。粘过去就是一条真正的链接，不是两行待整理的文本。</p>
+                            </div>
+                            
+                            <div class="cine-cap">
+                                <span class="cine-badge">你的格式</span>
+                                <h3>或者换成任何你需要的格式</h3>
+                                <p>笔记用 Markdown，文章用 HTML，工单用 Jira 语法，也可以是你自己写的模板。</p>
+                            </div>
+                            
+                        </div>
+
+                        <div class="cine-rail" aria-hidden="true"><i></i></div>
                     </div>
-                    
-                    <div class="demo-step">
-                        <span class="demo-badge">一个快捷键</span>
-                        <h3>按下快捷键</h3>
-                        <p>标题和链接一起进剪贴板，格式就是你事先设定好的那个。</p>
-                    </div>
-                    
-                    <div class="demo-step">
-                        <span class="demo-badge">随处粘贴</span>
-                        <h3>粘进你的笔记里</h3>
-                        <p>Notion、Obsidian、文档、工单、聊天窗口。粘过去就是一条真正的链接，不是两行待整理的文本。</p>
-                    </div>
-                    
-                    <div class="demo-step">
-                        <span class="demo-badge">你的格式</span>
-                        <h3>或者换成任何你需要的格式</h3>
-                        <p>笔记用 Markdown，文章用 HTML，工单用 Jira 语法，也可以是你自己写的模板。</p>
-                    </div>
-                    
                 </div>
             </div>
-
-            <div class="mt-24"></div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Feature 1 -->

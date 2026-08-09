@@ -105,6 +105,25 @@
           "title": "Oder jedes andere Format",
           "desc": "Markdown für Notizen, HTML für den Blog, Jira-Syntax fürs Ticket — oder deine eigene Vorlage."
         }
+      ],
+      "toast": "In die Zwischenablage kopiert",
+      "targets": [
+        {
+          "app": "Notizen",
+          "fmt": "Markdown"
+        },
+        {
+          "app": "Blogbeitrag",
+          "fmt": "HTML"
+        },
+        {
+          "app": "Jira-Ticket",
+          "fmt": "Jira"
+        },
+        {
+          "app": "Chat",
+          "fmt": "Klartext"
+        }
       ]
     }
   },

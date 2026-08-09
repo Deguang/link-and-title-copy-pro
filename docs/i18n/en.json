@@ -105,6 +105,25 @@
           "title": "Or any other format you need",
           "desc": "Markdown for notes, HTML for a post, Jira syntax for a ticket, or a template you write yourself."
         }
+      ],
+      "toast": "Copied to clipboard",
+      "targets": [
+        {
+          "app": "Notes",
+          "fmt": "Markdown"
+        },
+        {
+          "app": "Blog post",
+          "fmt": "HTML"
+        },
+        {
+          "app": "Jira ticket",
+          "fmt": "Jira"
+        },
+        {
+          "app": "Chat",
+          "fmt": "Plain text"
+        }
       ]
     }
   },
