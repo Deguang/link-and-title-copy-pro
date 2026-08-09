@@ -154,6 +154,11 @@ export default defineConfig(({ command, mode }) => {
     ],
     build: {
       ...baseConfig.build,
+      // Extension pages load from local disk, so preloading buys no latency —
+      // and Chrome rejects the tags anyway ("cross-world extension resource
+      // mismatch"), then warns again that the preload went unused. Dropping them
+      // removes a wall of console noise and changes nothing about load order.
+      modulePreload: false,
       rollupOptions: {
         input: {
           options: resolve(__dirname, 'src/options/options.html'),

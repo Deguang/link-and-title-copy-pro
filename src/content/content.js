@@ -32,35 +32,53 @@ import { showToast } from './toast';
 // Load configurations from storage
 let shortcuts = [];
 
+// When the extension updates or reloads, content scripts already running in open
+// tabs are orphaned: `chrome` survives but its API objects are torn out, so
+// `chrome.storage.local` throws "Cannot read properties of undefined". Chrome
+// injects a fresh script into those tabs, but the stale one can still run a
+// queued callback first. Checking runtime.id is the standard liveness test.
+function isContextAlive() {
+  try {
+    return Boolean(chrome?.runtime?.id) && Boolean(chrome?.storage?.local);
+  } catch {
+    return false;
+  }
+}
 
 function loadShortcuts() {
-  chrome.storage.local.get(STORAGE_KEY, (result) => {
-    if (result[STORAGE_KEY]) {
+  if (!isContextAlive()) return;
+  try {
+    chrome.storage.local.get(STORAGE_KEY, (result) => {
+      // lastError must be read, or Chrome logs it as unchecked.
+      if (chrome.runtime.lastError || !result?.[STORAGE_KEY]) return;
 
       // Map to include original index
-      shortcuts = result[STORAGE_KEY].map((c, i) => ({...c, originalIndex: i})).filter(c => c && c.shortcut);
-      console.log('Shortcuts loaded in content script:', shortcuts);
-    }
-  });
+      shortcuts = result[STORAGE_KEY].map((c, i) => ({ ...c, originalIndex: i })).filter(c => c && c.shortcut);
+    });
+  } catch { /* orphaned between the check and the call */ }
 }
 
 // Initial load
 loadShortcuts();
 
 // Listen for storage changes to update shortcuts dynamically
-chrome.storage.onChanged.addListener((changes, namespace) => {
-  if (namespace === 'local' && changes[STORAGE_KEY]) {
-    loadShortcuts();
-  }
-});
+if (isContextAlive()) {
+  chrome.storage.onChanged.addListener((changes, namespace) => {
+    if (namespace === 'local' && changes[STORAGE_KEY]) {
+      loadShortcuts();
+    }
+  });
+}
 
 // Rolling log of copies that did NOT succeed on the primary clipboard path. Stays
 // LOCAL (chrome.storage.local) — never transmitted. It's only ever read when the
 // user chooses to file a report (see the background's reportCopyIssue handler).
 const COPY_ISSUE_LOG_KEY = 'copyIssueLog';
 function recordCopyIssue(tier, errorName) {
+  if (!isContextAlive()) return;
   try {
     chrome.storage.local.get(COPY_ISSUE_LOG_KEY, (r) => {
+      if (chrome.runtime.lastError) return;
       const log = Array.isArray(r[COPY_ISSUE_LOG_KEY]) ? r[COPY_ISSUE_LOG_KEY] : [];
       log.push({ tier, error: errorName || '', domain: location.hostname, ts: Date.now() });
       chrome.storage.local.set({ [COPY_ISSUE_LOG_KEY]: log.slice(-5) });
