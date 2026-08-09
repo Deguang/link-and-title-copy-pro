@@ -65,9 +65,9 @@ function KeyGlyph({ k, os }) {
 
 function KeyCap({ k, variant = 'default', os = 'windows' }) {
   const styles = {
-    default: 'bg-slate-800 border-slate-700 text-slate-200',
-    active:  'bg-blue-700 border-blue-900 text-white shadow-lg shadow-blue-500/20 key-active',
-    success: 'bg-green-600 border-green-800 text-white shadow-lg shadow-green-500/20',
+    default: 'bg-surface-2 border-line text-ink',
+    active:  'bg-accent border-accent-hover text-accent-fg shadow-lg shadow-accent/25 key-active',
+    success: 'bg-ok border-ok text-surface shadow-lg shadow-ok/25',
   };
   // Modifier glyphs render as SVG for the same reason as the shared Keycap: they
   // fall outside the bundled mono subset, so as text they arrive small and light.
@@ -90,7 +90,7 @@ function ShortcutDisplay({ keys, variant = 'default', size = 'md', os = 'windows
         <React.Fragment key={i}>
           <KeyCap k={k} variant={variant} os={os} />
           {i < keys.length - 1 && (
-            <span className="text-slate-600 text-lg select-none font-light">+</span>
+            <span className="text-ink-3 text-lg select-none font-light">+</span>
           )}
         </React.Fragment>
       ))}
@@ -156,18 +156,18 @@ function ProgressStepper({ step }) {
           <React.Fragment key={i}>
             <div className="flex flex-col items-center">
               <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300 ${
-                step > i + 1 ? 'bg-blue-600 text-white'
-                : step === i + 1 ? 'bg-blue-600 text-white ring-4 ring-blue-600/20'
-                : 'bg-slate-800 text-slate-500'
+                step > i + 1 ? 'bg-accent text-accent-fg'
+                : step === i + 1 ? 'bg-accent text-accent-fg ring-4 ring-accent/25'
+                : 'bg-surface-2 text-ink-3'
               }`}>
                 {step > i + 1 ? '✓' : i + 1}
               </div>
               <span className={`text-xs mt-1.5 transition-colors duration-300 ${
-                step === i + 1 ? 'text-blue-400' : step > i + 1 ? 'text-slate-400' : 'text-slate-600'
+                step === i + 1 ? 'text-accent' : step > i + 1 ? 'text-ink-2' : 'text-ink-3'
               }`}>{label}</span>
             </div>
             {i < 1 && (
-              <div className={`flex-1 h-px mx-3 mb-4 transition-all duration-500 ${step > i + 1 ? 'bg-blue-600' : 'bg-slate-800'}`} />
+              <div className={`flex-1 h-px mx-3 mb-4 transition-all duration-500 ${step > i + 1 ? 'bg-accent' : 'bg-surface-2'}`} />
             )}
           </React.Fragment>
         ))}
@@ -202,14 +202,14 @@ function Step1({ os, shortcutKeys, valState, onOpenSettings, onNext }) {
   return (
     <div className="text-center fade-in-up">
       <div className="text-5xl mb-4">👋</div>
-      <h1 className="text-2xl font-bold text-white mb-2">{t('onboardingWelcomeTitle')}</h1>
-      <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-xs mx-auto">
+      <h1 className="text-2xl font-bold text-ink mb-2">{t('onboardingWelcomeTitle')}</h1>
+      <p className="text-ink-2 text-sm leading-relaxed mb-6 max-w-xs mx-auto">
         {t('onboardingWelcomeDesc')}
       </p>
 
       {/* OS badge */}
       <div className="flex justify-center mb-5">
-        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-green-400 bg-green-400/10 border border-green-400/20 px-2.5 py-1 rounded-full">
+        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-ok bg-ok/10 border border-ok/25 px-2.5 py-1 rounded-full">
           <span>✓</span> {t('onboardingDetected')} {osIcon} {label}
         </span>
       </div>
@@ -225,14 +225,14 @@ function Step1({ os, shortcutKeys, valState, onOpenSettings, onNext }) {
           <>
             <div className="flex gap-1.5">
               {[0, 1, 2].map((i) => (
-                <span key={i} className="w-2 h-2 rounded-full bg-blue-500 animate-bounce"
+                <span key={i} className="w-2 h-2 rounded-full bg-accent animate-bounce"
                   style={{ animationDelay: `${i * 0.15}s` }} />
               ))}
             </div>
-            <p className="text-slate-500 text-sm">{t('onboardingListening')}</p>
+            <p className="text-ink-3 text-sm">{t('onboardingListening')}</p>
             {showHint && (
               <button onClick={onOpenSettings}
-                className="text-slate-500 hover:text-blue-400 text-xs underline underline-offset-2 transition-colors fade-in-up">
+                className="text-ink-3 hover:text-accent text-xs underline underline-offset-2 transition-colors fade-in-up">
                 {t('onboardingConflictHint')}
               </button>
             )}
@@ -241,8 +241,8 @@ function Step1({ os, shortcutKeys, valState, onOpenSettings, onNext }) {
 
         {isSuccess && (
           <div className="flex flex-col items-center success-pop">
-            <p className="text-green-400 font-semibold text-lg">{t('onboardingItWorks')}</p>
-            <p className="text-slate-400 text-sm mt-1">{t('onboardingReadyToUse')}</p>
+            <p className="text-ok font-semibold text-lg">{t('onboardingItWorks')}</p>
+            <p className="text-ink-2 text-sm mt-1">{t('onboardingReadyToUse')}</p>
           </div>
         )}
       </div>
@@ -251,8 +251,8 @@ function Step1({ os, shortcutKeys, valState, onOpenSettings, onNext }) {
       {(isSuccess || showHint) && (
         <button onClick={onNext}
           className={`w-full py-3 font-semibold rounded-xl transition-colors duration-200 ${
-            isSuccess ? 'bg-green-600 hover:bg-green-500 text-white'
-                      : 'bg-slate-800 hover:bg-slate-700 text-slate-400'
+            isSuccess ? 'bg-ok hover:bg-ok text-surface'
+                      : 'bg-surface-2 hover:bg-line text-ink-2'
           }`}>
           {isSuccess ? t('onboardingContinue') : t('onboardingSkipStep')}
         </button>
@@ -333,8 +333,8 @@ function Step2({ os, configs, selectedTpl, onSelect, onFinish }) {
       {/* Header */}
       <div className="text-center mb-5">
         <div className="text-4xl mb-2">🚀</div>
-        <h2 className="text-2xl font-bold text-white mb-1">{t('onboardingAllSet')}</h2>
-        <p className="text-slate-400 text-sm mb-4">
+        <h2 className="text-2xl font-bold text-ink mb-1">{t('onboardingAllSet')}</h2>
+        <p className="text-ink-2 text-sm mb-4">
           {t('onboardingFormatsReady', [String(configs.length || 3)])}
         </p>
 
@@ -352,24 +352,24 @@ function Step2({ os, configs, selectedTpl, onSelect, onFinish }) {
           <button key={i} onClick={() => onSelect(i)}
             className={`w-full flex items-center gap-3 p-3 rounded-xl border text-left transition-all duration-200 ${
               selectedTpl === i
-                ? 'border-blue-500 bg-blue-600/10'
-                : 'border-slate-700 bg-slate-800/40 hover:border-slate-600'
+                ? 'border-accent bg-accent-soft'
+                : 'border-line bg-surface-2 hover:border-ink-3'
             }`}>
             <span className="text-xl flex-shrink-0">{tpl.icon}</span>
             <div className="flex-1 min-w-0">
-              <p className={`text-sm font-semibold ${selectedTpl === i ? 'text-blue-300' : 'text-slate-200'}`}>
+              <p className={`text-sm font-semibold ${selectedTpl === i ? 'text-accent' : 'text-ink'}`}>
                 {tpl.name}
               </p>
-              <p className="text-xs text-slate-500">{tpl.desc}</p>
+              <p className="text-xs text-ink-3">{tpl.desc}</p>
             </div>
             {/* Per-template shortcut badge */}
             {tpl.shortcutKeys.length > 0 && (
               <span className={`flex-shrink-0 inline-flex items-center gap-1 text-[11px] font-mono px-2 py-1 rounded-md border whitespace-nowrap transition-all duration-300 ${
                 selectedTpl === i && keyState === 'success'
-                  ? 'bg-green-600/20 border-green-500/40 text-green-400'
+                  ? 'bg-ok/20 border-ok/40 text-ok'
                   : selectedTpl === i
-                  ? 'bg-blue-600/20 border-blue-500/30 text-blue-300'
-                  : 'bg-slate-800 border-slate-700 text-slate-500'
+                  ? 'bg-accent/20 border-accent/30 text-accent'
+                  : 'bg-surface-2 border-line text-ink-3'
               }`}>
                 {tpl.shortcutKeys.map((k, j) => (
                   <React.Fragment key={j}>
@@ -385,27 +385,27 @@ function Step2({ os, configs, selectedTpl, onSelect, onFinish }) {
 
       {/* Output preview */}
       <div className={`border rounded-xl p-4 mb-4 transition-colors duration-300 ${
-        copied ? 'bg-green-500/10 border-green-500/40' : 'bg-slate-800/60 border-slate-700'
+        copied ? 'bg-ok/10 border-ok/40' : 'bg-surface-2/60 border-line'
       }`}>
         <div className="flex items-center justify-between mb-2">
-          <p className="text-xs text-slate-500 uppercase tracking-wider">{t('onboardingOutputPreview')}</p>
+          <p className="text-xs text-ink-3 uppercase tracking-wider">{t('onboardingOutputPreview')}</p>
           {copied && (
-            <span className="text-xs text-green-400 font-medium fade-in-up">{t('onboardingCopiedBadge')}</span>
+            <span className="text-xs text-ok font-medium fade-in-up">{t('onboardingCopiedBadge')}</span>
           )}
         </div>
         <pre className={`text-xs font-mono whitespace-pre-wrap break-all leading-relaxed transition-colors duration-300 ${
-          copied ? 'text-green-300' : 'text-green-400'
+          copied ? 'text-ok' : 'text-ok'
         }`}>
           {current.example(EX_TITLE, EX_URL)}
         </pre>
       </div>
 
-      <p className="text-xs text-slate-600 text-center mb-4">
+      <p className="text-xs text-ink-3 text-center mb-4">
         {t('onboardingCustomize')}
       </p>
 
       <button onClick={onFinish}
-        className="w-full py-3 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-semibold rounded-xl transition-colors duration-200">
+        className="w-full py-3 bg-accent hover:bg-accent-hover active:bg-accent-hover text-accent-fg font-semibold rounded-xl transition-colors duration-200">
         {t('onboardingStartCopying')}
       </button>
     </div>
@@ -474,13 +474,13 @@ function Onboarding() {
   const openSettings = useCallback(() => chrome.runtime.openOptionsPage(), []);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col items-center justify-center px-4 py-12">
+    <div className="min-h-screen bg-canvas text-ink flex flex-col items-center justify-center px-4 py-12">
       <Confetti active={confetti} />
 
       {/* Brand */}
       <div className="flex items-center gap-2.5 mb-8">
         <img src="/icons/icon.webp" className="w-7 h-7 rounded-lg" alt="" />
-        <span className="text-slate-400 text-sm font-medium tracking-wide">
+        <span className="text-ink-2 text-sm font-medium tracking-wide">
           {t('name')}
         </span>
       </div>
@@ -488,8 +488,8 @@ function Onboarding() {
       <ProgressStepper step={step} />
 
       {/* Card */}
-      <div className="w-full max-w-md bg-slate-900 rounded-2xl border border-slate-800 shadow-2xl overflow-hidden">
-        <div className="h-0.5 bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700" />
+      <div className="w-full max-w-md bg-surface rounded-2xl border border-line-soft shadow-2xl overflow-hidden">
+        <div className="h-0.5 bg-gradient-to-r from-accent via-accent-hover to-accent" />
         <div className="p-8">
           {step === 1 && (
             <Step1
@@ -513,7 +513,7 @@ function Onboarding() {
       </div>
 
       <button onClick={() => window.close()}
-        className="mt-6 text-slate-600 hover:text-slate-400 text-sm transition-colors duration-200">
+        className="mt-6 text-ink-3 hover:text-ink-2 text-sm transition-colors duration-200">
         {t('onboardingSkipSetup')}
       </button>
     </div>

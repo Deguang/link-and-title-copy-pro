@@ -59,6 +59,12 @@ Link&TitleCopyPro是一个可以同时复制浏览器标签页的标题和URL链
 
 ## Version History / 版本历史
 
+### v1.7.2
+
+- Onboarding moved onto the design system; it stays dark by intent, using the same navy palette / 引导页并入设计系统，保持深色但改用同一套藏青色板
+- Content scripts survive an extension update without throwing in already-open tabs / 扩展更新后，已打开标签页的脚本不再报错
+- Removed a dead script reference and the module preloads Chrome rejects on extension pages / 移除失效脚本引用与扩展页无效的预载标签
+
 ### v1.7.0
 
 - Redesigned popup and settings around a design system derived from the product mark / 基于产品图标反推的设计系统，重做弹窗与设置页
