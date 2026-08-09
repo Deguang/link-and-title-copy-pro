@@ -59,6 +59,20 @@ Link&TitleCopyPro是一个可以同时复制浏览器标签页的标题和URL链
 
 ## Version History / 版本历史
 
+### v1.7.0
+
+- Redesigned popup and settings around a design system derived from the product mark / 基于产品图标反推的设计系统，重做弹窗与设置页
+- Light and dark themes across both surfaces, following the OS / 两个界面均支持浅色/深色，跟随系统
+- Settings rebuilt as master–detail with auto-save; the Save/Cancel buttons are gone / 设置页改为主从分栏 + 即时保存，去掉保存/取消按钮
+- Non-blocking validation flags unreachable shortcuts, duplicates, and unknown placeholders / 非阻断式校验：无效快捷键、重复绑定、未知占位符
+- One shortcut renderer for every surface; modifier keys draw as SVG / 三个界面统一快捷键渲染，修饰键改用 SVG
+- Windows no longer shows macOS-only glyphs for Command and the Win key / Windows 不再显示 macOS 专属符号
+- Bundled JetBrains Mono for templates and keycaps (Latin subset, ~42KB) / 内置 JetBrains Mono 用于模板与键帽
+- Fixed dropped keystrokes when typing quickly in settings / 修复设置页快速输入时丢字符
+
+> Storage format is unchanged — existing templates and shortcuts carry over untouched.
+> 存储结构未变，已有模板与快捷键原样沿用。
+
 ### v1.2.1
 
 - Interactive onboarding page on first install / 首次安装时展示交互式引导页
