@@ -12,11 +12,12 @@ export function useChromeStorage(key, initialValue) {
   }, [key]);
 
   const setStorageValue = useCallback((newValue) => {
+    // Update state first so controlled inputs stay responsive — waiting for the
+    // async storage callback drops keystrokes and jumps the caret while typing.
+    setValue(newValue);
     chrome.storage.local.set({ [key]: newValue }, () => {
-      setValue(newValue);
       // Reload configurations
       chrome.runtime.sendMessage({ action: 'reloadConfigurations' });
-
     });
   }, [key]);
 
