@@ -33,15 +33,26 @@
   var ticking = false;
   var lastCap = -1;
 
+  // Geometry is cached rather than measured per frame. getBoundingClientRect()
+  // after writing --p forces a synchronous layout every frame — the classic
+  // read-after-write thrash, and the main reason scrolling stuttered. The track's
+  // size doesn't depend on --p, so it only needs re-measuring on resize.
+  var trackTop = 0;
+  var runway = 1;
+
+  function measure() {
+    var top = 0;
+    for (var el = track; el; el = el.offsetParent) top += el.offsetTop;
+    trackTop = top;
+    runway = Math.max(1, track.offsetHeight - window.innerHeight);
+  }
+
   function update() {
     ticking = false;
 
-    var rect = track.getBoundingClientRect();
-    var runway = rect.height - window.innerHeight;
-    if (runway <= 0) return;
-
-    // 0 when the track's top hits the viewport top, 1 when its bottom does.
-    var p = Math.min(1, Math.max(0, -rect.top / runway));
+    // 0 when the track's top reaches the viewport top, 1 when its bottom does.
+    var p = (window.pageYOffset - trackTop) / runway;
+    p = p < 0 ? 0 : p > 1 ? 1 : p;
     root.style.setProperty('--p', p.toFixed(4));
 
     // Captions are discrete — cross-fading text mid-sentence reads as a glitch.
@@ -61,7 +72,13 @@
     window.requestAnimationFrame(update);
   }
 
+  function onResize() {
+    measure();
+    onScroll();
+  }
+
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
+  window.addEventListener('resize', onResize);
+  measure();
   update();
 })();

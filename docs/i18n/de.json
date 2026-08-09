@@ -91,9 +91,9 @@
           "desc": "Keine Überschrift markieren, keine Adressleiste suchen. Was offen ist, genügt."
         },
         {
-          "badge": "Ein Tastendruck",
-          "title": "Drücke dein Kürzel",
-          "desc": "Titel und Link landen gemeinsam in der Zwischenablage — direkt im eingestellten Format."
+          "badge": "Zwei Wege",
+          "title": "Die Seite kopieren — oder nur die markierte Stelle",
+          "desc": "Ein Kürzel nimmt Titel und Link, das andere die Markierung dazu. So kommt das Zitat samt Quelle an."
         },
         {
           "badge": "Überall einfügen",
@@ -124,7 +124,10 @@
           "app": "Chat",
           "fmt": "Klartext"
         }
-      ]
+      ],
+      "laneFull": "Die ganze Seite",
+      "laneSel": "Nur das Markierte",
+      "selText": "Ein Designsystem ist ein Vertrag zwischen Design und Entwicklung."
     }
   },
   "useCases": {

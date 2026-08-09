@@ -200,84 +200,132 @@
                  real DOM text and the whole thing renders as a plain stacked
                  block when motion is off, so crawlers and screen readers see the
                  same content. -->
+            <!-- Pinned demo. Act 1 is the page you are on; act 2 splits into the
+                 two ways to copy it; act 3 pastes each into where it belongs.
+                 Choreography comes from one scroll-progress value (see
+                 scrollytelling.js); CSS does the rest. All copy is real DOM text
+                 and the whole thing renders as a plain stacked block when motion
+                 is off. -->
             <div class="cine" data-cine>
                 <div class="cine-track">
                     <div class="cine-stage">
 
-                        <div class="cine-browser">
-                            <div class="cine-bar">
+                        <!-- Act 1 — the page, with a tab carrying the title -->
+                        <div class="cine-hero">
+                            <div class="win-tabs">
+                                <span class="tab"><i class="tab-fav"></i><span class="tab-t">設計系統的十條原則</span></span>
+                                <span class="tab tab-ghost"></span>
+                            </div>
+                            <div class="win-bar">
                                 <div class="cine-dots" aria-hidden="true"><i></i><i></i><i></i></div>
                                 <div class="cine-url">example.com/design-systems</div>
                             </div>
                             <div class="cine-page">
                                 <h4 class="cine-title">設計系統的十條原則</h4>
-                                <div class="cine-lines" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-                            </div>
-
-                            <div class="cine-keys" aria-hidden="true">
-                                <kbd>Ctrl</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>C</kbd>
-                            </div>
-
-                            <div class="cine-toast" role="status">
-                                <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4l3.8 3.8 6.8-6.8a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>
-                                <span class="t-label">已複製到剪貼簿</span>
-                                <span class="t-preview">[設計系統的十條原則](example.com/design-systems)</span>
+                                <p class="cine-para">設計系統是設計與工程之間的一份契約。</p>
+                                <div class="cine-lines" aria-hidden="true"><span></span><span></span><span></span></div>
                             </div>
                         </div>
 
-                        <div class="cine-targets" aria-hidden="true">
-                            <!-- Notes: the pasted link as the newest bullet -->
-                            <div class="cine-app">
-                                <div class="app-bar">
-                                    <i class="app-ico"></i>筆記
-                                    <span class="app-fmt">Markdown</span>
-                                </div>
-                                <div class="app-body">
-                                    <span class="sk sk-h"></span>
-                                    <span class="sk"></span>
-                                    <span class="sk w70"></span>
-                                    <ul class="note-list">
-                                        <li><span class="bullet"></span><span class="sk w55"></span></li>
-                                        <li><span class="bullet"></span><span class="sk w45"></span></li>
-                                        <li class="is-new"><span class="bullet"></span><span class="lk">設計系統的十條原則</span></li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <!-- Acts 2 & 3 — two lanes, each source above its destination -->
+                        <div class="cine-lanes">
 
-                            <!-- Chat: the link posted, with the preview a client renders -->
-                            <div class="cine-app">
-                                <div class="app-bar">
-                                    <i class="app-ico is-chat"></i>聊天
-                                    <span class="app-fmt">純文字</span>
-                                </div>
-                                <div class="app-body">
-                                    <div class="msg">
-                                        <span class="ava"></span>
-                                        <div class="msg-body">
-                                            <span class="msg-name"></span>
-                                            <span class="sk"></span>
-                                            <span class="sk w60"></span>
-                                        </div>
+                            <div class="lane lane-a">
+                                <div class="lane-label">整個頁面</div>
+                                <div class="lane-src">
+                                    <div class="win-tabs mini">
+                                        <span class="tab hit"><i class="tab-fav"></i><span class="tab-t">設計系統的十條原則</span></span>
                                     </div>
-                                    <div class="msg">
-                                        <span class="ava me"></span>
-                                        <div class="msg-body">
-                                            <span class="msg-name w35"></span>
-                                            <div class="bubble">
-                                                <span class="lk">設計系統的十條原則</span>
-                                                <div class="preview">
-                                                    <i class="fav"></i>
-                                                    <div>
-                                                        <div class="pv-t">設計系統的十條原則</div>
-                                                        <div class="pv-d">example.com/design-systems</div>
-                                                    </div>
-                                                </div>
+                                    <div class="win-bar mini">
+                                        <div class="cine-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                                        <div class="cine-url hit">example.com/design-systems</div>
+                                    </div>
+                                    <div class="lane-page">
+                                        <div class="cine-lines" aria-hidden="true"><span></span><span></span><span></span></div>
+                                    </div>
+                                    <div class="lane-keys" aria-hidden="true"><kbd>Ctrl</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>L</kbd></div>
+                                </div>
+
+                                <div class="lane-clip" role="status">
+                                    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4l3.8 3.8 6.8-6.8a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>
+                                    <span class="clip-label">已複製到剪貼簿</span>
+                                    <span class="clip-body">[設計系統的十條原則](example.com/design-systems)</span>
+                                </div>
+
+                                <div class="cine-app lane-dst">
+                                    <div class="app-bar">
+                                        <i class="app-ico"></i>筆記
+                                        <span class="app-fmt">Markdown</span>
+                                    </div>
+                                    <div class="app-body">
+                                        <div class="note-split">
+                                            <div class="note-col">
+                                                <div class="note-col-tag">Markdown</div>
+                                                <div class="md-src on-paste"><span class="md-hit"><span class="md-b">[</span><span class="md-t">設計系統的十條原則</span><span class="md-b">](</span><span class="md-u">example.com/design-systems</span><span class="md-b">)</span></span></div>
+                                            </div>
+                                            <div class="note-col">
+                                                <div class="note-col-tag is-toggle">Preview</div>
+                                                <ul class="note-list on-render">
+                                                    <li><span class="bullet"></span><span class="sk w55"></span></li>
+                                                    <li class="is-new"><span class="bullet"></span><span class="lk">設計系統的十條原則</span></li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
+                            <div class="lane lane-b">
+                                <div class="lane-label">只要選取的部分</div>
+                                <div class="lane-src">
+                                    <div class="win-tabs mini">
+                                        <span class="tab"><i class="tab-fav"></i><span class="tab-t">設計系統的十條原則</span></span>
+                                    </div>
+                                    <div class="win-bar mini">
+                                        <div class="cine-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+                                        <div class="cine-url">example.com/design-systems</div>
+                                    </div>
+                                    <div class="lane-page">
+                                        <p class="lane-para"><span class="hit">設計系統是設計與工程之間的一份契約。</span></p>
+                                        <div class="cine-lines" aria-hidden="true"><span></span></div>
+                                    </div>
+                                    <div class="lane-keys" aria-hidden="true"><kbd>Ctrl</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>U</kbd></div>
+                                </div>
+
+                                <div class="lane-clip" role="status">
+                                    <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4l3.8 3.8 6.8-6.8a1 1 0 0 1 1.4 0Z" clip-rule="evenodd"/></svg>
+                                    <span class="clip-label">已複製到剪貼簿</span>
+                                    <span class="clip-body">"設計系統是設計與工程之間的一份契約。" - 設計系統的十條原則</span>
+                                </div>
+
+                                <div class="cine-app lane-dst">
+                                    <div class="app-bar">
+                                        <i class="app-ico is-chat"></i>聊天
+                                        <span class="app-fmt">純文字</span>
+                                    </div>
+                                    <div class="app-body">
+                                        <div class="msg">
+                                            <span class="ava"></span>
+                                            <div class="msg-body"><span class="msg-name"></span><span class="sk w60"></span></div>
+                                        </div>
+                                        <div class="msg on-render">
+                                            <span class="ava me"></span>
+                                            <div class="msg-body">
+                                                <span class="msg-name w35"></span>
+                                                <div class="bubble">
+                                                    <div class="bubble-line">"設計系統是設計與工程之間的一份契約。" - 設計系統的十條原則</div>
+                                                    <span class="bubble-url">example.com/design-systems</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="chat-input">
+                                            <span class="ph" aria-hidden="true"></span>
+                                            <span class="typed on-paste off-render">"設計系統是設計與工程之間的一份契約。" - 設計系統的十條原則<br><span class="typed-url">example.com/design-systems</span></span>
+                                            <span class="send" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="cine-caption">
@@ -289,9 +337,9 @@
                             </div>
                             
                             <div class="cine-cap">
-                                <span class="cine-badge">一個快捷鍵</span>
-                                <h3>按下快捷鍵</h3>
-                                <p>標題和連結一起進剪貼簿，格式就是你事先設定好的那個。</p>
+                                <span class="cine-badge">兩種方式</span>
+                                <h3>複製整頁，或者只複製你選取的那段</h3>
+                                <p>一個快捷鍵取標題和連結；另一個把你選取的內容一併帶上，引用和出處一次到位。</p>
                             </div>
                             
                             <div class="cine-cap">
@@ -308,7 +356,6 @@
                             
                         </div>
 
-                        <div class="cine-rail" aria-hidden="true"><i></i></div>
                     </div>
                 </div>
             </div>

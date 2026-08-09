@@ -91,9 +91,9 @@
           "desc": "Sin seleccionar el titular ni buscar la barra de direcciones. Basta con lo que ya tienes abierto."
         },
         {
-          "badge": "Un atajo",
-          "title": "Pulsa tu atajo",
-          "desc": "El título y el enlace llegan juntos al portapapeles, ya con el formato que configuraste."
+          "badge": "Dos formas",
+          "title": "Copia la página — o solo lo que hayas seleccionado",
+          "desc": "Un atajo toma el título y el enlace; el otro añade tu selección, así la cita llega con su fuente."
         },
         {
           "badge": "Pega donde sea",
@@ -124,7 +124,10 @@
           "app": "Chat",
           "fmt": "Texto plano"
         }
-      ]
+      ],
+      "laneFull": "La página entera",
+      "laneSel": "Solo lo que seleccionaste",
+      "selText": "Un sistema de diseño es un contrato entre diseño e ingeniería."
     }
   },
   "useCases": {

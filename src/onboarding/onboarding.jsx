@@ -427,7 +427,6 @@ function Onboarding() {
 
   // Init: detect OS, load shortcuts, optionally load dev lang override
   useEffect(() => {
-    document.documentElement.classList.add('dark');
     const osOverride = new URLSearchParams(location.search).get('os');
     const detectedOs = osOverride || detectOS();
     setOs(detectedOs);
@@ -479,7 +478,9 @@ function Onboarding() {
 
       {/* Brand */}
       <div className="flex items-center gap-2.5 mb-8">
-        <img src="/icons/icon.webp" className="w-7 h-7 rounded-lg" alt="" />
+        <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-white/95 shadow-sm ring-1 ring-white/20">
+          <img src="/icons/icon.webp" className="w-6 h-6 rounded-md" alt="" />
+        </span>
         <span className="text-ink-2 text-sm font-medium tracking-wide">
           {t('name')}
         </span>

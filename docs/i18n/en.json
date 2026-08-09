@@ -91,9 +91,9 @@
           "desc": "No copying the heading, no hunting for the address bar. Whatever is open is enough."
         },
         {
-          "badge": "One keystroke",
-          "title": "Press your shortcut",
-          "desc": "Title and link land on the clipboard together, already formatted the way you set it up."
+          "badge": "Two ways",
+          "title": "Copy the page — or just the part you highlighted",
+          "desc": "One shortcut takes the title and link. Another wraps whatever you selected, so a quote arrives with its source attached."
         },
         {
           "badge": "Paste anywhere",
@@ -124,7 +124,10 @@
           "app": "Chat",
           "fmt": "Plain text"
         }
-      ]
+      ],
+      "laneFull": "The whole page",
+      "laneSel": "Just what you selected",
+      "selText": "A design system is a contract between design and engineering."
     }
   },
   "useCases": {

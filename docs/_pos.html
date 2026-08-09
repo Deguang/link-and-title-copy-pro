@@ -1,0 +1,8 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body><iframe id="f" src="./index.html" style="width:1360px;height:900px;border:0"></iframe>
+<script>document.getElementById('f').addEventListener('load',function(){var d=this.contentDocument,w=this.contentWindow;
+var t=d.querySelector('.cine-track');var top=0;for(var el=t;el;el=el.offsetParent)top+=el.offsetTop;
+var run=t.offsetHeight-w.innerHeight; w.scrollTo(0,top+run*0.55);
+setTimeout(function(){var c=d.querySelectorAll('.lane-clip');var out=[];
+c.forEach(function(x,i){var r=x.getBoundingClientRect();out.push('clip'+i+' top='+Math.round(r.top)+' h='+Math.round(r.height));});
+var s=d.querySelectorAll('.lane-src');s.forEach(function(x,i){var r=x.getBoundingClientRect();out.push('src'+i+' bottom='+Math.round(r.bottom));});
+document.title='P|'+out.join(' | ');},400);});</script></body></html>
