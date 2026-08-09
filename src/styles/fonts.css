@@ -1,0 +1,35 @@
+/* JetBrains Mono — bundled locally (no network request at runtime).
+ *
+ * Latin subset only, 400 + 600. Deliberately NOT used for UI/body text: the
+ * extension ships 9 locales including zh/ja/ko/hi/ru, and no bundleable font
+ * covers those. CJK faces are multi-MB, so a custom body font would render
+ * English in JetBrains Mono and Chinese in a system fallback — sometimes within
+ * the same string. Monospace content here (templates, placeholders, URLs,
+ * keycaps) is effectively ASCII, so it has no such split.
+ *
+ * Source: https://github.com/JetBrains/JetBrainsMono (SIL OFL 1.1)
+ * License text: ./assets/fonts/JetBrainsMono-LICENSE.txt
+ */
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/jetbrains-mono-latin-400-normal.woff2') format('woff2');
+  /* Latin + Latin-1 Supplement + a few punctuation ranges. */
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../assets/fonts/jetbrains-mono-latin-600-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}

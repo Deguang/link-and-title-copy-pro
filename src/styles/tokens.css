@@ -1,0 +1,124 @@
+/* =============================================================================
+ * Design tokens — "Brand v2"
+ *
+ * The palette is derived from the product mark (src/icons/icon.png), not
+ * invented: navy #032A4B (the mark's outline and its largest area), coral
+ * #FC686D (the title bar), amber #FAD176 (the "U" tile) and cyan #03C7E4
+ * (the "T"). Neutrals are navy-tinted rather than stock grey, so every surface
+ * reads as the same family as the icon.
+ *
+ * Role assignment matters as much as the hues:
+ *   - NAVY carries every functional action (buttons, focus, selection). Using
+ *     the coral here would make routine controls read as alarms, and it would
+ *     collide with the red that means "error".
+ *   - CORAL is a brand spark only: the popup's top hairline and the mark. It is
+ *     never a button, link, or state colour. Raw coral is 2.86:1 on white, so it
+ *     must never carry text.
+ *   - AMBER marks Pro. Navy-on-amber is 10:1.
+ *   - CYAN reads as "link/URL", which is what it labels in the mark.
+ *
+ * Values are RGB triplets so Tailwind's alpha modifiers (`ring-accent/20`) work.
+ * Every pairing below is checked against WCAG AA (4.5:1 for text); the notable
+ * trap is dark mode, where the lifted accent needs *dark* foreground text —
+ * white on it is only 2.90:1.
+ *
+ * Dark mode follows the OS by default and can be forced with
+ * `data-theme="light"|"dark"` on <html>.
+ * ========================================================================== */
+
+:root {
+  /* Surfaces */
+  --c-canvas: 245 247 250;      /* #F5F7FA  page behind cards */
+  --c-surface: 255 255 255;     /* #FFFFFF  cards, inputs */
+  --c-surface-2: 248 250 252;   /* #F8FAFC  insets, code blocks */
+  --c-line: 220 227 234;        /* #DCE3EA  borders */
+  --c-line-soft: 235 240 245;   /* #EBF0F5  hairlines, dividers */
+
+  /* Text — ink-3 is 4.73:1, kept AA even for tertiary meta */
+  --c-ink: 3 42 75;             /* #032A4B  13.62:1 on canvas */
+  --c-ink-2: 85 103 122;        /* #55677A   5.82:1 on surface */
+  --c-ink-3: 102 117 132;       /* #667584   4.73:1 on surface */
+
+  /* Primary action — navy */
+  --c-accent: 11 60 99;         /* #0B3C63  white text 11.41:1 */
+  --c-accent-hover: 3 42 75;    /* #032A4B */
+  --c-accent-fg: 255 255 255;   /* text/icon on an accent fill */
+  --c-accent-soft: 231 238 245; /* #E7EEF5  focus ring, tinted rows */
+
+  /* Brand spark — decorative only, never text or a control */
+  --c-brand: 252 104 109;       /* #FC686D */
+
+  /* State */
+  --c-ok: 12 124 149;           /* #0C7C95  4.85:1 */
+  --c-warn: 154 107 18;         /* #9A6B12  4.68:1 */
+  --c-warn-soft: 254 246 227;   /* #FEF6E3 */
+  --c-danger: 192 57 43;        /* #C0392B  5.44:1 */
+  --c-danger-soft: 251 237 235; /* #FBEDEB */
+
+  /* Pro badge — navy on amber, 10.06:1 */
+  --c-pro: 250 209 118;         /* #FAD176 */
+  --c-pro-fg: 3 42 75;          /* #032A4B */
+
+  /* Keycaps */
+  --c-key-bg: 255 255 255;
+  --c-key-bg-2: 238 243 248;    /* gradient foot */
+  --c-key-line: 211 221 230;
+  --c-key-ink: 27 59 92;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --c-canvas: 7 29 43;         /* #071D2B */
+    --c-surface: 12 38 55;       /* #0C2637 */
+    --c-surface-2: 10 33 48;     /* #0A2130 */
+    --c-line: 22 57 79;          /* #16394F */
+    --c-line-soft: 18 48 68;     /* #123044 */
+
+    --c-ink: 232 240 246;        /* #E8F0F6  13.52:1 */
+    --c-ink-2: 147 169 186;      /* #93A9BA   6.40:1 */
+    --c-ink-3: 114 145 171;      /* #7291AB   4.71:1 */
+
+    /* The accent lifts so it reads on a dark surface, which flips the
+     * foreground: white on it is only 2.90:1, dark navy is 6.44:1. */
+    --c-accent: 74 159 216;      /* #4A9FD8 */
+    --c-accent-hover: 127 192 234;
+    --c-accent-fg: 4 20 31;      /* #04141F */
+    --c-accent-soft: 16 51 76;   /* #10334C */
+
+    --c-ok: 53 182 209;          /* #35B6D1  6.50:1 */
+    --c-warn: 224 163 59;
+    --c-warn-soft: 51 40 13;
+    --c-danger: 255 107 122;
+    --c-danger-soft: 58 26 23;
+
+    --c-key-bg: 22 64 86;
+    --c-key-bg-2: 15 48 68;
+    --c-key-line: 31 82 108;
+    --c-key-ink: 211 227 238;
+  }
+}
+
+/* Explicit override — same values, applied regardless of OS preference. */
+:root[data-theme="dark"] {
+  --c-canvas: 7 29 43;
+  --c-surface: 12 38 55;
+  --c-surface-2: 10 33 48;
+  --c-line: 22 57 79;
+  --c-line-soft: 18 48 68;
+  --c-ink: 232 240 246;
+  --c-ink-2: 147 169 186;
+  --c-ink-3: 114 145 171;
+  --c-accent: 74 159 216;
+  --c-accent-hover: 127 192 234;
+  --c-accent-fg: 4 20 31;
+  --c-accent-soft: 16 51 76;
+  --c-ok: 53 182 209;
+  --c-warn: 224 163 59;
+  --c-warn-soft: 51 40 13;
+  --c-danger: 255 107 122;
+  --c-danger-soft: 58 26 23;
+  --c-key-bg: 22 64 86;
+  --c-key-bg-2: 15 48 68;
+  --c-key-line: 31 82 108;
+  --c-key-ink: 211 227 238;
+}

@@ -94,6 +94,15 @@ Link&TitleCopyPro是一个可以同时复制浏览器标签页的标题和URL链
 - Custom templates support
 - Multiple shortcut configurations
 
+## Design / 设计
+
+Visual language, colour tokens, and the reasoning behind them:
+**[docs/design-system.md](docs/design-system.md)**
+
+Values live in `src/styles/tokens.css` and are exposed as semantic Tailwind
+utilities (`bg-surface`, `text-ink-2`, `bg-accent`). Components name roles, never
+raw hues, so light/dark is a single attribute flip.
+
 ## License / 许可证
 
 Source-available under the [PolyForm Noncommercial License 1.0.0](LICENSE). You may

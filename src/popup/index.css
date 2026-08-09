@@ -1,10 +1,13 @@
+@import '../styles/tokens.css';
+@import '../styles/fonts.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-}
+/* Body font comes from the Tailwind `sans` stack (tailwind.config.js), which is
+ * script-aware. The old rule named 'Inter' but Inter was never bundled, so it
+ * silently fell back to system-ui anyway. */
 
 /* Custom scrollbar for Webkit */
 ::-webkit-scrollbar {
