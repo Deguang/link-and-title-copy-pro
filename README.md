@@ -59,6 +59,20 @@ Link&TitleCopyPro是一个可以同时复制浏览器标签页的标题和URL链
 
 ## Version History / 版本历史
 
+### v1.9.0
+
+- New `{url:notrack}` placeholder removes tracking parameters while keeping the ones the page needs / 新增 `{url:notrack}`，去除追踪参数但保留页面必需的参数
+- New installs get a clean-link template ready to use / 新安装自带「干净链接」模板
+- The popup now copies the tabs you selected in the tab strip / 弹窗会复制你在标签栏中选中的标签页
+
+### v1.9.0
+
+- New `{url:notrack}` removes tracking parameters while keeping the ones the page needs / 新增 `{url:notrack}`，去除追踪参数但保留页面必需的参数
+- New installs get a clean-link template, ready to use / 新安装自带「干净链接」模板
+- The popup copies the tabs you selected in the tab strip / 弹窗会复制你在标签栏中选中的标签页
+- The right-click menu no longer lists every template twice / 右键菜单不再重复列出每个模板
+- Shortcuts can be cleared, and are now optional / 快捷键可以清除，且改为可选
+
 ### v1.8.0
 
 - Shortcuts now work on the new tab page, chrome:// pages and the Web Store, where nothing was listening before / 快捷键现在在新标签页、chrome:// 页面和应用商店也能用
