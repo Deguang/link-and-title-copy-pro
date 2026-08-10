@@ -449,7 +449,7 @@
         "message": "Saved"
     },
     "validationMissingShortcut": {
-        "message": "No shortcut set — this template can never be triggered."
+        "message": "No shortcut set — reachable from the popup and right-click menu, but not the keyboard."
     },
     "validationDuplicateShortcut": {
         "message": "$SHORTCUT$ is already used by another template. Only the first one will run.",
@@ -489,5 +489,8 @@
     },
     "urlNoTrack": {
         "message": "URL with tracking parameters removed"
+    },
+    "defaultDescClean": {
+        "message": "Clean link, tracking removed"
     }
 }

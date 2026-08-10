@@ -11,11 +11,15 @@ test('a complete config reports no issues', () => {
     assert.equal(isConfigUsable(VALID), true);
 });
 
-test('empty shortcut is an error (template could never fire)', () => {
+test('empty shortcut is a warning — popup and context menu still reach it', () => {
     const issues = validateConfig({ shortcut: '', template: '{url}' });
     assert.deepEqual(issues.map(i => i.code), ['missingShortcut']);
-    assert.equal(issues[0].level, 'error');
+    assert.equal(issues[0].level, 'warning');
     assert.equal(issues[0].field, 'shortcut');
+});
+
+test('a shortcut-less template is still usable', () => {
+    assert.equal(isConfigUsable({ shortcut: '', template: '{url:notrack}' }), true);
 });
 
 test('whitespace-only shortcut counts as missing', () => {
@@ -26,9 +30,10 @@ test('empty template is an error and short-circuits further checks', () => {
     assert.deepEqual(codes({ shortcut: 'Ctrl+Shift+C', template: '   ' }), ['emptyTemplate']);
 });
 
-test('a brand-new blank config reports both errors', () => {
+test('a brand-new blank config is flagged, the empty template blocking', () => {
     const issues = codes({ shortcut: '', template: '' });
     assert.deepEqual(issues, ['missingShortcut', 'emptyTemplate']);
+    // The empty template is what makes it unusable, not the missing shortcut.
     assert.equal(isConfigUsable({ shortcut: '', template: '' }), false);
 });
 

@@ -449,7 +449,7 @@
         "message": "保存しました"
     },
     "validationMissingShortcut": {
-        "message": "ショートカットが未設定です — このテンプレートは実行できません。"
+        "message": "ショートカット未設定 — ポップアップと右クリックからは使えますが、キーボードでは起動しません。"
     },
     "validationDuplicateShortcut": {
         "message": "$SHORTCUT$ は他のテンプレートで使用中です。最初の1つだけが動作します。",
@@ -489,5 +489,8 @@
     },
     "urlNoTrack": {
         "message": "トラッキングパラメータを除いたURL"
+    },
+    "defaultDescClean": {
+        "message": "クリーンなリンク（追跡パラメータ除去）"
     }
 }

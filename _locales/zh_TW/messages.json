@@ -449,7 +449,7 @@
         "message": "已儲存"
     },
     "validationMissingShortcut": {
-        "message": "未設定快捷鍵 — 此範本永遠不會被觸發。"
+        "message": "未設定快捷鍵 — 仍可從彈出視窗和右鍵選單使用，但鍵盤無法觸發。"
     },
     "validationDuplicateShortcut": {
         "message": "$SHORTCUT$ 已被其他範本佔用,只有第一個會生效。",
@@ -489,5 +489,8 @@
     },
     "urlNoTrack": {
         "message": "移除追蹤參數後的網址"
+    },
+    "defaultDescClean": {
+        "message": "乾淨連結（已移除追蹤參數）"
     }
 }

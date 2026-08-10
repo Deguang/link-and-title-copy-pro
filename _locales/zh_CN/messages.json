@@ -449,7 +449,7 @@
         "message": "已保存"
     },
     "validationMissingShortcut": {
-        "message": "未设置快捷键 — 该模板永远不会被触发。"
+        "message": "未设置快捷键 — 仍可从弹窗和右键菜单使用，但键盘无法触发。"
     },
     "validationDuplicateShortcut": {
         "message": "$SHORTCUT$ 已被其他模板占用,只有第一个会生效。",
@@ -489,5 +489,8 @@
     },
     "urlNoTrack": {
         "message": "去除追踪参数后的网址"
+    },
+    "defaultDescClean": {
+        "message": "干净链接（已去除追踪参数）"
     }
 }

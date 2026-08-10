@@ -449,7 +449,7 @@
         "message": "Gespeichert"
     },
     "validationMissingShortcut": {
-        "message": "Kein Kürzel festgelegt – diese Vorlage kann nie ausgelöst werden."
+        "message": "Kein Kürzel gesetzt — über Popup und Rechtsklick erreichbar, aber nicht per Tastatur."
     },
     "validationDuplicateShortcut": {
         "message": "$SHORTCUT$ wird bereits von einer anderen Vorlage verwendet. Nur die erste wird ausgeführt.",
@@ -489,5 +489,8 @@
     },
     "urlNoTrack": {
         "message": "URL ohne Tracking-Parameter"
+    },
+    "defaultDescClean": {
+        "message": "Sauberer Link, ohne Tracking"
     }
 }

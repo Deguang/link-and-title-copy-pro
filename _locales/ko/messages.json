@@ -449,7 +449,7 @@
         "message": "저장됨"
     },
     "validationMissingShortcut": {
-        "message": "단축키가 설정되지 않아 이 템플릿은 실행될 수 없습니다."
+        "message": "단축키 없음 — 팝업과 우클릭 메뉴에서는 쓸 수 있지만 키보드로는 실행되지 않습니다."
     },
     "validationDuplicateShortcut": {
         "message": "$SHORTCUT$ 은(는) 다른 템플릿에서 이미 사용 중입니다. 첫 번째 항목만 작동합니다.",
@@ -489,5 +489,8 @@
     },
     "urlNoTrack": {
         "message": "추적 파라미터를 제거한 URL"
+    },
+    "defaultDescClean": {
+        "message": "추적 제거된 깔끔한 링크"
     }
 }

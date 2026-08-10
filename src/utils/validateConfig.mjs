@@ -73,9 +73,9 @@ export function validateConfig(config, options = {}) {
 
     // --- Shortcut ---------------------------------------------------------
     if (!shortcut) {
-        // Content-script matching compares against the stored string, so an empty
-        // shortcut can never fire: the template exists but is unreachable.
-        issues.push({ code: 'missingShortcut', level: 'error', field: 'shortcut' });
+        // A template without a shortcut is still reachable from the popup and the
+        // context menu, so this is a note about what you give up, not a fault.
+        issues.push({ code: 'missingShortcut', level: 'warning', field: 'shortcut' });
     } else if (index >= 0) {
         // Only the first config with a given shortcut ever runs; later ones are dead.
         const firstIdx = allConfigs.findIndex(c => (c?.shortcut || '').trim() === shortcut);

@@ -17,6 +17,7 @@ function getDefaultConfigs() {
   const descPlain = chrome.i18n.getMessage('defaultDescPlain') || 'Copy selected text (or title) and URL';
   const descMarkdown = chrome.i18n.getMessage('defaultDescMarkdown') || 'Copy as Markdown link';
   const descSmart = chrome.i18n.getMessage('defaultDescSmart') || 'Smart copy with quotes for selected text';
+  const descClean = chrome.i18n.getMessage('defaultDescClean') || 'Clean link, tracking removed';
 
   return [
     {
@@ -33,6 +34,14 @@ function getDefaultConfigs() {
       windows: { shortcut: 'Ctrl+Shift+U', template: '{if:selectedText}"{selectedText}" - {title}\n{url}{/if:selectedText}{if:noSelectedText}{title}\n{url}{/if:noSelectedText}', description: descSmart },
       mac:     { shortcut: 'Command+Shift+U', template: '{if:selectedText}"{selectedText}" - {title}\n{url}{/if:selectedText}{if:noSelectedText}{title}\n{url}{/if:noSelectedText}', description: descSmart },
       linux:   { shortcut: 'Ctrl+Shift+U', template: '{if:selectedText}"{selectedText}" - {title}\n{url}{/if:selectedText}{if:noSelectedText}{title}\n{url}{/if:noSelectedText}', description: descSmart }
+    },
+    // Shipped without a shortcut: four defaults is already a lot of keys to
+    // claim, and this one is reached from the popup or the context menu. New
+    // installs only — setupDefaultConfigs leaves existing setups alone.
+    {
+      windows: { shortcut: '', template: '{url:notrack}', description: descClean },
+      mac:     { shortcut: '', template: '{url:notrack}', description: descClean },
+      linux:   { shortcut: '', template: '{url:notrack}', description: descClean }
     }
   ];
 }

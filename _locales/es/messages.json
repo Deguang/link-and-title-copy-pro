@@ -449,7 +449,7 @@
         "message": "Guardado"
     },
     "validationMissingShortcut": {
-        "message": "Sin atajo configurado: esta plantilla nunca podrá activarse."
+        "message": "Sin atajo — accesible desde la ventana y el menú contextual, pero no con el teclado."
     },
     "validationDuplicateShortcut": {
         "message": "$SHORTCUT$ ya lo usa otra plantilla. Solo se ejecutará la primera.",
@@ -489,5 +489,8 @@
     },
     "urlNoTrack": {
         "message": "URL sin parámetros de rastreo"
+    },
+    "defaultDescClean": {
+        "message": "Enlace limpio, sin rastreo"
     }
 }
