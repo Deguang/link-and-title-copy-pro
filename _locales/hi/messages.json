@@ -486,5 +486,8 @@
     },
     "batchFromSelection": {
         "message": "आपके चुने हुए टैब से"
+    },
+    "urlNoTrack": {
+        "message": "ट्रैकिंग पैरामीटर हटाया गया URL"
     }
 }

@@ -134,6 +134,7 @@ const HelpContent = ({ t }) => {
             </Group>
 
             <Group title={t('urlComponentPlaceholders')}>
+                <Row code="{url:notrack}" desc={t('urlNoTrack')} />
                 <Row code="{url:clean}" desc={t('urlClean')} />
                 <Row code="{url:protocol}" desc={t('urlProtocol')} />
                 <Row code="{url:domain}" desc={t('urlDomain')} />
@@ -223,6 +224,7 @@ const TemplateEditor = ({ config, index, onChange, onDelete, onOpenHelp, issues 
     const placeholders = [
         { value: '{title}', desc: t('pageTitle') },
         { value: '{url}', desc: t('pageUrl') },
+        { value: '{url:notrack}', desc: t('urlNoTrack') },
         { value: '{url:clean}', desc: t('urlClean') },
         { value: '{url:protocol}', desc: t('urlProtocol') },
         { value: '{url:domain}', desc: t('urlDomain') },

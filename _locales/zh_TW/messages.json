@@ -486,5 +486,8 @@
     },
     "batchFromSelection": {
         "message": "來自你選取的分頁"
+    },
+    "urlNoTrack": {
+        "message": "移除追蹤參數後的網址"
     }
 }

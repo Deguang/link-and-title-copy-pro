@@ -15,6 +15,7 @@ export const KNOWN_PLACEHOLDERS = new Set([
     'url',
     'selectedText',
     'url:clean',
+    'url:notrack',
     'url:protocol',
     'url:domain',
     'url:path',

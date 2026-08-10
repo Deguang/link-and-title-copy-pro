@@ -1,4 +1,6 @@
 // @ts-check
+import { cleanUrl } from './cleanUrl.mjs';
+
 /**
  * Process the template string with the provided context.
  * 
@@ -50,6 +52,11 @@ export function processTemplate(template, context = {}) {
         try {
             const urlObj = new URL(url);
             result = result
+                // {url:clean} drops the query entirely — its long-standing meaning,
+                // and still what you want for a canonical link. {url:notrack} keeps
+                // the parameters the page needs and removes only the tracking ones,
+                // which is what "clean link" usually means to people.
+                .replace(/\{url:notrack\}/g, cleanUrl(url))
                 .replace(/\{url:clean\}/g, `${urlObj.origin}${urlObj.pathname}`)
                 .replace(/\{url:protocol\}/g, urlObj.protocol.replace(':', ''))
                 .replace(/\{url:domain\}/g, urlObj.hostname)

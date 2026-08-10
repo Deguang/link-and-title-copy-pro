@@ -486,5 +486,8 @@
     },
     "batchFromSelection": {
         "message": "選択中のタブから"
+    },
+    "urlNoTrack": {
+        "message": "トラッキングパラメータを除いたURL"
     }
 }

@@ -486,5 +486,8 @@
     },
     "batchFromSelection": {
         "message": "선택한 탭에서"
+    },
+    "urlNoTrack": {
+        "message": "추적 파라미터를 제거한 URL"
     }
 }

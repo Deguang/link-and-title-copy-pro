@@ -486,5 +486,8 @@
     },
     "batchFromSelection": {
         "message": "Aus deiner Tab-Auswahl"
+    },
+    "urlNoTrack": {
+        "message": "URL ohne Tracking-Parameter"
     }
 }

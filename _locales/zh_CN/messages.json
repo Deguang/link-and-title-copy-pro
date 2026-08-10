@@ -486,5 +486,8 @@
     },
     "batchFromSelection": {
         "message": "来自你选中的标签页"
+    },
+    "urlNoTrack": {
+        "message": "去除追踪参数后的网址"
     }
 }

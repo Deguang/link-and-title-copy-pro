@@ -486,5 +486,8 @@
     },
     "batchFromSelection": {
         "message": "De tu selección de pestañas"
+    },
+    "urlNoTrack": {
+        "message": "URL sin parámetros de rastreo"
     }
 }

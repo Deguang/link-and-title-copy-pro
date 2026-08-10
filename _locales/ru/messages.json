@@ -486,5 +486,8 @@
     },
     "batchFromSelection": {
         "message": "Из выбранных вкладок"
+    },
+    "urlNoTrack": {
+        "message": "Ссылка без параметров отслеживания"
     }
 }
