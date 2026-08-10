@@ -134,7 +134,8 @@
       "mdSource": "Source",
       "mdPreview": "Preview"
     },
-    "moreTitle": "Beyond the copy itself"
+    "moreTitle": "Beyond the copy itself",
+    "demoHeading": "How copying works"
   },
   "useCases": {
     "title": "Built for Every Workflow",
@@ -164,15 +165,21 @@
     "title": "Frequently Asked Questions",
     "q1": {
       "q": "Is it completely free?",
-      "a": "Yes, Copy Page Title and URL Pro is open-source and 100% free forever. No hidden subscriptions."
+      "a": "Yes, Copy Page Title and URL Pro is open-source and 100% free forever. No hidden subscriptions.",
+      "qPlain": "Is it completely free?",
+      "aPlain": "Yes, Copy Page Title and URL Pro is open-source and 100% free forever. No hidden subscriptions."
     },
     "q2": {
       "q": "Does it track my data?",
-      "a": "Absolutely not. We do not collect, store, or transmit any usage data. Everything happens locally on your browser. See our <a href=\"privacy.html\" class=\"text-blue-600 hover:underline\">Privacy Policy</a>."
+      "a": "Absolutely not. We do not collect, store, or transmit any usage data. Everything happens locally on your browser. See our <a href=\"privacy.html\" class=\"text-blue-600 hover:underline\">Privacy Policy</a>.",
+      "qPlain": "Does it track my data?",
+      "aPlain": "Absolutely not. We do not collect, store, or transmit any usage data. Everything happens locally on your browser. See our Privacy Policy."
     },
     "q3": {
       "q": "Can I create my own formats?",
-      "a": "Yes! You can create unlimited custom templates using placeholders like <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code> and <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code>."
+      "a": "Yes! You can create unlimited custom templates using placeholders like <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code> and <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code>.",
+      "qPlain": "Can I create my own formats?",
+      "aPlain": "Yes! You can create unlimited custom templates using placeholders like {title} and {url}."
     }
   },
   "footer": {
@@ -188,5 +195,15 @@
     "desc": "Finished reading with a stack of tabs open? Pick the ones you want and copy up to five at once, in the format you already use — instead of visiting each to fetch its link.",
     "tabsLabel": "Tabs in this window",
     "cta": "Copy 5 tabs"
+  },
+  "version": "1.7.3",
+  "shots": {
+    "shotsTitle": "What you actually get",
+    "popupAlt": "The extension popup listing three copy formats, each with its keyboard shortcut and a preview of the result",
+    "settingsAlt": "The settings page: template list on the left, editor on the right showing a shortcut, description and template with live preview",
+    "batchAlt": "The popup in All Tabs mode, with open tabs listed and five selected ready to copy",
+    "popupCap": "One click, or one keystroke",
+    "settingsCap": "Templates you can edit and preview",
+    "batchCap": "Several tabs in one go"
   }
 }

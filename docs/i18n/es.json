@@ -134,7 +134,8 @@
       "mdSource": "Código",
       "mdPreview": "Vista previa"
     },
-    "moreTitle": "Más allá de copiar"
+    "moreTitle": "Más allá de copiar",
+    "demoHeading": "Cómo funciona la copia"
   },
   "useCases": {
     "title": "Diseñada para cada flujo de trabajo",
@@ -164,15 +165,21 @@
     "title": "Preguntas frecuentes",
     "q1": {
       "q": "¿Es completamente gratis?",
-      "a": "Sí, Copy Page Title and URL Pro es de código abierto y 100 % gratis para siempre. Sin suscripciones ocultas."
+      "a": "Sí, Copy Page Title and URL Pro es de código abierto y 100 % gratis para siempre. Sin suscripciones ocultas.",
+      "qPlain": "¿Es completamente gratis?",
+      "aPlain": "Sí, Copy Page Title and URL Pro es de código abierto y 100 % gratis para siempre. Sin suscripciones ocultas."
     },
     "q2": {
       "q": "¿Rastrea mis datos?",
-      "a": "En absoluto. No recopilamos, almacenamos ni transmitimos ningún dato de uso. Todo ocurre localmente en tu navegador. Consulta nuestra <a href=\"privacy.html\" class=\"text-blue-600 hover:underline\">Política de privacidad</a>."
+      "a": "En absoluto. No recopilamos, almacenamos ni transmitimos ningún dato de uso. Todo ocurre localmente en tu navegador. Consulta nuestra <a href=\"privacy.html\" class=\"text-blue-600 hover:underline\">Política de privacidad</a>.",
+      "qPlain": "¿Rastrea mis datos?",
+      "aPlain": "En absoluto. No recopilamos, almacenamos ni transmitimos ningún dato de uso. Todo ocurre localmente en tu navegador. Consulta nuestra Política de privacidad."
     },
     "q3": {
       "q": "¿Puedo crear mis propios formatos?",
-      "a": "¡Sí! Puedes crear plantillas personalizadas ilimitadas usando marcadores como <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code> y <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code>."
+      "a": "¡Sí! Puedes crear plantillas personalizadas ilimitadas usando marcadores como <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code> y <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code>.",
+      "qPlain": "¿Puedo crear mis propios formatos?",
+      "aPlain": "¡Sí! Puedes crear plantillas personalizadas ilimitadas usando marcadores como {title} y {url}."
     }
   },
   "footer": {
@@ -188,5 +195,15 @@
     "desc": "¿Terminaste de leer con un montón de pestañas abiertas? Marca las que quieras y copia hasta cinco de una vez, en tu formato de siempre, sin entrar en cada una.",
     "tabsLabel": "Pestañas de esta ventana",
     "cta": "Copiar 5 pestañas"
+  },
+  "version": "1.7.3",
+  "shots": {
+    "shotsTitle": "Así se ve de verdad",
+    "popupAlt": "La ventana emergente con tres formatos de copia, cada uno con su atajo y una vista previa del resultado",
+    "settingsAlt": "La página de ajustes: lista de plantillas a la izquierda y editor a la derecha con atajo, descripción, plantilla y vista previa",
+    "batchAlt": "La ventana emergente en modo Todas las pestañas, con cinco seleccionadas",
+    "popupCap": "Un clic, o un atajo",
+    "settingsCap": "Plantillas editables y con vista previa",
+    "batchCap": "Varias pestañas de una vez"
   }
 }

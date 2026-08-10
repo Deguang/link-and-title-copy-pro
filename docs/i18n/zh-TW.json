@@ -134,7 +134,8 @@
       "mdSource": "原始碼",
       "mdPreview": "預覽"
     },
-    "moreTitle": "除了複製本身"
+    "moreTitle": "除了複製本身",
+    "demoHeading": "複製的過程"
   },
   "useCases": {
     "title": "為所有工作流程打造",
@@ -164,15 +165,21 @@
     "title": "常見問題",
     "q1": {
       "q": "完全免費嗎？",
-      "a": "是的，Link & Title Copy Pro 是開源的，並且永久免費。沒有任何隱藏收費。"
+      "a": "是的，Link & Title Copy Pro 是開源的，並且永久免費。沒有任何隱藏收費。",
+      "qPlain": "完全免費嗎？",
+      "aPlain": "是的，Link & Title Copy Pro 是開源的，並且永久免費。沒有任何隱藏收費。"
     },
     "q2": {
       "q": "它會收集我的資料嗎？",
-      "a": "絕對不會。我們不收集、儲存或傳輸任何用戶資料。所有操作都在你的瀏覽器本地完成。請查看我們的<a href=\"privacy.html\" class=\"text-blue-600 hover:underline\">隱私權政策</a>。"
+      "a": "絕對不會。我們不收集、儲存或傳輸任何用戶資料。所有操作都在你的瀏覽器本地完成。請查看我們的<a href=\"privacy.html\" class=\"text-blue-600 hover:underline\">隱私權政策</a>。",
+      "qPlain": "它會收集我的資料嗎？",
+      "aPlain": "絕對不會。我們不收集、儲存或傳輸任何用戶資料。所有操作都在你的瀏覽器本地完成。請查看我們的隱私權政策。"
     },
     "q3": {
       "q": "我可以建立自訂格式嗎？",
-      "a": "可以！你可以使用 <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code> 和 <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code> 等變數建立無限數量的自訂模板。"
+      "a": "可以！你可以使用 <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code> 和 <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code> 等變數建立無限數量的自訂模板。",
+      "qPlain": "我可以建立自訂格式嗎？",
+      "aPlain": "可以！你可以使用 {title} 和 {url} 等變數建立無限數量的自訂模板。"
     }
   },
   "footer": {
@@ -188,5 +195,15 @@
     "desc": "讀完留下一堆分頁？勾選需要的，一次最多複製 5 條，格式還是你慣用的那個——不用一個個點開去取連結。",
     "tabsLabel": "目前視窗的分頁",
     "cta": "複製 5 個分頁"
+  },
+  "version": "1.7.3",
+  "shots": {
+    "shotsTitle": "裝上之後長這樣",
+    "popupAlt": "擴充功能彈出視窗，列出三種複製格式，每種都帶快捷鍵和結果預覽",
+    "settingsAlt": "設定頁：左側範本列表，右側編輯器顯示快捷鍵、描述、範本與即時預覽",
+    "batchAlt": "彈出視窗的全部分頁模式，列出已開啟的分頁並勾選了五條",
+    "popupCap": "點一下，或按一個快捷鍵",
+    "settingsCap": "範本可編輯、可預覽",
+    "batchCap": "多個分頁一次帶走"
   }
 }

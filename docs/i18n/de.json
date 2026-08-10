@@ -134,7 +134,8 @@
       "mdSource": "Quelltext",
       "mdPreview": "Vorschau"
     },
-    "moreTitle": "Über das Kopieren hinaus"
+    "moreTitle": "Über das Kopieren hinaus",
+    "demoHeading": "Wie das Kopieren abläuft"
   },
   "useCases": {
     "title": "Für jeden Workflow gemacht",
@@ -164,15 +165,21 @@
     "title": "Häufig gestellte Fragen",
     "q1": {
       "q": "Ist es komplett kostenlos?",
-      "a": "Ja, Copy Page Title and URL Pro ist quelloffen und für immer 100 % kostenlos. Keine versteckten Abos."
+      "a": "Ja, Copy Page Title and URL Pro ist quelloffen und für immer 100 % kostenlos. Keine versteckten Abos.",
+      "qPlain": "Ist es komplett kostenlos?",
+      "aPlain": "Ja, Copy Page Title and URL Pro ist quelloffen und für immer 100 % kostenlos. Keine versteckten Abos."
     },
     "q2": {
       "q": "Werden meine Daten erfasst?",
-      "a": "Absolut nicht. Wir erfassen, speichern oder übertragen keinerlei Nutzungsdaten. Alles geschieht lokal in Ihrem Browser. Siehe unsere <a href=\"privacy.html\" class=\"text-blue-600 hover:underline\">Datenschutzerklärung</a>."
+      "a": "Absolut nicht. Wir erfassen, speichern oder übertragen keinerlei Nutzungsdaten. Alles geschieht lokal in Ihrem Browser. Siehe unsere <a href=\"privacy.html\" class=\"text-blue-600 hover:underline\">Datenschutzerklärung</a>.",
+      "qPlain": "Werden meine Daten erfasst?",
+      "aPlain": "Absolut nicht. Wir erfassen, speichern oder übertragen keinerlei Nutzungsdaten. Alles geschieht lokal in Ihrem Browser. Siehe unsere Datenschutzerklärung."
     },
     "q3": {
       "q": "Kann ich eigene Formate erstellen?",
-      "a": "Ja! Sie können unbegrenzt eigene Vorlagen mit Platzhaltern wie <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code> und <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code> erstellen."
+      "a": "Ja! Sie können unbegrenzt eigene Vorlagen mit Platzhaltern wie <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code> und <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code> erstellen.",
+      "qPlain": "Kann ich eigene Formate erstellen?",
+      "aPlain": "Ja! Sie können unbegrenzt eigene Vorlagen mit Platzhaltern wie {title} und {url} erstellen."
     }
   },
   "footer": {
@@ -188,5 +195,15 @@
     "desc": "Nach dem Lesen ein Stapel offener Tabs? Wähle die aus, die du brauchst, und kopiere bis zu fünf auf einmal — im gewohnten Format, ohne jeden einzeln aufzurufen.",
     "tabsLabel": "Tabs in diesem Fenster",
     "cta": "5 Tabs kopieren"
+  },
+  "version": "1.7.3",
+  "shots": {
+    "shotsTitle": "So sieht es aus",
+    "popupAlt": "Das Popup der Erweiterung mit drei Kopierformaten, jeweils mit Tastenkürzel und Vorschau des Ergebnisses",
+    "settingsAlt": "Die Einstellungen: links die Vorlagenliste, rechts der Editor mit Kürzel, Beschreibung, Vorlage und Vorschau",
+    "batchAlt": "Das Popup im Alle-Tabs-Modus mit offenen Tabs und fünf ausgewählten",
+    "popupCap": "Ein Klick oder ein Tastendruck",
+    "settingsCap": "Vorlagen bearbeiten und ansehen",
+    "batchCap": "Mehrere Tabs auf einmal"
   }
 }

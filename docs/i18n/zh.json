@@ -134,7 +134,8 @@
       "mdSource": "源码",
       "mdPreview": "预览"
     },
-    "moreTitle": "除了复制本身"
+    "moreTitle": "除了复制本身",
+    "demoHeading": "复制的过程"
   },
   "useCases": {
     "title": "为所有工作流打造",
@@ -164,15 +165,21 @@
     "title": "常见问题",
     "q1": {
       "q": "完全免费吗？",
-      "a": "是的，Link & Title Copy Pro 是开源的，并且永久免费。没有任何隐藏收费。"
+      "a": "是的，Link & Title Copy Pro 是开源的，并且永久免费。没有任何隐藏收费。",
+      "qPlain": "完全免费吗？",
+      "aPlain": "是的，Link & Title Copy Pro 是开源的，并且永久免费。没有任何隐藏收费。"
     },
     "q2": {
       "q": "它会收集我的数据吗？",
-      "a": "绝对不会。我们不收集、存储或传输任何用户数据。所有操作都在你的浏览器本地完成。请查看我们的<a href=\"privacy.html\" class=\"text-blue-600 hover:underline\">隐私政策</a>。"
+      "a": "绝对不会。我们不收集、存储或传输任何用户数据。所有操作都在你的浏览器本地完成。请查看我们的<a href=\"privacy.html\" class=\"text-blue-600 hover:underline\">隐私政策</a>。",
+      "qPlain": "它会收集我的数据吗？",
+      "aPlain": "绝对不会。我们不收集、存储或传输任何用户数据。所有操作都在你的浏览器本地完成。请查看我们的隐私政策。"
     },
     "q3": {
       "q": "我可以创建自定义格式吗？",
-      "a": "可以！你可以使用 <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code> 和 <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code> 等变量创建无限数量的自定义模板。"
+      "a": "可以！你可以使用 <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code> 和 <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code> 等变量创建无限数量的自定义模板。",
+      "qPlain": "我可以创建自定义格式吗？",
+      "aPlain": "可以！你可以使用 {title} 和 {url} 等变量创建无限数量的自定义模板。"
     }
   },
   "footer": {
@@ -188,5 +195,15 @@
     "desc": "读完留下一堆标签页？勾选需要的，一次最多复制 5 条，格式还是你惯用的那个——不用一个个点开去取链接。",
     "tabsLabel": "当前窗口的标签页",
     "cta": "复制 5 个标签页"
+  },
+  "version": "1.7.3",
+  "shots": {
+    "shotsTitle": "装上之后长这样",
+    "popupAlt": "扩展弹窗，列出三种复制格式，每种都带快捷键和结果预览",
+    "settingsAlt": "设置页：左侧模板列表，右侧编辑器显示快捷键、描述、模板与实时预览",
+    "batchAlt": "弹窗的全部标签页模式，列出已打开的标签页并勾选了五条",
+    "popupCap": "点一下，或按一个快捷键",
+    "settingsCap": "模板可编辑、可预览",
+    "batchCap": "多个标签页一次带走"
   }
 }

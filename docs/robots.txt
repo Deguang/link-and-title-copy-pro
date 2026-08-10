@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://app.lideguang.com/link-and-title-copy-pro/sitemap.xml

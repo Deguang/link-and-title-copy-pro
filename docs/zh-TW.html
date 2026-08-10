@@ -17,6 +17,18 @@
     <meta name="keywords" content="Chrome擴充, 複製連結, Markdown複製, URL清理, 生產力工具, Notion連結, Jira格式, Obsidian引用">
     <meta name="author" content="Deguang">
     <link rel="canonical" href="https://app.lideguang.com/link-and-title-copy-pro/zh-TW.html">
+    <!-- Nine translations of the same page. Without these they compete with
+         each other as duplicates instead of being served by language. -->
+    <link rel="alternate" hreflang="en" href="https://app.lideguang.com/link-and-title-copy-pro/index.html">
+    <link rel="alternate" hreflang="zh" href="https://app.lideguang.com/link-and-title-copy-pro/zh.html">
+    <link rel="alternate" hreflang="zh-TW" href="https://app.lideguang.com/link-and-title-copy-pro/zh-TW.html">
+    <link rel="alternate" hreflang="ja" href="https://app.lideguang.com/link-and-title-copy-pro/ja.html">
+    <link rel="alternate" hreflang="ru" href="https://app.lideguang.com/link-and-title-copy-pro/ru.html">
+    <link rel="alternate" hreflang="hi" href="https://app.lideguang.com/link-and-title-copy-pro/hi.html">
+    <link rel="alternate" hreflang="de" href="https://app.lideguang.com/link-and-title-copy-pro/de.html">
+    <link rel="alternate" hreflang="es" href="https://app.lideguang.com/link-and-title-copy-pro/es.html">
+    <link rel="alternate" hreflang="ko" href="https://app.lideguang.com/link-and-title-copy-pro/ko.html">
+    <link rel="alternate" hreflang="x-default" href="https://app.lideguang.com/link-and-title-copy-pro/index.html">
     <link rel="icon" type="image/webp" href="icon.webp">
     
     <!-- Open Graph / Facebook -->
@@ -24,14 +36,14 @@
     <meta property="og:url" content="https://app.lideguang.com/link-and-title-copy-pro/zh-TW.html">
     <meta property="og:title" content="複製頁面標題和連結 Pro - 極致的複製工具">
     <meta property="og:description" content="更智慧的複製，更高效的貼上。開發者和研究人員的終極瀏覽器擴充功能，一鍵清理 URL 並格式化連結。">
-    <meta property="og:image" content="https://app.lideguang.com/link-and-title-copy-pro/icon.webp">
+    <meta property="og:image" content="https://app.lideguang.com/link-and-title-copy-pro/images/og-cover.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://app.lideguang.com/link-and-title-copy-pro/zh-TW.html">
     <meta property="twitter:title" content="複製頁面標題和連結 Pro - 極致的複製工具">
     <meta property="twitter:description" content="更智慧的複製，更高效的貼上。開發者和研究人員的終極瀏覽器擴充功能，一鍵清理 URL 並格式化連結。">
-    <meta property="twitter:image" content="https://app.lideguang.com/link-and-title-copy-pro/icon.webp">
+    <meta property="twitter:image" content="https://app.lideguang.com/link-and-title-copy-pro/images/og-cover.png">
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
@@ -52,7 +64,43 @@
         "@type": "Person",
         "name": "Deguang"
       },
-      "downloadUrl": "https://chromewebstore.google.com/detail/kakoelinbkchhkjcbgjgmailplkhpkod?authuser=0&hl=en"
+      "downloadUrl": "https://chromewebstore.google.com/detail/kakoelinbkchhkjcbgjgmailplkhpkod?authuser=0&hl=en",
+      "screenshot": [
+        "https://app.lideguang.com/link-and-title-copy-pro/images/ui/popup-light.png",
+        "https://app.lideguang.com/link-and-title-copy-pro/images/ui/settings-light.png",
+        "https://app.lideguang.com/link-and-title-copy-pro/images/ui/popup-batch.png"
+      ],
+      "softwareVersion": "1.7.3",
+      "inLanguage": ["en", "zh-CN", "zh-TW", "ja", "ru", "hi", "de", "es", "ko"],
+      "isAccessibleForFree": true,
+      "license": "https://github.com/Deguang/link-and-title-copy-pro/blob/main/LICENSE"
+    }
+    </script>
+
+    <!-- The FAQ again as structured data. These are the answers search results
+         and answer engines quote directly, so they have to exist in a form that
+         can be quoted rather than only as page text. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "完全免費嗎？",
+          "acceptedAnswer": { "@type": "Answer", "text": "是的，Link & Title Copy Pro 是開源的，並且永久免費。沒有任何隱藏收費。" }
+        },
+        {
+          "@type": "Question",
+          "name": "它會收集我的資料嗎？",
+          "acceptedAnswer": { "@type": "Answer", "text": "絕對不會。我們不收集、儲存或傳輸任何用戶資料。所有操作都在你的瀏覽器本地完成。請查看我們的隱私權政策。" }
+        },
+        {
+          "@type": "Question",
+          "name": "我可以建立自訂格式嗎？",
+          "acceptedAnswer": { "@type": "Answer", "text": "可以！你可以使用 {title} 和 {url} 等變數建立無限數量的自訂模板。" }
+        }
+      ]
     }
     </script>
 
@@ -200,6 +248,10 @@
                  scrollytelling.js); CSS does the rest. All copy is real DOM text
                  and the whole thing renders as a plain stacked block when motion
                  is off. -->
+            <!-- The section lost its visible heading on purpose — the demo opens
+                 with its own question. This keeps the document outline intact for
+                 search engines and screen readers, which otherwise jump h1 → h3. -->
+            <h2 class="sr-only">複製的過程</h2>
             <div class="cine" data-cine>
                 <div class="cine-track">
                     <div class="cine-stage">
@@ -382,6 +434,35 @@ example.com/design-systems</span>
                         <p>介面、引導和設定全部在地化——包括快捷鍵的寫法，會依各平台自己的慣例顯示。</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Actual product screenshots, generated from the built extension. Every
+         image carries real alt text: it is what a screen reader and an answer
+         engine get instead of the picture. -->
+    <section id="screens" class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="shots">
+            <h2 class="shots-title">裝上之後長這樣</h2>
+            <div class="shots-grid">
+                <figure class="shot">
+                    <img src="images/ui/popup-light.png" width="700" height="1200"
+                         loading="lazy" decoding="async"
+                         alt="擴充功能彈出視窗，列出三種複製格式，每種都帶快捷鍵和結果預覽">
+                    <figcaption>點一下，或按一個快捷鍵</figcaption>
+                </figure>
+                <figure class="shot">
+                    <img src="images/ui/popup-batch.png" width="700" height="1200"
+                         loading="lazy" decoding="async"
+                         alt="彈出視窗的全部分頁模式，列出已開啟的分頁並勾選了五條">
+                    <figcaption>多個分頁一次帶走</figcaption>
+                </figure>
+                <figure class="shot shot-wide">
+                    <img src="images/ui/settings-light.png" width="2320" height="1520"
+                         loading="lazy" decoding="async"
+                         alt="設定頁：左側範本列表，右側編輯器顯示快捷鍵、描述、範本與即時預覽">
+                    <figcaption>範本可編輯、可預覽</figcaption>
+                </figure>
             </div>
         </div>
     </section>

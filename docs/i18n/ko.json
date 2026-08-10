@@ -134,7 +134,8 @@
       "mdSource": "소스",
       "mdPreview": "미리보기"
     },
-    "moreTitle": "복사, 그 이상"
+    "moreTitle": "복사, 그 이상",
+    "demoHeading": "복사 과정"
   },
   "useCases": {
     "title": "모든 작업 흐름을 위해 설계",
@@ -164,15 +165,21 @@
     "title": "자주 묻는 질문",
     "q1": {
       "q": "완전히 무료인가요?",
-      "a": "네, Copy Page Title and URL Pro는 오픈 소스이며 영원히 100% 무료입니다. 숨겨진 구독료가 없습니다."
+      "a": "네, Copy Page Title and URL Pro는 오픈 소스이며 영원히 100% 무료입니다. 숨겨진 구독료가 없습니다.",
+      "qPlain": "완전히 무료인가요?",
+      "aPlain": "네, Copy Page Title and URL Pro는 오픈 소스이며 영원히 100% 무료입니다. 숨겨진 구독료가 없습니다."
     },
     "q2": {
       "q": "제 데이터를 추적하나요?",
-      "a": "전혀 그렇지 않습니다. 저희는 어떠한 사용 데이터도 수집, 저장, 전송하지 않습니다. 모든 것은 브라우저에서 로컬로 처리됩니다. <a href=\"privacy.html\" class=\"text-blue-600 hover:underline\">개인정보 처리방침</a>을 참고하세요."
+      "a": "전혀 그렇지 않습니다. 저희는 어떠한 사용 데이터도 수집, 저장, 전송하지 않습니다. 모든 것은 브라우저에서 로컬로 처리됩니다. <a href=\"privacy.html\" class=\"text-blue-600 hover:underline\">개인정보 처리방침</a>을 참고하세요.",
+      "qPlain": "제 데이터를 추적하나요?",
+      "aPlain": "전혀 그렇지 않습니다. 저희는 어떠한 사용 데이터도 수집, 저장, 전송하지 않습니다. 모든 것은 브라우저에서 로컬로 처리됩니다. 개인정보 처리방침을 참고하세요."
     },
     "q3": {
       "q": "나만의 형식을 만들 수 있나요?",
-      "a": "물론입니다! <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code> 및 <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code> 같은 자리표시자를 사용해 무제한으로 맞춤 템플릿을 만들 수 있습니다."
+      "a": "물론입니다! <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code> 및 <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code> 같은 자리표시자를 사용해 무제한으로 맞춤 템플릿을 만들 수 있습니다.",
+      "qPlain": "나만의 형식을 만들 수 있나요?",
+      "aPlain": "물론입니다! {title} 및 {url} 같은 자리표시자를 사용해 무제한으로 맞춤 템플릿을 만들 수 있습니다."
     }
   },
   "footer": {
@@ -188,5 +195,15 @@
     "desc": "읽고 나니 탭이 쌓였나요? 필요한 것만 골라 한 번에 최대 5개까지, 쓰던 형식 그대로 복사하세요. 하나씩 열 필요 없습니다.",
     "tabsLabel": "이 창의 탭",
     "cta": "탭 5개 복사"
+  },
+  "version": "1.7.3",
+  "shots": {
+    "shotsTitle": "실제 모습입니다",
+    "popupAlt": "확장 프로그램 팝업. 세 가지 복사 형식이 각각 단축키와 결과 미리보기와 함께 표시됨",
+    "settingsAlt": "설정 페이지. 왼쪽에 템플릿 목록, 오른쪽에 단축키·설명·템플릿과 실시간 미리보기",
+    "batchAlt": "팝업의 모든 탭 모드. 열린 탭 목록에서 다섯 개가 선택됨",
+    "popupCap": "클릭 한 번, 또는 단축키 하나",
+    "settingsCap": "템플릿은 편집하고 미리볼 수 있습니다",
+    "batchCap": "여러 탭을 한 번에"
   }
 }

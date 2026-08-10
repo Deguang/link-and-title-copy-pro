@@ -134,7 +134,8 @@
       "mdSource": "ソース",
       "mdPreview": "プレビュー"
     },
-    "moreTitle": "コピーの先にあるもの"
+    "moreTitle": "コピーの先にあるもの",
+    "demoHeading": "コピーの流れ"
   },
   "useCases": {
     "title": "あらゆるワークフローに対応",
@@ -164,15 +165,21 @@
     "title": "よくある質問",
     "q1": {
       "q": "完全に無料ですか？",
-      "a": "はい、Link & Title Copy Proはオープンソースで、永久に100%無料です。隠れたサブスクリプションはありません。"
+      "a": "はい、Link & Title Copy Proはオープンソースで、永久に100%無料です。隠れたサブスクリプションはありません。",
+      "qPlain": "完全に無料ですか？",
+      "aPlain": "はい、Link & Title Copy Proはオープンソースで、永久に100%無料です。隠れたサブスクリプションはありません。"
     },
     "q2": {
       "q": "データを追跡しますか？",
-      "a": "絶対にしません。使用データの収集、保存、送信は一切行いません。すべてがブラウザ内でローカルに処理されます。<a href=\"privacy.html\" class=\"text-blue-600 hover:underline\">プライバシーポリシー</a>をご覧ください。"
+      "a": "絶対にしません。使用データの収集、保存、送信は一切行いません。すべてがブラウザ内でローカルに処理されます。<a href=\"privacy.html\" class=\"text-blue-600 hover:underline\">プライバシーポリシー</a>をご覧ください。",
+      "qPlain": "データを追跡しますか？",
+      "aPlain": "絶対にしません。使用データの収集、保存、送信は一切行いません。すべてがブラウザ内でローカルに処理されます。プライバシーポリシーをご覧ください。"
     },
     "q3": {
       "q": "独自のフォーマットを作成できますか？",
-      "a": "はい！<code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code>と<code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code>などのプレースホルダーを使用して、無制限のカスタムテンプレートを作成できます。"
+      "a": "はい！<code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code>と<code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code>などのプレースホルダーを使用して、無制限のカスタムテンプレートを作成できます。",
+      "qPlain": "独自のフォーマットを作成できますか？",
+      "aPlain": "はい！{title}と{url}などのプレースホルダーを使用して、無制限のカスタムテンプレートを作成できます。"
     }
   },
   "footer": {
@@ -188,5 +195,15 @@
     "desc": "読み終えてタブが溜まっていませんか。必要なものを選んで最大5件まで一度にコピーできます。書式はいつものまま、ひとつずつ開く必要もありません。",
     "tabsLabel": "このウィンドウのタブ",
     "cta": "5 件をコピー"
+  },
+  "version": "1.7.3",
+  "shots": {
+    "shotsTitle": "入れるとこうなります",
+    "popupAlt": "拡張機能のポップアップ。3つのコピー書式が並び、それぞれにショートカットと結果のプレビューが付く",
+    "settingsAlt": "設定画面。左にテンプレート一覧、右にショートカット・説明・テンプレートとプレビュー",
+    "batchAlt": "ポップアップの全タブ表示。開いているタブが並び、5件が選択されている",
+    "popupCap": "クリック、またはショートカット",
+    "settingsCap": "テンプレートは編集もプレビューも",
+    "batchCap": "複数タブをまとめて"
   }
 }

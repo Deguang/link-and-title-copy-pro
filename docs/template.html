@@ -17,6 +17,18 @@
     <meta name="keywords" content="{{keywords}}">
     <meta name="author" content="Deguang">
     <link rel="canonical" href="{{canonical}}">
+    <!-- Nine translations of the same page. Without these they compete with
+         each other as duplicates instead of being served by language. -->
+    <link rel="alternate" hreflang="en" href="https://app.lideguang.com/link-and-title-copy-pro/index.html">
+    <link rel="alternate" hreflang="zh" href="https://app.lideguang.com/link-and-title-copy-pro/zh.html">
+    <link rel="alternate" hreflang="zh-TW" href="https://app.lideguang.com/link-and-title-copy-pro/zh-TW.html">
+    <link rel="alternate" hreflang="ja" href="https://app.lideguang.com/link-and-title-copy-pro/ja.html">
+    <link rel="alternate" hreflang="ru" href="https://app.lideguang.com/link-and-title-copy-pro/ru.html">
+    <link rel="alternate" hreflang="hi" href="https://app.lideguang.com/link-and-title-copy-pro/hi.html">
+    <link rel="alternate" hreflang="de" href="https://app.lideguang.com/link-and-title-copy-pro/de.html">
+    <link rel="alternate" hreflang="es" href="https://app.lideguang.com/link-and-title-copy-pro/es.html">
+    <link rel="alternate" hreflang="ko" href="https://app.lideguang.com/link-and-title-copy-pro/ko.html">
+    <link rel="alternate" hreflang="x-default" href="https://app.lideguang.com/link-and-title-copy-pro/index.html">
     <link rel="icon" type="image/webp" href="icon.webp">
     
     <!-- Open Graph / Facebook -->
@@ -24,14 +36,14 @@
     <meta property="og:url" content="{{canonical}}">
     <meta property="og:title" content="{{ogTitle}}">
     <meta property="og:description" content="{{ogDescription}}">
-    <meta property="og:image" content="https://app.lideguang.com/link-and-title-copy-pro/icon.webp">
+    <meta property="og:image" content="https://app.lideguang.com/link-and-title-copy-pro/images/og-cover.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{canonical}}">
     <meta property="twitter:title" content="{{ogTitle}}">
     <meta property="twitter:description" content="{{ogDescription}}">
-    <meta property="twitter:image" content="https://app.lideguang.com/link-and-title-copy-pro/icon.webp">
+    <meta property="twitter:image" content="https://app.lideguang.com/link-and-title-copy-pro/images/og-cover.png">
 
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
@@ -52,7 +64,43 @@
         "@type": "Person",
         "name": "Deguang"
       },
-      "downloadUrl": "https://chromewebstore.google.com/detail/kakoelinbkchhkjcbgjgmailplkhpkod?authuser=0&hl=en"
+      "downloadUrl": "https://chromewebstore.google.com/detail/kakoelinbkchhkjcbgjgmailplkhpkod?authuser=0&hl=en",
+      "screenshot": [
+        "https://app.lideguang.com/link-and-title-copy-pro/images/ui/popup-light.png",
+        "https://app.lideguang.com/link-and-title-copy-pro/images/ui/settings-light.png",
+        "https://app.lideguang.com/link-and-title-copy-pro/images/ui/popup-batch.png"
+      ],
+      "softwareVersion": "{{version}}",
+      "inLanguage": ["en", "zh-CN", "zh-TW", "ja", "ru", "hi", "de", "es", "ko"],
+      "isAccessibleForFree": true,
+      "license": "https://github.com/Deguang/link-and-title-copy-pro/blob/main/LICENSE"
+    }
+    </script>
+
+    <!-- The FAQ again as structured data. These are the answers search results
+         and answer engines quote directly, so they have to exist in a form that
+         can be quoted rather than only as page text. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "{{faq.q1.qPlain}}",
+          "acceptedAnswer": { "@type": "Answer", "text": "{{faq.q1.aPlain}}" }
+        },
+        {
+          "@type": "Question",
+          "name": "{{faq.q2.qPlain}}",
+          "acceptedAnswer": { "@type": "Answer", "text": "{{faq.q2.aPlain}}" }
+        },
+        {
+          "@type": "Question",
+          "name": "{{faq.q3.qPlain}}",
+          "acceptedAnswer": { "@type": "Answer", "text": "{{faq.q3.aPlain}}" }
+        }
+      ]
     }
     </script>
 
@@ -186,6 +234,10 @@
                  scrollytelling.js); CSS does the rest. All copy is real DOM text
                  and the whole thing renders as a plain stacked block when motion
                  is off. -->
+            <!-- The section lost its visible heading on purpose — the demo opens
+                 with its own question. This keeps the document outline intact for
+                 search engines and screen readers, which otherwise jump h1 → h3. -->
+            <h2 class="sr-only">{{features.demoHeading}}</h2>
             <div class="cine" data-cine>
                 <div class="cine-track">
                     <div class="cine-stage">
@@ -344,6 +396,35 @@
                         <p>{{features.cards.langs.desc}}</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Actual product screenshots, generated from the built extension. Every
+         image carries real alt text: it is what a screen reader and an answer
+         engine get instead of the picture. -->
+    <section id="screens" class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="shots">
+            <h2 class="shots-title">{{shots.shotsTitle}}</h2>
+            <div class="shots-grid">
+                <figure class="shot">
+                    <img src="images/ui/popup-light.png" width="700" height="1200"
+                         loading="lazy" decoding="async"
+                         alt="{{shots.popupAlt}}">
+                    <figcaption>{{shots.popupCap}}</figcaption>
+                </figure>
+                <figure class="shot">
+                    <img src="images/ui/popup-batch.png" width="700" height="1200"
+                         loading="lazy" decoding="async"
+                         alt="{{shots.batchAlt}}">
+                    <figcaption>{{shots.batchCap}}</figcaption>
+                </figure>
+                <figure class="shot shot-wide">
+                    <img src="images/ui/settings-light.png" width="2320" height="1520"
+                         loading="lazy" decoding="async"
+                         alt="{{shots.settingsAlt}}">
+                    <figcaption>{{shots.settingsCap}}</figcaption>
+                </figure>
             </div>
         </div>
     </section>
