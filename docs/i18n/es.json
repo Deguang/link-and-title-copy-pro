@@ -180,6 +180,18 @@
       "a": "¡Sí! Puedes crear plantillas personalizadas ilimitadas usando marcadores como <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code> y <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code>.",
       "qPlain": "¿Puedo crear mis propios formatos?",
       "aPlain": "¡Sí! Puedes crear plantillas personalizadas ilimitadas usando marcadores como {title} y {url}."
+    },
+    "q4": {
+      "q": "¿Qué atajos de teclado trae?",
+      "a": "Al instalar se configuran tres: Ctrl+Shift+P para el título y la URL, Ctrl+Shift+L para un enlace Markdown y Ctrl+Shift+U para llevar el texto seleccionado con su fuente. En macOS se usa Command en lugar de Ctrl. Todos se pueden cambiar y puedes añadir los tuyos.",
+      "qPlain": "¿Qué atajos de teclado trae?",
+      "aPlain": "Al instalar se configuran tres: Ctrl+Shift+P para el título y la URL, Ctrl+Shift+L para un enlace Markdown y Ctrl+Shift+U para llevar el texto seleccionado con su fuente. En macOS se usa Command en lugar de Ctrl. Todos se pueden cambiar y puedes añadir los tuyos."
+    },
+    "q5": {
+      "q": "¿Puedo copiar varias pestañas a la vez?",
+      "a": "Sí. Abre la ventana emergente, cambia a Todas las pestañas, marca las que quieras y cópialas juntas con la plantilla que elijas. La versión gratuita copia hasta cinco a la vez.",
+      "qPlain": "¿Puedo copiar varias pestañas a la vez?",
+      "aPlain": "Sí. Abre la ventana emergente, cambia a Todas las pestañas, marca las que quieras y cópialas juntas con la plantilla que elijas. La versión gratuita copia hasta cinco a la vez."
     }
   },
   "footer": {

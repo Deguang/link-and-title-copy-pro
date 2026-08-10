@@ -180,6 +180,18 @@
       "a": "Ja! Sie können unbegrenzt eigene Vorlagen mit Platzhaltern wie <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code> und <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code> erstellen.",
       "qPlain": "Kann ich eigene Formate erstellen?",
       "aPlain": "Ja! Sie können unbegrenzt eigene Vorlagen mit Platzhaltern wie {title} und {url} erstellen."
+    },
+    "q4": {
+      "q": "Welche Tastenkürzel sind voreingestellt?",
+      "a": "Bei der Installation werden drei angelegt: Ctrl+Shift+P für Titel und URL, Ctrl+Shift+L für einen Markdown-Link und Ctrl+Shift+U, um markierten Text mit Quelle zu übernehmen. Unter macOS jeweils mit Command statt Ctrl. Alle lassen sich ändern, und eigene kommen dazu.",
+      "qPlain": "Welche Tastenkürzel sind voreingestellt?",
+      "aPlain": "Bei der Installation werden drei angelegt: Ctrl+Shift+P für Titel und URL, Ctrl+Shift+L für einen Markdown-Link und Ctrl+Shift+U, um markierten Text mit Quelle zu übernehmen. Unter macOS jeweils mit Command statt Ctrl. Alle lassen sich ändern, und eigene kommen dazu."
+    },
+    "q5": {
+      "q": "Kann ich mehrere Tabs auf einmal kopieren?",
+      "a": "Ja. Im Popup auf „Alle Tabs“ wechseln, die gewünschten anhaken und gemeinsam in der gewählten Vorlage kopieren. Die kostenlose Version kopiert bis zu fünf auf einmal.",
+      "qPlain": "Kann ich mehrere Tabs auf einmal kopieren?",
+      "aPlain": "Ja. Im Popup auf „Alle Tabs“ wechseln, die gewünschten anhaken und gemeinsam in der gewählten Vorlage kopieren. Die kostenlose Version kopiert bis zu fünf auf einmal."
     }
   },
   "footer": {

@@ -180,6 +180,18 @@
       "a": "可以！你可以使用 <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code> 和 <code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code> 等變數建立無限數量的自訂模板。",
       "qPlain": "我可以建立自訂格式嗎？",
       "aPlain": "可以！你可以使用 {title} 和 {url} 等變數建立無限數量的自訂模板。"
+    },
+    "q4": {
+      "q": "預設使用哪些快捷鍵？",
+      "a": "安裝後自帶三個：Ctrl+Shift+P 複製標題和網址，Ctrl+Shift+L 複製成 Markdown 連結，Ctrl+Shift+U 把選取的文字連同出處一起帶上。macOS 上對應 Command 鍵。這些都可以改，也可以自己新增。",
+      "qPlain": "預設使用哪些快捷鍵？",
+      "aPlain": "安裝後自帶三個：Ctrl+Shift+P 複製標題和網址，Ctrl+Shift+L 複製成 Markdown 連結，Ctrl+Shift+U 把選取的文字連同出處一起帶上。macOS 上對應 Command 鍵。這些都可以改，也可以自己新增。"
+    },
+    "q5": {
+      "q": "可以一次複製多個分頁嗎？",
+      "a": "可以。開啟彈出視窗切到「全部分頁」，勾選需要的，用你選的範本一起複製。免費版一次最多 5 條。",
+      "qPlain": "可以一次複製多個分頁嗎？",
+      "aPlain": "可以。開啟彈出視窗切到「全部分頁」，勾選需要的，用你選的範本一起複製。免費版一次最多 5 條。"
     }
   },
   "footer": {

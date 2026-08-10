@@ -180,6 +180,18 @@
       "a": "はい！<code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{title}</code>と<code class=\"text-sm bg-slate-50 px-1 border border-slate-200 rounded\">{url}</code>などのプレースホルダーを使用して、無制限のカスタムテンプレートを作成できます。",
       "qPlain": "独自のフォーマットを作成できますか？",
       "aPlain": "はい！{title}と{url}などのプレースホルダーを使用して、無制限のカスタムテンプレートを作成できます。"
+    },
+    "q4": {
+      "q": "既定のショートカットは？",
+      "a": "インストール時に3つ設定されます。Ctrl+Shift+P でタイトルとURL、Ctrl+Shift+L で Markdown リンク、Ctrl+Shift+U で選択テキストを出典付きで。macOS では Command キーを使います。いずれも変更でき、追加も可能です。",
+      "qPlain": "既定のショートカットは？",
+      "aPlain": "インストール時に3つ設定されます。Ctrl+Shift+P でタイトルとURL、Ctrl+Shift+L で Markdown リンク、Ctrl+Shift+U で選択テキストを出典付きで。macOS では Command キーを使います。いずれも変更でき、追加も可能です。"
+    },
+    "q5": {
+      "q": "複数のタブをまとめてコピーできますか？",
+      "a": "できます。ポップアップで「全タブ」に切り替え、必要なものを選んで、選んだテンプレートでまとめてコピーします。無料版は一度に5件までです。",
+      "qPlain": "複数のタブをまとめてコピーできますか？",
+      "aPlain": "できます。ポップアップで「全タブ」に切り替え、必要なものを選んで、選んだテンプレートでまとめてコピーします。無料版は一度に5件までです。"
     }
   },
   "footer": {
