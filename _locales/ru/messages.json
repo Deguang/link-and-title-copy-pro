@@ -510,5 +510,35 @@
     },
     "shortcutNone": {
         "message": "Без сочетания"
+    },
+    "batchLayout": {
+        "message": "Вид списка"
+    },
+    "batchLayout_lines": {
+        "message": "Отдельные строки"
+    },
+    "batchLayout_bullets": {
+        "message": "Маркированный список"
+    },
+    "batchLayout_tasks": {
+        "message": "Список задач"
+    },
+    "batchLayout_numbered": {
+        "message": "Нумерованный список"
+    },
+    "batchLayout_table": {
+        "message": "Таблица Markdown"
+    },
+    "batchLayout_html": {
+        "message": "Таблица HTML"
+    },
+    "batchLayout_csv": {
+        "message": "CSV"
+    },
+    "batchLayout_json": {
+        "message": "JSON"
+    },
+    "batchPreview": {
+        "message": "Предпросмотр"
     }
 }

@@ -510,5 +510,35 @@
     },
     "shortcutNone": {
         "message": "无快捷键"
+    },
+    "batchLayout": {
+        "message": "排列方式"
+    },
+    "batchLayout_lines": {
+        "message": "分行"
+    },
+    "batchLayout_bullets": {
+        "message": "项目符号列表"
+    },
+    "batchLayout_tasks": {
+        "message": "任务清单"
+    },
+    "batchLayout_numbered": {
+        "message": "编号列表"
+    },
+    "batchLayout_table": {
+        "message": "Markdown 表格"
+    },
+    "batchLayout_html": {
+        "message": "HTML 表格"
+    },
+    "batchLayout_csv": {
+        "message": "CSV"
+    },
+    "batchLayout_json": {
+        "message": "JSON"
+    },
+    "batchPreview": {
+        "message": "预览"
     }
 }

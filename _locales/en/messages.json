@@ -510,5 +510,35 @@
     },
     "shortcutNone": {
         "message": "No shortcut"
+    },
+    "batchLayout": {
+        "message": "Layout"
+    },
+    "batchLayout_lines": {
+        "message": "Separate lines"
+    },
+    "batchLayout_bullets": {
+        "message": "Bullet list"
+    },
+    "batchLayout_tasks": {
+        "message": "Task list"
+    },
+    "batchLayout_numbered": {
+        "message": "Numbered list"
+    },
+    "batchLayout_table": {
+        "message": "Markdown table"
+    },
+    "batchLayout_html": {
+        "message": "HTML table"
+    },
+    "batchLayout_csv": {
+        "message": "CSV"
+    },
+    "batchLayout_json": {
+        "message": "JSON"
+    },
+    "batchPreview": {
+        "message": "Preview"
     }
 }

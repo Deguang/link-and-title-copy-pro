@@ -510,5 +510,35 @@
     },
     "shortcutNone": {
         "message": "Sin atajo"
+    },
+    "batchLayout": {
+        "message": "Disposición"
+    },
+    "batchLayout_lines": {
+        "message": "Líneas separadas"
+    },
+    "batchLayout_bullets": {
+        "message": "Lista con viñetas"
+    },
+    "batchLayout_tasks": {
+        "message": "Lista de tareas"
+    },
+    "batchLayout_numbered": {
+        "message": "Lista numerada"
+    },
+    "batchLayout_table": {
+        "message": "Tabla Markdown"
+    },
+    "batchLayout_html": {
+        "message": "Tabla HTML"
+    },
+    "batchLayout_csv": {
+        "message": "CSV"
+    },
+    "batchLayout_json": {
+        "message": "JSON"
+    },
+    "batchPreview": {
+        "message": "Vista previa"
     }
 }

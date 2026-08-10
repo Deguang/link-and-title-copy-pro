@@ -510,5 +510,35 @@
     },
     "shortcutNone": {
         "message": "단축키 없음"
+    },
+    "batchLayout": {
+        "message": "배열 방식"
+    },
+    "batchLayout_lines": {
+        "message": "줄 단위"
+    },
+    "batchLayout_bullets": {
+        "message": "글머리 기호 목록"
+    },
+    "batchLayout_tasks": {
+        "message": "작업 목록"
+    },
+    "batchLayout_numbered": {
+        "message": "번호 목록"
+    },
+    "batchLayout_table": {
+        "message": "Markdown 표"
+    },
+    "batchLayout_html": {
+        "message": "HTML 표"
+    },
+    "batchLayout_csv": {
+        "message": "CSV"
+    },
+    "batchLayout_json": {
+        "message": "JSON"
+    },
+    "batchPreview": {
+        "message": "미리보기"
     }
 }

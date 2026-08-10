@@ -510,5 +510,35 @@
     },
     "shortcutNone": {
         "message": "Kein Kürzel"
+    },
+    "batchLayout": {
+        "message": "Anordnung"
+    },
+    "batchLayout_lines": {
+        "message": "Einzelne Zeilen"
+    },
+    "batchLayout_bullets": {
+        "message": "Aufzählung"
+    },
+    "batchLayout_tasks": {
+        "message": "Aufgabenliste"
+    },
+    "batchLayout_numbered": {
+        "message": "Nummerierte Liste"
+    },
+    "batchLayout_table": {
+        "message": "Markdown-Tabelle"
+    },
+    "batchLayout_html": {
+        "message": "HTML-Tabelle"
+    },
+    "batchLayout_csv": {
+        "message": "CSV"
+    },
+    "batchLayout_json": {
+        "message": "JSON"
+    },
+    "batchPreview": {
+        "message": "Vorschau"
     }
 }

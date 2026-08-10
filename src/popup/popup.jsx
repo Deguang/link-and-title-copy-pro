@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { processTemplate } from '../utils/templateProcessor';
 import Keycap from '../components/Keycap';
+import { buildBatchText, BATCH_LAYOUTS } from '../utils/batchLayout.mjs';
 import { getProStatus, FREE_BATCH_LIMIT, openUpgradePage, PAYMENT_ENABLED } from '../utils/license';
 import { WHATS_NEW_KEY, WHATS_NEW_VERSION } from '../constant';
 import { recordCopies } from '../utils/reviewPrompt';
@@ -77,6 +78,19 @@ function BatchView({ configs, allTabs, isPro }) {
   const [selectedIds, setSelectedIds] = useState(() => new Set());
   const [copied, setCopied] = useState(0);
   const [upsellFlash, setUpsellFlash] = useState(false);
+  const [layout, setLayout] = useState('lines');
+
+  // Remembered, since the format someone wants is a habit rather than a
+  // per-copy decision.
+  useEffect(() => {
+    chrome.storage.local.get('batchLayout', (r) => {
+      if (r.batchLayout && BATCH_LAYOUTS.includes(r.batchLayout)) setLayout(r.batchLayout);
+    });
+  }, []);
+  const changeLayout = (v) => {
+    setLayout(v);
+    chrome.storage.local.set({ batchLayout: v });
+  };
 
   // If tabs are highlighted in the tab strip, those are the intended ones —
   // Chrome's own Cmd/Ctrl-click and Shift-click selection. Only when nothing
@@ -123,10 +137,14 @@ function BatchView({ configs, allTabs, isPro }) {
 
   const buildText = () => {
     const tpl = configs[templateIndex]?.template || '{title}\n{url}';
-    return allTabs
+    const items = allTabs
       .filter((tb) => selectedIds.has(tb.id))
-      .map((tb) => processTemplate(tpl, { title: tb.title || '', url: tb.url || '', selectedText: '' }))
-      .join('\n');
+      .map((tb) => ({
+        title: tb.title || '',
+        url: tb.url || '',
+        text: processTemplate(tpl, { title: tb.title || '', url: tb.url || '', selectedText: '' }),
+      }));
+    return buildBatchText(items, layout);
   };
 
   const onCopy = async () => {
@@ -157,22 +175,46 @@ function BatchView({ configs, allTabs, isPro }) {
     <div className="flex-1 flex flex-col min-h-0">
       {/* Format selector + live preview */}
       <div className="mb-2">
-        <label className="block text-xs font-semibold text-ink-2 mb-1">
-          {t('batchFormat')}
-        </label>
-        <select
-          value={templateIndex}
-          onChange={(e) => setTemplateIndex(Number(e.target.value))}
-          className="w-full text-sm rounded-lg border border-line bg-surface text-ink px-2 py-1.5 outline-none transition focus:border-accent focus:ring-4 focus:ring-accent/15"
-        >
-          {configs.map((c, i) => (
-            <option key={i} value={i}>{c.description || `Template ${i + 1}`}</option>
-          ))}
-        </select>
+        <div className="grid grid-cols-2 gap-2">
+          <div>
+            <label className="block text-xs font-semibold text-ink-2 mb-1">
+              {t('batchFormat')}
+            </label>
+            <select
+              value={templateIndex}
+              onChange={(e) => setTemplateIndex(Number(e.target.value))}
+              className="w-full text-sm rounded-lg border border-line bg-surface text-ink px-2 py-1.5 outline-none transition focus:border-accent focus:ring-4 focus:ring-accent/15"
+            >
+              {configs.map((c, i) => (
+                <option key={i} value={i}>{c.description || `Template ${i + 1}`}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label className="block text-xs font-semibold text-ink-2 mb-1">
+              {t('batchLayout')}
+            </label>
+            <select
+              value={layout}
+              onChange={(e) => changeLayout(e.target.value)}
+              className="w-full text-sm rounded-lg border border-line bg-surface text-ink px-2 py-1.5 outline-none transition focus:border-accent focus:ring-4 focus:ring-accent/15"
+            >
+              {BATCH_LAYOUTS.map((l) => (
+                <option key={l} value={l}>{t('batchLayout_' + l)}</option>
+              ))}
+            </select>
+          </div>
+        </div>
         {previewText && (
-          <pre className="mt-1.5 text-[11px] leading-snug text-ink-2 font-mono whitespace-pre-wrap break-all bg-surface-2 p-1.5 rounded-lg border border-line-soft max-h-16 overflow-y-auto">
-            {previewText}
-          </pre>
+          <details className="mt-1.5 group">
+            <summary className="cursor-pointer list-none text-[11px] text-ink-3 hover:text-ink-2 transition select-none">
+              <span className="group-open:hidden">▸ {t('batchPreview')}</span>
+              <span className="hidden group-open:inline">▾ {t('batchPreview')}</span>
+            </summary>
+            <pre className="mt-1 text-[11px] leading-snug text-ink-2 font-mono whitespace-pre-wrap break-all bg-surface-2 p-1.5 rounded-lg border border-line-soft max-h-24 overflow-y-auto">
+              {previewText}
+            </pre>
+          </details>
         )}
       </div>
 
@@ -192,7 +234,7 @@ function BatchView({ configs, allTabs, isPro }) {
       </div>
 
       {/* Tab list */}
-      <div className="flex-1 overflow-y-auto space-y-1 pr-1">
+      <div className="flex-1 min-h-[180px] overflow-y-auto space-y-1 pr-1">
         {allTabs.map((tb, idx) => {
           const checked = selectedIds.has(tb.id);
           const locked = !isPro && !checked && idx >= FREE_BATCH_LIMIT;
@@ -343,7 +385,7 @@ function Popup() {
   );
 
   return (
-    <div className="p-4 min-h-[400px] max-h-[560px] flex flex-col bg-canvas border-t-2 border-brand" style={{ width: '350px' }}>
+    <div className="p-4 min-h-[420px] max-h-[600px] flex flex-col bg-canvas border-t-2 border-brand" style={{ width: '350px' }}>
       {/* Header */}
       <div className="flex justify-between items-center mb-3">
         <h1 className="text-[15px] font-bold tracking-tight text-ink flex items-center gap-2">

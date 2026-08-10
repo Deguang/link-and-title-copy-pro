@@ -510,5 +510,35 @@
     },
     "shortcutNone": {
         "message": "कोई शॉर्टकट नहीं"
+    },
+    "batchLayout": {
+        "message": "लेआउट"
+    },
+    "batchLayout_lines": {
+        "message": "अलग पंक्तियाँ"
+    },
+    "batchLayout_bullets": {
+        "message": "बुलेट सूची"
+    },
+    "batchLayout_tasks": {
+        "message": "कार्य सूची"
+    },
+    "batchLayout_numbered": {
+        "message": "क्रमांकित सूची"
+    },
+    "batchLayout_table": {
+        "message": "Markdown तालिका"
+    },
+    "batchLayout_html": {
+        "message": "HTML तालिका"
+    },
+    "batchLayout_csv": {
+        "message": "CSV"
+    },
+    "batchLayout_json": {
+        "message": "JSON"
+    },
+    "batchPreview": {
+        "message": "प्रीव्यू"
     }
 }

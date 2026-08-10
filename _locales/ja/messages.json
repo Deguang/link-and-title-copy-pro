@@ -510,5 +510,35 @@
     },
     "shortcutNone": {
         "message": "ショートカットなし"
+    },
+    "batchLayout": {
+        "message": "並べ方"
+    },
+    "batchLayout_lines": {
+        "message": "行ごと"
+    },
+    "batchLayout_bullets": {
+        "message": "箇条書き"
+    },
+    "batchLayout_tasks": {
+        "message": "タスクリスト"
+    },
+    "batchLayout_numbered": {
+        "message": "番号付きリスト"
+    },
+    "batchLayout_table": {
+        "message": "Markdown テーブル"
+    },
+    "batchLayout_html": {
+        "message": "HTML テーブル"
+    },
+    "batchLayout_csv": {
+        "message": "CSV"
+    },
+    "batchLayout_json": {
+        "message": "JSON"
+    },
+    "batchPreview": {
+        "message": "プレビュー"
     }
 }
