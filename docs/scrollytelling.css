@@ -62,7 +62,7 @@
 .cine-hero {
   --out: clamp(0, (var(--p) - 0.12) * 7, 1);
   position: absolute;
-  width: min(62rem, 90vw);
+  width: min(62rem, 100%);
   background: var(--c-surface);
   border: 1px solid var(--c-line);
   border-radius: 16px;
@@ -165,7 +165,7 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto 7.6rem auto;
   column-gap: 3rem;
-  width: min(70rem, 92vw);
+  width: min(70rem, 100%);
   --settle: clamp(0, (var(--p) - 0.6) * 5, 1);
   /* 1 when there is room, shrinking towards 0.72 as the viewport gets shorter. */
   --fit: clamp(0.72, (100vh - 15rem) / 31rem, 1);
@@ -550,7 +550,7 @@
   left: 50%;
   transform: translateX(-50%);
   bottom: 1.4rem;
-  width: min(46rem, 88vw);
+  width: min(46rem, 100%);
   min-height: 5.5rem;
   text-align: center;
 }
