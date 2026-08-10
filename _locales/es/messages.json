@@ -483,5 +483,8 @@
     },
     "validationIncomplete": {
         "message": "Incompleta"
+    },
+    "batchFromSelection": {
+        "message": "De tu selección de pestañas"
     }
 }

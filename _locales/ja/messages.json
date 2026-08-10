@@ -483,5 +483,8 @@
     },
     "validationIncomplete": {
         "message": "未完成"
+    },
+    "batchFromSelection": {
+        "message": "選択中のタブから"
     }
 }

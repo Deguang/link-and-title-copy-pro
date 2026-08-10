@@ -483,5 +483,8 @@
     },
     "validationIncomplete": {
         "message": "未完成"
+    },
+    "batchFromSelection": {
+        "message": "来自你选中的标签页"
     }
 }

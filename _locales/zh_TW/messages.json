@@ -483,5 +483,8 @@
     },
     "validationIncomplete": {
         "message": "未完成"
+    },
+    "batchFromSelection": {
+        "message": "來自你選取的分頁"
     }
 }

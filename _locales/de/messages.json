@@ -483,5 +483,8 @@
     },
     "validationIncomplete": {
         "message": "Unvollständig"
+    },
+    "batchFromSelection": {
+        "message": "Aus deiner Tab-Auswahl"
     }
 }

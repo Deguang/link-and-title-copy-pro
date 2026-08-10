@@ -483,5 +483,8 @@
     },
     "validationIncomplete": {
         "message": "अपूर्ण"
+    },
+    "batchFromSelection": {
+        "message": "आपके चुने हुए टैब से"
     }
 }

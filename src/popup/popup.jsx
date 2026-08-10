@@ -78,12 +78,19 @@ function BatchView({ configs, allTabs, isPro }) {
   const [copied, setCopied] = useState(0);
   const [upsellFlash, setUpsellFlash] = useState(false);
 
-  // Default selection: all tabs for Pro, the first FREE_BATCH_LIMIT for free users.
+  // If tabs are highlighted in the tab strip, those are the intended ones —
+  // Chrome's own Cmd/Ctrl-click and Shift-click selection. Only when nothing
+  // beyond the active tab is highlighted does a default make sense.
   useEffect(() => {
-    const ids = allTabs.map((tb) => tb.id);
-    const initial = isPro ? ids : ids.slice(0, FREE_BATCH_LIMIT);
-    setSelectedIds(new Set(initial));
+    const highlighted = allTabs.filter((tb) => tb.highlighted);
+    const source = highlighted.length > 1 ? highlighted : allTabs;
+    const ids = source.map((tb) => tb.id);
+    setSelectedIds(new Set(isPro ? ids : ids.slice(0, FREE_BATCH_LIMIT)));
   }, [allTabs, isPro]);
+
+  // Shown so it's clear the popup picked up the tab strip's selection rather
+  // than choosing arbitrarily.
+  const fromSelection = allTabs.filter((tb) => tb.highlighted).length > 1;
 
   const overLimit = !isPro && allTabs.length > FREE_BATCH_LIMIT;
   const limit = isPro ? Infinity : FREE_BATCH_LIMIT;
@@ -171,9 +178,16 @@ function BatchView({ configs, allTabs, isPro }) {
 
       {/* Select all row */}
       <div className="flex items-center justify-between mb-1 px-1">
-        <button onClick={selectAll} className="text-xs text-accent hover:underline">
-          {t('batchSelectAll')}
-        </button>
+        <div className="flex items-center gap-2">
+          <button onClick={selectAll} className="text-xs text-accent hover:underline">
+            {t('batchSelectAll')}
+          </button>
+          {fromSelection && (
+            <span className="text-[10px] font-medium text-ok bg-ok/10 border border-ok/20 px-1.5 py-0.5 rounded-full">
+              {t('batchFromSelection')}
+            </span>
+          )}
+        </div>
         <span className="text-xs text-ink-3">{selectedCount}/{allTabs.length}</span>
       </div>
 
@@ -269,7 +283,14 @@ function Popup() {
     });
 
     chrome.tabs.query({ currentWindow: true }, (tabs) => {
-      setAllTabs(tabs.filter((tb) => tb.url && /^https?:/.test(tb.url)));
+      // highlighted comes back with each tab; no extra permission needed.
+      const usable = tabs.filter((tb) => tb.url && /^https?:/.test(tb.url));
+      const highlighted = usable.filter((tb) => tb.highlighted);
+      // Put a hand-made selection at the top, in tab order, so it's the first
+      // thing seen rather than something to scroll for.
+      setAllTabs(highlighted.length > 1
+        ? [...highlighted, ...usable.filter((tb) => !tb.highlighted)]
+        : usable);
     });
 
     chrome.storage.local.get(STORAGE_KEY, (result) => {

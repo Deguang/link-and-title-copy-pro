@@ -483,5 +483,8 @@
     },
     "validationIncomplete": {
         "message": "Не завершён"
+    },
+    "batchFromSelection": {
+        "message": "Из выбранных вкладок"
     }
 }

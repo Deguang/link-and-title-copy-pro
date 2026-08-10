@@ -483,5 +483,8 @@
     },
     "validationIncomplete": {
         "message": "미완성"
+    },
+    "batchFromSelection": {
+        "message": "선택한 탭에서"
     }
 }
