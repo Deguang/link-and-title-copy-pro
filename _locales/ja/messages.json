@@ -504,5 +504,11 @@
     },
     "ctxCopyRoot": {
         "message": "このページをコピー"
+    },
+    "shortcutClear": {
+        "message": "ショートカットを解除"
+    },
+    "shortcutNone": {
+        "message": "ショートカットなし"
     }
 }

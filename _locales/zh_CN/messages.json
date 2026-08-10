@@ -504,5 +504,11 @@
     },
     "ctxCopyRoot": {
         "message": "复制此页面"
+    },
+    "shortcutClear": {
+        "message": "清除快捷键"
+    },
+    "shortcutNone": {
+        "message": "无快捷键"
     }
 }

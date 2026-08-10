@@ -504,5 +504,11 @@
     },
     "ctxCopyRoot": {
         "message": "Скопировать страницу"
+    },
+    "shortcutClear": {
+        "message": "Очистить сочетание"
+    },
+    "shortcutNone": {
+        "message": "Без сочетания"
     }
 }

@@ -504,5 +504,11 @@
     },
     "ctxCopyRoot": {
         "message": "Copiar esta página"
+    },
+    "shortcutClear": {
+        "message": "Borrar atajo"
+    },
+    "shortcutNone": {
+        "message": "Sin atajo"
     }
 }

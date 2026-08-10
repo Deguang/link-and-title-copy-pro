@@ -504,5 +504,11 @@
     },
     "ctxCopyRoot": {
         "message": "Diese Seite kopieren"
+    },
+    "shortcutClear": {
+        "message": "Kürzel entfernen"
+    },
+    "shortcutNone": {
+        "message": "Kein Kürzel"
     }
 }

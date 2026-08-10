@@ -504,5 +504,11 @@
     },
     "ctxCopyRoot": {
         "message": "यह पेज कॉपी करें"
+    },
+    "shortcutClear": {
+        "message": "शॉर्टकट हटाएँ"
+    },
+    "shortcutNone": {
+        "message": "कोई शॉर्टकट नहीं"
     }
 }

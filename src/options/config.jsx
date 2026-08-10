@@ -183,7 +183,7 @@ const TemplateListRow = ({ config, active, onClick, hasError }) => {
                 aria-hidden="true"
             />
             <div className="mb-1 flex items-center gap-1.5">
-                <Keycap shortcut={config.shortcut} muted={!active} />
+                <Keycap shortcut={config.shortcut} muted={!active} emptyLabel={t('shortcutNone')} />
                 {conflict && (
                     <WarningIcon className="h-3.5 w-3.5 flex-shrink-0 text-warn" />
                 )}
@@ -254,6 +254,13 @@ const TemplateEditor = ({ config, index, onChange, onDelete, onOpenHelp, issues 
         e.preventDefault();
         setShortcutError('');
 
+        // Backspace and Delete clear the binding. Neither is usable as a shortcut
+        // on its own, so nothing is lost by reserving them for this.
+        if ((e.key === 'Backspace' || e.key === 'Delete') && !e.ctrlKey && !e.metaKey && !e.altKey) {
+            onChange({ shortcut: '' });
+            return;
+        }
+
         const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
         const modifiers = [];
         if (e.ctrlKey) modifiers.push('Ctrl');
@@ -285,7 +292,8 @@ const TemplateEditor = ({ config, index, onChange, onDelete, onOpenHelp, issues 
     const handleManualShortcutInput = (e) => {
         const shortcut = e.target.value;
         onChange({ shortcut });
-        setShortcutError(isValidShortcut(shortcut) ? '' : t('invalidShortcutFormat'));
+        // Emptying the field is how you clear a binding here, so it isn't an error.
+        setShortcutError(!shortcut || isValidShortcut(shortcut) ? '' : t('invalidShortcutFormat'));
     };
 
     const handleTemplateChange = (e) => {
@@ -366,7 +374,7 @@ const TemplateEditor = ({ config, index, onChange, onDelete, onOpenHelp, issues 
             {/* Editor header */}
             <div className="mb-6 flex items-start justify-between gap-4">
                 <div className="min-w-0">
-                    <Keycap shortcut={config.shortcut} size="md" />
+                    <Keycap shortcut={config.shortcut} size="md" emptyLabel={t('shortcutNone')} />
                     <h3 className="mt-2 truncate text-xl font-semibold tracking-tight text-ink">
                         {config.description || t('edit')}
                     </h3>
@@ -430,14 +438,27 @@ const TemplateEditor = ({ config, index, onChange, onDelete, onOpenHelp, issues 
                         placeholder={t('enterShortcutManually')}
                     />
                 ) : (
-                    <input
-                        type="text"
-                        value={config.shortcut}
-                        onKeyDown={handleShortcutCapture}
-                        className={`${FIELD} cursor-pointer text-center font-mono tracking-wide ${shortcutError ? FIELD_ERROR : ''}`}
-                        placeholder={t('pressKeyCombination')}
-                        readOnly
-                    />
+                    <div className="relative">
+                        <input
+                            type="text"
+                            value={config.shortcut}
+                            onKeyDown={handleShortcutCapture}
+                            className={`${FIELD} cursor-pointer text-center font-mono tracking-wide ${config.shortcut ? 'pr-10' : ''} ${shortcutError ? FIELD_ERROR : ''}`}
+                            placeholder={t('pressKeyCombination')}
+                            readOnly
+                        />
+                        {config.shortcut && (
+                            <button
+                                type="button"
+                                onClick={() => onChange({ shortcut: '' })}
+                                title={t('shortcutClear')}
+                                aria-label={t('shortcutClear')}
+                                className="absolute right-1.5 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-md text-lg leading-none text-ink-3 transition hover:bg-surface-2 hover:text-danger focus:outline-none focus:ring-4 focus:ring-danger/10"
+                            >
+                                ×
+                            </button>
+                        )}
+                    </div>
                 )}
 
                 {shortcutError && (

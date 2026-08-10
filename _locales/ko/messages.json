@@ -504,5 +504,11 @@
     },
     "ctxCopyRoot": {
         "message": "이 페이지 복사"
+    },
+    "shortcutClear": {
+        "message": "단축키 지우기"
+    },
+    "shortcutNone": {
+        "message": "단축키 없음"
     }
 }

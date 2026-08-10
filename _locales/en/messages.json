@@ -504,5 +504,11 @@
     },
     "ctxCopyRoot": {
         "message": "Copy this page"
+    },
+    "shortcutClear": {
+        "message": "Clear shortcut"
+    },
+    "shortcutNone": {
+        "message": "No shortcut"
     }
 }
