@@ -69,7 +69,7 @@
   box-shadow: 0 2px 4px rgba(3, 42, 75, 0.05), 0 40px 80px -40px rgba(3, 42, 75, 0.45);
   overflow: hidden;
   opacity: calc(1 - var(--out));
-  transform: translateY(calc(var(--out) * -4vh)) scale(calc(1 - var(--out) * 0.12));
+  transform: translateY(calc(var(--out) * -4vh)) scale(calc((1 - var(--out) * 0.12) * clamp(0.75, (100vh - 13rem) / 27rem, 1)));
   pointer-events: none;
   will-change: opacity, transform;
 }
@@ -167,8 +167,10 @@
   column-gap: 3rem;
   width: min(70rem, 92vw);
   --settle: clamp(0, (var(--p) - 0.6) * 5, 1);
+  /* 1 when there is room, shrinking towards 0.72 as the viewport gets shorter. */
+  --fit: clamp(0.72, (100vh - 15rem) / 31rem, 1);
   opacity: var(--in);
-  transform: translateY(calc((1 - var(--in)) * 20px + (1 - var(--settle)) * 6.5rem)) scale(calc(1 - var(--settle) * 0.1));
+  transform: translateY(calc((1 - var(--in)) * 20px + (1 - var(--settle)) * 6.5rem)) scale(calc((1 - var(--settle) * 0.08) * var(--fit)));
   will-change: opacity, transform;
 }
 /* The lane is a grouping in the markup only; its children are placed straight
@@ -547,9 +549,9 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 1.8rem;
+  bottom: 1.4rem;
   width: min(46rem, 88vw);
-  min-height: 6rem;
+  min-height: 5.5rem;
   text-align: center;
 }
 .cine-cap {
@@ -884,12 +886,16 @@
   margin-bottom: 2.75rem;
 }
 .shots-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.75rem;
-  align-items: start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem 3rem;
 }
 .shot { margin: 0; }
+/* The popup is 350px wide in the browser. Stretching the capture to fill a
+   column blows it up past life size and it stops reading as the real thing —
+   so it is shown at the size it actually is, and only shrinks below that. */
+.shot-popup { width: 350px; max-width: 100%; }
 .shot img {
   display: block;
   width: 100%;
@@ -905,12 +911,11 @@
   font-size: 0.88rem;
   color: #55677a;
 }
-/* The settings page is wide; it gets the full row rather than being squeezed
-   into a column meant for a 350px popup. */
-.shot-wide { grid-column: 1 / -1; margin-top: 1rem; }
+/* The settings page is genuinely wide; it takes the full row. */
+.shot-wide { width: 100%; margin-top: 1.5rem; }
 
 @media (max-width: 760px) {
-  .shots-grid { grid-template-columns: 1fr; }
+  .shots-grid { gap: 2rem; }
 }
 
 /* Available to assistive tech and crawlers, absent visually. */
