@@ -59,6 +59,13 @@ Link&TitleCopyPro是一个可以同时复制浏览器标签页的标题和URL链
 
 ## Version History / 版本历史
 
+### v1.8.0
+
+- Shortcuts now work on the new tab page, chrome:// pages and the Web Store, where nothing was listening before / 快捷键现在在新标签页、chrome:// 页面和应用商店也能用
+- The right-click menu works again — its click handler had been missing, making every entry inert / 右键菜单恢复可用（此前点击无任何反应）
+- Right-click any link to copy it in your format without opening it / 右键任意链接，直接以你的格式复制
+- Onboarding no longer traps you for eight seconds when a shortcut is taken / 引导页不再在快捷键被占用时卡住
+
 ### v1.7.3
 
 - Onboarding validates the shortcut through the same matcher as the extension itself / 引导页改用与扩展一致的快捷键匹配逻辑
