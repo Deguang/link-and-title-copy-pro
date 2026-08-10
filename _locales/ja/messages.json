@@ -492,5 +492,17 @@
     },
     "defaultDescClean": {
         "message": "クリーンなリンク（追跡パラメータ除去）"
+    },
+    "shortcutOptional": {
+        "message": "任意"
+    },
+    "shortcutWays": {
+        "message": "すべてのテンプレートはツールバーのポップアップと右クリックメニューから使えます。ショートカットはキーボードからも呼び出せるようにするためのものです。"
+    },
+    "ctxLinkPrefix": {
+        "message": "リンク"
+    },
+    "ctxCopyRoot": {
+        "message": "このページをコピー"
     }
 }

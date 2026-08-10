@@ -492,5 +492,17 @@
     },
     "defaultDescClean": {
         "message": "Enlace limpio, sin rastreo"
+    },
+    "shortcutOptional": {
+        "message": "Opcional"
+    },
+    "shortcutWays": {
+        "message": "Cualquier plantilla se puede copiar desde la ventana de la extensión y el menú contextual. El atajo solo añade el acceso con el teclado."
+    },
+    "ctxLinkPrefix": {
+        "message": "Enlace"
+    },
+    "ctxCopyRoot": {
+        "message": "Copiar esta página"
     }
 }

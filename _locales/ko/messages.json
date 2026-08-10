@@ -492,5 +492,17 @@
     },
     "defaultDescClean": {
         "message": "추적 제거된 깔끔한 링크"
+    },
+    "shortcutOptional": {
+        "message": "선택 사항"
+    },
+    "shortcutWays": {
+        "message": "모든 템플릿은 툴바 팝업과 우클릭 메뉴에서도 쓸 수 있습니다. 단축키는 키보드로도 실행할 수 있게 해줄 뿐입니다."
+    },
+    "ctxLinkPrefix": {
+        "message": "링크"
+    },
+    "ctxCopyRoot": {
+        "message": "이 페이지 복사"
     }
 }

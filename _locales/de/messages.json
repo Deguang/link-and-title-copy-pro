@@ -492,5 +492,17 @@
     },
     "defaultDescClean": {
         "message": "Sauberer Link, ohne Tracking"
+    },
+    "shortcutOptional": {
+        "message": "Optional"
+    },
+    "shortcutWays": {
+        "message": "Jede Vorlage lässt sich auch über das Popup und das Rechtsklickmenü kopieren. Ein Kürzel macht sie zusätzlich per Tastatur erreichbar."
+    },
+    "ctxLinkPrefix": {
+        "message": "Link"
+    },
+    "ctxCopyRoot": {
+        "message": "Diese Seite kopieren"
     }
 }

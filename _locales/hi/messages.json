@@ -492,5 +492,17 @@
     },
     "defaultDescClean": {
         "message": "साफ़ लिंक, ट्रैकिंग हटाई गई"
+    },
+    "shortcutOptional": {
+        "message": "वैकल्पिक"
+    },
+    "shortcutWays": {
+        "message": "हर टेम्पलेट टूलबार पॉपअप और राइट-क्लिक मेन्यू से भी इस्तेमाल हो सकता है। शॉर्टकट सिर्फ़ कीबोर्ड से पहुँच जोड़ता है।"
+    },
+    "ctxLinkPrefix": {
+        "message": "लिंक"
+    },
+    "ctxCopyRoot": {
+        "message": "यह पेज कॉपी करें"
     }
 }

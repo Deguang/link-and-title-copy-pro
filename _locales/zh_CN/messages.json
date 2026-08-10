@@ -492,5 +492,17 @@
     },
     "defaultDescClean": {
         "message": "干净链接（已去除追踪参数）"
+    },
+    "shortcutOptional": {
+        "message": "可选"
+    },
+    "shortcutWays": {
+        "message": "每个模板都可以从工具栏弹窗和右键菜单使用。设置快捷键只是让它也能用键盘触发。"
+    },
+    "ctxLinkPrefix": {
+        "message": "链接"
+    },
+    "ctxCopyRoot": {
+        "message": "复制此页面"
     }
 }

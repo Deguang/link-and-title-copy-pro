@@ -492,5 +492,17 @@
     },
     "defaultDescClean": {
         "message": "乾淨連結（已移除追蹤參數）"
+    },
+    "shortcutOptional": {
+        "message": "選填"
+    },
+    "shortcutWays": {
+        "message": "每個範本都可以從工具列彈出視窗和右鍵選單使用。設定快捷鍵只是讓它也能用鍵盤觸發。"
+    },
+    "ctxLinkPrefix": {
+        "message": "連結"
+    },
+    "ctxCopyRoot": {
+        "message": "複製此頁面"
     }
 }

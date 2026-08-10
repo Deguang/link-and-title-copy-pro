@@ -492,5 +492,17 @@
     },
     "defaultDescClean": {
         "message": "Clean link, tracking removed"
+    },
+    "shortcutOptional": {
+        "message": "Optional"
+    },
+    "shortcutWays": {
+        "message": "Every template can also be copied from the toolbar popup and the right-click menu. A shortcut just makes it reachable from the keyboard."
+    },
+    "ctxLinkPrefix": {
+        "message": "Link"
+    },
+    "ctxCopyRoot": {
+        "message": "Copy this page"
     }
 }

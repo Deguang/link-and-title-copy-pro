@@ -415,7 +415,12 @@ const TemplateEditor = ({ config, index, onChange, onDelete, onOpenHelp, issues 
 
             {/* Shortcut */}
             <section className="mb-4 rounded-2xl border border-line bg-surface p-5 shadow-sm">
-                <label className={`${LABEL} mb-2 block`}>{t('shortcut')}</label>
+                <div className="mb-2 flex items-center gap-2">
+                    <label className={LABEL}>{t('shortcut')}</label>
+                    <span className="rounded-full bg-surface-2 px-1.5 py-0.5 text-[10px] font-medium text-ink-3">
+                        {t('shortcutOptional')}
+                    </span>
+                </div>
                 {isManualInput ? (
                     <input
                         type="text"
@@ -445,6 +450,8 @@ const TemplateEditor = ({ config, index, onChange, onDelete, onOpenHelp, issues 
                     </p>
                 )}
                 <IssueList t={t} issues={shortcutIssues} />
+
+                <p className="mt-2.5 text-xs leading-relaxed text-ink-3">{t('shortcutWays')}</p>
 
                 <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
                     <p className="text-xs text-ink-3">

@@ -239,6 +239,9 @@ function updateContextMenu() {
 
 function doUpdateContextMenu() {
   try {
+    const linkPrefix = chrome.i18n.getMessage('ctxLinkPrefix') || 'Link';
+    const rootTitle = chrome.i18n.getMessage('ctxCopyRoot') || 'Copy this page';
+
     chrome.contextMenus.removeAll(() => {
       if (chrome.runtime.lastError) {
         console.error('Error removing context menus:', chrome.runtime.lastError.message);
@@ -250,36 +253,40 @@ function doUpdateContextMenu() {
         config => config && config.shortcut && config.template && !config.isNew
       );
 
+      // Two roots: what's under the cursor, and — when that's a link — the link
+      // itself. Chrome layers contexts, so without this a link right-click would
+      // list every template twice at the top level.
+      chrome.contextMenus.create({
+        id: 'copyRoot',
+        title: rootTitle,
+        contexts: ['page', 'selection', 'link'],
+      });
+      chrome.contextMenus.create({
+        id: 'copyLinkRoot',
+        title: linkPrefix,
+        contexts: ['link'],
+      });
+
       validConfigs.forEach((config, index) => {
         // 为页面创建菜单项
         chrome.contextMenus.create({
           id: `copyTemplate_page_${index}`,
-          title: `📄 ${config.description || config.shortcut}`,
+          parentId: 'copyRoot',
+          title: config.description || config.shortcut,
           type: 'normal',
-          contexts: ['page']
+          contexts: ['page', 'selection', 'link']
         }, () => {
           if (chrome.runtime.lastError) {
             console.error(`Error creating page context menu ${index}:`, chrome.runtime.lastError.message);
           }
         });
 
-        // 为选中文本创建菜单项
-        chrome.contextMenus.create({
-          id: `copyTemplate_selection_${index}`,
-          title: `📝 ${config.description || config.shortcut}`,
-          type: 'normal',
-          contexts: ['selection']
-        }, () => {
-          if (chrome.runtime.lastError) {
-            console.error(`Error creating selection context menu ${index}:`, chrome.runtime.lastError.message);
-          }
-        });
-
-        // Right-clicking a link copies that link in the chosen format, without
-        // having to open it first. Every comparable extension offers this.
+        // The link the cursor is on is a different target from the page holding
+        // it, so it gets the same list under its own parent.
         chrome.contextMenus.create({
           id: `copyTemplate_link_${index}`,
-          title: `🔗 ${config.description || config.shortcut}`,
+          parentId: 'copyLinkRoot',
+          title: config.description || config.shortcut,
           type: 'normal',
           contexts: ['link']
         }, () => {
@@ -293,13 +300,15 @@ function doUpdateContextMenu() {
       if (validConfigs.length > 0) {
         chrome.contextMenus.create({
           id: 'separator',
+          parentId: 'copyRoot',
           type: 'separator',
           contexts: ['page', 'selection', 'link']
         });
 
         chrome.contextMenus.create({
           id: 'openOptions',
-          title: '⚙️ ' + (chrome.i18n.getMessage('config') || 'Settings'),
+          parentId: 'copyRoot',
+          title: chrome.i18n.getMessage('config') || 'Settings',
           type: 'normal',
           contexts: ['page', 'selection', 'link']
         });
@@ -632,7 +641,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
     return;
   }
 
-  const match = String(info.menuItemId).match(/^copyTemplate_(page|selection|link)_(\d+)$/);
+  const match = String(info.menuItemId).match(/^copyTemplate_(page|link)_(\d+)$/);
   if (!match || !tab) return;
 
   const [, kind, idxStr] = match;
