@@ -539,17 +539,39 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   return true;
 });
 
-/* 
-// Deprecated: Native commands removed in favor of JS content script injection
-chrome.commands.onCommand.addListener(function (command) {
-  console.log('Command received:', command);
+// Native command fallback.
+//
+// The content script's keydown listener covers the ordinary case, but it only
+// exists where a content script can be injected. On the new tab page, chrome://
+// pages, the Web Store, other extensions' pages and PDFs there is nothing
+// listening, so the shortcut did nothing — and said nothing about why. A new
+// user trying it on the new tab page concludes the extension is broken.
+//
+// Chrome dispatches these itself, with no page involvement, so they work
+// everywhere. Where a content script *does* exist both paths would fire, so this
+// asks it first and only acts on its own if nothing answered.
+chrome.commands.onCommand.addListener(async (command) => {
   const match = command.match(/copy-template-(\d+)/);
-  if (match) {
-    const index = parseInt(match[1]);
-    copyToClipboard(index);
+  if (!match) return;
+  const index = parseInt(match[1], 10);
+
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  if (!tab) return;
+
+  // Only the content script can read the page selection, so prefer it.
+  try {
+    const res = await chrome.tabs.sendMessage(tab.id, {
+      action: 'copyToClipboard',
+      templateIndex: index,
+    });
+    if (res && res.success) return;
+  } catch {
+    // No receiving end: no content script here. That's the case this exists for.
   }
+
+  // Title and URL come from the tab itself, which needs no page access at all.
+  await fallbackCopy(index, tab);
 });
-*/
 
 chrome.storage.onChanged.addListener((changes, namespace) => {
   if (namespace === 'local' && changes[STORAGE_KEY]) {

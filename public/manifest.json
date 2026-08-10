@@ -48,5 +48,28 @@
     "48": "icons/icon.webp",
     "128": "icons/icon.webp"
   },
-  "options_page": "options.html"
+  "options_page": "options.html",
+  "commands": {
+    "copy-template-0": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+P",
+        "mac": "Command+Shift+P"
+      },
+      "description": "Copy selected text (or title) and URL"
+    },
+    "copy-template-1": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+L",
+        "mac": "Command+Shift+L"
+      },
+      "description": "Copy as Markdown link"
+    },
+    "copy-template-2": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+U",
+        "mac": "Command+Shift+U"
+      },
+      "description": "Smart copy with quotes for selected text"
+    }
+  }
 }

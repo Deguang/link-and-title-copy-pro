@@ -171,11 +171,13 @@ function ProgressStepper({ step }) {
 function Step1({ os, shortcutKeys, valState, onOpenSettings, onNext }) {
   const isListening = valState === 'listening';
   const isSuccess   = valState === 'success';
+  // The conflict hint appears after a short pause — long enough not to imply
+  // failure the instant the page opens, short enough that nobody feels stuck.
   const [showHint, setShowHint] = useState(false);
 
   useEffect(() => {
     if (!isListening) return;
-    const t = setTimeout(() => setShowHint(true), 8000);
+    const t = setTimeout(() => setShowHint(true), 2500);
     return () => clearTimeout(t);
   }, [isListening]);
 
@@ -237,16 +239,18 @@ function Step1({ os, shortcutKeys, valState, onOpenSettings, onNext }) {
         )}
       </div>
 
-      {/* CTA */}
-      {(isSuccess || showHint) && (
-        <button onClick={onNext}
-          className={`w-full py-3 font-semibold rounded-xl transition-colors duration-200 ${
-            isSuccess ? 'bg-ok hover:bg-ok text-surface'
-                      : 'bg-surface-2 hover:bg-line text-ink-2'
-          }`}>
-          {isSuccess ? t('onboardingContinue') : t('onboardingSkipStep')}
-        </button>
-      )}
+      {/* CTA — always available. Verifying the shortcut is worth encouraging,
+          but making it the only way forward turns a failed keypress into a dead
+          end on the extension's first screen. */}
+      <button
+        onClick={onNext}
+        className={`w-full py-3 font-semibold rounded-xl transition-colors duration-200 ${
+          isSuccess ? 'bg-ok hover:bg-ok text-surface'
+                    : 'bg-surface-2 hover:bg-line text-ink-2'
+        }`}
+      >
+        {isSuccess ? t('onboardingContinue') : t('onboardingSkipStep')}
+      </button>
     </div>
   );
 }
