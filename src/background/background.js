@@ -265,6 +265,19 @@ function doUpdateContextMenu() {
             console.error(`Error creating selection context menu ${index}:`, chrome.runtime.lastError.message);
           }
         });
+
+        // Right-clicking a link copies that link in the chosen format, without
+        // having to open it first. Every comparable extension offers this.
+        chrome.contextMenus.create({
+          id: `copyTemplate_link_${index}`,
+          title: `🔗 ${config.description || config.shortcut}`,
+          type: 'normal',
+          contexts: ['link']
+        }, () => {
+          if (chrome.runtime.lastError) {
+            console.error(`Error creating link context menu ${index}:`, chrome.runtime.lastError.message);
+          }
+        });
       });
 
       // 添加分隔线和帮助项
@@ -272,14 +285,14 @@ function doUpdateContextMenu() {
         chrome.contextMenus.create({
           id: 'separator',
           type: 'separator',
-          contexts: ['page', 'selection']
+          contexts: ['page', 'selection', 'link']
         });
 
         chrome.contextMenus.create({
           id: 'openOptions',
           title: '⚙️ ' + (chrome.i18n.getMessage('config') || 'Settings'),
           type: 'normal',
-          contexts: ['page', 'selection']
+          contexts: ['page', 'selection', 'link']
         });
       }
     });
@@ -305,6 +318,31 @@ async function setupOffscreenDocument(path) {
 }
 
 
+
+// Writes text to the clipboard from the background, via the offscreen document,
+// and confirms it however the page allows. Shared by the fallback copy path and
+// the link context menu — both need to copy without a content script.
+async function copyTextViaOffscreen(text, tab) {
+  await setupOffscreenDocument(OFFSCREEN_DOCUMENT_PATH);
+  chrome.runtime.sendMessage({ type: 'copy-data', target: 'offscreen-doc', data: text }, (response) => {
+    if (chrome.runtime.lastError) {
+      console.error('Error sending to offscreen:', chrome.runtime.lastError);
+      showNotification('Copy Failed', 'Could not copy to clipboard');
+      return;
+    }
+    if (!response || !response.success) {
+      showNotification('Copy Failed', response?.error || 'Unknown error');
+      return;
+    }
+    const label = chrome.i18n.getMessage('toastCopied') || 'Copied to Clipboard!';
+    if (!tab) { showNotification(label, text); return; }
+    // The in-page toast is nicer, but a page without a content script can't show
+    // one — a system notification means the copy is still acknowledged.
+    chrome.tabs.sendMessage(tab.id, { action: 'showToast', message: label, contentPreview: text }, () => {
+      if (chrome.runtime.lastError) showNotification(label, text);
+    });
+  });
+}
 
 async function fallbackCopy(index, tab) {
   try {
@@ -570,6 +608,54 @@ chrome.commands.onCommand.addListener(async (command) => {
   }
 
   // Title and URL come from the tab itself, which needs no page access at all.
+  await fallbackCopy(index, tab);
+});
+
+// Context menu clicks.
+//
+// These items have existed since before shortcut handling moved into the content
+// script, but the listener that acted on them went with it — so every menu entry
+// has been inert since: the user right-clicks, picks a format, and nothing
+// happens. Every install hits this.
+chrome.contextMenus.onClicked.addListener(async (info, tab) => {
+  if (info.menuItemId === 'openOptions') {
+    chrome.runtime.openOptionsPage();
+    return;
+  }
+
+  const match = String(info.menuItemId).match(/^copyTemplate_(page|selection|link)_(\d+)$/);
+  if (!match || !tab) return;
+
+  const [, kind, idxStr] = match;
+  const index = parseInt(idxStr, 10);
+  await configsReady;
+  const config = configuredShortcuts[index];
+  if (!config || !config.template) return;
+
+  // A right-clicked link is a different target from the page it sits on, so its
+  // own href and text are used rather than the tab's.
+  if (kind === 'link') {
+    const text = processTemplate(config.template, {
+      title: info.linkText || info.selectionText || info.linkUrl || '',
+      url: info.linkUrl || '',
+      selectedText: info.selectionText || '',
+    });
+    await copyTextViaOffscreen(text, tab);
+    return;
+  }
+
+  // Page and selection copies go through the content script, which is the only
+  // place the live selection can be read. Where it isn't present, fall back to
+  // what the tab itself knows.
+  try {
+    const res = await chrome.tabs.sendMessage(tab.id, {
+      action: 'copyToClipboard',
+      templateIndex: index,
+    });
+    if (res && res.success) return;
+  } catch {
+    // No content script on this page.
+  }
   await fallbackCopy(index, tab);
 });
 
