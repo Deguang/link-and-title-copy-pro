@@ -195,9 +195,9 @@ function copyToClipboard(template, overrideTitle, overrideUrl) {
   }
 
   function showSuccessMessage() {
+    if (!isContextAlive()) return;
     // Send message to background to show toast (Background will route it to Top Frame)
     const toastMessage = chrome.i18n.getMessage('toastCopied');
-    console.log('[Content] i18n toastCopied:', toastMessage, '| UI Language:', chrome.i18n.getUILanguage());
     chrome.runtime.sendMessage({
         action: 'showToastRequest',
         message: toastMessage || 'Copied to Clipboard!',
@@ -207,6 +207,7 @@ function copyToClipboard(template, overrideTitle, overrideUrl) {
   }
 
   function showErrorMessage() {
+     if (!isContextAlive()) return;
      chrome.runtime.sendMessage({
         action: 'showToastRequest',
         message: chrome.i18n.getMessage('toastFailed') || 'Copy Failed',
@@ -218,6 +219,7 @@ function copyToClipboard(template, overrideTitle, overrideUrl) {
   // Policy disabling the Clipboard API — crbug.com/414348233). The background
   // writes via its offscreen document, which the page's policy cannot touch.
   function copyViaBackground() {
+    if (!isContextAlive()) { showErrorMessage(); return; }
     try {
       chrome.runtime.sendMessage({ action: 'copyViaOffscreen', text: processedText }, (resp) => {
         if (chrome.runtime.lastError || !resp || !resp.success) {
@@ -336,11 +338,19 @@ function initContentScript() {
   window.__ltcSelChange = handleSelectionChange;
   document.addEventListener('selectionchange', handleSelectionChange);
 
-  // Fully idempotent within a single context too: removeListener is a safe no-op
-  // when the handler isn't registered, so a re-run can never double-bind onMessage
-  // (which would double-copy). This is what makes the load-time retry below safe.
-  chrome.runtime.onMessage.removeListener(handleMessage);
-  chrome.runtime.onMessage.addListener(handleMessage);
+  // Guarded because this runs again on `load`, and a script that outlived an
+  // extension update has no chrome.runtime left to register against — reaching
+  // for onMessage there throws before the page ever gets a listener.
+  //
+  // Idempotent within a live context too: removeListener is a safe no-op when the
+  // handler isn't registered, so a re-run can never double-bind (which would
+  // double-copy). That is what makes the load-time retry below safe.
+  if (isContextAlive()) {
+    try {
+      chrome.runtime.onMessage.removeListener(handleMessage);
+      chrome.runtime.onMessage.addListener(handleMessage);
+    } catch { /* orphaned between the check and the call */ }
+  }
 
   window.hasLinkTitleCopyProContentScript = true;
 }
