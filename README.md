@@ -59,6 +59,10 @@ Link&TitleCopyPro是一个可以同时复制浏览器标签页的标题和URL链
 
 ## Version History / 版本历史
 
+### v1.10.1
+
+- No more console errors on pages that were open when the extension updated / 修复扩展更新后，已打开页面报控制台错误的问题
+
 ### v1.10.0
 
 - Batch copy has eight layouts: separate lines, bullets, task list, numbered, Markdown table, HTML table, CSV, JSON / 批量复制支持八种排列方式：分行、项目符号、任务清单、编号、Markdown 表格、HTML 表格、CSV、JSON
@@ -70,6 +74,10 @@ Link&TitleCopyPro是一个可以同时复制浏览器标签页的标题和URL链
 - New `{url:notrack}` placeholder removes tracking parameters while keeping the ones the page needs / 新增 `{url:notrack}`，去除追踪参数但保留页面必需的参数
 - New installs get a clean-link template ready to use / 新安装自带「干净链接」模板
 - The popup now copies the tabs you selected in the tab strip / 弹窗会复制你在标签栏中选中的标签页
+
+### v1.10.1
+
+- No more console errors on pages that were open when the extension updated / 修复扩展更新后，已打开页面报控制台错误的问题
 
 ### v1.10.0
 
