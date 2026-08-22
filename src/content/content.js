@@ -262,6 +262,17 @@ function handleMessage(message, sender, sendResponse) {
       sendResponse({ alive: true });
       return true;
     } else if (message.action === 'copyToClipboard') {
+      // A copy addressed to the whole tab reaches every frame in it, and a frame
+      // with no override falls back to its own location — which for a hidden
+      // iframe embedded by a payment or analytics script is not the page the
+      // user is looking at. Senders are expected to name a frame and pass the
+      // tab's title and URL; refusing the unqualified case here means a caller
+      // that forgets cannot put an iframe's URL on the clipboard.
+      if (window.top !== window && !message.url) {
+        sendResponse({ success: false, error: 'subframe without page context' });
+        return true;
+      }
+
       const config = shortcuts.find(c => c.originalIndex === message.templateIndex);
       
       if (config && config.template) {

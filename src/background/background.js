@@ -614,12 +614,28 @@ chrome.commands.onCommand.addListener(async (command) => {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   if (!tab) return;
 
-  // Only the content script can read the page selection, so prefer it.
+  // Only the content script can read the page selection, so prefer it — but
+  // addressed to one frame, carrying the tab's own title and URL.
+  //
+  // Without both of those this broadcasts to every frame in the tab, and each
+  // one copies its *own* location. A page embedding a hidden iframe (Stripe.js
+  // is the case this was reported on) then races: the iframe can't reach
+  // navigator.clipboard without focus, falls through to the offscreen document,
+  // which needs no focus and so tends to land last — overwriting the correct
+  // copy with the iframe's URL. Whichever frame finished last won, which is why
+  // it only went wrong some of the time.
+  //
+  // Chrome tells us nothing about which frame the keystroke came from, so the
+  // top frame is the only sound target. A selection inside a subframe is not
+  // reachable this way; the in-page shortcut path handles that, since a keydown
+  // does say which frame it happened in.
   try {
     const res = await chrome.tabs.sendMessage(tab.id, {
       action: 'copyToClipboard',
       templateIndex: index,
-    });
+      title: tab.title,
+      url: tab.url,
+    }, { frameId: 0 });
     if (res && res.success) return;
   } catch {
     // No receiving end: no content script here. That's the case this exists for.
@@ -663,13 +679,17 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   }
 
   // Page and selection copies go through the content script, which is the only
-  // place the live selection can be read. Where it isn't present, fall back to
-  // what the tab itself knows.
+  // place the live selection can be read. Unlike a command, a right-click says
+  // which frame it happened in, so the selection there is still reachable — but
+  // the title and URL are the tab's either way. "Copy this page" means the page,
+  // even when the click landed inside an embedded frame.
   try {
     const res = await chrome.tabs.sendMessage(tab.id, {
       action: 'copyToClipboard',
       templateIndex: index,
-    });
+      title: tab.title,
+      url: tab.url,
+    }, { frameId: typeof info.frameId === 'number' ? info.frameId : 0 });
     if (res && res.success) return;
   } catch {
     // No content script on this page.
