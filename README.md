@@ -59,6 +59,10 @@ Link&TitleCopyPro是一个可以同时复制浏览器标签页的标题和URL链
 
 ## Version History / 版本历史
 
+### v1.10.3
+
+- Completes the [#4](https://github.com/Deguang/link-and-title-copy-pro/issues/4) fix: a hidden iframe with nothing selected now declines the copy instead of racing for the clipboard / 补全 [#4](https://github.com/Deguang/link-and-title-copy-pro/issues/4)：无选中内容的隐藏 iframe 不再参与复制
+
 ### v1.10.2
 
 - A hidden iframe (e.g. Stripe.js) no longer copies its own URL over the page's / 页面内隐藏 iframe（如 Stripe.js）不再覆盖为自身地址 ([#4](https://github.com/Deguang/link-and-title-copy-pro/issues/4))
