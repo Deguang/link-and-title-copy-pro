@@ -413,7 +413,7 @@ function Popup() {
 
       {/* Footer */}
       <div className="mt-3 pt-3 border-t border-line-soft flex justify-between items-center text-xs text-ink-3">
-        <span>v1.10.1</span>
+        <span>v1.10.2</span>
         <div className="flex gap-3">
           <a href="https://github.com/Deguang/link-and-title-copy-pro/issues/new" target="_blank" rel="noreferrer" className="hover:text-accent transition">{t('reportIssue') || 'Feedback'}</a>
           <a href="https://app.lideguang.com/link-and-title-copy-pro/" target="_blank" rel="noreferrer" className="hover:text-accent transition">Website</a>
