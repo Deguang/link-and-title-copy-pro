@@ -262,14 +262,19 @@ function handleMessage(message, sender, sendResponse) {
       sendResponse({ alive: true });
       return true;
     } else if (message.action === 'copyToClipboard') {
-      // A copy addressed to the whole tab reaches every frame in it, and a frame
-      // with no override falls back to its own location — which for a hidden
-      // iframe embedded by a payment or analytics script is not the page the
-      // user is looking at. Senders are expected to name a frame and pass the
-      // tab's title and URL; refusing the unqualified case here means a caller
-      // that forgets cannot put an iframe's URL on the clipboard.
-      if (window.top !== window && !message.url) {
-        sendResponse({ success: false, error: 'subframe without page context' });
+      // The only reason a subframe should handle a page copy is that the user's
+      // selection lives in it. Without one it has nothing the top frame doesn't,
+      // and everything to get wrong: no page context of its own worth using, no
+      // focus, and often a Permissions-Policy that blocks the Clipboard API —
+      // which then logs a violation and falls through to the offscreen path,
+      // where it can land last and overwrite the correct copy.
+      //
+      // This declines instead, and the background retries against the top frame.
+      // Keying off the selection rather than off page context also covers the
+      // case a weaker guard missed: a hidden iframe that received the keystroke
+      // itself is sent the page's title and URL, so having them proves nothing.
+      if (window.top !== window && !getSelectedText()) {
+        sendResponse({ success: false, error: 'subframe with no selection' });
         return true;
       }
 

@@ -52,10 +52,25 @@ test('every copyToClipboard message carries the tab title and url', () => {
     }
 });
 
-test('a subframe refuses a copy that carries no page context', () => {
+test('a subframe holding no selection refuses the copy', () => {
     const at = content.indexOf("message.action === 'copyToClipboard'");
     assert.notEqual(at, -1);
-    const handler = content.slice(at, at + 700);
+    // Up to the copy call itself, so the guard has to sit before the work.
+    const handler = content.slice(at, content.indexOf('copyToClipboard(config.template', at));
     assert.match(handler, /window\.top !== window/, 'no top-frame guard');
-    assert.match(handler, /!message\.url/, 'guard must key off the missing override');
+    assert.match(
+        handler,
+        /!getSelectedText\(\)/,
+        'the guard must key off an actual selection: page context alone lets a hidden '
+        + 'iframe that triggered the copy itself through'
+    );
+    assert.match(handler, /success: false/, 'the decline has to be reported so the caller can retry');
+});
+
+test('the background retries at the top frame when a subframe declines', () => {
+    const at = bg.indexOf('function copyToClipboard(index');
+    assert.notEqual(at, -1);
+    const fn = bg.slice(at, bg.indexOf('\n}', at));
+    assert.match(fn, /response\.success === false/, 'a decline is ignored, so the copy is lost');
+    assert.match(fn, /frameId: 0/, 'nothing retries against the top frame');
 });

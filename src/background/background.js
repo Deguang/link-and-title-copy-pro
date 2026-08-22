@@ -452,12 +452,24 @@ function copyToClipboard(index, senderFrameId = 0) {
       url: activeTab.url      // Pass top-level URL
     }, { frameId: targetFrameId }, (response) => {
       if (chrome.runtime.lastError) {
-         console.warn('Could not send to frame', targetFrameId, 'Trying top frame', chrome.runtime.lastError);
-         // Fallback to top frame if sender frame is gone or errored?
-         // But if sender frame is gone, selection is gone. relying on top frame logic might be safer fallback for title/url only.
-         if (targetFrameId !== 0) {
-             fallbackCopy(index, activeTab);
-         }
+        // The frame is gone. Its selection went with it, so the tab's own title
+        // and URL are all that's left to copy.
+        if (targetFrameId !== 0) fallbackCopy(index, activeTab);
+        return;
+      }
+
+      // A subframe declines when it holds no selection — it has nothing the top
+      // frame doesn't, and copying from it would use the wrong page. This is the
+      // path a hidden iframe takes when it received the keystroke itself.
+      if (response && response.success === false && targetFrameId !== 0) {
+        chrome.tabs.sendMessage(activeTab.id, {
+          action: 'copyToClipboard',
+          templateIndex: index,
+          title: activeTab.title,
+          url: activeTab.url,
+        }, { frameId: 0 }, () => {
+          if (chrome.runtime.lastError) fallbackCopy(index, activeTab);
+        });
       }
     });
   });
