@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "ui": {
+      "source": "tw93/waza",
+      "sourceType": "github",
+      "skillPath": "skills/ui/SKILL.md",
+      "computedHash": "6b419f10122df1d0631d8163349e349d9b0066543a522416d70fee7adf05ba71"
+    }
+  }
+}

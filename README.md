@@ -61,6 +61,16 @@ Link&TitleCopyPro是一个可以同时复制浏览器标签页的标题和URL链
 
 ## Version History / 版本历史
 
+### v1.13.0
+
+- Shortening rules are written by path segment instead of regex: `**/dp/:asin` rather than `^(?:/[^/]+)?/(?:dp|gp/product)/([A-Z0-9]{10})…` / 短链规则改为按路径段书写，不再需要正则
+- Paste a long URL and a short one that works, and the rule is worked out for you / 贴上长网址和一个可用的短网址，规则自动推导
+- The rules page shows what happened to a URL, not only what came out of it / 规则页会展示网址发生了什么，而不只是结果
+- Placeholders in the template field are coloured, so a typo shows where you type it / 模板中的占位符按类型着色，拼错当场可见
+- A template without a shortcut now appears in the popup and the right-click menu, as the settings page always said it would / 无快捷键的模板现在会出现在弹窗和右键菜单中
+- Right-click menu entries no longer point at the wrong template when a shortcut is cleared / 清除快捷键后，右键菜单不再复制成另一个模板
+- The extension mark stays legible on dark backgrounds / 深色下扩展图标不再融进背景
+
 ### v1.12.0
 
 - Link shortening rules are editable in Settings: built-in rules for common sites, plus your own for anywhere else, with a test box that shows the result as you type / 短链规则可在设置中编辑：内置常见站点规则，也可自行添加，并带实时测试框
