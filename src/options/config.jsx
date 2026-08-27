@@ -5,6 +5,7 @@ import { processTemplate } from '@/utils/templateProcessor';
 import { STORAGE_KEY } from '../constant';
 import LicenseSection from './LicenseSection';
 import ShortRulesEditor from './ShortRulesEditor';
+import TemplateInput from './TemplateInput';
 import { PAYMENT_ENABLED } from '@/utils/license';
 import { REVIEW_OPT_OUT_KEY } from '@/utils/reviewPrompt';
 import { validateConfig } from '@/utils/validateConfig.mjs';
@@ -515,13 +516,13 @@ const TemplateEditor = ({ config, index, onChange, onDelete, onOpenHelp, issues 
                     </button>
                 </div>
                 <div className="relative">
-                    <textarea
-                        ref={templateRef}
+                    <TemplateInput
+                        forwardRef={templateRef}
                         value={config.template}
                         onChange={handleTemplateChange}
                         onKeyDown={handleTemplateKeyDown}
                         onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
-                        className={`${FIELD} resize-y font-mono leading-relaxed`}
+                        hasError={issues.some((i) => i.field === 'template' && i.level === 'error')}
                         placeholder={t('templatePlaceholder')}
                         rows="6"
                     />
