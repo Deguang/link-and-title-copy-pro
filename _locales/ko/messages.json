@@ -645,5 +645,23 @@
     },
     "rulesManualHint": {
         "message": "또는 직접 작성하기"
+    },
+    "rulesIntro": {
+        "message": "복사한 링크는 더 짧아질 수 있습니다. 많은 사이트가 같은 페이지를 간결한 주소로 열어 주며, {url:short}는 그 형식을 씁니다."
+    },
+    "rulesYours": {
+        "message": "추가한 사이트"
+    },
+    "rulesBuiltinSites": {
+        "message": "기본 제공 사이트"
+    },
+    "rulesEdit": {
+        "message": "편집"
+    },
+    "rulesDone": {
+        "message": "완료"
+    },
+    "rulesTeachShort": {
+        "message": "사이트 추가"
     }
 }

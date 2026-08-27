@@ -645,5 +645,23 @@
     },
     "rulesManualHint": {
         "message": "或手動編寫一條"
+    },
+    "rulesIntro": {
+        "message": "複製出來的連結可以更短。很多網站用精簡的網址就能開啟同一頁面，{url:short} 會使用那個形式。"
+    },
+    "rulesYours": {
+        "message": "你新增的網站"
+    },
+    "rulesBuiltinSites": {
+        "message": "內建網站"
+    },
+    "rulesEdit": {
+        "message": "編輯"
+    },
+    "rulesDone": {
+        "message": "完成"
+    },
+    "rulesTeachShort": {
+        "message": "新增網站"
     }
 }

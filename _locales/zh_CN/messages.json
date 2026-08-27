@@ -645,5 +645,23 @@
     },
     "rulesManualHint": {
         "message": "或手动编写一条"
+    },
+    "rulesIntro": {
+        "message": "复制出来的链接可以更短。很多网站用一个精简的网址就能打开同一页面，{url:short} 会用那个形式。"
+    },
+    "rulesYours": {
+        "message": "你添加的网站"
+    },
+    "rulesBuiltinSites": {
+        "message": "内置网站"
+    },
+    "rulesEdit": {
+        "message": "编辑"
+    },
+    "rulesDone": {
+        "message": "完成"
+    },
+    "rulesTeachShort": {
+        "message": "添加网站"
     }
 }

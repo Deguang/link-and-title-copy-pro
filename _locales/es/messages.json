@@ -645,5 +645,23 @@
     },
     "rulesManualHint": {
         "message": "O escribirla a mano"
+    },
+    "rulesIntro": {
+        "message": "Los enlaces copiados pueden ser más cortos. Muchos sitios sirven la misma página con una URL reducida, y {url:short} la usa."
+    },
+    "rulesYours": {
+        "message": "Tus sitios"
+    },
+    "rulesBuiltinSites": {
+        "message": "Sitios incluidos"
+    },
+    "rulesEdit": {
+        "message": "Editar"
+    },
+    "rulesDone": {
+        "message": "Hecho"
+    },
+    "rulesTeachShort": {
+        "message": "Añadir un sitio"
     }
 }

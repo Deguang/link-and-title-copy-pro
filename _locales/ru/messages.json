@@ -645,5 +645,23 @@
     },
     "rulesManualHint": {
         "message": "Или написать вручную"
+    },
+    "rulesIntro": {
+        "message": "Скопированные ссылки могут быть короче. Многие сайты открывают ту же страницу по укороченному адресу, и {url:short} использует его."
+    },
+    "rulesYours": {
+        "message": "Ваши сайты"
+    },
+    "rulesBuiltinSites": {
+        "message": "Встроенные сайты"
+    },
+    "rulesEdit": {
+        "message": "Изменить"
+    },
+    "rulesDone": {
+        "message": "Готово"
+    },
+    "rulesTeachShort": {
+        "message": "Добавить сайт"
     }
 }

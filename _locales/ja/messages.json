@@ -645,5 +645,23 @@
     },
     "rulesManualHint": {
         "message": "手動で書く場合はこちら"
+    },
+    "rulesIntro": {
+        "message": "コピーするリンクはもっと短くできます。多くのサイトは同じページを簡潔なURLで開けるので、{url:short} はそれを使います。"
+    },
+    "rulesYours": {
+        "message": "追加したサイト"
+    },
+    "rulesBuiltinSites": {
+        "message": "内蔵サイト"
+    },
+    "rulesEdit": {
+        "message": "編集"
+    },
+    "rulesDone": {
+        "message": "完了"
+    },
+    "rulesTeachShort": {
+        "message": "サイトを追加"
     }
 }

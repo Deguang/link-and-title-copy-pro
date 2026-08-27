@@ -45,6 +45,31 @@ function RuleRow({ t, rule, onChange, onRemove }) {
     const error = validateRule(rule);
     const errText = error ? t(ERROR_KEYS[error] || error) : '';
     const isRegex = rule.syntax === 'regex';
+    // A rule with nothing in it was just created, so it opens ready to fill in.
+    const [open, setOpen] = useState(!rule.host && !rule.match);
+
+    if (!open) {
+        return (
+            <div className="flex items-center gap-3 rounded-xl border border-line bg-surface px-4 py-3">
+                <span className="min-w-0 flex-1 truncate">
+                    <span className="text-sm font-medium text-ink">{rule.label || rule.host}</span>
+                    {!error && (
+                        <span className="ml-2.5 font-mono text-xs text-ink-3">
+                            {rule.match} <span className="px-0.5">→</span> {rule.replace}
+                        </span>
+                    )}
+                    {error && <span className="ml-2.5 text-xs font-medium text-danger">{errText}</span>}
+                </span>
+                <button
+                    type="button"
+                    onClick={() => setOpen(true)}
+                    className="flex-shrink-0 rounded-lg px-2 py-1 text-xs font-medium text-ink-3 transition hover:bg-surface-2 hover:text-ink"
+                >
+                    {t('rulesEdit')}
+                </button>
+            </div>
+        );
+    }
 
     return (
         <div className="rounded-2xl border border-line bg-surface p-5 shadow-[0_1px_2px_rgba(3,42,75,0.06)]">
@@ -55,6 +80,14 @@ function RuleRow({ t, rule, onChange, onRemove }) {
                     placeholder={t('rulesLabel')}
                     className={`${FIELD} flex-1 font-medium`}
                 />
+                <button
+                    type="button"
+                    onClick={() => setOpen(false)}
+                    disabled={!!error}
+                    className="rounded-lg px-2.5 py-2 text-sm font-medium text-accent transition hover:bg-accent-soft disabled:cursor-not-allowed disabled:text-ink-3 disabled:hover:bg-transparent"
+                >
+                    {t('rulesDone')}
+                </button>
                 <button
                     type="button"
                     onClick={onRemove}
@@ -216,6 +249,7 @@ export default function ShortRulesEditor({ t }) {
     // the same URL still re-seeds it.
     const [seed, setSeed] = useState('');
     const [seedKey, setSeedKey] = useState(0);
+    const [teaching, setTeaching] = useState(false);
     const inferRef = useRef(null);
 
     const rules = Array.isArray(userRules) ? userRules : [];
@@ -253,7 +287,13 @@ export default function ShortRulesEditor({ t }) {
     return (
         <div className="mx-auto max-w-3xl">
             <h2 className="text-[22px] font-semibold tracking-[-0.012em] text-ink">{t('rulesTitle')}</h2>
-            <p className="mt-1.5 max-w-[65ch] text-sm leading-relaxed text-ink-2">{t('rulesDesc')}</p>
+            <p className="mt-1.5 max-w-[62ch] text-sm leading-relaxed text-ink-2">{t('rulesIntro')}</p>
+
+            <p className="mt-3 break-all font-mono text-xs leading-relaxed text-ink-3">
+                amazon.com/<span className="line-through decoration-danger/50">Portable-Transistor-Radio-BJL-671</span>/dp/B0D4HLHW8B
+                <br />
+                <span className="text-ok">amazon.com/dp/B0D4HLHW8B</span>
+            </p>
 
             {/* Test first: it is the fastest way to understand what any of this does. */}
             <div className={`mt-6 ${HERO}`}>
@@ -294,6 +334,7 @@ export default function ShortRulesEditor({ t }) {
                                     onClick={() => {
                                         setSeed(testUrl.trim());
                                         setSeedKey((n) => n + 1);
+                                        setTeaching(true);
                                         inferRef.current?.scrollIntoView({ block: 'nearest' });
                                     }}
                                     className="text-xs font-medium text-accent underline underline-offset-2 transition hover:text-accent-hover"
@@ -307,15 +348,42 @@ export default function ShortRulesEditor({ t }) {
             </div>
 
             <div ref={inferRef}>
-                <InferBox
-                    t={t}
-                    seed={seed}
-                    seedKey={seedKey}
-                    onCreate={(rule) => setUserRules([...rules, rule])}
-                />
+                {teaching ? (
+                    <InferBox
+                        t={t}
+                        seed={seed}
+                        seedKey={seedKey}
+                        onCreate={(rule) => { setUserRules([...rules, rule]); setTeaching(false); }}
+                    />
+                ) : (
+                    <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
+                        <button
+                            type="button"
+                            onClick={() => setTeaching(true)}
+                            className="inline-flex items-center gap-1.5 rounded-lg border border-line bg-surface px-3 py-2 text-sm font-medium text-ink-2 shadow-sm transition-[background-color,transform] duration-100 hover:bg-surface-2 hover:text-ink active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-accent/10"
+                        >
+                            <span className="text-base leading-none">+</span>
+                            {t('rulesTeachShort')}
+                        </button>
+                        <button
+                            type="button"
+                            onClick={add}
+                            className="text-xs text-ink-3 underline underline-offset-2 transition hover:text-ink-2"
+                        >
+                            {t('rulesManualHint')}
+                        </button>
+                    </div>
+                )}
             </div>
 
-            <div className="mt-6 space-y-3">
+            {rules.length > 0 && (
+                <div className="mb-2.5 mt-8 flex items-center gap-3">
+                    <h3 className={LABEL}>{t('rulesYours')}</h3>
+                    <span className="h-px flex-1 bg-line" />
+                </div>
+            )}
+
+            <div className="space-y-2">
                 {rules.map((rule, i) => (
                     <RuleRow
                         key={rule.id || i}
@@ -325,25 +393,21 @@ export default function ShortRulesEditor({ t }) {
                         onRemove={() => remove(i)}
                     />
                 ))}
-                <button
-                    type="button"
-                    onClick={add}
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-line bg-surface px-3 py-2 text-sm font-medium text-ink-2 shadow-sm transition-[background-color,transform] duration-100 hover:bg-surface-2 hover:text-ink active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-accent/10"
-                >
-                    <span className="text-base leading-none">+</span>
-                    {t('rulesManualHint')}
-                </button>
+
             </div>
 
-            <div className="mt-9">
-                <div className="mb-2.5 flex items-center gap-3">
-                    <h3 className={LABEL}>{t('rulesBuiltin')}</h3>
-                    <span className="h-px flex-1 bg-line" />
-                </div>
-                <div className="px-0.5">
+            <details className="group mt-9">
+                <summary className="flex cursor-pointer list-none items-center gap-2 text-xs font-semibold uppercase tracking-wider text-ink-3 transition hover:text-ink-2">
+                    <span className="transition-transform group-open:rotate-90">›</span>
+                    {t('rulesBuiltinSites')}
+                    <span className="rounded-full bg-surface-2 px-1.5 py-0.5 text-[10px] font-medium normal-case tracking-normal">
+                        {PRESET_RULES.length}
+                    </span>
+                </summary>
+                <div className="mt-2 px-0.5">
                     {PRESET_RULES.map((rule) => <PresetRow key={rule.id} rule={rule} />)}
                 </div>
-            </div>
+            </details>
         </div>
     );
 }

@@ -645,5 +645,23 @@
     },
     "rulesManualHint": {
         "message": "Oder von Hand schreiben"
+    },
+    "rulesIntro": {
+        "message": "Kopierte Links können kürzer sein. Viele Seiten liefern dieselbe Seite unter einer schlanken URL, und {url:short} nutzt genau die."
+    },
+    "rulesYours": {
+        "message": "Deine Seiten"
+    },
+    "rulesBuiltinSites": {
+        "message": "Eingebaute Seiten"
+    },
+    "rulesEdit": {
+        "message": "Bearbeiten"
+    },
+    "rulesDone": {
+        "message": "Fertig"
+    },
+    "rulesTeachShort": {
+        "message": "Seite hinzufügen"
     }
 }

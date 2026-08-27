@@ -645,5 +645,23 @@
     },
     "rulesManualHint": {
         "message": "या खुद लिखें"
+    },
+    "rulesIntro": {
+        "message": "कॉपी किए लिंक छोटे हो सकते हैं। कई साइटें उसी पेज को छोटे URL से खोल देती हैं, और {url:short} वही इस्तेमाल करता है।"
+    },
+    "rulesYours": {
+        "message": "आपकी साइटें"
+    },
+    "rulesBuiltinSites": {
+        "message": "अंतर्निहित साइटें"
+    },
+    "rulesEdit": {
+        "message": "बदलें"
+    },
+    "rulesDone": {
+        "message": "हो गया"
+    },
+    "rulesTeachShort": {
+        "message": "साइट जोड़ें"
     }
 }

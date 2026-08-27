@@ -645,5 +645,23 @@
     },
     "rulesManualHint": {
         "message": "Or write one by hand"
+    },
+    "rulesIntro": {
+        "message": "Copied links can be shorter. Many sites accept a stripped-down URL for the same page, and {url:short} uses it."
+    },
+    "rulesYours": {
+        "message": "Your sites"
+    },
+    "rulesBuiltinSites": {
+        "message": "Built-in sites"
+    },
+    "rulesEdit": {
+        "message": "Edit"
+    },
+    "rulesDone": {
+        "message": "Done"
+    },
+    "rulesTeachShort": {
+        "message": "Add a site"
     }
 }
