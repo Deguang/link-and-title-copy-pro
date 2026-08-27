@@ -18,6 +18,10 @@ const ERROR_KEYS = {
     patternInvalid: 'ruleErrPatternInvalid',
     patternUnsafe: 'ruleErrPatternUnsafe',
     patternTooLong: 'ruleErrPatternTooLong',
+    duplicateName: 'ruleErrDuplicateName',
+    badName: 'ruleErrBadName',
+    badQuery: 'ruleErrBadQuery',
+    unknownName: 'ruleErrUnknownName',
 };
 
 /**
@@ -28,6 +32,7 @@ const ERROR_KEYS = {
 function RuleRow({ t, rule, onChange, onRemove }) {
     const error = validateRule(rule);
     const errText = error ? t(ERROR_KEYS[error] || error) : '';
+    const isRegex = rule.syntax === 'regex';
 
     return (
         <div className="rounded-xl border border-line bg-surface p-4">
@@ -62,7 +67,7 @@ function RuleRow({ t, rule, onChange, onRemove }) {
                     <input
                         value={rule.match || ''}
                         onChange={(e) => onChange({ match: e.target.value })}
-                        placeholder="^/products/[^/]+/(\d+)"
+                        placeholder={isRegex ? '^/products/[^/]+/(\\d+)' : '/products/*/:id'}
                         className={`${FIELD} font-mono text-xs ${error && error !== 'missingHost' && error !== 'missingReplace' ? FIELD_ERROR : ''}`}
                     />
                 </div>
@@ -71,11 +76,25 @@ function RuleRow({ t, rule, onChange, onRemove }) {
                     <input
                         value={rule.replace || ''}
                         onChange={(e) => onChange({ replace: e.target.value })}
-                        placeholder="/p/$1"
+                        placeholder={isRegex ? '/p/$1' : '/p/:id'}
                         className={`${FIELD} font-mono text-xs ${error === 'missingReplace' ? FIELD_ERROR : ''}`}
                     />
                 </div>
             </div>
+
+            {!isRegex && (
+                <p className="mt-2 font-mono text-[11px] leading-relaxed text-ink-3">{t('rulesSyntaxHelp')}</p>
+            )}
+
+            <label className="mt-2 flex items-center gap-2 text-xs text-ink-3">
+                <input
+                    type="checkbox"
+                    checked={isRegex}
+                    onChange={(e) => onChange({ syntax: e.target.checked ? 'regex' : 'simple' })}
+                    className="h-3.5 w-3.5 rounded border-line text-accent focus:ring-2 focus:ring-accent/25"
+                />
+                {t('rulesAdvanced')}
+            </label>
 
             {errText && <p className="mt-2 text-xs font-medium text-danger">{errText}</p>}
         </div>
@@ -108,7 +127,7 @@ export default function ShortRulesEditor({ t }) {
     };
     const add = () => setUserRules([
         ...rules,
-        { id: `u${Date.now()}`, label: '', host: '', match: '', replace: '' },
+        { id: `u${Date.now()}`, label: '', host: '', match: '', replace: '', syntax: 'simple' },
     ]);
     const remove = (i) => setUserRules(rules.filter((_, n) => n !== i));
 

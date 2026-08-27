@@ -560,7 +560,7 @@
         "message": "網域"
     },
     "rulesMatch": {
-        "message": "比對（路徑正規表示式）"
+        "message": "比對"
     },
     "rulesReplace": {
         "message": "取代為"
@@ -597,5 +597,23 @@
     },
     "ruleErrPatternTooLong": {
         "message": "規則過長"
+    },
+    "rulesAdvanced": {
+        "message": "使用正規表示式"
+    },
+    "rulesSyntaxHelp": {
+        "message": ":id 一段 · * 跳過一段 · ** 跳過任意段 · ?a=:x 僅限該參數"
+    },
+    "ruleErrDuplicateName": {
+        "message": "同一個名字用了兩次"
+    },
+    "ruleErrBadName": {
+        "message": "名字形如 :id —— 只用字母和數字，不能有空格"
+    },
+    "ruleErrBadQuery": {
+        "message": "參數部分形如 name=:value"
+    },
+    "ruleErrUnknownName": {
+        "message": "取代中用了比對裡不存在的名字"
     }
 }

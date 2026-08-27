@@ -560,7 +560,7 @@
         "message": "Домен"
     },
     "rulesMatch": {
-        "message": "Совпадение (регэксп по пути)"
+        "message": "Совпадение"
     },
     "rulesReplace": {
         "message": "Заменить на"
@@ -597,5 +597,23 @@
     },
     "ruleErrPatternTooLong": {
         "message": "Шаблон слишком длинный"
+    },
+    "rulesAdvanced": {
+        "message": "Использовать регулярное выражение"
+    },
+    "rulesSyntaxHelp": {
+        "message": ":id — один сегмент · * — пропустить один · ** — пропустить любые · ?a=:x — только этот параметр"
+    },
+    "ruleErrDuplicateName": {
+        "message": "Это имя использовано дважды"
+    },
+    "ruleErrBadName": {
+        "message": "Имена выглядят как :id — буквы и цифры, без пробелов"
+    },
+    "ruleErrBadQuery": {
+        "message": "Параметры записываются как name=:value"
+    },
+    "ruleErrUnknownName": {
+        "message": "В замене имя, которого нет в шаблоне"
     }
 }

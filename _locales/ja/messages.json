@@ -560,7 +560,7 @@
         "message": "ドメイン"
     },
     "rulesMatch": {
-        "message": "一致（パスの正規表現）"
+        "message": "一致"
     },
     "rulesReplace": {
         "message": "置換後"
@@ -597,5 +597,23 @@
     },
     "ruleErrPatternTooLong": {
         "message": "パターンが長すぎます"
+    },
+    "rulesAdvanced": {
+        "message": "正規表現を使う"
+    },
+    "rulesSyntaxHelp": {
+        "message": ":id 1区切り · * 1つ飛ばす · ** 任意個飛ばす · ?a=:x そのクエリのみ"
+    },
+    "ruleErrDuplicateName": {
+        "message": "同じ名前が2回使われています"
+    },
+    "ruleErrBadName": {
+        "message": "名前は :id の形式 —— 英数字のみ、空白不可"
+    },
+    "ruleErrBadQuery": {
+        "message": "クエリは name=:value の形式です"
+    },
+    "ruleErrUnknownName": {
+        "message": "置換に、一致で取得していない名前が使われています"
     }
 }

@@ -560,7 +560,7 @@
         "message": "डोमेन"
     },
     "rulesMatch": {
-        "message": "मिलान (पाथ पर regex)"
+        "message": "मिलान"
     },
     "rulesReplace": {
         "message": "इससे बदलें"
@@ -597,5 +597,23 @@
     },
     "ruleErrPatternTooLong": {
         "message": "पैटर्न बहुत लंबा है"
+    },
+    "rulesAdvanced": {
+        "message": "रेगुलर एक्सप्रेशन इस्तेमाल करें"
+    },
+    "rulesSyntaxHelp": {
+        "message": ":id एक हिस्सा · * एक छोड़ें · ** कितने भी छोड़ें · ?a=:x सिर्फ़ वही पैरामीटर"
+    },
+    "ruleErrDuplicateName": {
+        "message": "यह नाम दो बार है"
+    },
+    "ruleErrBadName": {
+        "message": "नाम :id जैसे हों — अक्षर और अंक, बिना स्पेस"
+    },
+    "ruleErrBadQuery": {
+        "message": "पैरामीटर name=:value जैसे लिखें"
+    },
+    "ruleErrUnknownName": {
+        "message": "बदलने में ऐसा नाम है जो मिलान में नहीं है"
     }
 }

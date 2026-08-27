@@ -560,7 +560,7 @@
         "message": "域名"
     },
     "rulesMatch": {
-        "message": "匹配（路径正则）"
+        "message": "匹配"
     },
     "rulesReplace": {
         "message": "替换为"
@@ -597,5 +597,23 @@
     },
     "ruleErrPatternTooLong": {
         "message": "规则过长"
+    },
+    "rulesAdvanced": {
+        "message": "使用正则表达式"
+    },
+    "rulesSyntaxHelp": {
+        "message": ":id 一段 · * 跳过一段 · ** 跳过任意段 · ?a=:x 仅限该参数"
+    },
+    "ruleErrDuplicateName": {
+        "message": "同一个名字用了两次"
+    },
+    "ruleErrBadName": {
+        "message": "名字形如 :id —— 只用字母和数字，不能有空格"
+    },
+    "ruleErrBadQuery": {
+        "message": "参数部分形如 name=:value"
+    },
+    "ruleErrUnknownName": {
+        "message": "替换里用了匹配中不存在的名字"
     }
 }

@@ -560,7 +560,7 @@
         "message": "Domain"
     },
     "rulesMatch": {
-        "message": "Treffer (Regex auf den Pfad)"
+        "message": "Treffer"
     },
     "rulesReplace": {
         "message": "Ersetzen durch"
@@ -597,5 +597,23 @@
     },
     "ruleErrPatternTooLong": {
         "message": "Das Muster ist zu lang"
+    },
+    "rulesAdvanced": {
+        "message": "Regulären Ausdruck verwenden"
+    },
+    "rulesSyntaxHelp": {
+        "message": ":id ein Abschnitt · * einen überspringen · ** beliebig viele · ?a=:x nur dieser Parameter"
+    },
+    "ruleErrDuplicateName": {
+        "message": "Dieser Name kommt zweimal vor"
+    },
+    "ruleErrBadName": {
+        "message": "Namen sehen aus wie :id — Buchstaben und Ziffern, keine Leerzeichen"
+    },
+    "ruleErrBadQuery": {
+        "message": "Parameter schreiben sich als name=:value"
+    },
+    "ruleErrUnknownName": {
+        "message": "Die Ersetzung nutzt einen Namen, den das Muster nicht erfasst"
     }
 }

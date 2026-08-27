@@ -560,7 +560,7 @@
         "message": "Dominio"
     },
     "rulesMatch": {
-        "message": "Coincidencia (regex sobre la ruta)"
+        "message": "Coincidencia"
     },
     "rulesReplace": {
         "message": "Reemplazar por"
@@ -597,5 +597,23 @@
     },
     "ruleErrPatternTooLong": {
         "message": "El patrón es demasiado largo"
+    },
+    "rulesAdvanced": {
+        "message": "Usar una expresión regular"
+    },
+    "rulesSyntaxHelp": {
+        "message": ":id un segmento · * saltar uno · ** saltar los que sean · ?a=:x solo ese parámetro"
+    },
+    "ruleErrDuplicateName": {
+        "message": "Ese nombre está repetido"
+    },
+    "ruleErrBadName": {
+        "message": "Los nombres son como :id: letras y números, sin espacios"
+    },
+    "ruleErrBadQuery": {
+        "message": "Los parámetros se escriben name=:value"
+    },
+    "ruleErrUnknownName": {
+        "message": "El reemplazo usa un nombre que el patrón no captura"
     }
 }

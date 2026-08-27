@@ -20,6 +20,8 @@
  * @property {boolean} [enabled]
  */
 
+import { compilePattern, compileReplacement } from './urlPattern.mjs';
+
 /** Longer than any real URL; a bound on what a user's regex can chew on. */
 const MAX_URL = 4096;
 const MAX_PATTERN = 300;
@@ -32,64 +34,57 @@ const MAX_PATTERN = 300;
  */
 export const PRESET_RULES = [
     {
-        id: 'amazon', label: 'Amazon', host: 'amazon.*',
-        // The ASIN is the whole identity of a listing; everything before it is
+        id: 'amazon', label: 'Amazon', host: 'amazon.*', syntax: 'simple',
+        // The ASIN is the whole identity of a listing; everything ahead of it is
         // there for readers and search engines. The country domain is untouched,
         // because .co.uk and .com are different catalogues.
-        match: '^(?:/[^/]+)?/(?:dp|gp/product)/([A-Z0-9]{10})(?:[/?].*)?$',
-        replace: '/dp/$1',
+        match: '**/dp/:asin', replace: '/dp/:asin',
     },
     {
-        id: 'youtube-t', label: 'YouTube (with timestamp)', host: 'youtube.com',
-        match: '^/watch\\?v=([A-Za-z0-9_-]{11})&t=([0-9hms]+)$',
-        replace: 'https://youtu.be/$1?t=$2',
+        id: 'amazon-gp', label: 'Amazon (product page)', host: 'amazon.*', syntax: 'simple',
+        match: '/gp/product/:asin', replace: '/dp/:asin',
     },
     {
-        id: 'youtube', label: 'YouTube', host: 'youtube.com',
-        // Anchored, so a playlist or channel parameter fails the match and the
-        // URL is left alone rather than losing it.
-        match: '^/watch\\?v=([A-Za-z0-9_-]{11})$',
-        replace: 'https://youtu.be/$1',
+        id: 'youtube-t', label: 'YouTube (with timestamp)', host: 'youtube.com', syntax: 'simple',
+        match: '/watch?v=:id&t=:t', replace: 'https://youtu.be/:id?t=:t',
     },
     {
-        id: 'stackexchange-a', label: 'Stack Exchange (answer)', host: 'stackoverflow.com',
-        match: '^/questions/\\d+/[^/]*/(\\d+)(?:[/?].*)?$',
-        replace: '/a/$1',
+        id: 'youtube', label: 'YouTube', host: 'youtube.com', syntax: 'simple',
+        // Naming only `v` is what keeps a playlist link long: the extra
+        // parameter fails the match rather than being dropped.
+        match: '/watch?v=:id', replace: 'https://youtu.be/:id',
     },
     {
-        id: 'stackexchange-q', label: 'Stack Exchange (question)', host: 'stackoverflow.com',
-        match: '^/questions/(\\d+)(?:[/?].*)?$',
-        replace: '/q/$1',
+        id: 'stackexchange-a', label: 'Stack Exchange (answer)', host: 'stackoverflow.com', syntax: 'simple',
+        match: '/questions/:q(num)/*/:a(num)', replace: '/a/:a',
     },
     {
-        id: 'reddit', label: 'Reddit', host: 'reddit.com',
-        match: '^/r/[^/]+/comments/([a-z0-9]+)(?:[/?].*)?$',
-        replace: 'https://redd.it/$1',
+        id: 'stackexchange-q', label: 'Stack Exchange (question)', host: 'stackoverflow.com', syntax: 'simple',
+        match: '/questions/:q(num)/**', replace: '/q/:q',
     },
     {
-        id: 'ebay', label: 'eBay', host: 'ebay.com',
-        match: '^/itm/(?:[^/]+/)?(\\d{9,})(?:[/?].*)?$',
-        replace: '/itm/$1',
+        id: 'reddit', label: 'Reddit', host: 'reddit.com', syntax: 'simple',
+        match: '/r/*/comments/:id/**', replace: 'https://redd.it/:id',
     },
     {
-        id: 'etsy', label: 'Etsy', host: 'etsy.com',
-        match: '^/listing/(\\d+)(?:[/?].*)?$',
-        replace: '/listing/$1',
+        id: 'ebay', label: 'eBay', host: 'ebay.com', syntax: 'simple',
+        match: '/itm/**/:id(num)', replace: '/itm/:id',
     },
     {
-        id: 'walmart', label: 'Walmart', host: 'walmart.com',
-        match: '^/ip/(?:[^/]+/)?(\\d+)(?:[/?].*)?$',
-        replace: '/ip/$1',
+        id: 'etsy', label: 'Etsy', host: 'etsy.com', syntax: 'simple',
+        match: '/listing/:id(num)/**', replace: '/listing/:id',
     },
     {
-        id: 'target', label: 'Target', host: 'target.com',
-        match: '^/p/.*?/-/(A-\\d+)(?:[/?].*)?$',
-        replace: '/p/-/$1',
+        id: 'walmart', label: 'Walmart', host: 'walmart.com', syntax: 'simple',
+        match: '/ip/**/:id(num)', replace: '/ip/:id',
     },
     {
-        id: 'hobbylobby', label: 'Hobby Lobby', host: 'hobbylobby.com',
-        match: '^.*/p/(\\d+)(?:[/?].*)?$',
-        replace: '/p/$1',
+        id: 'target', label: 'Target', host: 'target.com', syntax: 'simple',
+        match: '/p/**/-/:id', replace: '/p/-/:id',
+    },
+    {
+        id: 'hobbylobby', label: 'Hobby Lobby', host: 'hobbylobby.com', syntax: 'simple',
+        match: '**/p/:id(num)', replace: '/p/:id',
     },
 ];
 
@@ -137,12 +132,32 @@ function looksCatastrophic(source) {
 export function compileRule(rule) {
     if (!rule || !rule.host || !rule.match) return { ok: false, error: 'incomplete' };
     if (rule.match.length > MAX_PATTERN) return { ok: false, error: 'patternTooLong' };
-    if (looksCatastrophic(rule.match)) return { ok: false, error: 'patternUnsafe' };
-    try {
-        return { ok: true, re: new RegExp(rule.match) };
-    } catch {
-        return { ok: false, error: 'patternInvalid' };
+
+    // Rules stored before the pattern syntax existed carry no `syntax` field and
+    // meant a raw regex, so that is what absent means. New rules say 'simple'.
+    if (rule.syntax === 'regex' || (!rule.syntax && looksLikeRegex(rule.match))) {
+        if (looksCatastrophic(rule.match)) return { ok: false, error: 'patternUnsafe' };
+        try {
+            return { ok: true, re: new RegExp(rule.match), replace: rule.replace };
+        } catch {
+            return { ok: false, error: 'patternInvalid' };
+        }
     }
+
+    const compiled = compilePattern(rule.match);
+    if (!compiled.ok) return compiled;
+    const replacement = compileReplacement(rule.replace, compiled.names);
+    if (!replacement.ok) return replacement;
+    return { ok: true, re: compiled.re, replace: replacement.value };
+}
+
+/**
+ * Only for rules stored before `syntax` existed. Bare parentheses are not a
+ * signal — `:id(num)` has them — so this looks for the things the pattern syntax
+ * never produces: an anchor, an escape, a character class, or a group modifier.
+ */
+function looksLikeRegex(source) {
+    return /^\^|[\\[\]{}|+$]|\(\?/.test(source);
 }
 
 /**
@@ -187,7 +202,7 @@ export function applyRules(url, rules) {
         if (!compiled.ok) continue;
         if (!compiled.re.test(target)) continue;
 
-        const out = target.replace(compiled.re, rule.replace);
+        const out = target.replace(compiled.re, compiled.replace);
         // A replacement may move the host, so anything absolute is taken whole.
         const next = /^https?:\/\//i.test(out) ? out : u.origin + (out.startsWith('/') ? out : `/${out}`);
 

@@ -560,7 +560,7 @@
         "message": "Domain"
     },
     "rulesMatch": {
-        "message": "Match (regex on path)"
+        "message": "Match"
     },
     "rulesReplace": {
         "message": "Replace with"
@@ -597,5 +597,23 @@
     },
     "ruleErrPatternTooLong": {
         "message": "That pattern is too long"
+    },
+    "rulesAdvanced": {
+        "message": "Use a regular expression"
+    },
+    "rulesSyntaxHelp": {
+        "message": ":id one segment · * skip one · ** skip any · ?a=:x only that query"
+    },
+    "ruleErrDuplicateName": {
+        "message": "That name is used twice"
+    },
+    "ruleErrBadName": {
+        "message": "Names look like :id — letters and digits, no spaces"
+    },
+    "ruleErrBadQuery": {
+        "message": "Query parts look like name=:value"
+    },
+    "ruleErrUnknownName": {
+        "message": "Replace uses a name the pattern never captured"
     }
 }

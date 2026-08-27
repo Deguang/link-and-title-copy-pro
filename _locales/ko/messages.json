@@ -560,7 +560,7 @@
         "message": "도메인"
     },
     "rulesMatch": {
-        "message": "일치 (경로 정규식)"
+        "message": "일치"
     },
     "rulesReplace": {
         "message": "바꿀 내용"
@@ -597,5 +597,23 @@
     },
     "ruleErrPatternTooLong": {
         "message": "패턴이 너무 깁니다"
+    },
+    "rulesAdvanced": {
+        "message": "정규식 사용"
+    },
+    "rulesSyntaxHelp": {
+        "message": ":id 한 구간 · * 하나 건너뛰기 · ** 여러 개 건너뛰기 · ?a=:x 해당 파라미터만"
+    },
+    "ruleErrDuplicateName": {
+        "message": "같은 이름이 두 번 쓰였습니다"
+    },
+    "ruleErrBadName": {
+        "message": "이름은 :id 형식 —— 영문과 숫자만, 공백 불가"
+    },
+    "ruleErrBadQuery": {
+        "message": "파라미터는 name=:value 형식입니다"
+    },
+    "ruleErrUnknownName": {
+        "message": "바꿀 내용에 일치에서 잡지 않은 이름이 있습니다"
     }
 }
