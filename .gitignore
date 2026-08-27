@@ -5,4 +5,5 @@
 /releases
 .DS_Store
 .env
-scripts/license/.private-key
+scripts/license/.private-keyharness/
+.harness/

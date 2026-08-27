@@ -26,7 +26,11 @@ export default function Keycap({
     const tokens = splitShortcut(shortcut);
 
     if (!tokens.length) {
-        return <span className="text-xs italic text-ink-3">{emptyLabel}</span>;
+        return (
+            <span className="inline-flex items-center rounded-md border border-dashed border-line px-1.5 py-0.5 text-[11px] font-medium text-ink-3">
+                {emptyLabel}
+            </span>
+        );
     }
 
     const sizes = {

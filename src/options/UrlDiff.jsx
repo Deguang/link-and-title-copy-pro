@@ -12,7 +12,7 @@ export default function UrlDiff({ from, to }) {
         a = new URL(from);
         b = new URL(to);
     } catch {
-        return <span className="font-mono text-xs text-ink">{to}</span>;
+        return <span className="font-mono text-[13px] text-ink">{to}</span>;
     }
 
     const kept = new Set(b.pathname.split('/').filter(Boolean));
@@ -20,7 +20,7 @@ export default function UrlDiff({ from, to }) {
     const hostChanged = a.host !== b.host;
 
     return (
-        <span className="font-mono text-[12.5px] leading-relaxed break-all">
+        <span className="font-mono text-[13px] leading-[1.9] break-all">
             <span className={hostChanged ? 'text-ink-3 line-through decoration-danger/50' : 'text-ink-2'}>
                 {a.host}
             </span>
@@ -34,8 +34,8 @@ export default function UrlDiff({ from, to }) {
                         <span
                             className={
                                 survives
-                                    ? 'rounded bg-ok/10 px-0.5 font-medium text-ok'
-                                    : 'text-ink-3 line-through decoration-danger/40'
+                                    ? 'rounded-[4px] bg-ok/[0.12] px-1 py-0.5 font-semibold text-ok'
+                                    : 'text-ink-3 line-through decoration-danger/60 decoration-[1.5px]'
                             }
                         >
                             {seg}
@@ -45,7 +45,7 @@ export default function UrlDiff({ from, to }) {
             })}
 
             {a.search && (
-                <span className="text-ink-3 line-through decoration-danger/40">{a.search}</span>
+                <span className="text-ink-3 line-through decoration-danger/60 decoration-[1.5px]">{a.search}</span>
             )}
             {b.search && <span className="text-ok">{b.search}</span>}
         </span>

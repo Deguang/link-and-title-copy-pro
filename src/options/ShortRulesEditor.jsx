@@ -13,7 +13,13 @@ export { USER_RULES_KEY };
 const FIELD = 'w-full rounded-lg border border-line bg-surface px-3 py-2 text-sm text-ink placeholder:text-ink-3 outline-none transition focus:border-accent focus:ring-4 focus:ring-accent/15';
 const FIELD_ERROR = 'border-danger focus:border-danger focus:ring-danger/15';
 const LABEL = 'text-[11px] font-semibold uppercase tracking-wider text-ink-3';
-const BTN_PRIMARY = 'inline-flex items-center gap-1.5 rounded-lg bg-accent px-3 py-2 text-sm font-medium text-accent-fg shadow-sm transition hover:bg-accent-hover focus:outline-none focus:ring-4 focus:ring-accent/25';
+const BTN_PRIMARY = 'inline-flex items-center gap-1.5 rounded-lg bg-accent px-3 py-2 text-sm font-medium text-accent-fg shadow-sm transition-[background-color,transform] duration-100 hover:bg-accent-hover active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-accent/25';
+
+/* The one surface that is actually lifted: the box you reach for first. */
+const HERO = 'rounded-2xl border border-line bg-surface p-5 shadow-[0_1px_3px_rgba(3,42,75,0.10),0_8px_24px_-16px_rgba(3,42,75,0.35)]';
+/* Everything else sits flush. Cards for every section is what made the page read
+   as a stack of identical boxes rather than a page with a shape. */
+const FLUSH = 'rounded-2xl border border-line-soft bg-surface-2 p-5';
 
 const ERROR_KEYS = {
     missingHost: 'ruleErrMissingHost',
@@ -42,7 +48,7 @@ function RuleRow({ t, rule, onChange, onRemove }) {
     const isRegex = rule.syntax === 'regex';
 
     return (
-        <div className="rounded-xl border border-line bg-surface p-4">
+        <div className="rounded-2xl border border-line bg-surface p-5 shadow-[0_1px_2px_rgba(3,42,75,0.06)]">
             <div className="mb-3 flex items-center gap-2">
                 <input
                     value={rule.label || ''}
@@ -155,7 +161,7 @@ function InferBox({ t, onCreate }) {
     };
 
     return (
-        <div className="mt-4 rounded-xl border border-line bg-surface p-4">
+        <div className={`mt-4 ${FLUSH}`}>
             <h3 className="text-sm font-semibold text-ink">{t('rulesInferTitle')}</h3>
             <p className="mt-1 text-xs leading-relaxed text-ink-2">{t('rulesInferDesc')}</p>
 
@@ -186,7 +192,11 @@ function InferBox({ t, onCreate }) {
                 type="button"
                 onClick={make}
                 disabled={!long.trim() || !short.trim()}
-                className={`${BTN_PRIMARY} mt-3 disabled:cursor-not-allowed disabled:opacity-40`}
+                className={`mt-4 inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium shadow-sm transition-[background-color,transform] duration-100 focus:outline-none focus:ring-4 focus:ring-accent/25 ${
+                    long.trim() && short.trim()
+                        ? 'bg-accent text-accent-fg hover:bg-accent-hover active:scale-[0.98]'
+                        : 'cursor-not-allowed border border-line bg-surface text-ink-3 shadow-none'
+                }`}
             >
                 {t('rulesInferMake')}
             </button>
@@ -232,11 +242,11 @@ export default function ShortRulesEditor({ t }) {
 
     return (
         <div className="mx-auto max-w-3xl">
-            <h2 className="text-lg font-semibold text-ink">{t('rulesTitle')}</h2>
-            <p className="mt-1 text-sm leading-relaxed text-ink-2">{t('rulesDesc')}</p>
+            <h2 className="text-[22px] font-semibold tracking-[-0.012em] text-ink">{t('rulesTitle')}</h2>
+            <p className="mt-1.5 max-w-[65ch] text-sm leading-relaxed text-ink-2">{t('rulesDesc')}</p>
 
             {/* Test first: it is the fastest way to understand what any of this does. */}
-            <div className="mt-5 rounded-2xl border border-accent/20 bg-gradient-to-b from-accent-soft/60 to-surface p-4 shadow-sm ring-1 ring-inset ring-surface">
+            <div className={`mt-6 ${HERO}`}>
                 <label className={`${LABEL} mb-1.5 block`}>{t('rulesTest')}</label>
                 <input
                     value={testUrl}
@@ -255,13 +265,16 @@ export default function ShortRulesEditor({ t }) {
                             )}
                         </div>
 
-                        <div className="rounded-lg border border-line-soft bg-surface-2 p-2.5">
+                        <div className="rounded-xl border border-line-soft bg-surface-2 px-3.5 py-3">
                             <UrlDiff from={testUrl.trim()} to={preview.out} />
                         </div>
 
-                        <p className="mt-2 break-all rounded-lg border border-ok/25 bg-ok/5 p-2.5 font-mono text-xs font-medium text-ink">
-                            {preview.out}
-                        </p>
+                        <div className="mt-2.5 flex items-start gap-2.5 rounded-xl border border-ok/25 bg-ok/[0.06] px-3.5 py-3">
+                            <span className="mt-[3px] select-none font-mono text-xs font-semibold text-ok">→</span>
+                            <p className="break-all font-mono text-[12.5px] font-medium leading-relaxed text-ink">
+                                {preview.out}
+                            </p>
+                        </div>
 
                         {!preview.rule && (
                             <p className="mt-1.5 text-xs text-ink-3">{t('rulesNoMatch')}</p>
@@ -293,7 +306,7 @@ export default function ShortRulesEditor({ t }) {
                     <h3 className={LABEL}>{t('rulesBuiltin')}</h3>
                     <span className="h-px flex-1 bg-line" />
                 </div>
-                <div className="rounded-xl border border-line bg-surface px-4 py-1">
+                <div className="px-0.5">
                     {PRESET_RULES.map((rule) => <PresetRow key={rule.id} t={t} rule={rule} />)}
                 </div>
             </div>

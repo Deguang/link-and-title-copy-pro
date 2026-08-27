@@ -664,7 +664,7 @@ export default function Config() {
                         <img
                             src="/icons/icon.webp"
                             alt=""
-                            className="h-7 w-7 flex-shrink-0 rounded-md"
+                            className="h-7 w-7 flex-shrink-0 rounded-md bg-surface p-0.5 ring-1 ring-line-soft"
                         />
                         <div className="min-w-0">
                             <h1 className="truncate text-base font-semibold tracking-tight text-ink">

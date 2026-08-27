@@ -346,7 +346,10 @@ function Popup() {
 
     chrome.storage.local.get(STORAGE_KEY, (result) => {
       if (result[STORAGE_KEY]) {
-        const validConfigs = result[STORAGE_KEY].filter((c) => c && c.shortcut && c.template);
+        // A template with no shortcut is reachable from here and the context menu —
+        // that is what the settings page tells the user, and the clean-link default
+        // ships without one. Filtering on `shortcut` hid exactly those.
+        const validConfigs = result[STORAGE_KEY].filter((c) => c && c.template);
         setConfigs(validConfigs);
       }
     });
@@ -398,7 +401,7 @@ function Popup() {
       {/* Header */}
       <div className="flex justify-between items-center mb-3">
         <h1 className="text-[15px] font-bold tracking-tight text-ink flex items-center gap-2">
-          <img src="/icons/icon.webp" className="w-5 h-5 rounded" alt="Logo" />
+          <img src="/icons/icon.webp" className="w-5 h-5 rounded bg-surface p-px ring-1 ring-line-soft" alt="Logo" />
           Link & Title Copy
         </h1>
         <button
