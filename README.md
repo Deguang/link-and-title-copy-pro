@@ -42,6 +42,8 @@ Link&TitleCopyPro是一个可以同时复制浏览器标签页的标题和URL链
 
 ### URL Components / URL 组件
 
+- `{url:short}` - Shortest link that still works: tracking removed, plus the site's own canonical short form where one exists (Amazon `/dp/`, YouTube `youtu.be`, Stack Overflow `/q/`, Reddit `redd.it`, eBay, Etsy, Walmart, Target, Hobby Lobby) / 可用的最短链接
+- `{url:notrack}` - URL with tracking parameters removed, keeping the ones the page needs / 去除追踪参数，保留页面必需的参数
 - `{url:clean}` - URL without query params and hash
 - `{url:protocol}` - Protocol (e.g., https)
 - `{url:domain}` - Domain/hostname
@@ -58,6 +60,10 @@ Link&TitleCopyPro是一个可以同时复制浏览器标签页的标题和URL链
 - `{noSelectedText?}...{/noSelectedText?}` - Shorthand for above / 简写
 
 ## Version History / 版本历史
+
+### v1.11.0
+
+- New `{url:short}` gives the shortest link that still works — tracking removed, plus the site's own short form on Amazon, YouTube, Stack Overflow, Reddit, eBay, Etsy, Walmart, Target and Hobby Lobby / 新增 `{url:short}`：可用的最短链接，去除追踪并在支持的站点使用其官方短链形式
 
 ### v1.10.3
 
