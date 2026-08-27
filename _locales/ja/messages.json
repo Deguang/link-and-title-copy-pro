@@ -663,5 +663,17 @@
     },
     "rulesTeachShort": {
         "message": "サイトを追加"
+    },
+    "rulesCancel": {
+        "message": "キャンセル"
+    },
+    "rulesByPair": {
+        "message": "例から"
+    },
+    "rulesByHand": {
+        "message": "手入力"
+    },
+    "rulesCreate": {
+        "message": "追加"
     }
 }

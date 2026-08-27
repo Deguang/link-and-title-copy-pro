@@ -663,5 +663,17 @@
     },
     "rulesTeachShort": {
         "message": "사이트 추가"
+    },
+    "rulesCancel": {
+        "message": "취소"
+    },
+    "rulesByPair": {
+        "message": "예시로"
+    },
+    "rulesByHand": {
+        "message": "직접 입력"
+    },
+    "rulesCreate": {
+        "message": "추가"
     }
 }

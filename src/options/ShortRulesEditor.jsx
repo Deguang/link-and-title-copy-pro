@@ -173,71 +173,143 @@ function PresetRow({ rule }) {
 
 
 /**
- * Derives a rule from an example pair. Writing the pattern is the part nobody
- * wants to do, and it's the part the user already knows the answer to — they
- * found the short form by trying it.
+ * Adding a site, in one place.
+ *
+ * Pasting an example pair and filling in the fields are two ways of saying the
+ * same thing, and they were two separate sections of the page that could both be
+ * on screen at once, neither explaining its relationship to the other. They are
+ * one step with two ways to fill it in.
  */
-function InferBox({ t, onCreate, seed, seedKey }) {
+function AddSite({ t, seed, seedKey, onCreate, onCancel }) {
+    const [mode, setMode] = useState('pair');
     const [long, setLong] = useState(seed || '');
     const [short, setShort] = useState('');
     const [error, setError] = useState('');
+    const [draft, setDraft] = useState({ host: '', match: '', replace: '', syntax: 'simple' });
 
     // A fresh seed replaces whatever was there: the user just asked for this
     // site, so an older half-typed URL is no longer what they mean.
     useEffect(() => {
-        if (seed) setLong(seed);
+        if (seed) { setLong(seed); setMode('pair'); }
     }, [seed, seedKey]);
 
-    const make = () => {
+    const fromPair = () => {
         const r = inferRule(long, short);
         if (!r.ok) { setError(t(ERROR_KEYS[r.error] || r.error)); return; }
         setError('');
-        // Named after the site, since that is what the user will look for later.
         onCreate({ id: `u${Date.now()}`, label: r.host, host: r.host, match: r.match, replace: r.replace, syntax: r.syntax });
-        setLong('');
-        setShort('');
     };
+
+    const draftError = validateRule(draft);
+    const fromFields = () => {
+        if (draftError) { setError(t(ERROR_KEYS[draftError] || draftError)); return; }
+        onCreate({ id: `u${Date.now()}`, label: draft.host, ...draft });
+    };
+
+    const Tab = ({ id, label }) => (
+        <button
+            type="button"
+            onClick={() => { setMode(id); setError(''); }}
+            className={`rounded-lg px-2.5 py-1 text-xs font-medium transition ${
+                mode === id ? 'bg-surface text-ink shadow-sm ring-1 ring-line' : 'text-ink-3 hover:text-ink-2'
+            }`}
+        >
+            {label}
+        </button>
+    );
 
     return (
         <div className={`mt-4 ${FLUSH}`}>
-            <h3 className="text-sm font-semibold text-ink">{t('rulesInferTitle')}</h3>
-            <p className="mt-1 text-xs leading-relaxed text-ink-2">{t('rulesInferDesc')}</p>
-
-            <div className="mt-3 space-y-2">
-                <div>
-                    <label className={`${LABEL} mb-1.5 block`}>{t('rulesInferLong')}</label>
-                    <input
-                        value={long}
-                        onChange={(e) => setLong(e.target.value)}
-                        placeholder="https://www.hobbylobby.com/home-decor/shelves/brown-wall-shelf/p/80778424"
-                        className={`${FIELD} font-mono text-xs`}
-                    />
-                </div>
-                <div>
-                    <label className={`${LABEL} mb-1.5 block`}>{t('rulesInferShort')}</label>
-                    <input
-                        value={short}
-                        onChange={(e) => setShort(e.target.value)}
-                        placeholder="https://www.hobbylobby.com/p/80778424"
-                        className={`${FIELD} font-mono text-xs`}
-                    />
+            <div className="mb-3 flex items-center justify-between gap-3">
+                <h3 className="text-sm font-semibold text-ink">{t('rulesInferTitle')}</h3>
+                <div className="flex items-center gap-1 rounded-xl bg-surface-2 p-0.5 ring-1 ring-line-soft">
+                    <Tab id="pair" label={t('rulesByPair')} />
+                    <Tab id="manual" label={t('rulesByHand')} />
                 </div>
             </div>
 
+            {mode === 'pair' ? (
+                <>
+                    <p className="mb-3 max-w-[62ch] text-xs leading-relaxed text-ink-2">{t('rulesInferDesc')}</p>
+                    <div className="space-y-2">
+                        <div>
+                            <label className={`${LABEL} mb-1.5 block`}>{t('rulesInferLong')}</label>
+                            <input
+                                value={long}
+                                onChange={(e) => setLong(e.target.value)}
+                                placeholder="https://www.hobbylobby.com/home-decor/shelves/brown-wall-shelf/p/80778424"
+                                className={`${FIELD} font-mono text-xs`}
+                            />
+                        </div>
+                        <div>
+                            <label className={`${LABEL} mb-1.5 block`}>{t('rulesInferShort')}</label>
+                            <input
+                                value={short}
+                                onChange={(e) => setShort(e.target.value)}
+                                placeholder="https://www.hobbylobby.com/p/80778424"
+                                className={`${FIELD} font-mono text-xs`}
+                            />
+                        </div>
+                    </div>
+                </>
+            ) : (
+                <div className="grid gap-3 sm:grid-cols-3">
+                    <div>
+                        <label className={`${LABEL} mb-1.5 block`}>{t('rulesHost')}</label>
+                        <input
+                            value={draft.host}
+                            onChange={(e) => setDraft({ ...draft, host: e.target.value })}
+                            placeholder="example.com"
+                            className={`${FIELD} font-mono text-xs`}
+                        />
+                    </div>
+                    <div>
+                        <label className={`${LABEL} mb-1.5 block`}>{t('rulesMatch')}</label>
+                        <input
+                            value={draft.match}
+                            onChange={(e) => setDraft({ ...draft, match: e.target.value })}
+                            placeholder="/products/*/:id"
+                            className={`${FIELD} font-mono text-xs`}
+                        />
+                    </div>
+                    <div>
+                        <label className={`${LABEL} mb-1.5 block`}>{t('rulesReplace')}</label>
+                        <input
+                            value={draft.replace}
+                            onChange={(e) => setDraft({ ...draft, replace: e.target.value })}
+                            placeholder="/p/:id"
+                            className={`${FIELD} font-mono text-xs`}
+                        />
+                    </div>
+                    <p className="font-mono text-[11px] leading-relaxed text-ink-3 sm:col-span-3">
+                        {t('rulesSyntaxHelp')}
+                    </p>
+                </div>
+            )}
+
             {error && <p className="mt-2 text-xs font-medium text-danger">{error}</p>}
 
-            <button
-                type="button"
-                onClick={make}
-                disabled={!long.trim() || !short.trim()}
-                className={`mt-4 inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium shadow-sm transition-[background-color,transform] duration-100 focus:outline-none focus:ring-4 focus:ring-accent/25 ${
-                    long.trim() && short.trim()
-                        ? 'bg-accent text-accent-fg hover:bg-accent-hover active:scale-[0.98]'
-                        : 'cursor-not-allowed border border-line bg-surface text-ink-3 shadow-none'
-                }`}
-            >
-                {t('rulesInferMake')}
-            </button>
+            <div className="mt-4 flex items-center gap-3">
+                <button
+                    type="button"
+                    onClick={mode === 'pair' ? fromPair : fromFields}
+                    disabled={mode === 'pair' ? !long.trim() || !short.trim() : !!draftError}
+                    className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium shadow-sm transition-[background-color,transform] duration-100 focus:outline-none focus:ring-4 focus:ring-accent/25 ${
+                        (mode === 'pair' ? long.trim() && short.trim() : !draftError)
+                            ? 'bg-accent text-accent-fg hover:bg-accent-hover active:scale-[0.98]'
+                            : 'cursor-not-allowed border border-line bg-surface text-ink-3 shadow-none'
+                    }`}
+                >
+                    {mode === 'pair' ? t('rulesInferMake') : t('rulesCreate')}
+                </button>
+                <button
+                    type="button"
+                    onClick={onCancel}
+                    className="text-xs text-ink-3 underline underline-offset-2 transition hover:text-ink-2"
+                >
+                    {t('rulesCancel')}
+                </button>
+            </div>
         </div>
     );
 }
@@ -258,10 +330,6 @@ export default function ShortRulesEditor({ t }) {
         const next = rules.map((r, n) => (n === i ? { ...r, ...patch } : r));
         setUserRules(next);
     };
-    const add = () => setUserRules([
-        ...rules,
-        { id: `u${Date.now()}`, label: '', host: '', match: '', replace: '', syntax: 'simple' },
-    ]);
     const remove = (i) => setUserRules(rules.filter((_, n) => n !== i));
 
     // Shortening runs on every keystroke so a rule can be judged by what it
@@ -349,11 +417,12 @@ export default function ShortRulesEditor({ t }) {
 
             <div ref={inferRef}>
                 {teaching ? (
-                    <InferBox
+                    <AddSite
                         t={t}
                         seed={seed}
                         seedKey={seedKey}
                         onCreate={(rule) => { setUserRules([...rules, rule]); setTeaching(false); }}
+                        onCancel={() => setTeaching(false)}
                     />
                 ) : (
                     <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
@@ -365,13 +434,7 @@ export default function ShortRulesEditor({ t }) {
                             <span className="text-base leading-none">+</span>
                             {t('rulesTeachShort')}
                         </button>
-                        <button
-                            type="button"
-                            onClick={add}
-                            className="text-xs text-ink-3 underline underline-offset-2 transition hover:text-ink-2"
-                        >
-                            {t('rulesManualHint')}
-                        </button>
+
                     </div>
                 )}
             </div>

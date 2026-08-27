@@ -663,5 +663,17 @@
     },
     "rulesTeachShort": {
         "message": "Добавить сайт"
+    },
+    "rulesCancel": {
+        "message": "Отмена"
+    },
+    "rulesByPair": {
+        "message": "По примеру"
+    },
+    "rulesByHand": {
+        "message": "Вручную"
+    },
+    "rulesCreate": {
+        "message": "Добавить"
     }
 }

@@ -663,5 +663,17 @@
     },
     "rulesTeachShort": {
         "message": "添加网站"
+    },
+    "rulesCancel": {
+        "message": "取消"
+    },
+    "rulesByPair": {
+        "message": "用示例"
+    },
+    "rulesByHand": {
+        "message": "手动填写"
+    },
+    "rulesCreate": {
+        "message": "添加"
     }
 }

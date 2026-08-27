@@ -663,5 +663,17 @@
     },
     "rulesTeachShort": {
         "message": "साइट जोड़ें"
+    },
+    "rulesCancel": {
+        "message": "रद्द करें"
+    },
+    "rulesByPair": {
+        "message": "उदाहरण से"
+    },
+    "rulesByHand": {
+        "message": "खुद भरें"
+    },
+    "rulesCreate": {
+        "message": "जोड़ें"
     }
 }

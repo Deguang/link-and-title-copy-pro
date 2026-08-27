@@ -663,5 +663,17 @@
     },
     "rulesTeachShort": {
         "message": "Add a site"
+    },
+    "rulesCancel": {
+        "message": "Cancel"
+    },
+    "rulesByPair": {
+        "message": "From an example"
+    },
+    "rulesByHand": {
+        "message": "By hand"
+    },
+    "rulesCreate": {
+        "message": "Add site"
     }
 }

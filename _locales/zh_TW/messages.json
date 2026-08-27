@@ -663,5 +663,17 @@
     },
     "rulesTeachShort": {
         "message": "新增網站"
+    },
+    "rulesCancel": {
+        "message": "取消"
+    },
+    "rulesByPair": {
+        "message": "用範例"
+    },
+    "rulesByHand": {
+        "message": "手動填寫"
+    },
+    "rulesCreate": {
+        "message": "新增"
     }
 }

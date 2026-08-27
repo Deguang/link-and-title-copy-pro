@@ -663,5 +663,17 @@
     },
     "rulesTeachShort": {
         "message": "Seite hinzufügen"
+    },
+    "rulesCancel": {
+        "message": "Abbrechen"
+    },
+    "rulesByPair": {
+        "message": "Aus einem Beispiel"
+    },
+    "rulesByHand": {
+        "message": "Von Hand"
+    },
+    "rulesCreate": {
+        "message": "Hinzufügen"
     }
 }
