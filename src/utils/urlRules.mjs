@@ -175,14 +175,27 @@ export function validateRule(rule) {
 }
 
 /**
+ * Like applyRules, but says which rule fired — the settings page names it, so a
+ * result can be traced back to the line that produced it.
+ *
+ * @param {string} url
+ * @param {UrlRule[]} rules
+ * @returns {{ url: string, rule: UrlRule } | null}
+ */
+export function matchRule(url, rules) {
+    return applyRules(url, rules, true);
+}
+
+/**
  * First matching rule wins. Returns null when none apply, so the caller can tell
  * "no rule matched" from "a rule produced the same URL".
  *
  * @param {string} url    Already stripped of tracking.
  * @param {UrlRule[]} rules
- * @returns {string|null}
+ * @param {boolean} [withRule] Return the rule alongside the URL.
+ * @returns {string|{url: string, rule: UrlRule}|null}
  */
-export function applyRules(url, rules) {
+export function applyRules(url, rules, withRule = false) {
     if (!url || url.length > MAX_URL || !Array.isArray(rules)) return null;
 
     let u;
@@ -211,7 +224,8 @@ export function applyRules(url, rules) {
             // A rule that produced nonsense shouldn't be able to send a link
             // somewhere unrelated: the result has to stay http(s).
             if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') continue;
-            return u.hash ? parsed.toString() + u.hash : parsed.toString();
+            const out2 = u.hash ? parsed.toString() + u.hash : parsed.toString();
+            return withRule ? { url: out2, rule } : out2;
         } catch {
             continue;
         }

@@ -3,6 +3,9 @@ import { useChromeStorage } from '../hooks/useChromeStorage';
 import { USER_RULES_KEY } from '../constant';
 import { PRESET_RULES, validateRule } from '../utils/urlRules.mjs';
 import { inferRule } from '../utils/inferRule.mjs';
+import { matchRule } from '../utils/urlRules.mjs';
+import { cleanUrl } from '../utils/cleanUrl.mjs';
+import UrlDiff from './UrlDiff';
 import { shortenUrl } from '../utils/shortUrl.mjs';
 
 export { USER_RULES_KEY };
@@ -56,6 +59,18 @@ function RuleRow({ t, rule, onChange, onRemove }) {
                 </button>
             </div>
 
+            {!error && (
+                <p className="mb-3 break-all rounded-lg bg-surface-2 px-2.5 py-2 font-mono text-[12px] text-ink-2">
+                    <span className="text-ink-3">{rule.host}</span>
+                    {/* The pattern is a path, so it needs to read as one — without a
+                        gap the host runs straight into it. */}
+                    <span className="px-1 text-ink-3">·</span>
+                    <span className="text-ink">{rule.match}</span>
+                    <span className="px-1.5 text-ink-3">→</span>
+                    <span className="font-medium text-ok">{rule.replace}</span>
+                </p>
+            )}
+
             <div className="grid gap-3 sm:grid-cols-3">
                 <div>
                     <label className={`${LABEL} mb-1.5 block`}>{t('rulesHost')}</label>
@@ -108,13 +123,12 @@ function RuleRow({ t, rule, onChange, onRemove }) {
 /** A shipped rule, shown so the presets read as worked examples. */
 function PresetRow({ t, rule }) {
     return (
-        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 border-b border-line-soft py-2 last:border-0">
-            <span className="min-w-[7rem] text-sm font-medium text-ink">{rule.label}</span>
-            <span className="rounded-full bg-surface-2 px-1.5 py-0.5 text-[10px] font-medium text-ink-3">
-                {t('rulesBuiltin')}
-            </span>
-            <code className="font-mono text-xs text-ink-3">{rule.host}</code>
-            <code className="font-mono text-xs text-ink-2">→ {rule.replace}</code>
+        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5 border-b border-line-soft py-2.5 last:border-0">
+            <span className="min-w-[9.5rem] text-sm font-medium text-ink">{rule.label}</span>
+            <code className="min-w-[8rem] font-mono text-xs text-ink-3">{rule.host}</code>
+            <code className="font-mono text-xs text-ink-2">{rule.match}</code>
+            <span className="font-mono text-xs text-ink-3">→</span>
+            <code className="font-mono text-xs text-ok">{rule.replace}</code>
         </div>
     );
 }
@@ -199,10 +213,21 @@ export default function ShortRulesEditor({ t }) {
     // Shortening runs on every keystroke so a rule can be judged by what it
     // produces rather than by reading the regex back to yourself.
     const preview = useMemo(() => {
-        if (!testUrl.trim()) return null;
+        const input = testUrl.trim();
+        if (!input) return null;
         const usable = rules.filter((r) => !validateRule(r));
-        const out = shortenUrl(testUrl.trim(), usable);
-        return { out, changed: out !== testUrl.trim() };
+        const out = shortenUrl(input, usable);
+        // Which rule fired, so a result can be traced to the line that made it.
+        const cleaned = cleanUrl(input);
+        const hit = matchRule(cleaned, [...usable, ...PRESET_RULES]);
+        return {
+            out,
+            changed: out !== input,
+            rule: hit ? hit.rule : null,
+            // Tracking removal alone is worth naming — it happened even when no
+            // rule applied, and otherwise looks like nothing did.
+            trackingOnly: !hit && cleaned !== input,
+        };
     }, [testUrl, rules]);
 
     return (
@@ -211,7 +236,7 @@ export default function ShortRulesEditor({ t }) {
             <p className="mt-1 text-sm leading-relaxed text-ink-2">{t('rulesDesc')}</p>
 
             {/* Test first: it is the fastest way to understand what any of this does. */}
-            <div className="mt-5 rounded-xl border border-line bg-surface p-4">
+            <div className="mt-5 rounded-2xl border border-accent/20 bg-gradient-to-b from-accent-soft/60 to-surface p-4 shadow-sm ring-1 ring-inset ring-surface">
                 <label className={`${LABEL} mb-1.5 block`}>{t('rulesTest')}</label>
                 <input
                     value={testUrl}
@@ -221,11 +246,24 @@ export default function ShortRulesEditor({ t }) {
                 />
                 {preview && (
                     <div className="mt-3">
-                        <span className={`${LABEL} mb-1.5 block`}>{t('rulesResult')}</span>
-                        <p className="break-all rounded-lg border border-line-soft bg-surface-2 p-2.5 font-mono text-xs text-ink">
+                        <div className="mb-1.5 flex items-center gap-2">
+                            <span className={LABEL}>{t('rulesResult')}</span>
+                            {preview.rule && (
+                                <span className="rounded-full bg-accent-soft px-1.5 py-0.5 text-[10px] font-semibold text-accent">
+                                    {preview.rule.label}
+                                </span>
+                            )}
+                        </div>
+
+                        <div className="rounded-lg border border-line-soft bg-surface-2 p-2.5">
+                            <UrlDiff from={testUrl.trim()} to={preview.out} />
+                        </div>
+
+                        <p className="mt-2 break-all rounded-lg border border-ok/25 bg-ok/5 p-2.5 font-mono text-xs font-medium text-ink">
                             {preview.out}
                         </p>
-                        {!preview.changed && (
+
+                        {!preview.rule && (
                             <p className="mt-1.5 text-xs text-ink-3">{t('rulesNoMatch')}</p>
                         )}
                     </div>
@@ -250,8 +288,11 @@ export default function ShortRulesEditor({ t }) {
                 </button>
             </div>
 
-            <div className="mt-8">
-                <h3 className={`${LABEL} mb-2`}>{t('rulesBuiltin')}</h3>
+            <div className="mt-9">
+                <div className="mb-2.5 flex items-center gap-3">
+                    <h3 className={LABEL}>{t('rulesBuiltin')}</h3>
+                    <span className="h-px flex-1 bg-line" />
+                </div>
                 <div className="rounded-xl border border-line bg-surface px-4 py-1">
                     {PRESET_RULES.map((rule) => <PresetRow key={rule.id} t={t} rule={rule} />)}
                 </div>
