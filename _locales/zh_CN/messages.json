@@ -617,19 +617,19 @@
         "message": "替换里用了匹配中不存在的名字"
     },
     "rulesInferTitle": {
-        "message": "用示例生成规则"
+        "message": "教它认识一个新网站"
     },
     "rulesInferDesc": {
-        "message": "粘贴一个长网址，以及你确认可用的短网址。规则会据此推导出来 —— 请在下方核对，过于具体的部分可以自行放宽。"
+        "message": "很多购物和文章网站，用一个短得多的网址也能打开同一个页面。你在浏览器里试出短网址后，把长短两个网址贴到这里，规则会自动推导出来。"
     },
     "rulesInferLong": {
         "message": "长网址"
     },
     "rulesInferShort": {
-        "message": "确认可用的短网址"
+        "message": "你试过可用的短网址"
     },
     "rulesInferMake": {
-        "message": "生成规则"
+        "message": "推导规则"
     },
     "ruleErrNotAUrl": {
         "message": "两者都需要是完整的 http 或 https 地址"
@@ -639,5 +639,11 @@
     },
     "ruleErrNoCommonPart": {
         "message": "短网址与长网址没有共同部分，无法推导规则"
+    },
+    "rulesInferCta": {
+        "message": "这个网站还没有规则，去添加 →"
+    },
+    "rulesManualHint": {
+        "message": "或手动编写一条"
     }
 }

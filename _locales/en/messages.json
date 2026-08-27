@@ -617,19 +617,19 @@
         "message": "Replace uses a name the pattern never captured"
     },
     "rulesInferTitle": {
-        "message": "Create a rule from an example"
+        "message": "Teach it a new site"
     },
     "rulesInferDesc": {
-        "message": "Paste a long URL and the short one you know works. The rule is worked out from the pair — check it below, and widen anything too specific."
+        "message": "Many shopping and article sites accept a much shorter URL for the same page. Find the short form by trying it in your browser, then paste both here and the rule is worked out for you."
     },
     "rulesInferLong": {
-        "message": "Long URL"
+        "message": "The long URL"
     },
     "rulesInferShort": {
-        "message": "Short URL that works"
+        "message": "The short URL you tried"
     },
     "rulesInferMake": {
-        "message": "Create rule"
+        "message": "Work out the rule"
     },
     "ruleErrNotAUrl": {
         "message": "Both need to be full http or https addresses"
@@ -639,5 +639,11 @@
     },
     "ruleErrNoCommonPart": {
         "message": "The short URL shares nothing with the long one, so there is no rule to derive"
+    },
+    "rulesInferCta": {
+        "message": "No rule for this site yet. Add one →"
+    },
+    "rulesManualHint": {
+        "message": "Or write one by hand"
     }
 }

@@ -617,19 +617,19 @@
         "message": "바꿀 내용에 일치에서 잡지 않은 이름이 있습니다"
     },
     "rulesInferTitle": {
-        "message": "예시로 규칙 만들기"
+        "message": "새 사이트를 가르치기"
     },
     "rulesInferDesc": {
-        "message": "긴 URL과, 실제로 동작하는 짧은 URL을 붙여넣으세요. 두 주소로부터 규칙을 도출합니다 —— 아래에서 확인하고 너무 좁은 부분은 넓히세요."
+        "message": "많은 쇼핑몰과 매체가 같은 페이지를 훨씬 짧은 주소로도 열어 줍니다. 브라우저에서 짧은 형태를 확인한 뒤 두 주소를 여기에 붙여 넣으면 규칙이 도출됩니다."
     },
     "rulesInferLong": {
         "message": "긴 URL"
     },
     "rulesInferShort": {
-        "message": "동작하는 짧은 URL"
+        "message": "확인해 본 짧은 URL"
     },
     "rulesInferMake": {
-        "message": "규칙 만들기"
+        "message": "규칙 도출하기"
     },
     "ruleErrNotAUrl": {
         "message": "둘 다 완전한 http 또는 https 주소여야 합니다"
@@ -639,5 +639,11 @@
     },
     "ruleErrNoCommonPart": {
         "message": "짧은 URL이 긴 URL과 공통된 부분이 없어 규칙을 도출할 수 없습니다"
+    },
+    "rulesInferCta": {
+        "message": "이 사이트의 규칙이 아직 없습니다. 추가하기 →"
+    },
+    "rulesManualHint": {
+        "message": "또는 직접 작성하기"
     }
 }

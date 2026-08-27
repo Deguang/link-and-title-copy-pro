@@ -617,19 +617,19 @@
         "message": "Die Ersetzung nutzt einen Namen, den das Muster nicht erfasst"
     },
     "rulesInferTitle": {
-        "message": "Regel aus einem Beispiel"
+        "message": "Eine neue Seite beibringen"
     },
     "rulesInferDesc": {
-        "message": "Füge eine lange URL ein und die kurze, von der du weißt, dass sie funktioniert. Die Regel ergibt sich aus dem Paar — prüfe sie unten und weite zu Spezifisches auf."
+        "message": "Viele Shops und Magazine liefern dieselbe Seite auch unter einer viel kürzeren URL aus. Probiere die Kurzform im Browser aus, füge dann beide hier ein, und die Regel ergibt sich von selbst."
     },
     "rulesInferLong": {
-        "message": "Lange URL"
+        "message": "Die lange URL"
     },
     "rulesInferShort": {
-        "message": "Funktionierende Kurz-URL"
+        "message": "Die kurze, die funktioniert hat"
     },
     "rulesInferMake": {
-        "message": "Regel erstellen"
+        "message": "Regel ableiten"
     },
     "ruleErrNotAUrl": {
         "message": "Beide müssen vollständige http- oder https-Adressen sein"
@@ -639,5 +639,11 @@
     },
     "ruleErrNoCommonPart": {
         "message": "Die kurze URL teilt nichts mit der langen, daraus lässt sich keine Regel ableiten"
+    },
+    "rulesInferCta": {
+        "message": "Für diese Seite gibt es noch keine Regel. Hinzufügen →"
+    },
+    "rulesManualHint": {
+        "message": "Oder von Hand schreiben"
     }
 }

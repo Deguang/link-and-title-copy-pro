@@ -15,9 +15,13 @@ export default function UrlDiff({ from, to }) {
         return <span className="font-mono text-[13px] text-ink">{to}</span>;
     }
 
-    const kept = new Set(b.pathname.split('/').filter(Boolean));
     const segments = a.pathname.split('/').filter(Boolean);
     const hostChanged = a.host !== b.host;
+    // Highlighting a segment means "a rule chose to keep this". When the path
+    // came through untouched no rule chose anything, so lighting every segment
+    // would claim a selection that never happened: only the query was dropped.
+    const pathRewritten = a.pathname.replace(/\/$/, '') !== b.pathname.replace(/\/$/, '');
+    const kept = new Set(pathRewritten ? b.pathname.split('/').filter(Boolean) : []);
 
     return (
         <span className="font-mono text-[13px] leading-[1.9] break-all">
@@ -27,7 +31,7 @@ export default function UrlDiff({ from, to }) {
             {hostChanged && <span className="text-ok">{' → '}{b.host}</span>}
 
             {segments.map((seg, i) => {
-                const survives = kept.has(seg);
+                const survives = pathRewritten && kept.has(seg);
                 return (
                     <span key={i}>
                         <span className="text-ink-3">/</span>
@@ -35,7 +39,11 @@ export default function UrlDiff({ from, to }) {
                             className={
                                 survives
                                     ? 'rounded-[4px] bg-ok/[0.12] px-1 py-0.5 font-semibold text-ok'
-                                    : 'text-ink-3 line-through decoration-danger/60 decoration-[1.5px]'
+                                    : pathRewritten
+                                        ? 'text-ink-3 line-through decoration-danger/60 decoration-[1.5px]'
+                                        // Nothing was selected away, so the path
+                                        // is simply itself.
+                                        : 'text-ink-2'
                             }
                         >
                             {seg}

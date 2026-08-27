@@ -617,19 +617,19 @@
         "message": "置換に、一致で取得していない名前が使われています"
     },
     "rulesInferTitle": {
-        "message": "例からルールを作る"
+        "message": "新しいサイトを覚えさせる"
     },
     "rulesInferDesc": {
-        "message": "長いURLと、動作を確認済みの短いURLを貼り付けてください。両者からルールを導き出します —— 下で確認し、限定的すぎる部分は緩めてください。"
+        "message": "多くのショッピングサイトや記事サイトは、同じページにずっと短いURLでもアクセスできます。ブラウザで短い形を確かめてから、長短の両方をここに貼るとルールが導き出されます。"
     },
     "rulesInferLong": {
         "message": "長いURL"
     },
     "rulesInferShort": {
-        "message": "動作する短いURL"
+        "message": "試して動いた短いURL"
     },
     "rulesInferMake": {
-        "message": "ルールを作成"
+        "message": "ルールを導き出す"
     },
     "ruleErrNotAUrl": {
         "message": "どちらも完全な http / https のアドレスが必要です"
@@ -639,5 +639,11 @@
     },
     "ruleErrNoCommonPart": {
         "message": "短いURLに長いURLとの共通部分がなく、ルールを導けません"
+    },
+    "rulesInferCta": {
+        "message": "このサイトのルールはまだありません。追加する →"
+    },
+    "rulesManualHint": {
+        "message": "手動で書く場合はこちら"
     }
 }

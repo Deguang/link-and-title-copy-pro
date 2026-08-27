@@ -617,19 +617,19 @@
         "message": "El reemplazo usa un nombre que el patrón no captura"
     },
     "rulesInferTitle": {
-        "message": "Crear una regla a partir de un ejemplo"
+        "message": "Enséñale un sitio nuevo"
     },
     "rulesInferDesc": {
-        "message": "Pega una URL larga y la corta que sabes que funciona. La regla se deduce del par: compruébala abajo y amplía lo que resulte demasiado específico."
+        "message": "Muchas tiendas y publicaciones sirven la misma página con una URL mucho más corta. Comprueba la forma corta en el navegador, pega aquí las dos y la regla se deduce sola."
     },
     "rulesInferLong": {
-        "message": "URL larga"
+        "message": "La URL larga"
     },
     "rulesInferShort": {
-        "message": "URL corta que funciona"
+        "message": "La URL corta que probaste"
     },
     "rulesInferMake": {
-        "message": "Crear regla"
+        "message": "Deducir la regla"
     },
     "ruleErrNotAUrl": {
         "message": "Ambas deben ser direcciones http o https completas"
@@ -639,5 +639,11 @@
     },
     "ruleErrNoCommonPart": {
         "message": "La URL corta no comparte nada con la larga, así que no hay regla que deducir"
+    },
+    "rulesInferCta": {
+        "message": "Aún no hay regla para este sitio. Añadir una →"
+    },
+    "rulesManualHint": {
+        "message": "O escribirla a mano"
     }
 }

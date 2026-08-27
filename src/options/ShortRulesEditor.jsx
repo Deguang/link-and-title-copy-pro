@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useChromeStorage } from '../hooks/useChromeStorage';
 import { USER_RULES_KEY } from '../constant';
 import { PRESET_RULES, validateRule } from '../utils/urlRules.mjs';
@@ -13,7 +13,6 @@ export { USER_RULES_KEY };
 const FIELD = 'w-full rounded-lg border border-line bg-surface px-3 py-2 text-sm text-ink placeholder:text-ink-3 outline-none transition focus:border-accent focus:ring-4 focus:ring-accent/15';
 const FIELD_ERROR = 'border-danger focus:border-danger focus:ring-danger/15';
 const LABEL = 'text-[11px] font-semibold uppercase tracking-wider text-ink-3';
-const BTN_PRIMARY = 'inline-flex items-center gap-1.5 rounded-lg bg-accent px-3 py-2 text-sm font-medium text-accent-fg shadow-sm transition-[background-color,transform] duration-100 hover:bg-accent-hover active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-accent/25';
 
 /* The one surface that is actually lifted: the box you reach for first. */
 const HERO = 'rounded-2xl border border-line bg-surface p-5 shadow-[0_1px_3px_rgba(3,42,75,0.10),0_8px_24px_-16px_rgba(3,42,75,0.35)]';
@@ -127,7 +126,7 @@ function RuleRow({ t, rule, onChange, onRemove }) {
 }
 
 /** A shipped rule, shown so the presets read as worked examples. */
-function PresetRow({ t, rule }) {
+function PresetRow({ rule }) {
     return (
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5 border-b border-line-soft py-2.5 last:border-0">
             <span className="min-w-[9.5rem] text-sm font-medium text-ink">{rule.label}</span>
@@ -145,10 +144,16 @@ function PresetRow({ t, rule }) {
  * wants to do, and it's the part the user already knows the answer to — they
  * found the short form by trying it.
  */
-function InferBox({ t, onCreate }) {
-    const [long, setLong] = useState('');
+function InferBox({ t, onCreate, seed, seedKey }) {
+    const [long, setLong] = useState(seed || '');
     const [short, setShort] = useState('');
     const [error, setError] = useState('');
+
+    // A fresh seed replaces whatever was there: the user just asked for this
+    // site, so an older half-typed URL is no longer what they mean.
+    useEffect(() => {
+        if (seed) setLong(seed);
+    }, [seed, seedKey]);
 
     const make = () => {
         const r = inferRule(long, short);
@@ -171,7 +176,7 @@ function InferBox({ t, onCreate }) {
                     <input
                         value={long}
                         onChange={(e) => setLong(e.target.value)}
-                        placeholder="https://www.example.com/a-very-long-product-name/p/12345"
+                        placeholder="https://www.hobbylobby.com/home-decor/shelves/brown-wall-shelf/p/80778424"
                         className={`${FIELD} font-mono text-xs`}
                     />
                 </div>
@@ -180,7 +185,7 @@ function InferBox({ t, onCreate }) {
                     <input
                         value={short}
                         onChange={(e) => setShort(e.target.value)}
-                        placeholder="https://www.example.com/p/12345"
+                        placeholder="https://www.hobbylobby.com/p/80778424"
                         className={`${FIELD} font-mono text-xs`}
                     />
                 </div>
@@ -207,6 +212,11 @@ function InferBox({ t, onCreate }) {
 export default function ShortRulesEditor({ t }) {
     const [userRules, setUserRules] = useChromeStorage(USER_RULES_KEY, []);
     const [testUrl, setTestUrl] = useState('');
+    // Handing the tested URL to the builder, plus a counter so asking twice for
+    // the same URL still re-seeds it.
+    const [seed, setSeed] = useState('');
+    const [seedKey, setSeedKey] = useState(0);
+    const inferRef = useRef(null);
 
     const rules = Array.isArray(userRules) ? userRules : [];
 
@@ -277,13 +287,33 @@ export default function ShortRulesEditor({ t }) {
                         </div>
 
                         {!preview.rule && (
-                            <p className="mt-1.5 text-xs text-ink-3">{t('rulesNoMatch')}</p>
+                            <div className="mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-1">
+                                <p className="text-xs text-ink-3">{t('rulesNoMatch')}</p>
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        setSeed(testUrl.trim());
+                                        setSeedKey((n) => n + 1);
+                                        inferRef.current?.scrollIntoView({ block: 'nearest' });
+                                    }}
+                                    className="text-xs font-medium text-accent underline underline-offset-2 transition hover:text-accent-hover"
+                                >
+                                    {t('rulesInferCta')}
+                                </button>
+                            </div>
                         )}
                     </div>
                 )}
             </div>
 
-            <InferBox t={t} onCreate={(rule) => setUserRules([...rules, rule])} />
+            <div ref={inferRef}>
+                <InferBox
+                    t={t}
+                    seed={seed}
+                    seedKey={seedKey}
+                    onCreate={(rule) => setUserRules([...rules, rule])}
+                />
+            </div>
 
             <div className="mt-6 space-y-3">
                 {rules.map((rule, i) => (
@@ -295,9 +325,13 @@ export default function ShortRulesEditor({ t }) {
                         onRemove={() => remove(i)}
                     />
                 ))}
-                <button type="button" onClick={add} className={BTN_PRIMARY}>
+                <button
+                    type="button"
+                    onClick={add}
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-line bg-surface px-3 py-2 text-sm font-medium text-ink-2 shadow-sm transition-[background-color,transform] duration-100 hover:bg-surface-2 hover:text-ink active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-accent/10"
+                >
                     <span className="text-base leading-none">+</span>
-                    {t('rulesAdd')}
+                    {t('rulesManualHint')}
                 </button>
             </div>
 
@@ -307,7 +341,7 @@ export default function ShortRulesEditor({ t }) {
                     <span className="h-px flex-1 bg-line" />
                 </div>
                 <div className="px-0.5">
-                    {PRESET_RULES.map((rule) => <PresetRow key={rule.id} t={t} rule={rule} />)}
+                    {PRESET_RULES.map((rule) => <PresetRow key={rule.id} rule={rule} />)}
                 </div>
             </div>
         </div>

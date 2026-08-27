@@ -617,19 +617,19 @@
         "message": "बदलने में ऐसा नाम है जो मिलान में नहीं है"
     },
     "rulesInferTitle": {
-        "message": "उदाहरण से नियम बनाएँ"
+        "message": "इसे नई साइट सिखाएँ"
     },
     "rulesInferDesc": {
-        "message": "एक लंबा URL और वह छोटा URL डालें जो आपको पता है कि चलता है। दोनों से नियम निकाला जाएगा — नीचे जाँच लें और ज़रूरत हो तो चौड़ा कर दें।"
+        "message": "कई शॉपिंग और लेख साइटें उसी पेज को बहुत छोटे URL से भी खोल देती हैं। ब्राउज़र में छोटा रूप आज़माकर दोनों URL यहाँ डालें, नियम अपने आप बन जाएगा।"
     },
     "rulesInferLong": {
         "message": "लंबा URL"
     },
     "rulesInferShort": {
-        "message": "चलने वाला छोटा URL"
+        "message": "आज़माया हुआ छोटा URL"
     },
     "rulesInferMake": {
-        "message": "नियम बनाएँ"
+        "message": "नियम निकालें"
     },
     "ruleErrNotAUrl": {
         "message": "दोनों पूरे http या https पते होने चाहिए"
@@ -639,5 +639,11 @@
     },
     "ruleErrNoCommonPart": {
         "message": "छोटे URL में लंबे URL का कुछ भी साझा नहीं — नियम नहीं निकाला जा सकता"
+    },
+    "rulesInferCta": {
+        "message": "इस साइट के लिए अभी कोई नियम नहीं। जोड़ें →"
+    },
+    "rulesManualHint": {
+        "message": "या खुद लिखें"
     }
 }

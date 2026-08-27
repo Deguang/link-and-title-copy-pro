@@ -617,19 +617,19 @@
         "message": "取代中用了比對裡不存在的名字"
     },
     "rulesInferTitle": {
-        "message": "用範例產生規則"
+        "message": "教它認識一個新網站"
     },
     "rulesInferDesc": {
-        "message": "貼上一個長網址，以及你確認可用的短網址。規則會據此推導 —— 請在下方核對，過於具體的部分可自行放寬。"
+        "message": "很多購物和文章網站，用短得多的網址也能開啟同一個頁面。你在瀏覽器裡試出短網址後，把長短兩個網址貼到這裡，規則會自動推導出來。"
     },
     "rulesInferLong": {
         "message": "長網址"
     },
     "rulesInferShort": {
-        "message": "確認可用的短網址"
+        "message": "你試過可用的短網址"
     },
     "rulesInferMake": {
-        "message": "產生規則"
+        "message": "推導規則"
     },
     "ruleErrNotAUrl": {
         "message": "兩者都需要是完整的 http 或 https 位址"
@@ -639,5 +639,11 @@
     },
     "ruleErrNoCommonPart": {
         "message": "短網址與長網址沒有共同部分，無法推導規則"
+    },
+    "rulesInferCta": {
+        "message": "這個網站還沒有規則，去新增 →"
+    },
+    "rulesManualHint": {
+        "message": "或手動編寫一條"
     }
 }
