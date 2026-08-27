@@ -650,7 +650,7 @@
         "message": "कॉपी किए लिंक छोटे हो सकते हैं। कई साइटें उसी पेज को छोटे URL से खोल देती हैं, और {url:short} वही इस्तेमाल करता है।"
     },
     "rulesYours": {
-        "message": "आपकी साइटें"
+        "message": "आपकी जोड़ी हुई साइटें"
     },
     "rulesBuiltinSites": {
         "message": "अंतर्निहित साइटें"
@@ -675,5 +675,20 @@
     },
     "rulesCreate": {
         "message": "जोड़ें"
+    },
+    "rulesCheckTitle": {
+        "message": "कोई लिंक जाँचें"
+    },
+    "rulesCheckSub": {
+        "message": "कोई भी लिंक डालें और देखें कि कॉपी होने पर वह क्या बनता है।"
+    },
+    "rulesYoursSub": {
+        "message": "आपके नियम पहले लागू होते हैं।"
+    },
+    "rulesWorksTitle": {
+        "message": "जो साइटें पहले से काम करती हैं"
+    },
+    "rulesWorksSub": {
+        "message": "इनके लिए कुछ करने की ज़रूरत नहीं।"
     }
 }

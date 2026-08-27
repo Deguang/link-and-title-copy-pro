@@ -650,7 +650,7 @@
         "message": "Copied links can be shorter. Many sites accept a stripped-down URL for the same page, and {url:short} uses it."
     },
     "rulesYours": {
-        "message": "Your sites"
+        "message": "Sites you added"
     },
     "rulesBuiltinSites": {
         "message": "Built-in sites"
@@ -675,5 +675,20 @@
     },
     "rulesCreate": {
         "message": "Add site"
+    },
+    "rulesCheckTitle": {
+        "message": "Check a link"
+    },
+    "rulesCheckSub": {
+        "message": "Paste any link to see what it becomes when copied."
+    },
+    "rulesYoursSub": {
+        "message": "Your rules run before the built-in ones."
+    },
+    "rulesWorksTitle": {
+        "message": "Sites that already work"
+    },
+    "rulesWorksSub": {
+        "message": "No setup needed for these."
     }
 }

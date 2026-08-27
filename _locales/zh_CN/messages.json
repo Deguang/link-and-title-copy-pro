@@ -675,5 +675,20 @@
     },
     "rulesCreate": {
         "message": "添加"
+    },
+    "rulesCheckTitle": {
+        "message": "检查一个链接"
+    },
+    "rulesCheckSub": {
+        "message": "粘贴任意链接，看它复制出来会变成什么。"
+    },
+    "rulesYoursSub": {
+        "message": "你的规则优先于内置规则。"
+    },
+    "rulesWorksTitle": {
+        "message": "已经能用的网站"
+    },
+    "rulesWorksSub": {
+        "message": "这些不需要你做任何设置。"
     }
 }

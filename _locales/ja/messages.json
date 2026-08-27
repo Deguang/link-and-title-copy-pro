@@ -675,5 +675,20 @@
     },
     "rulesCreate": {
         "message": "追加"
+    },
+    "rulesCheckTitle": {
+        "message": "リンクを確認する"
+    },
+    "rulesCheckSub": {
+        "message": "任意のリンクを貼ると、コピー後の形が分かります。"
+    },
+    "rulesYoursSub": {
+        "message": "あなたのルールが内蔵より先に適用されます。"
+    },
+    "rulesWorksTitle": {
+        "message": "すでに使えるサイト"
+    },
+    "rulesWorksSub": {
+        "message": "これらは設定不要です。"
     }
 }

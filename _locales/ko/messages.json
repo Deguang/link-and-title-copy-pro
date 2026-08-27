@@ -675,5 +675,20 @@
     },
     "rulesCreate": {
         "message": "추가"
+    },
+    "rulesCheckTitle": {
+        "message": "링크 확인하기"
+    },
+    "rulesCheckSub": {
+        "message": "아무 링크나 붙여 넣으면 복사했을 때의 모습을 보여 줍니다."
+    },
+    "rulesYoursSub": {
+        "message": "내 규칙이 기본 규칙보다 먼저 적용됩니다."
+    },
+    "rulesWorksTitle": {
+        "message": "이미 동작하는 사이트"
+    },
+    "rulesWorksSub": {
+        "message": "따로 설정할 것이 없습니다."
     }
 }

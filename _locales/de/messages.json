@@ -650,7 +650,7 @@
         "message": "Kopierte Links können kürzer sein. Viele Seiten liefern dieselbe Seite unter einer schlanken URL, und {url:short} nutzt genau die."
     },
     "rulesYours": {
-        "message": "Deine Seiten"
+        "message": "Von dir hinzugefügte Seiten"
     },
     "rulesBuiltinSites": {
         "message": "Eingebaute Seiten"
@@ -675,5 +675,20 @@
     },
     "rulesCreate": {
         "message": "Hinzufügen"
+    },
+    "rulesCheckTitle": {
+        "message": "Link prüfen"
+    },
+    "rulesCheckSub": {
+        "message": "Füge einen Link ein und sieh, was beim Kopieren daraus wird."
+    },
+    "rulesYoursSub": {
+        "message": "Deine Regeln greifen vor den eingebauten."
+    },
+    "rulesWorksTitle": {
+        "message": "Seiten, die schon funktionieren"
+    },
+    "rulesWorksSub": {
+        "message": "Dafür ist nichts einzurichten."
     }
 }

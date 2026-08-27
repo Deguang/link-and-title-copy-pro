@@ -650,7 +650,7 @@
         "message": "Los enlaces copiados pueden ser más cortos. Muchos sitios sirven la misma página con una URL reducida, y {url:short} la usa."
     },
     "rulesYours": {
-        "message": "Tus sitios"
+        "message": "Sitios que añadiste"
     },
     "rulesBuiltinSites": {
         "message": "Sitios incluidos"
@@ -675,5 +675,20 @@
     },
     "rulesCreate": {
         "message": "Añadir"
+    },
+    "rulesCheckTitle": {
+        "message": "Comprobar un enlace"
+    },
+    "rulesCheckSub": {
+        "message": "Pega cualquier enlace y verás en qué se convierte al copiarlo."
+    },
+    "rulesYoursSub": {
+        "message": "Tus reglas se aplican antes que las incluidas."
+    },
+    "rulesWorksTitle": {
+        "message": "Sitios que ya funcionan"
+    },
+    "rulesWorksSub": {
+        "message": "Estos no necesitan ninguna configuración."
     }
 }

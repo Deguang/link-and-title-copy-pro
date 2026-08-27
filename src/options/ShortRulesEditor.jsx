@@ -382,7 +382,8 @@ export default function ShortRulesEditor({ t }) {
 
             {/* Test first: it is the fastest way to understand what any of this does. */}
             <div className={`mt-6 ${HERO}`}>
-                <label className={`${LABEL} mb-1.5 block`}>{t('rulesTest')}</label>
+                <h3 className="text-sm font-semibold text-ink">{t('rulesCheckTitle')}</h3>
+                <p className="mb-3 mt-0.5 text-xs text-ink-2">{t('rulesCheckSub')}</p>
                 <input
                     value={testUrl}
                     onChange={(e) => setTestUrl(e.target.value)}
@@ -457,9 +458,9 @@ export default function ShortRulesEditor({ t }) {
             </div>
 
             {rules.length > 0 && (
-                <div className="mb-2.5 mt-8 flex items-center gap-3">
-                    <h3 className={LABEL}>{t('rulesYours')}</h3>
-                    <span className="h-px flex-1 bg-line" />
+                <div className="mb-2.5 mt-8">
+                    <h3 className="text-sm font-semibold text-ink">{t('rulesYours')}</h3>
+                    <p className="mt-0.5 text-xs text-ink-2">{t('rulesYoursSub')}</p>
                 </div>
             )}
 
@@ -483,11 +484,16 @@ export default function ShortRulesEditor({ t }) {
             </div>
 
             <details className="group mt-8">
-                <summary className="flex cursor-pointer list-none items-center gap-2.5 rounded-xl border border-line bg-surface px-4 py-3 text-sm font-medium text-ink-2 transition hover:border-accent/40 hover:bg-surface-2 hover:text-ink">
-                    <span className="text-ink-3 transition-transform group-open:rotate-90" aria-hidden="true">›</span>
-                    {t('rulesBuiltinSites')}
-                    <span className="rounded-full bg-surface-2 px-1.5 py-0.5 text-[11px] font-semibold text-ink-3 ring-1 ring-line-soft group-open:bg-accent-soft group-open:text-accent">
-                        {PRESET_RULES.length}
+                <summary className="flex cursor-pointer list-none items-start gap-2.5 rounded-xl border border-line bg-surface px-4 py-3 text-left transition hover:border-accent/40 hover:bg-surface-2">
+                    <span className="mt-0.5 self-start text-ink-3 transition-transform group-open:rotate-90" aria-hidden="true">›</span>
+                    <span className="flex-1">
+                        <span className="flex items-center gap-2">
+                            <span className="text-sm font-semibold text-ink">{t('rulesWorksTitle')}</span>
+                            <span className="rounded-full bg-surface-2 px-1.5 py-0.5 text-[11px] font-semibold text-ink-3 ring-1 ring-line-soft group-open:bg-accent-soft group-open:text-accent">
+                                {PRESET_RULES.length}
+                            </span>
+                        </span>
+                        <span className="mt-0.5 block text-xs font-normal text-ink-2">{t('rulesWorksSub')}</span>
                     </span>
                 </summary>
                 <div className="mt-2 rounded-xl border border-line-soft bg-surface px-4 py-1">

@@ -675,5 +675,20 @@
     },
     "rulesCreate": {
         "message": "新增"
+    },
+    "rulesCheckTitle": {
+        "message": "檢查一個連結"
+    },
+    "rulesCheckSub": {
+        "message": "貼上任意連結，看它複製出來會變成什麼。"
+    },
+    "rulesYoursSub": {
+        "message": "你的規則優先於內建規則。"
+    },
+    "rulesWorksTitle": {
+        "message": "已經能用的網站"
+    },
+    "rulesWorksSub": {
+        "message": "這些不需要你做任何設定。"
     }
 }
