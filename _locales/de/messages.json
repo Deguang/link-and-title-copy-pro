@@ -543,5 +543,59 @@
     },
     "urlShort": {
         "message": "Kürzester funktionierender Link (ohne Tracking, mit der Kurzform der Seite, wo es eine gibt)"
+    },
+    "rulesTitle": {
+        "message": "Regeln zum Kürzen"
+    },
+    "rulesDesc": {
+        "message": "Schreibt die URL beim Kopieren mit {url:short} in die Kurzform der Seite um. Gängige Seiten sind eingebaut; weitere kannst du selbst ergänzen."
+    },
+    "rulesAdd": {
+        "message": "Regel hinzufügen"
+    },
+    "rulesLabel": {
+        "message": "Name"
+    },
+    "rulesHost": {
+        "message": "Domain"
+    },
+    "rulesMatch": {
+        "message": "Treffer (Regex auf den Pfad)"
+    },
+    "rulesReplace": {
+        "message": "Ersetzen durch"
+    },
+    "rulesTest": {
+        "message": "URL testen"
+    },
+    "rulesResult": {
+        "message": "Ergebnis"
+    },
+    "rulesBuiltin": {
+        "message": "Eingebaut"
+    },
+    "rulesNoMatch": {
+        "message": "Keine Regel passte — nur Tracking entfernt"
+    },
+    "rulesRemove": {
+        "message": "Entfernen"
+    },
+    "ruleErrMissingHost": {
+        "message": "Domain angeben, z. B. example.com oder amazon.*"
+    },
+    "ruleErrMissingMatch": {
+        "message": "Suchmuster angeben"
+    },
+    "ruleErrMissingReplace": {
+        "message": "Ersetzung angeben"
+    },
+    "ruleErrPatternInvalid": {
+        "message": "Das ist keine gültige Regex-Syntax"
+    },
+    "ruleErrPatternUnsafe": {
+        "message": "Das Muster kann die Seite blockieren — + oder * nicht in einer Gruppe verschachteln"
+    },
+    "ruleErrPatternTooLong": {
+        "message": "Das Muster ist zu lang"
     }
 }

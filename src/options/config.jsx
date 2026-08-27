@@ -4,6 +4,7 @@ import { useChromeStorage } from '@/hooks/useChromeStorage.js';
 import { processTemplate } from '@/utils/templateProcessor';
 import { STORAGE_KEY } from '../constant';
 import LicenseSection from './LicenseSection';
+import ShortRulesEditor from './ShortRulesEditor';
 import { PAYMENT_ENABLED } from '@/utils/license';
 import { REVIEW_OPT_OUT_KEY } from '@/utils/reviewPrompt';
 import { validateConfig } from '@/utils/validateConfig.mjs';
@@ -577,6 +578,9 @@ export default function Config() {
     const [configs, setConfigs, storageError] = useChromeStorage(STORAGE_KEY, []);
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [showHelp, setShowHelp] = useState(false);
+    // The shortening rules are global rather than per-template, so they get their
+    // own entry in the sidebar instead of a section inside the editor.
+    const [view, setView] = useState('templates');
     const [justSaved, setJustSaved] = useState(false);
     const savedTimer = useRef(null);
 
@@ -696,16 +700,30 @@ export default function Config() {
                                 key={index}
                                 config={config}
                                 active={index === selectedIndex}
-                                onClick={() => setSelectedIndex(index)}
+                                onClick={() => { setSelectedIndex(index); setView('templates'); }}
                                 hasError={validateConfig(config, { allConfigs: configs, index })
                                     .some(i => i.level === 'error')}
                             />
                         ))}
+
+                        <button
+                            type="button"
+                            onClick={() => setView('rules')}
+                            className={`mt-4 w-full rounded-lg border px-3 py-2.5 text-left text-sm font-medium transition ${
+                                view === 'rules'
+                                    ? 'border-accent bg-accent-soft text-ink'
+                                    : 'border-line bg-surface text-ink-2 hover:bg-surface-2 hover:text-ink'
+                            }`}
+                        >
+                            {t('rulesTitle')}
+                        </button>
                     </aside>
 
                     {/* Detail */}
                     <main className="flex-1 overflow-y-auto bg-canvas p-6">
-                        {selected ? (
+                        {view === 'rules' ? (
+                            <ShortRulesEditor t={t} />
+                        ) : selected ? (
                             <TemplateEditor
                                 key={selectedIndex}
                                 config={selected}

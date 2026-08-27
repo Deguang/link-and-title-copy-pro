@@ -168,6 +168,15 @@ chrome.runtime.onInstalled.addListener(async (details) => {
 // service worker respawns can't race an empty array.
 let configsReady;
 
+// The user's own link-shortening rules, used wherever the background expands a
+// template itself — the link context menu and the no-content-script fallback.
+const USER_RULES_KEY = 'urlShortRules';
+let urlRules = [];
+chrome.storage.local.get(USER_RULES_KEY, (r) => {
+  if (chrome.runtime.lastError) return;
+  if (Array.isArray(r?.[USER_RULES_KEY])) urlRules = r[USER_RULES_KEY];
+});
+
 function loadConfigurations() {
   configsReady = new Promise((resolve) => {
     chrome.storage.local.get(STORAGE_KEY, function (result) {
@@ -376,7 +385,8 @@ async function fallbackCopy(index, tab) {
     const text = processTemplate(config.template, {
       title: tab.title || '',
       url: tab.url || '',
-      selectedText: '' // Fallback 时无法获取选中文本
+      selectedText: '', // Fallback 时无法获取选中文本
+      urlRules
     });
 
     // 确保 offscreen document 存在
@@ -685,6 +695,7 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
       title: info.linkText || info.selectionText || info.linkUrl || '',
       url: info.linkUrl || '',
       selectedText: info.selectionText || '',
+      urlRules,
     });
     await copyTextViaOffscreen(text, tab);
     return;

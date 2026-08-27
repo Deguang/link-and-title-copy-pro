@@ -543,5 +543,59 @@
     },
     "urlShort": {
         "message": "同じページに届く最短のURL（トラッキング除去＋対応サイトの公式短縮形）"
+    },
+    "rulesTitle": {
+        "message": "短縮ルール"
+    },
+    "rulesDesc": {
+        "message": "{url:short} でコピーする際、サイト独自の短縮形にURLを書き換えます。主要サイトは内蔵ルールで対応済み。その他は自分で追加できます。"
+    },
+    "rulesAdd": {
+        "message": "ルールを追加"
+    },
+    "rulesLabel": {
+        "message": "名前"
+    },
+    "rulesHost": {
+        "message": "ドメイン"
+    },
+    "rulesMatch": {
+        "message": "一致（パスの正規表現）"
+    },
+    "rulesReplace": {
+        "message": "置換後"
+    },
+    "rulesTest": {
+        "message": "URLでテスト"
+    },
+    "rulesResult": {
+        "message": "結果"
+    },
+    "rulesBuiltin": {
+        "message": "内蔵"
+    },
+    "rulesNoMatch": {
+        "message": "一致するルールなし —— トラッキングのみ除去"
+    },
+    "rulesRemove": {
+        "message": "削除"
+    },
+    "ruleErrMissingHost": {
+        "message": "ドメインを入力してください（例: example.com、amazon.*）"
+    },
+    "ruleErrMissingMatch": {
+        "message": "一致パターンを入力してください"
+    },
+    "ruleErrMissingReplace": {
+        "message": "置換後の内容を入力してください"
+    },
+    "ruleErrPatternInvalid": {
+        "message": "正規表現の構文が正しくありません"
+    },
+    "ruleErrPatternUnsafe": {
+        "message": "ページが固まる恐れがあります —— グループ内での + や * の入れ子は避けてください"
+    },
+    "ruleErrPatternTooLong": {
+        "message": "パターンが長すぎます"
     }
 }

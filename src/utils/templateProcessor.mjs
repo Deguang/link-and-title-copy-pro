@@ -13,7 +13,10 @@ import { shortenUrl } from './shortUrl.mjs';
  * @returns {string} The processed string ready for copying.
  */
 export function processTemplate(template, context = {}) {
-    const { title = '', url = '', selectedText = '' } = context;
+    // urlRules are the user's own shortening rules, read from storage by whoever
+    // is doing the copy. Passed in rather than read here, so this stays pure and
+    // testable, and so a surface that has no storage access simply gets none.
+    const { title = '', url = '', selectedText = '', urlRules = [] } = context;
 
     // Create a working copy of the template
     let result = template;
@@ -60,7 +63,7 @@ export function processTemplate(template, context = {}) {
                 // {url:short} is {url:notrack} plus the site's own canonical
                 // short form, where one exists — so it is listed first, since
                 // the two patterns share a prefix.
-                .replace(/\{url:short\}/g, shortenUrl(url))
+                .replace(/\{url:short\}/g, shortenUrl(url, urlRules))
                 .replace(/\{url:notrack\}/g, cleanUrl(url))
                 .replace(/\{url:clean\}/g, `${urlObj.origin}${urlObj.pathname}`)
                 .replace(/\{url:protocol\}/g, urlObj.protocol.replace(':', ''))

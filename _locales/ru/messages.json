@@ -543,5 +543,59 @@
     },
     "urlShort": {
         "message": "Самая короткая рабочая ссылка (без отслеживания, с коротким видом там, где сайт его поддерживает)"
+    },
+    "rulesTitle": {
+        "message": "Правила сокращения ссылок"
+    },
+    "rulesDesc": {
+        "message": "При копировании через {url:short} переписывает ссылку в короткий вид самого сайта. Встроенные правила покрывают популярные сайты; остальные можно добавить самому."
+    },
+    "rulesAdd": {
+        "message": "Добавить правило"
+    },
+    "rulesLabel": {
+        "message": "Название"
+    },
+    "rulesHost": {
+        "message": "Домен"
+    },
+    "rulesMatch": {
+        "message": "Совпадение (регэксп по пути)"
+    },
+    "rulesReplace": {
+        "message": "Заменить на"
+    },
+    "rulesTest": {
+        "message": "Проверить ссылку"
+    },
+    "rulesResult": {
+        "message": "Результат"
+    },
+    "rulesBuiltin": {
+        "message": "Встроенное"
+    },
+    "rulesNoMatch": {
+        "message": "Ни одно правило не подошло — убрано только отслеживание"
+    },
+    "rulesRemove": {
+        "message": "Удалить"
+    },
+    "ruleErrMissingHost": {
+        "message": "Укажите домен, например example.com или amazon.*"
+    },
+    "ruleErrMissingMatch": {
+        "message": "Укажите шаблон совпадения"
+    },
+    "ruleErrMissingReplace": {
+        "message": "Укажите, на что заменять"
+    },
+    "ruleErrPatternInvalid": {
+        "message": "Некорректный синтаксис регулярного выражения"
+    },
+    "ruleErrPatternUnsafe": {
+        "message": "Такой шаблон может подвесить страницу — не вкладывайте + или * внутрь группы"
+    },
+    "ruleErrPatternTooLong": {
+        "message": "Шаблон слишком длинный"
     }
 }

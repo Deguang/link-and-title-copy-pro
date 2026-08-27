@@ -543,5 +543,59 @@
     },
     "urlShort": {
         "message": "可用的最短链接（去除追踪，并在支持的站点使用其官方短链形式）"
+    },
+    "rulesTitle": {
+        "message": "短链规则"
+    },
+    "rulesDesc": {
+        "message": "使用 {url:short} 复制时，把网址改写为该站点自己的短链形式。内置规则已覆盖常见站点，其他站点可自行添加。"
+    },
+    "rulesAdd": {
+        "message": "添加规则"
+    },
+    "rulesLabel": {
+        "message": "名称"
+    },
+    "rulesHost": {
+        "message": "域名"
+    },
+    "rulesMatch": {
+        "message": "匹配（路径正则）"
+    },
+    "rulesReplace": {
+        "message": "替换为"
+    },
+    "rulesTest": {
+        "message": "测试网址"
+    },
+    "rulesResult": {
+        "message": "结果"
+    },
+    "rulesBuiltin": {
+        "message": "内置"
+    },
+    "rulesNoMatch": {
+        "message": "没有规则匹配 —— 仅去除了追踪参数"
+    },
+    "rulesRemove": {
+        "message": "删除"
+    },
+    "ruleErrMissingHost": {
+        "message": "请填写域名，如 example.com 或 amazon.*"
+    },
+    "ruleErrMissingMatch": {
+        "message": "请填写匹配规则"
+    },
+    "ruleErrMissingReplace": {
+        "message": "请填写替换内容"
+    },
+    "ruleErrPatternInvalid": {
+        "message": "正则语法不正确"
+    },
+    "ruleErrPatternUnsafe": {
+        "message": "该写法可能导致页面卡死 —— 避免在分组里嵌套 + 或 *"
+    },
+    "ruleErrPatternTooLong": {
+        "message": "规则过长"
     }
 }

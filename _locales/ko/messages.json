@@ -543,5 +543,59 @@
     },
     "urlShort": {
         "message": "같은 페이지로 가는 가장 짧은 링크 (추적 제거, 지원 사이트는 공식 단축 형식)"
+    },
+    "rulesTitle": {
+        "message": "링크 단축 규칙"
+    },
+    "rulesDesc": {
+        "message": "{url:short}로 복사할 때 URL을 해당 사이트의 짧은 형식으로 바꿉니다. 주요 사이트는 기본 제공되며, 나머지는 직접 추가할 수 있습니다."
+    },
+    "rulesAdd": {
+        "message": "규칙 추가"
+    },
+    "rulesLabel": {
+        "message": "이름"
+    },
+    "rulesHost": {
+        "message": "도메인"
+    },
+    "rulesMatch": {
+        "message": "일치 (경로 정규식)"
+    },
+    "rulesReplace": {
+        "message": "바꿀 내용"
+    },
+    "rulesTest": {
+        "message": "URL 테스트"
+    },
+    "rulesResult": {
+        "message": "결과"
+    },
+    "rulesBuiltin": {
+        "message": "기본 제공"
+    },
+    "rulesNoMatch": {
+        "message": "일치하는 규칙 없음 — 추적만 제거됨"
+    },
+    "rulesRemove": {
+        "message": "삭제"
+    },
+    "ruleErrMissingHost": {
+        "message": "도메인을 입력하세요. 예: example.com 또는 amazon.*"
+    },
+    "ruleErrMissingMatch": {
+        "message": "일치 패턴을 입력하세요"
+    },
+    "ruleErrMissingReplace": {
+        "message": "바꿀 내용을 입력하세요"
+    },
+    "ruleErrPatternInvalid": {
+        "message": "정규식 문법이 올바르지 않습니다"
+    },
+    "ruleErrPatternUnsafe": {
+        "message": "페이지가 멈출 수 있습니다 — 그룹 안에 + 나 * 를 중첩하지 마세요"
+    },
+    "ruleErrPatternTooLong": {
+        "message": "패턴이 너무 깁니다"
     }
 }

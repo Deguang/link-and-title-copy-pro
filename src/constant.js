@@ -8,3 +8,7 @@ export const STORAGE_KEY = 'CopyTitleAndUrlConfigs';
 export const WHATS_NEW_KEY = 'whatsNewSeenVersion';
 export const WHATS_NEW_VERSION = '1.4.0';
 
+// The user's own link-shortening rules for {url:short}. Lives here rather than
+// beside the editor so the popup and content script can name it without pulling
+// a React component into their bundles.
+export const USER_RULES_KEY = 'urlShortRules';

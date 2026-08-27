@@ -543,5 +543,59 @@
     },
     "urlShort": {
         "message": "Shortest link that still works (tracking removed, site short form where one exists)"
+    },
+    "rulesTitle": {
+        "message": "Link shortening rules"
+    },
+    "rulesDesc": {
+        "message": "Rewrites a URL to the site's own short form when copying with {url:short}. Built-in rules cover common sites; add your own for others."
+    },
+    "rulesAdd": {
+        "message": "Add rule"
+    },
+    "rulesLabel": {
+        "message": "Name"
+    },
+    "rulesHost": {
+        "message": "Domain"
+    },
+    "rulesMatch": {
+        "message": "Match (regex on path)"
+    },
+    "rulesReplace": {
+        "message": "Replace with"
+    },
+    "rulesTest": {
+        "message": "Test a URL"
+    },
+    "rulesResult": {
+        "message": "Result"
+    },
+    "rulesBuiltin": {
+        "message": "Built-in"
+    },
+    "rulesNoMatch": {
+        "message": "No rule matched — the link is only stripped of tracking"
+    },
+    "rulesRemove": {
+        "message": "Remove"
+    },
+    "ruleErrMissingHost": {
+        "message": "Enter a domain, e.g. example.com or amazon.*"
+    },
+    "ruleErrMissingMatch": {
+        "message": "Enter a pattern to match"
+    },
+    "ruleErrMissingReplace": {
+        "message": "Enter what to replace it with"
+    },
+    "ruleErrPatternInvalid": {
+        "message": "That pattern isn't valid regular expression syntax"
+    },
+    "ruleErrPatternUnsafe": {
+        "message": "That pattern could hang the page — avoid nesting + or * inside a group"
+    },
+    "ruleErrPatternTooLong": {
+        "message": "That pattern is too long"
     }
 }

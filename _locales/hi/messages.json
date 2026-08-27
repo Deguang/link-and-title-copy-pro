@@ -543,5 +543,59 @@
     },
     "urlShort": {
         "message": "सबसे छोटा काम करने वाला लिंक (ट्रैकिंग हटाकर, और जहाँ साइट का छोटा रूप हो वहाँ वही)"
+    },
+    "rulesTitle": {
+        "message": "लिंक छोटा करने के नियम"
+    },
+    "rulesDesc": {
+        "message": "{url:short} से कॉपी करते समय URL को साइट के अपने छोटे रूप में बदलता है। आम साइटों के लिए नियम पहले से हैं; बाकी के लिए खुद जोड़ें।"
+    },
+    "rulesAdd": {
+        "message": "नियम जोड़ें"
+    },
+    "rulesLabel": {
+        "message": "नाम"
+    },
+    "rulesHost": {
+        "message": "डोमेन"
+    },
+    "rulesMatch": {
+        "message": "मिलान (पाथ पर regex)"
+    },
+    "rulesReplace": {
+        "message": "इससे बदलें"
+    },
+    "rulesTest": {
+        "message": "URL जाँचें"
+    },
+    "rulesResult": {
+        "message": "नतीजा"
+    },
+    "rulesBuiltin": {
+        "message": "अंतर्निहित"
+    },
+    "rulesNoMatch": {
+        "message": "कोई नियम मेल नहीं खाया — केवल ट्रैकिंग हटाई गई"
+    },
+    "rulesRemove": {
+        "message": "हटाएँ"
+    },
+    "ruleErrMissingHost": {
+        "message": "डोमेन भरें, जैसे example.com या amazon.*"
+    },
+    "ruleErrMissingMatch": {
+        "message": "मिलान पैटर्न भरें"
+    },
+    "ruleErrMissingReplace": {
+        "message": "बदलने वाला हिस्सा भरें"
+    },
+    "ruleErrPatternInvalid": {
+        "message": "regex का सिंटैक्स ठीक नहीं है"
+    },
+    "ruleErrPatternUnsafe": {
+        "message": "इससे पेज अटक सकता है — ग्रुप के अंदर + या * न रखें"
+    },
+    "ruleErrPatternTooLong": {
+        "message": "पैटर्न बहुत लंबा है"
     }
 }

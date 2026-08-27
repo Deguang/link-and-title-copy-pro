@@ -543,5 +543,59 @@
     },
     "urlShort": {
         "message": "El enlace más corto que funciona (sin rastreo y con la forma corta del sitio cuando existe)"
+    },
+    "rulesTitle": {
+        "message": "Reglas para acortar enlaces"
+    },
+    "rulesDesc": {
+        "message": "Reescribe la URL a la forma corta del propio sitio al copiar con {url:short}. Los sitios habituales ya vienen incluidos; añade los demás tú."
+    },
+    "rulesAdd": {
+        "message": "Añadir regla"
+    },
+    "rulesLabel": {
+        "message": "Nombre"
+    },
+    "rulesHost": {
+        "message": "Dominio"
+    },
+    "rulesMatch": {
+        "message": "Coincidencia (regex sobre la ruta)"
+    },
+    "rulesReplace": {
+        "message": "Reemplazar por"
+    },
+    "rulesTest": {
+        "message": "Probar una URL"
+    },
+    "rulesResult": {
+        "message": "Resultado"
+    },
+    "rulesBuiltin": {
+        "message": "Incluida"
+    },
+    "rulesNoMatch": {
+        "message": "Ninguna regla coincidió — solo se quitó el rastreo"
+    },
+    "rulesRemove": {
+        "message": "Quitar"
+    },
+    "ruleErrMissingHost": {
+        "message": "Escribe un dominio, p. ej. example.com o amazon.*"
+    },
+    "ruleErrMissingMatch": {
+        "message": "Escribe un patrón"
+    },
+    "ruleErrMissingReplace": {
+        "message": "Escribe el reemplazo"
+    },
+    "ruleErrPatternInvalid": {
+        "message": "Esa sintaxis de expresión regular no es válida"
+    },
+    "ruleErrPatternUnsafe": {
+        "message": "Ese patrón puede bloquear la página — evita anidar + o * dentro de un grupo"
+    },
+    "ruleErrPatternTooLong": {
+        "message": "El patrón es demasiado largo"
     }
 }

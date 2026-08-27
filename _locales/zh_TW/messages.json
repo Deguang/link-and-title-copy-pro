@@ -543,5 +543,59 @@
     },
     "urlShort": {
         "message": "可用的最短連結（移除追蹤，並在支援的網站使用其官方短連結形式）"
+    },
+    "rulesTitle": {
+        "message": "短連結規則"
+    },
+    "rulesDesc": {
+        "message": "使用 {url:short} 複製時，把網址改寫為該網站自己的短連結形式。內建規則已涵蓋常見網站，其他網站可自行新增。"
+    },
+    "rulesAdd": {
+        "message": "新增規則"
+    },
+    "rulesLabel": {
+        "message": "名稱"
+    },
+    "rulesHost": {
+        "message": "網域"
+    },
+    "rulesMatch": {
+        "message": "比對（路徑正規表示式）"
+    },
+    "rulesReplace": {
+        "message": "取代為"
+    },
+    "rulesTest": {
+        "message": "測試網址"
+    },
+    "rulesResult": {
+        "message": "結果"
+    },
+    "rulesBuiltin": {
+        "message": "內建"
+    },
+    "rulesNoMatch": {
+        "message": "沒有規則符合 —— 僅移除了追蹤參數"
+    },
+    "rulesRemove": {
+        "message": "刪除"
+    },
+    "ruleErrMissingHost": {
+        "message": "請填寫網域，如 example.com 或 amazon.*"
+    },
+    "ruleErrMissingMatch": {
+        "message": "請填寫比對規則"
+    },
+    "ruleErrMissingReplace": {
+        "message": "請填寫取代內容"
+    },
+    "ruleErrPatternInvalid": {
+        "message": "正規表示式語法不正確"
+    },
+    "ruleErrPatternUnsafe": {
+        "message": "此寫法可能導致頁面卡住 —— 避免在群組內巢狀 + 或 *"
+    },
+    "ruleErrPatternTooLong": {
+        "message": "規則過長"
     }
 }

@@ -31,6 +31,9 @@ import { showToast } from './toast';
 
 // Load configurations from storage
 let shortcuts = [];
+// The user's own link-shortening rules, needed wherever {url:short} is expanded.
+const USER_RULES_KEY = 'urlShortRules';
+let urlRules = [];
 
 // When the extension updates or reloads, content scripts already running in open
 // tabs are orphaned: `chrome` survives but its API objects are torn out, so
@@ -48,9 +51,12 @@ function isContextAlive() {
 function loadShortcuts() {
   if (!isContextAlive()) return;
   try {
-    chrome.storage.local.get(STORAGE_KEY, (result) => {
+    chrome.storage.local.get([STORAGE_KEY, USER_RULES_KEY], (result) => {
       // lastError must be read, or Chrome logs it as unchecked.
-      if (chrome.runtime.lastError || !result?.[STORAGE_KEY]) return;
+      if (chrome.runtime.lastError) return;
+
+      if (Array.isArray(result?.[USER_RULES_KEY])) urlRules = result[USER_RULES_KEY];
+      if (!result?.[STORAGE_KEY]) return;
 
       // Map to include original index
       shortcuts = result[STORAGE_KEY].map((c, i) => ({ ...c, originalIndex: i })).filter(c => c && c.shortcut);
@@ -64,7 +70,7 @@ loadShortcuts();
 // Listen for storage changes to update shortcuts dynamically
 if (isContextAlive()) {
   chrome.storage.onChanged.addListener((changes, namespace) => {
-    if (namespace === 'local' && changes[STORAGE_KEY]) {
+    if (namespace === 'local' && (changes[STORAGE_KEY] || changes[USER_RULES_KEY])) {
       loadShortcuts();
     }
   });
@@ -142,7 +148,8 @@ function copyToClipboard(template, overrideTitle, overrideUrl) {
   const processedText = processTemplate(template, {
     title: overrideTitle || document.title,
     url: overrideUrl || window.location.href,
-    selectedText: getSelectedText()
+    selectedText: getSelectedText(),
+    urlRules
   });
 
   // Error name from the primary (navigator.clipboard) attempt, carried into the

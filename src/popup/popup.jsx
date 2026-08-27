@@ -4,8 +4,9 @@ import './index.css';
 import { processTemplate } from '../utils/templateProcessor';
 import Keycap from '../components/Keycap';
 import { buildBatchText, BATCH_LAYOUTS } from '../utils/batchLayout.mjs';
+
 import { getProStatus, FREE_BATCH_LIMIT, openUpgradePage, PAYMENT_ENABLED } from '../utils/license';
-import { WHATS_NEW_KEY, WHATS_NEW_VERSION } from '../constant';
+import { WHATS_NEW_KEY, WHATS_NEW_VERSION, USER_RULES_KEY } from '../constant';
 import { recordCopies } from '../utils/reviewPrompt';
 
 const STORAGE_KEY = 'CopyTitleAndUrlConfigs';
@@ -35,7 +36,7 @@ async function copyText(text) {
   }
 }
 
-function CurrentTabView({ configs, tabInfo, openOptions }) {
+function CurrentTabView({ configs, tabInfo, openOptions, urlRules }) {
   return (
     <div className="flex-1 overflow-y-auto space-y-2 pr-1">
       {configs.map((config, index) => (
@@ -50,7 +51,7 @@ function CurrentTabView({ configs, tabInfo, openOptions }) {
             <Keycap shortcut={config.shortcut} />
           </div>
           <p className="text-xs text-ink-2 font-mono whitespace-pre-wrap break-all bg-surface-2 p-1.5 rounded border border-line-soft">
-            {processTemplate(config.template, { title: tabInfo.title || 'Example Title', url: tabInfo.url || 'https://example.com', selectedText: '' })}
+            {processTemplate(config.template, { title: tabInfo.title || 'Example Title', url: tabInfo.url || 'https://example.com', selectedText: '', urlRules })}
           </p>
         </div>
       ))}
@@ -73,7 +74,7 @@ function Favicon({ tab }) {
   return <span className="w-4 h-4 rounded-sm flex-shrink-0 bg-surface-2 inline-flex items-center justify-center text-[8px] text-ink-3">●</span>;
 }
 
-function BatchView({ configs, allTabs, isPro }) {
+function BatchView({ configs, allTabs, isPro, urlRules }) {
   const [templateIndex, setTemplateIndex] = useState(0);
   const [selectedIds, setSelectedIds] = useState(() => new Set());
   const [copied, setCopied] = useState(0);
@@ -142,7 +143,7 @@ function BatchView({ configs, allTabs, isPro }) {
       .map((tb) => ({
         title: tb.title || '',
         url: tb.url || '',
-        text: processTemplate(tpl, { title: tb.title || '', url: tb.url || '', selectedText: '' }),
+        text: processTemplate(tpl, { title: tb.title || '', url: tb.url || '', selectedText: '', urlRules }),
       }));
     return buildBatchText(items, layout);
   };
@@ -168,6 +169,7 @@ function BatchView({ configs, allTabs, isPro }) {
         title: previewTab.title || '',
         url: previewTab.url || '',
         selectedText: '',
+        urlRules,
       })
     : '';
 
@@ -316,6 +318,9 @@ function Popup() {
   const [allTabs, setAllTabs] = useState([]);
   const [isPro, setIsPro] = useState(false);
   const [showNewDot, setShowNewDot] = useState(false);
+  // {url:short} consults the user's own rules, so the popup has to load them
+  // too — otherwise a preview here would differ from what the copy produces.
+  const [urlRules, setUrlRules] = useState([]);
 
   useEffect(() => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -333,6 +338,10 @@ function Popup() {
       setAllTabs(highlighted.length > 1
         ? [...highlighted, ...usable.filter((tb) => !tb.highlighted)]
         : usable);
+    });
+
+    chrome.storage.local.get(USER_RULES_KEY, (r) => {
+      if (Array.isArray(r?.[USER_RULES_KEY])) setUrlRules(r[USER_RULES_KEY]);
     });
 
     chrome.storage.local.get(STORAGE_KEY, (result) => {
@@ -408,8 +417,8 @@ function Popup() {
       </div>
 
       {view === 'current'
-        ? <CurrentTabView configs={configs} tabInfo={tabInfo} openOptions={openOptions} />
-        : <BatchView configs={configs} allTabs={allTabs} isPro={isPro} />}
+        ? <CurrentTabView configs={configs} tabInfo={tabInfo} openOptions={openOptions} urlRules={urlRules} />
+        : <BatchView configs={configs} allTabs={allTabs} isPro={isPro} urlRules={urlRules} />}
 
       {/* Footer */}
       <div className="mt-3 pt-3 border-t border-line-soft flex justify-between items-center text-xs text-ink-3">
