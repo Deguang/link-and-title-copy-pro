@@ -540,5 +540,8 @@
     },
     "batchPreview": {
         "message": "Vorschau"
+    },
+    "urlShort": {
+        "message": "Kürzester funktionierender Link (ohne Tracking, mit der Kurzform der Seite, wo es eine gibt)"
     }
 }

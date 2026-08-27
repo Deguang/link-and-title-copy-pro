@@ -1,5 +1,6 @@
 // @ts-check
 import { cleanUrl } from './cleanUrl.mjs';
+import { shortenUrl } from './shortUrl.mjs';
 
 /**
  * Process the template string with the provided context.
@@ -56,6 +57,10 @@ export function processTemplate(template, context = {}) {
                 // and still what you want for a canonical link. {url:notrack} keeps
                 // the parameters the page needs and removes only the tracking ones,
                 // which is what "clean link" usually means to people.
+                // {url:short} is {url:notrack} plus the site's own canonical
+                // short form, where one exists — so it is listed first, since
+                // the two patterns share a prefix.
+                .replace(/\{url:short\}/g, shortenUrl(url))
                 .replace(/\{url:notrack\}/g, cleanUrl(url))
                 .replace(/\{url:clean\}/g, `${urlObj.origin}${urlObj.pathname}`)
                 .replace(/\{url:protocol\}/g, urlObj.protocol.replace(':', ''))

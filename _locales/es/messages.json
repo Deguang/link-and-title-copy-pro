@@ -540,5 +540,8 @@
     },
     "batchPreview": {
         "message": "Vista previa"
+    },
+    "urlShort": {
+        "message": "El enlace más corto que funciona (sin rastreo y con la forma corta del sitio cuando existe)"
     }
 }

@@ -540,5 +540,8 @@
     },
     "batchPreview": {
         "message": "預覽"
+    },
+    "urlShort": {
+        "message": "可用的最短連結（移除追蹤，並在支援的網站使用其官方短連結形式）"
     }
 }

@@ -540,5 +540,8 @@
     },
     "batchPreview": {
         "message": "Preview"
+    },
+    "urlShort": {
+        "message": "Shortest link that still works (tracking removed, site short form where one exists)"
     }
 }

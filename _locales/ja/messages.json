@@ -540,5 +540,8 @@
     },
     "batchPreview": {
         "message": "プレビュー"
+    },
+    "urlShort": {
+        "message": "同じページに届く最短のURL（トラッキング除去＋対応サイトの公式短縮形）"
     }
 }

@@ -540,5 +540,8 @@
     },
     "batchPreview": {
         "message": "预览"
+    },
+    "urlShort": {
+        "message": "可用的最短链接（去除追踪，并在支持的站点使用其官方短链形式）"
     }
 }
