@@ -257,10 +257,17 @@ function doUpdateContextMenu() {
         return;
       }
 
-      // Filter valid configs (non-empty shortcut and template, not isNew)
-      const validConfigs = configuredShortcuts.filter(
-        config => config && config.shortcut && config.template && !config.isNew
-      );
+      // A template needs a body to copy; a shortcut is optional, and the menu is
+      // one of the two places a template without one can be reached at all.
+      //
+      // The original position travels with it. The menu id used to carry the
+      // index within *this* filtered list while the click handler looked it up in
+      // the full one, so anything filtered out shifted every later entry onto the
+      // wrong template — silently, and only once a user cleared a shortcut on
+      // something other than the last template.
+      const validConfigs = configuredShortcuts
+        .map((config, originalIndex) => ({ config, originalIndex }))
+        .filter(({ config }) => config && config.template && !config.isNew);
 
       // Two roots: what's under the cursor, and — when that's a link — the link
       // itself. Chrome layers contexts, so without this a link right-click would
@@ -276,7 +283,7 @@ function doUpdateContextMenu() {
         contexts: ['link'],
       });
 
-      validConfigs.forEach((config, index) => {
+      validConfigs.forEach(({ config, originalIndex: index }) => {
         // 为页面创建菜单项
         chrome.contextMenus.create({
           id: `copyTemplate_page_${index}`,
