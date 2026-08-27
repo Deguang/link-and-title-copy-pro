@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { useChromeStorage } from '../hooks/useChromeStorage';
 import { USER_RULES_KEY } from '../constant';
 import { PRESET_RULES, validateRule } from '../utils/urlRules.mjs';
+import { inferRule } from '../utils/inferRule.mjs';
 import { shortenUrl } from '../utils/shortUrl.mjs';
 
 export { USER_RULES_KEY };
@@ -19,6 +20,9 @@ const ERROR_KEYS = {
     patternUnsafe: 'ruleErrPatternUnsafe',
     patternTooLong: 'ruleErrPatternTooLong',
     duplicateName: 'ruleErrDuplicateName',
+    notAUrl: 'ruleErrNotAUrl',
+    sameUrl: 'ruleErrSameUrl',
+    noCommonPart: 'ruleErrNoCommonPart',
     badName: 'ruleErrBadName',
     badQuery: 'ruleErrBadQuery',
     unknownName: 'ruleErrUnknownName',
@@ -115,6 +119,67 @@ function PresetRow({ t, rule }) {
     );
 }
 
+
+/**
+ * Derives a rule from an example pair. Writing the pattern is the part nobody
+ * wants to do, and it's the part the user already knows the answer to — they
+ * found the short form by trying it.
+ */
+function InferBox({ t, onCreate }) {
+    const [long, setLong] = useState('');
+    const [short, setShort] = useState('');
+    const [error, setError] = useState('');
+
+    const make = () => {
+        const r = inferRule(long, short);
+        if (!r.ok) { setError(t(ERROR_KEYS[r.error] || r.error)); return; }
+        setError('');
+        // Named after the site, since that is what the user will look for later.
+        onCreate({ id: `u${Date.now()}`, label: r.host, host: r.host, match: r.match, replace: r.replace, syntax: r.syntax });
+        setLong('');
+        setShort('');
+    };
+
+    return (
+        <div className="mt-4 rounded-xl border border-line bg-surface p-4">
+            <h3 className="text-sm font-semibold text-ink">{t('rulesInferTitle')}</h3>
+            <p className="mt-1 text-xs leading-relaxed text-ink-2">{t('rulesInferDesc')}</p>
+
+            <div className="mt-3 space-y-2">
+                <div>
+                    <label className={`${LABEL} mb-1.5 block`}>{t('rulesInferLong')}</label>
+                    <input
+                        value={long}
+                        onChange={(e) => setLong(e.target.value)}
+                        placeholder="https://www.example.com/a-very-long-product-name/p/12345"
+                        className={`${FIELD} font-mono text-xs`}
+                    />
+                </div>
+                <div>
+                    <label className={`${LABEL} mb-1.5 block`}>{t('rulesInferShort')}</label>
+                    <input
+                        value={short}
+                        onChange={(e) => setShort(e.target.value)}
+                        placeholder="https://www.example.com/p/12345"
+                        className={`${FIELD} font-mono text-xs`}
+                    />
+                </div>
+            </div>
+
+            {error && <p className="mt-2 text-xs font-medium text-danger">{error}</p>}
+
+            <button
+                type="button"
+                onClick={make}
+                disabled={!long.trim() || !short.trim()}
+                className={`${BTN_PRIMARY} mt-3 disabled:cursor-not-allowed disabled:opacity-40`}
+            >
+                {t('rulesInferMake')}
+            </button>
+        </div>
+    );
+}
+
 export default function ShortRulesEditor({ t }) {
     const [userRules, setUserRules] = useChromeStorage(USER_RULES_KEY, []);
     const [testUrl, setTestUrl] = useState('');
@@ -166,6 +231,8 @@ export default function ShortRulesEditor({ t }) {
                     </div>
                 )}
             </div>
+
+            <InferBox t={t} onCreate={(rule) => setUserRules([...rules, rule])} />
 
             <div className="mt-6 space-y-3">
                 {rules.map((rule, i) => (

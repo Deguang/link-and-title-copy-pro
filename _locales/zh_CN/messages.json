@@ -615,5 +615,29 @@
     },
     "ruleErrUnknownName": {
         "message": "替换里用了匹配中不存在的名字"
+    },
+    "rulesInferTitle": {
+        "message": "用示例生成规则"
+    },
+    "rulesInferDesc": {
+        "message": "粘贴一个长网址，以及你确认可用的短网址。规则会据此推导出来 —— 请在下方核对，过于具体的部分可以自行放宽。"
+    },
+    "rulesInferLong": {
+        "message": "长网址"
+    },
+    "rulesInferShort": {
+        "message": "确认可用的短网址"
+    },
+    "rulesInferMake": {
+        "message": "生成规则"
+    },
+    "ruleErrNotAUrl": {
+        "message": "两者都需要是完整的 http 或 https 地址"
+    },
+    "ruleErrSameUrl": {
+        "message": "两个网址相同"
+    },
+    "ruleErrNoCommonPart": {
+        "message": "短网址与长网址没有共同部分，无法推导规则"
     }
 }

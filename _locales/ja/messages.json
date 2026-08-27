@@ -615,5 +615,29 @@
     },
     "ruleErrUnknownName": {
         "message": "置換に、一致で取得していない名前が使われています"
+    },
+    "rulesInferTitle": {
+        "message": "例からルールを作る"
+    },
+    "rulesInferDesc": {
+        "message": "長いURLと、動作を確認済みの短いURLを貼り付けてください。両者からルールを導き出します —— 下で確認し、限定的すぎる部分は緩めてください。"
+    },
+    "rulesInferLong": {
+        "message": "長いURL"
+    },
+    "rulesInferShort": {
+        "message": "動作する短いURL"
+    },
+    "rulesInferMake": {
+        "message": "ルールを作成"
+    },
+    "ruleErrNotAUrl": {
+        "message": "どちらも完全な http / https のアドレスが必要です"
+    },
+    "ruleErrSameUrl": {
+        "message": "同じURLです"
+    },
+    "ruleErrNoCommonPart": {
+        "message": "短いURLに長いURLとの共通部分がなく、ルールを導けません"
     }
 }

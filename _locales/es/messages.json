@@ -615,5 +615,29 @@
     },
     "ruleErrUnknownName": {
         "message": "El reemplazo usa un nombre que el patrón no captura"
+    },
+    "rulesInferTitle": {
+        "message": "Crear una regla a partir de un ejemplo"
+    },
+    "rulesInferDesc": {
+        "message": "Pega una URL larga y la corta que sabes que funciona. La regla se deduce del par: compruébala abajo y amplía lo que resulte demasiado específico."
+    },
+    "rulesInferLong": {
+        "message": "URL larga"
+    },
+    "rulesInferShort": {
+        "message": "URL corta que funciona"
+    },
+    "rulesInferMake": {
+        "message": "Crear regla"
+    },
+    "ruleErrNotAUrl": {
+        "message": "Ambas deben ser direcciones http o https completas"
+    },
+    "ruleErrSameUrl": {
+        "message": "Son la misma URL"
+    },
+    "ruleErrNoCommonPart": {
+        "message": "La URL corta no comparte nada con la larga, así que no hay regla que deducir"
     }
 }

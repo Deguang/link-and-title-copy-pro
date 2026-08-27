@@ -615,5 +615,29 @@
     },
     "ruleErrUnknownName": {
         "message": "바꿀 내용에 일치에서 잡지 않은 이름이 있습니다"
+    },
+    "rulesInferTitle": {
+        "message": "예시로 규칙 만들기"
+    },
+    "rulesInferDesc": {
+        "message": "긴 URL과, 실제로 동작하는 짧은 URL을 붙여넣으세요. 두 주소로부터 규칙을 도출합니다 —— 아래에서 확인하고 너무 좁은 부분은 넓히세요."
+    },
+    "rulesInferLong": {
+        "message": "긴 URL"
+    },
+    "rulesInferShort": {
+        "message": "동작하는 짧은 URL"
+    },
+    "rulesInferMake": {
+        "message": "규칙 만들기"
+    },
+    "ruleErrNotAUrl": {
+        "message": "둘 다 완전한 http 또는 https 주소여야 합니다"
+    },
+    "ruleErrSameUrl": {
+        "message": "같은 URL입니다"
+    },
+    "ruleErrNoCommonPart": {
+        "message": "짧은 URL이 긴 URL과 공통된 부분이 없어 규칙을 도출할 수 없습니다"
     }
 }

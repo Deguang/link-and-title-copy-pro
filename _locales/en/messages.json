@@ -615,5 +615,29 @@
     },
     "ruleErrUnknownName": {
         "message": "Replace uses a name the pattern never captured"
+    },
+    "rulesInferTitle": {
+        "message": "Create a rule from an example"
+    },
+    "rulesInferDesc": {
+        "message": "Paste a long URL and the short one you know works. The rule is worked out from the pair — check it below, and widen anything too specific."
+    },
+    "rulesInferLong": {
+        "message": "Long URL"
+    },
+    "rulesInferShort": {
+        "message": "Short URL that works"
+    },
+    "rulesInferMake": {
+        "message": "Create rule"
+    },
+    "ruleErrNotAUrl": {
+        "message": "Both need to be full http or https addresses"
+    },
+    "ruleErrSameUrl": {
+        "message": "These are the same URL"
+    },
+    "ruleErrNoCommonPart": {
+        "message": "The short URL shares nothing with the long one, so there is no rule to derive"
     }
 }

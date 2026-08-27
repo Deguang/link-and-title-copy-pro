@@ -615,5 +615,29 @@
     },
     "ruleErrUnknownName": {
         "message": "取代中用了比對裡不存在的名字"
+    },
+    "rulesInferTitle": {
+        "message": "用範例產生規則"
+    },
+    "rulesInferDesc": {
+        "message": "貼上一個長網址，以及你確認可用的短網址。規則會據此推導 —— 請在下方核對，過於具體的部分可自行放寬。"
+    },
+    "rulesInferLong": {
+        "message": "長網址"
+    },
+    "rulesInferShort": {
+        "message": "確認可用的短網址"
+    },
+    "rulesInferMake": {
+        "message": "產生規則"
+    },
+    "ruleErrNotAUrl": {
+        "message": "兩者都需要是完整的 http 或 https 位址"
+    },
+    "ruleErrSameUrl": {
+        "message": "兩個網址相同"
+    },
+    "ruleErrNoCommonPart": {
+        "message": "短網址與長網址沒有共同部分，無法推導規則"
     }
 }

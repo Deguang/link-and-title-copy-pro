@@ -615,5 +615,29 @@
     },
     "ruleErrUnknownName": {
         "message": "В замене имя, которого нет в шаблоне"
+    },
+    "rulesInferTitle": {
+        "message": "Создать правило из примера"
+    },
+    "rulesInferDesc": {
+        "message": "Вставьте длинную ссылку и короткую, которая точно работает. Правило будет выведено из пары — проверьте его ниже и при желании расширьте."
+    },
+    "rulesInferLong": {
+        "message": "Длинная ссылка"
+    },
+    "rulesInferShort": {
+        "message": "Рабочая короткая ссылка"
+    },
+    "rulesInferMake": {
+        "message": "Создать правило"
+    },
+    "ruleErrNotAUrl": {
+        "message": "Обе должны быть полными адресами http или https"
+    },
+    "ruleErrSameUrl": {
+        "message": "Это одна и та же ссылка"
+    },
+    "ruleErrNoCommonPart": {
+        "message": "У короткой ссылки нет общего с длинной — правило вывести не из чего"
     }
 }

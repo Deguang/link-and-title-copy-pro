@@ -615,5 +615,29 @@
     },
     "ruleErrUnknownName": {
         "message": "बदलने में ऐसा नाम है जो मिलान में नहीं है"
+    },
+    "rulesInferTitle": {
+        "message": "उदाहरण से नियम बनाएँ"
+    },
+    "rulesInferDesc": {
+        "message": "एक लंबा URL और वह छोटा URL डालें जो आपको पता है कि चलता है। दोनों से नियम निकाला जाएगा — नीचे जाँच लें और ज़रूरत हो तो चौड़ा कर दें।"
+    },
+    "rulesInferLong": {
+        "message": "लंबा URL"
+    },
+    "rulesInferShort": {
+        "message": "चलने वाला छोटा URL"
+    },
+    "rulesInferMake": {
+        "message": "नियम बनाएँ"
+    },
+    "ruleErrNotAUrl": {
+        "message": "दोनों पूरे http या https पते होने चाहिए"
+    },
+    "ruleErrSameUrl": {
+        "message": "दोनों एक ही URL हैं"
+    },
+    "ruleErrNoCommonPart": {
+        "message": "छोटे URL में लंबे URL का कुछ भी साझा नहीं — नियम नहीं निकाला जा सकता"
     }
 }
