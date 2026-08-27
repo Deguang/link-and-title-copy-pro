@@ -50,7 +50,11 @@ function RuleRow({ t, rule, onChange, onRemove }) {
 
     if (!open) {
         return (
-            <div className="flex items-center gap-3 rounded-xl border border-line bg-surface px-4 py-3">
+            <button
+                type="button"
+                onClick={() => setOpen(true)}
+                className="group flex w-full items-center gap-3 rounded-xl border border-line bg-surface px-4 py-3 text-left transition hover:border-accent/40 hover:bg-surface-2 focus:outline-none focus:ring-4 focus:ring-accent/15"
+            >
                 <span className="min-w-0 flex-1 truncate">
                     <span className="text-sm font-medium text-ink">{rule.label || rule.host}</span>
                     {!error && (
@@ -60,14 +64,11 @@ function RuleRow({ t, rule, onChange, onRemove }) {
                     )}
                     {error && <span className="ml-2.5 text-xs font-medium text-danger">{errText}</span>}
                 </span>
-                <button
-                    type="button"
-                    onClick={() => setOpen(true)}
-                    className="flex-shrink-0 rounded-lg px-2 py-1 text-xs font-medium text-ink-3 transition hover:bg-surface-2 hover:text-ink"
-                >
+                <span className="flex flex-shrink-0 items-center gap-1 text-xs font-medium text-ink-3 transition group-hover:text-accent">
                     {t('rulesEdit')}
-                </button>
-            </div>
+                    <span aria-hidden="true">›</span>
+                </span>
+            </button>
         );
     }
 
@@ -322,7 +323,23 @@ export default function ShortRulesEditor({ t }) {
     const [seed, setSeed] = useState('');
     const [seedKey, setSeedKey] = useState(0);
     const [teaching, setTeaching] = useState(false);
+    // The row that was just created, so the page can show where it went. Closing
+    // the panel and leaving the new rule somewhere below the fold is why adding
+    // one felt like nothing happened.
+    const [justAdded, setJustAdded] = useState(null);
     const inferRef = useRef(null);
+    const listRef = useRef(null);
+
+    const addRule = (rule) => {
+        setUserRules([...rules, rule]);
+        setTeaching(false);
+        setJustAdded(rule.id);
+        // After the row exists, not before.
+        setTimeout(() => {
+            listRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 0);
+        setTimeout(() => setJustAdded(null), 2200);
+    };
 
     const rules = Array.isArray(userRules) ? userRules : [];
 
@@ -421,7 +438,7 @@ export default function ShortRulesEditor({ t }) {
                         t={t}
                         seed={seed}
                         seedKey={seedKey}
-                        onCreate={(rule) => { setUserRules([...rules, rule]); setTeaching(false); }}
+                        onCreate={addRule}
                         onCancel={() => setTeaching(false)}
                     />
                 ) : (
@@ -446,28 +463,34 @@ export default function ShortRulesEditor({ t }) {
                 </div>
             )}
 
-            <div className="space-y-2">
+            <div ref={listRef} className="space-y-2">
                 {rules.map((rule, i) => (
-                    <RuleRow
+                    <div
                         key={rule.id || i}
-                        t={t}
-                        rule={rule}
-                        onChange={(patch) => update(i, patch)}
-                        onRemove={() => remove(i)}
-                    />
+                        className={`rounded-xl transition-shadow duration-500 ${
+                            justAdded === rule.id ? 'ring-4 ring-ok/30' : ''
+                        }`}
+                    >
+                        <RuleRow
+                            t={t}
+                            rule={rule}
+                            onChange={(patch) => update(i, patch)}
+                            onRemove={() => remove(i)}
+                        />
+                    </div>
                 ))}
 
             </div>
 
-            <details className="group mt-9">
-                <summary className="flex cursor-pointer list-none items-center gap-2 text-xs font-semibold uppercase tracking-wider text-ink-3 transition hover:text-ink-2">
-                    <span className="transition-transform group-open:rotate-90">›</span>
+            <details className="group mt-8">
+                <summary className="flex cursor-pointer list-none items-center gap-2.5 rounded-xl border border-line bg-surface px-4 py-3 text-sm font-medium text-ink-2 transition hover:border-accent/40 hover:bg-surface-2 hover:text-ink">
+                    <span className="text-ink-3 transition-transform group-open:rotate-90" aria-hidden="true">›</span>
                     {t('rulesBuiltinSites')}
-                    <span className="rounded-full bg-surface-2 px-1.5 py-0.5 text-[10px] font-medium normal-case tracking-normal">
+                    <span className="rounded-full bg-surface-2 px-1.5 py-0.5 text-[11px] font-semibold text-ink-3 ring-1 ring-line-soft group-open:bg-accent-soft group-open:text-accent">
                         {PRESET_RULES.length}
                     </span>
                 </summary>
-                <div className="mt-2 px-0.5">
+                <div className="mt-2 rounded-xl border border-line-soft bg-surface px-4 py-1">
                     {PRESET_RULES.map((rule) => <PresetRow key={rule.id} rule={rule} />)}
                 </div>
             </details>
