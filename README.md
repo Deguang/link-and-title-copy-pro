@@ -61,6 +61,10 @@ Link&TitleCopyPro是一个可以同时复制浏览器标签页的标题和URL链
 
 ## Version History / 版本历史
 
+### v1.12.0
+
+- Link shortening rules are editable in Settings: built-in rules for common sites, plus your own for anywhere else, with a test box that shows the result as you type / 短链规则可在设置中编辑：内置常见站点规则，也可自行添加，并带实时测试框
+
 ### v1.11.0
 
 - New `{url:short}` gives the shortest link that still works — tracking removed, plus the site's own short form on Amazon, YouTube, Stack Overflow, Reddit, eBay, Etsy, Walmart, Target and Hobby Lobby / 新增 `{url:short}`：可用的最短链接，去除追踪并在支持的站点使用其官方短链形式
