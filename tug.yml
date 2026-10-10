@@ -37,281 +37,281 @@ locales:
     name: "Copy Page Title and URL Pro: Markdown & Custom Link"
     short_description: Copy title & URL as Markdown, HTML, or Jira. Clean tracking params (UTM), custom templates, and smart selection support.
     description: |
-      🚀 Copy a page's title and link in the format you paste into — with one shortcut, or several tabs at once.
+      🚀 Stop reformatting links by hand. Copy clean page titles and URLs ready to paste — instantly with one shortcut, or batch-copy up to five tabs at once.
       --------------------------------------------------
 
       ⌨️ DEFAULT SHORTCUTS:
-      • [ Ctrl + Shift + P ] (Mac: Cmd + Shift + P) — your selection or the title, plus the link
+      • [ Ctrl + Shift + P ] (Mac: Cmd + Shift + P) — Selected text (or page title) + link
       • [ Ctrl + Shift + L ] (Mac: Cmd + Shift + L) — Markdown link
-      • [ Ctrl + Shift + U ] (Mac: Cmd + Shift + U) — selected text in quotes, with title and link
-      Change or clear any of them in Settings. They also work on the new tab page and chrome:// pages.
+      • [ Ctrl + Shift + U ] (Mac: Cmd + Shift + U) — Quoted selection + title + link
+      Change or clear any shortcut in Settings. Works on the new tab page and chrome:// pages too.
 
       📑 BATCH COPY:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ▶ Open the popup, tick up to five tabs and copy them together in any template. Tabs you already selected in the tab strip are picked for you.
+      ▶ Open the popup, tick up to five tabs, and copy them together in any template you choose. Tabs already selected in your tab strip are pre-selected for you.
       ▶ Eight layouts: separate lines, bullets, task list, numbered list, Markdown table, HTML table, CSV, JSON.
 
       ✨ KEY FEATURES:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ▶ SMART SELECTION: Copies the text you selected, or the page title when nothing is selected.
+      ▶ SMART SELECTION: Copies your selected text, or falls back to the page title when nothing is selected.
       ▶ SHORTEST WORKING LINK: {url:short} removes tracking and uses the site's own short form on Amazon, YouTube, Stack Overflow, Reddit, eBay, Etsy, Walmart, Target and Hobby Lobby.
-      ▶ YOUR OWN SHORTENING RULES: Write rules by path segment, no regex — or paste a long URL and a short one that works, and the rule is worked out for you.
+      ▶ CUSTOM SHORTENING RULES: Write rules by path segment without regex — or paste a long URL and a working short one, and the rule is inferred for you.
       ▶ CLEAN LINKS: {url:notrack} strips UTM and other tracking parameters but keeps the ones the page needs.
-      ▶ TEMPLATES YOU WRITE: Markdown, HTML, Jira or anything else, with {title}, {url}, {selectedText}, {url:domain}, {url:path} and more, plus blocks that only appear when text is (or isn't) selected. Placeholders are coloured as you type, so a typo shows straight away.
+      ▶ TEMPLATES YOU WRITE: Write your own templates for Markdown, HTML, Jira or anything else, using {title}, {url}, {selectedText}, {url:domain}, {url:path} and more, plus conditional blocks with or without selection. Placeholders are colour-highlighted as you type, so typos show straight away.
       ▶ RIGHT-CLICK MENU: Copy the page, your selection, or any link in your format — without opening the link.
       ▶ LIGHT & DARK: The popup and settings follow your system theme.
 
       🔒 PRIVACY:
-      No account, no analytics. Your templates and the pages you copy stay in your browser.
+      No account, no analytics. Your templates and copied pages stay in your browser.
 
       🌏 MULTILINGUAL:
       English, 简体中文, 繁體中文, 日本語, 한국어, Русский, हिन्दी, Deutsch, Español.
     changelog: |
       1.13.0
-      - Shortening rules are written by path segment instead of regex
-      - Paste a long URL and a short one that works, and the rule is worked out for you
-      - The rules page shows what happened to a URL, not only what came out of it
-      - Placeholders in the template field are coloured, so a typo shows where you type it
-      - A template without a shortcut now appears in the popup and the right-click menu
+      - Custom shortening rules can now be written by path segment instead of regex
+      - Paste a long URL and a working short one to infer rules automatically
+      - The rules page strikes through the parts of a URL that were dropped and names the rule that did it
+      - Template placeholders are now colour-highlighted as you type to catch typos instantly
+      - Templates without shortcuts now appear in the popup and right-click menu
       - Right-click menu entries no longer point at the wrong template when a shortcut is cleared
-      - The extension mark stays legible on dark backgrounds
+      - The extension icon stays legible on dark backgrounds
   zh_CN:
     name: "网页标题与链接复制 Pro: 支持 Markdown"
     short_description: 一键复制网页标题与链接。支持 Markdown、HTML、Jira 格式。自动去除 UTM 追踪参数，自定义模板，提升开发与写作效率。
     description: |
-      🚀 用你要粘贴的格式复制网页标题与链接 —— 一个快捷键搞定，也能一次复制多个标签页。
+      🚀 告别手动调整格式与清理网址。以你需要的格式一键复制网页标题与纯净链接 —— 快捷键秒复制，或一次批量复制最多五个标签页。
       --------------------------------------------------
 
       ⌨️ 默认快捷键：
-      • [ Ctrl + Shift + P ]（Mac: Cmd + Shift + P）—— 选中文本或标题，加链接
+      • [ Ctrl + Shift + P ]（Mac: Cmd + Shift + P）—— 选中文本（未选中时为标题）加链接
       • [ Ctrl + Shift + L ]（Mac: Cmd + Shift + L）—— Markdown 链接
       • [ Ctrl + Shift + U ]（Mac: Cmd + Shift + U）—— 带引号的选中文本，加标题和链接
-      可在设置中修改或清除。新标签页和 chrome:// 页面上同样可用。
+      可在设置中随时修改或清除。新标签页和 chrome:// 页面上同样可用。
 
       📑 批量复制：
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ● 打开弹窗，勾选最多五个标签页，用任一模板一起复制。你在标签栏里已选中的标签页会被自动勾上。
+      ● 打开弹窗，勾选最多五个标签页，套用任一模板合并复制。标签栏中已选中的标签页会被自动预先勾选。
       ● 八种排列方式：分行、项目符号、任务清单、编号列表、Markdown 表格、HTML 表格、CSV、JSON。
 
       ✨ 核心功能：
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ● 智能提取：有选中文本就用选中文本，没有就用网页标题。
-      ● 可用的最短链接：{url:short} 去除追踪参数，并在 Amazon、YouTube、Stack Overflow、Reddit、eBay、Etsy、Walmart、Target、Hobby Lobby 上使用站点官方的短链形式。
-      ● 自定义短链规则：按路径段书写，无需正则；也可以贴上长网址和一个可用的短网址，规则自动推导。
-      ● 纯净链接：{url:notrack} 去除 UTM 等追踪参数，同时保留页面必需的参数。
-      ● 自写模板：Markdown、HTML、Jira 或任何格式，支持 {title}、{url}、{selectedText}、{url:domain}、{url:path} 等占位符，以及「有选中 / 无选中」的条件块。占位符输入时即按类型着色，拼错当场可见。
-      ● 右键菜单：以你的格式复制当前页、选中文本或任意链接 —— 无需打开链接。
-      ● 浅色 / 深色：弹窗与设置页跟随系统主题。
+      ● 智能提取：优先复制选中文本；没有选中时自动使用网页标题。
+      ● 可用的最短链接：{url:short} 去除冗余追踪参数，并在 Amazon、YouTube、Stack Overflow、Reddit、eBay、Etsy、Walmart、Target、Hobby Lobby 上使用站点官方的短链形式。
+      ● 自定义短链规则：按路径段书写，无需正则表达式；也可以贴上长网址和一个可用的短网址，系统自动推导规则。
+      ● 纯净链接：{url:notrack} 移除 UTM 等追踪参数，同时保留页面访问必需的参数。
+      ● 自写模板：自由编写 Markdown、HTML、Jira 或任何格式，支持 {title}、{url}、{selectedText}、{url:domain}、{url:path} 等占位符，以及有选中或无选中的条件块。占位符在输入时按类型着色，拼写错误当场可见。
+      ● 右键菜单：以你的格式复制当前页、选中文本或页面上的任意链接 —— 无需打开链接。
+      ● 浅色 / 深色：弹窗与设置页自动跟随系统主题。
 
       🔒 隐私：
-      无需账号，无统计。你的模板和复制的页面都只留在你的浏览器里。
+      无需账号，无任何数据统计。你的模板和复制的页面只留在你的浏览器本地。
 
       🌏 多语言：
       English、简体中文、繁體中文、日本語、한국어、Русский、हिन्दी、Deutsch、Español。
     changelog: |
       1.13.0
-      - 短链规则改为按路径段书写，不再需要正则
-      - 贴上长网址和一个可用的短网址，规则自动推导
-      - 规则页会展示网址发生了什么，而不只是结果
-      - 模板中的占位符按类型着色，拼错当场可见
-      - 无快捷键的模板现在会出现在弹窗和右键菜单中
-      - 清除快捷键后，右键菜单不再复制成另一个模板
-      - 深色下扩展图标不再融进背景
+      - 短链规则改为按路径段书写，不再需要正则表达式
+      - 粘贴长网址和一个可用的短网址，规则即可自动推导
+      - 规则页会划掉网址中被去掉的部分，并标出生效的规则
+      - 模板编辑框中的占位符实时按类型着色，拼写错误当场可见
+      - 未设置快捷键的模板现在也会显示在弹窗和右键菜单中
+      - 修复清除快捷键后右键菜单可能误调用其他模板的问题
+      - 优化深色模式下扩展图标的显示对比度
   zh_TW:
     name: "網頁標題與連結複製 Pro: 支援 Markdown"
     short_description: 一鍵複製網頁標題與連結。支援 Markdown、HTML、Jira 格式。自動移除 UTM 追蹤參數，自訂模板，提升開發與寫作效率。
     description: |
-      🚀 用你要貼上的格式複製網頁標題與連結 —— 一個快捷鍵搞定，也能一次複製多個分頁。
+      🚀 告別手動調整格式與雜亂網址。以你要貼上的格式一鍵複製網頁標題與乾淨連結 —— 快捷鍵即時複製，亦可批次複製最多五個分頁。
       --------------------------------------------------
 
       ⌨️ 預設快捷鍵：
-      • [ Ctrl + Shift + P ]（Mac: Cmd + Shift + P）—— 選取文字或標題，加連結
+      • [ Ctrl + Shift + P ]（Mac: Cmd + Shift + P）—— 選取文字（未選取時為標題）加連結
       • [ Ctrl + Shift + L ]（Mac: Cmd + Shift + L）—— Markdown 連結
       • [ Ctrl + Shift + U ]（Mac: Cmd + Shift + U）—— 帶引號的選取文字，加標題和連結
-      可在設定中修改或清除。新分頁和 chrome:// 頁面上同樣可用。
+      可在設定中隨時修改或清除。新分頁和 chrome:// 頁面上同樣可用。
 
       📑 批次複製：
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ● 開啟彈出視窗，勾選最多五個分頁，用任一模板一起複製。你在分頁列中已選取的分頁會自動勾上。
-      ● 八種排列方式：分行、項目符號、待辦清單、編號清單、Markdown 表格、HTML 表格、CSV、JSON。
+      ● 開啟彈出視窗，勾選最多五個分頁，套用任一模板一起複製。在分頁列中已選取的分頁會自動預先勾選。
+      ● 提供 8 種排列方式：分行、項目符號、待辦清單、編號清單、Markdown 表格、HTML 表格、CSV、JSON。
 
       ✨ 核心功能：
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ● 智慧擷取：有選取文字就用選取文字，沒有就用網頁標題。
-      ● 可用的最短連結：{url:short} 移除追蹤參數，並在 Amazon、YouTube、Stack Overflow、Reddit、eBay、Etsy、Walmart、Target、Hobby Lobby 上使用網站官方的短連結形式。
-      ● 自訂短連結規則：依路徑段書寫，無需正規表示式；也可以貼上長網址和一個可用的短網址，規則自動推導。
-      ● 乾淨連結：{url:notrack} 移除 UTM 等追蹤參數，同時保留頁面必需的參數。
-      ● 自寫模板：Markdown、HTML、Jira 或任何格式，支援 {title}、{url}、{selectedText}、{url:domain}、{url:path} 等佔位符，以及「有選取 / 無選取」的條件區塊。佔位符輸入時即依類型著色，拼錯當場可見。
+      ● 智慧擷取：優先複製選取文字；沒有選取時自動使用網頁標題。
+      ● 可用的最短連結：{url:short} 移除冗贅追蹤參數，並在 Amazon、YouTube、Stack Overflow、Reddit、eBay、Etsy、Walmart、Target、Hobby Lobby 上使用網站官方的短連結形式。
+      ● 自訂短連結規則：依路徑段書寫，無需正規表示式；也可以貼上長網址和一個可用的短網址，由系統自動推導規則。
+      ● 乾淨連結：{url:notrack} 移除 UTM 等追蹤參數，同時保留頁面正常運作必需的參數。
+      ● 自寫模板：自由編寫 Markdown、HTML、Jira 或任何格式，支援 {title}、{url}、{selectedText}、{url:domain}、{url:path} 等佔位符，以及有選取或無選取的條件區塊。佔位符輸入時即依類型著色，拼錯當場可見。
       ● 右鍵選單：以你的格式複製目前頁面、選取文字或任意連結 —— 無需開啟連結。
-      ● 淺色 / 深色：彈出視窗與設定頁跟隨系統主題。
+      ● 淺色 / 深色：彈出視窗與設定頁自動跟隨系統主題。
 
       🔒 隱私：
-      無需帳號，無統計。你的模板和複製的頁面都只留在你的瀏覽器裡。
+      無需帳號，無任何數據統計。你的模板和複製的頁面都只留在你的本機瀏覽器裡。
 
       🌏 多語言：
       English、简体中文、繁體中文、日本語、한국어、Русский、हिन्दी、Deutsch、Español。
     changelog: |
       1.13.0
-      - 短連結規則改為依路徑段書寫，不再需要正規表示式
-      - 貼上長網址和一個可用的短網址，規則自動推導
-      - 規則頁會顯示網址發生了什麼，而不只是結果
-      - 模板中的佔位符依類型著色，拼錯當場可見
-      - 無快捷鍵的模板現在會出現在彈出視窗和右鍵選單中
-      - 清除快捷鍵後，右鍵選單不再複製成另一個模板
-      - 深色下擴充功能圖示不再融入背景
+      - 短連結規則改為依路徑段書寫，不再需要編寫正規表示式
+      - 貼上長網址和一個可用的短網址，規則即可自動推導
+      - 規則頁會劃掉網址中被移除的部分，並標出生效的規則
+      - 模板編輯區的佔位符即時依類型著色，拼錯當場可見
+      - 未指派快捷鍵的模板現在也會出現在彈出視窗和右鍵選單中
+      - 修復清除快捷鍵後右鍵選單可能指向錯誤模板的問題
+      - 改善深色模式下擴充功能圖示的顯示對比度
   ja:
     name: "ページタイトルとURLをコピー Pro: Markdown対応"
     short_description: タイトルとURLをワンクリックでコピー。Markdown、HTML、Jira形式対応。UTMパラメータ自動削除、カスタムテンプレート機能搭載。
     description: |
-      🚀 ページのタイトルとURLを、貼り付け先の形式でコピー。ショートカット一つで、複数のタブもまとめて。
+      🚀 リンクの手動整形はもう不要。貼り付け先に合わせた形式で、ページタイトルとクリーンなURLを瞬時にコピー。ショートカット一つでも、最大5つのタブを一括でも。
       --------------------------------------------------
 
       ⌨️ デフォルトのショートカット：
-      • [ Ctrl + Shift + P ]（Mac: Cmd + Shift + P）— 選択テキストまたはタイトル＋URL
+      • [ Ctrl + Shift + P ]（Mac: Cmd + Shift + P）— 選択テキスト（未選択時はタイトル）＋ リンク
       • [ Ctrl + Shift + L ]（Mac: Cmd + Shift + L）— Markdown リンク
-      • [ Ctrl + Shift + U ]（Mac: Cmd + Shift + U）— 引用符付きの選択テキスト＋タイトル＋URL
-      設定画面で変更・解除できます。新しいタブや chrome:// ページでも使えます。
+      • [ Ctrl + Shift + U ]（Mac: Cmd + Shift + U）— 引用符付きの選択テキスト ＋ タイトル ＋ リンク
+      設定画面で自由に変更・解除できます。新しいタブや chrome:// ページでもそのまま使えます。
 
       📑 一括コピー：
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ■ ポップアップで最大 5 つのタブにチェックを入れ、好きなテンプレートでまとめてコピー。タブバーで選択済みのタブは自動でチェックされます。
-      ■ 8 種類のレイアウト：改行区切り、箇条書き、タスクリスト、番号付きリスト、Markdown 表、HTML 表、CSV、JSON。
+      ■ ポップアップを開き、最大5つのタブにチェックを入れて好きなテンプレートでまとめてコピー。タブバーで選択済みのタブは自動で事前選択されます。
+      ■ 選べる8種類のレイアウト：改行区切り、箇条書き、タスクリスト、番号付きリスト、Markdown 表、HTML 表、CSV、JSON。
 
       ✨ 主な機能：
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ■ スマート抽出：選択したテキストを、選択がなければページタイトルを使います。
-      ■ 使える最短リンク：{url:short} がトラッキングを除去し、Amazon・YouTube・Stack Overflow・Reddit・eBay・Etsy・Walmart・Target・Hobby Lobby ではサイト公式の短縮形を使います。
+      ■ スマート抽出：選択テキストがあればそれを優先し、選択がなければページタイトルを取得します。
+      ■ 使える最短リンク：{url:short} がトラッキングを除去し、Amazon、YouTube、Stack Overflow、Reddit、eBay、Etsy、Walmart、Target、Hobby Lobby ではサイト公式の短縮形を使います。
       ■ 独自の短縮ルール：正規表現なしでパスの区切りごとに記述。長い URL と動作する短い URL を貼れば、ルールを自動で導き出します。
       ■ クリーン URL：{url:notrack} が UTM などのトラッキングパラメータを削除し、ページに必要なものは残します。
-      ■ 自由なテンプレート：Markdown、HTML、Jira など何でも。{title}、{url}、{selectedText}、{url:domain}、{url:path} などに加え、選択の有無で切り替わるブロックも。プレースホルダーは入力中に色分けされ、打ち間違いにすぐ気づけます。
+      ■ 自分で書くテンプレート：Markdown、HTML、Jira など何でも自由に作成。{title}、{url}、{selectedText}、{url:domain}、{url:path} などに加え、選択の有無で切り替わる条件ブロックに対応。プレースホルダーは入力中に色分けされ、打ち間違いにすぐ気づけます。
       ■ 右クリックメニュー：ページ、選択テキスト、任意のリンクを、開かずにお好みの形式でコピー。
       ■ ライト / ダーク：ポップアップと設定画面はシステムのテーマに追従します。
 
       🔒 プライバシー：
-      アカウント不要、計測なし。テンプレートもコピーしたページも、ブラウザの外には出ません。
+      アカウント不要、計測や分析も一切なし。作成したテンプレートもコピーしたページも、ブラウザの外には出ません。
 
       🌏 多言語対応：
       English、简体中文、繁體中文、日本語、한국어、Русский、हिन्दी、Deutsch、Español。
     changelog: |
       1.13.0
-      - 短縮ルールを正規表現ではなくパスの区切りごとに記述できるように
-      - 長い URL と動作する短い URL を貼ると、ルールを自動で導出
-      - ルール画面で、URL がどう変わったかを表示
+      - 短縮ルールを正規表現ではなくパスの区切りごとに記述できるように改善
+      - 長い URL と動作する短い URL を貼るだけで、ルールを自動推出して導出
+      - ルール画面で、URL から削除された部分を取り消し線で示し、適用されたルールを表示
       - テンプレート欄のプレースホルダーを色分けし、打ち間違いがその場でわかるように
-      - ショートカットのないテンプレートもポップアップと右クリックメニューに表示
+      - ショートカット未設定のテンプレートもポップアップと右クリックメニューに表示
       - ショートカット解除後に右クリックメニューが別のテンプレートを指す問題を修正
-      - ダーク背景でも拡張機能アイコンが見やすく
+      - ダーク背景でも拡張機能アイコンが見やすいよう視認性を向上
   ko:
     name: "페이지 제목 및 URL 복사 Pro: 마크다운 및 맞춤 링크"
     short_description: 제목과 URL을 마크다운, HTML, Jira 형식으로 복사하세요. 추적 매개변수(UTM) 제거, 맞춤 템플릿, 스마트 선택을 지원합니다.
     description: |
-      🚀 붙여 넣을 곳의 형식 그대로 페이지 제목과 링크를 복사하세요. 단축키 하나로, 여러 탭도 한 번에.
+      🚀 매번 번거롭게 링크 서식을 다듬지 마세요. 페이지 제목과 정돈된 URL을 붙여넣을 형식 그대로 즉시 복사 — 단축키 하나로 빠르게, 최대 5개의 탭도 한 번에 일괄 복사합니다.
       --------------------------------------------------
 
       ⌨️ 기본 단축키:
-      • [ Ctrl + Shift + P ] (Mac: Cmd + Shift + P) — 선택한 텍스트 또는 제목 + 링크
+      • [ Ctrl + Shift + P ] (Mac: Cmd + Shift + P) — 선택한 텍스트(미선택 시 제목) + 링크
       • [ Ctrl + Shift + L ] (Mac: Cmd + Shift + L) — 마크다운 링크
       • [ Ctrl + Shift + U ] (Mac: Cmd + Shift + U) — 따옴표로 감싼 선택 텍스트 + 제목 + 링크
-      설정에서 변경하거나 해제할 수 있습니다. 새 탭 페이지와 chrome:// 페이지에서도 작동합니다.
+      설정에서 언제든 변경하거나 해제할 수 있습니다. 새 탭 페이지와 chrome:// 페이지에서도 안정적으로 작동합니다.
 
       📑 일괄 복사:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ▶ 팝업에서 최대 5개의 탭을 선택해 원하는 템플릿으로 한꺼번에 복사하세요. 탭 표시줄에서 이미 선택한 탭은 자동으로 체크됩니다.
-      ▶ 8가지 레이아웃: 줄 구분, 글머리 기호, 작업 목록, 번호 목록, 마크다운 표, HTML 표, CSV, JSON.
+      ▶ 팝업을 열고 최대 5개의 탭을 선택해 원하는 템플릿으로 한꺼번에 복사하세요. 탭 표시줄에서 이미 선택한 탭은 자동으로 사전 체크됩니다.
+      ▶ 8가지 레이아웃 지원: 줄 구분, 글머리 기호, 작업 목록, 번호 목록, 마크다운 표, HTML 표, CSV, JSON.
 
       ✨ 주요 기능:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ▶ 스마트 선택: 선택한 텍스트가 있으면 그것을, 없으면 페이지 제목을 사용합니다.
-      ▶ 작동하는 가장 짧은 링크: {url:short}가 추적 정보를 제거하고 Amazon, YouTube, Stack Overflow, Reddit, eBay, Etsy, Walmart, Target, Hobby Lobby에서는 사이트 공식 단축 형식을 사용합니다.
-      ▶ 나만의 단축 규칙: 정규식 없이 경로 단위로 작성하세요. 긴 URL과 작동하는 짧은 URL을 붙여 넣으면 규칙을 자동으로 만들어 줍니다.
-      ▶ 깨끗한 링크: {url:notrack}이 UTM 등 추적 매개변수를 제거하고 페이지에 필요한 것은 남깁니다.
-      ▶ 직접 쓰는 템플릿: 마크다운, HTML, Jira 등 어떤 형식이든. {title}, {url}, {selectedText}, {url:domain}, {url:path} 등과 선택 여부에 따라 나타나는 블록을 지원합니다. 입력하는 동안 자리표시자에 색이 입혀져 오타가 바로 보입니다.
-      ▶ 우클릭 메뉴: 페이지, 선택한 텍스트, 또는 어떤 링크든 열지 않고 원하는 형식으로 복사합니다.
-      ▶ 라이트 / 다크: 팝업과 설정 화면이 시스템 테마를 따릅니다.
+      ▶ 스마트 선택: 선택한 텍스트가 있으면 텍스트를, 선택하지 않았을 때는 페이지 제목을 자동으로 가져옵니다.
+      ▶ 작동하는 가장 짧은 링크: {url:short}가 추적 파라미터를 제거하고 Amazon, YouTube, Stack Overflow, Reddit, eBay, Etsy, Walmart, Target, Hobby Lobby에서 사이트 공식 단축 형식을 사용합니다.
+      ▶ 나만의 단축 규칙: 정규식 없이 경로 세그먼트 단위로 손쉽게 작성하세요. 긴 URL과 작동하는 짧은 URL을 붙여넣으면 규칙이 자동으로 추론됩니다.
+      ▶ 깨끗한 링크: {url:notrack}이 UTM 등 추적 매개변수를 제거하고 페이지에 필요한 핵심 파라미터는 유지합니다.
+      ▶ 직접 작성하는 템플릿: 마크다운, HTML, Jira 등 원하는 형식으로 직접 작성하세요. {title}, {url}, {selectedText}, {url:domain}, {url:path} 등과 선택 여부에 따라 나타나는 조건부 블록을 지원합니다. 입력하는 동안 자리표시자에 색이 입혀져 오타를 즉시 확인할 수 있습니다.
+      ▶ 우클릭 메뉴: 페이지, 선택한 텍스트, 또는 웹페이지의 어떤 링크든 열지 않고 원하는 형식으로 바로 복사합니다.
+      ▶ 라이트 / 다크: 팝업과 설정 화면이 시스템 테마에 맞춰 자동으로 전환됩니다.
 
-      🔒 개인정보:
-      계정 불필요, 분석 없음. 템플릿과 복사한 페이지는 브라우저 밖으로 나가지 않습니다.
+      🔒 개인정보 보호:
+      계정 생성 불필요, 데이터 분석 및 추적 없음. 작성한 템플릿과 복사한 페이지는 브라우저 내부에서만 안전하게 보관됩니다.
 
       🌏 다국어 지원:
       English, 简体中文, 繁體中文, 日本語, 한국어, Русский, हिन्दी, Deutsch, Español.
     changelog: |
       1.13.0
-      - 단축 규칙을 정규식 대신 경로 단위로 작성
-      - 긴 URL과 작동하는 짧은 URL을 붙여 넣으면 규칙 자동 생성
-      - 규칙 화면에서 URL이 어떻게 바뀌었는지 표시
-      - 템플릿 입력란의 자리표시자 색상 구분으로 오타를 즉시 확인
-      - 단축키 없는 템플릿도 팝업과 우클릭 메뉴에 표시
+      - 단축 규칙을 정규식 대신 경로 단위로 작성할 수 있도록 개선
+      - 긴 URL과 작동하는 짧은 URL을 붙여넣으면 규칙을 자동으로 생성
+      - 규칙 화면에서 URL의 삭제된 부분을 취소선으로 표시하고 적용된 규칙을 보여줌
+      - 템플릿 입력란의 자리표시자 색상 구분으로 오타를 실시간 확인
+      - 단축키가 없는 템플릿도 팝업과 우클릭 메뉴에 정상 표시
       - 단축키 해제 후 우클릭 메뉴가 다른 템플릿을 가리키던 문제 수정
-      - 어두운 배경에서도 확장 프로그램 아이콘이 잘 보이도록 개선
+      - 어두운 배경에서도 확장 프로그램 아이콘이 또렷하게 보이도록 개선
   ru:
     name: "Копировать заголовок и URL Pro: Markdown"
     short_description: Копируйте заголовок и URL одним кликом. Поддержка Markdown, HTML, Jira. Автоудаление UTM-параметров, настраиваемые шаблоны.
     description: |
-      🚀 Копируйте заголовок и ссылку страницы в том формате, куда вы их вставляете, — одним сочетанием клавиш или сразу несколько вкладок.
+      🚀 Хватит форматировать ссылки вручную. Копируйте заголовок страницы и чистый URL сразу в нужном виде — одним сочетанием клавиш или пакетом до пяти вкладок за раз.
       --------------------------------------------------
 
       ⌨️ СОЧЕТАНИЯ КЛАВИШ ПО УМОЛЧАНИЮ:
-      • [ Ctrl + Shift + P ] (Mac: Cmd + Shift + P) — выделенный текст или заголовок и ссылка
-      • [ Ctrl + Shift + L ] (Mac: Cmd + Shift + L) — ссылка в Markdown
-      • [ Ctrl + Shift + U ] (Mac: Cmd + Shift + U) — выделенный текст в кавычках, заголовок и ссылка
-      Любое из них можно изменить или отключить в настройках. Работают и на новой вкладке, и на страницах chrome://.
+      • [ Ctrl + Shift + P ] (Mac: Cmd + Shift + P) — выделенный текст (или заголовок) + ссылка
+      • [ Ctrl + Shift + L ] (Mac: Cmd + Shift + L) — ссылка Markdown
+      • [ Ctrl + Shift + U ] (Mac: Cmd + Shift + U) — выделенный текст в кавычках + заголовок + ссылка
+      Изменяйте или отключайте любые сочетания в настройках. Они стабильно работают на новой вкладке и страницах chrome://.
 
       📑 ПАКЕТНОЕ КОПИРОВАНИЕ:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ▶ Откройте всплывающее окно, отметьте до пяти вкладок и скопируйте их вместе по любому шаблону. Вкладки, уже выделенные на панели вкладок, отмечаются автоматически.
+      ▶ Откройте всплывающее окно, отметьте до пяти вкладок и скопируйте их вместе по любому шаблону. Вкладки, уже выбранные на панели вкладок, отмечаются автоматически.
       ▶ Восемь вариантов оформления: построчно, маркированный список, список задач, нумерованный список, таблица Markdown, таблица HTML, CSV, JSON.
 
       ✨ ОСНОВНЫЕ ФУНКЦИИ:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ▶ УМНОЕ ВЫДЕЛЕНИЕ: Берёт выделенный текст, а если ничего не выделено — заголовок страницы.
-      ▶ САМАЯ КОРОТКАЯ РАБОЧАЯ ССЫЛКА: {url:short} убирает трекинг и использует собственную короткую форму сайта на Amazon, YouTube, Stack Overflow, Reddit, eBay, Etsy, Walmart, Target и Hobby Lobby.
-      ▶ СВОИ ПРАВИЛА СОКРАЩЕНИЯ: Пишутся по сегментам пути, без регулярных выражений. Или вставьте длинный URL и работающий короткий — правило будет выведено автоматически.
-      ▶ ЧИСТЫЕ ССЫЛКИ: {url:notrack} удаляет UTM и другие параметры отслеживания, сохраняя нужные странице.
-      ▶ СВОИ ШАБЛОНЫ: Markdown, HTML, Jira или что угодно — {title}, {url}, {selectedText}, {url:domain}, {url:path} и другие, а также блоки, которые появляются только при наличии (или отсутствии) выделения. Плейсхолдеры подсвечиваются при вводе, так что опечатку видно сразу.
-      ▶ КОНТЕКСТНОЕ МЕНЮ: Копируйте страницу, выделение или любую ссылку в своём формате — не открывая ссылку.
-      ▶ СВЕТЛАЯ И ТЁМНАЯ ТЕМЫ: Всплывающее окно и настройки следуют теме системы.
+      ▶ УМНОЕ ВЫДЕЛЕНИЕ: Копирует выделенный текст, а если ничего не выделено — заголовок страницы.
+      ▶ САМАЯ КОРОТКАЯ РАБОЧАЯ ССЫЛКА: {url:short} удаляет трекинг и использует собственную короткую форму сайта на Amazon, YouTube, Stack Overflow, Reddit, eBay, Etsy, Walmart, Target и Hobby Lobby.
+      ▶ СВОИ ПРАВИЛА СОКРАЩЕНИЯ: Создавайте правила по сегментам пути без регулярных выражений — или вставьте длинный URL и работающий короткий, и правило будет выведено автоматически.
+      ▶ ЧИСТЫЕ ССЫЛКИ: {url:notrack} удаляет UTM и другие параметры отслеживания, сохраняя параметры, нужные странице.
+      ▶ ШАБЛОНЫ, КОТОРЫЕ ПИШЕТЕ ВЫ: Создавайте свои шаблоны для Markdown, HTML, Jira или любого другого формата с {title}, {url}, {selectedText}, {url:domain}, {url:path} и блоками, зависящими от наличия или отсутствия выделения. Плейсхолдеры подсвечиваются цветом при вводе, поэтому опечатки видны сразу.
+      ▶ КОНТЕКСТНОЕ МЕНЮ: Копируйте страницу, выделенный текст или любую ссылку в своём формате — не открывая саму ссылку.
+      ▶ СВЕТЛАЯ И ТЁМНАЯ ТЕМЫ: Всплывающее окно и настройки автоматически следуют системной теме.
 
       🔒 КОНФИДЕНЦИАЛЬНОСТЬ:
-      Без аккаунта и без аналитики. Шаблоны и копируемые страницы остаются в вашем браузере.
+      Без аккаунта и без аналитики. Ваши шаблоны и копируемые страницы остаются строго в вашем браузере.
 
       🌏 ЯЗЫКИ:
       English, 简体中文, 繁體中文, 日本語, 한국어, Русский, हिन्दी, Deutsch, Español.
     changelog: |
       1.13.0
-      - Правила сокращения пишутся по сегментам пути, а не регулярными выражениями
-      - Вставьте длинный URL и работающий короткий — правило выводится автоматически
-      - Страница правил показывает, что произошло с URL, а не только результат
-      - Плейсхолдеры в поле шаблона подсвечиваются, опечатки видны сразу
-      - Шаблоны без сочетания клавиш теперь есть во всплывающем окне и контекстном меню
-      - Контекстное меню больше не указывает на другой шаблон после сброса сочетания
-      - Значок расширения хорошо виден на тёмном фоне
+      - Правила сокращения теперь пишутся по сегментам пути вместо регулярных выражений
+      - Вставьте длинный URL и работающий короткий, чтобы правило сформировалось автоматически
+      - Страница правил зачёркивает удалённые части URL и называет сработавшее правило
+      - Плейсхолдеры в поле шаблона подсвечиваются цветом, сразу выявляя опечатки
+      - Шаблоны без горячих клавиш теперь отображаются во всплывающем окне и контекстном меню
+      - Контекстное меню больше не указывает на другой шаблон после сброса сочетания клавиш
+      - Значок расширения стал гораздо контрастнее и заметнее на тёмном фоне
   hi:
     name: "पेज टाइटल और URL कॉपी Pro: Markdown सपोर्ट"
     short_description: एक क्लिक में टाइटल और URL कॉपी करें। Markdown, HTML, Jira फॉर्मैट सपोर्ट। UTM पैरामीटर ऑटो-रिमूव, कस्टम टेम्पलेट।
     description: |
-      🚀 पेज का टाइटल और लिंक उसी फ़ॉर्मैट में कॉपी करें जहाँ आप पेस्ट करते हैं — एक शॉर्टकट से, या एक साथ कई टैब।
+      🚀 बार-बार लिंक फ़ॉर्मैट करने का झंझट खत्म। पेज का टाइटल और साफ़ URL सीधे अपने मनपसंद फ़ॉर्मैट में कॉपी करें — एक शॉर्टकट से, या एक साथ अधिकतम पाँच टैब।
       --------------------------------------------------
 
       ⌨️ डिफ़ॉल्ट शॉर्टकट:
-      • [ Ctrl + Shift + P ] (Mac: Cmd + Shift + P) — चुना हुआ टेक्स्ट या टाइटल, और लिंक
+      • [ Ctrl + Shift + P ] (Mac: Cmd + Shift + P) — चुना हुआ टेक्स्ट (या टाइटल) और लिंक
       • [ Ctrl + Shift + L ] (Mac: Cmd + Shift + L) — Markdown लिंक
       • [ Ctrl + Shift + U ] (Mac: Cmd + Shift + U) — उद्धरण चिह्नों में चुना हुआ टेक्स्ट, टाइटल और लिंक
-      सेटिंग्स में इन्हें बदलें या हटाएँ। ये नए टैब पेज और chrome:// पेजों पर भी काम करते हैं।
+      सेटिंग्स में इन्हें आसानी से बदलें या हटाएँ। ये नए टैब पेज और chrome:// पेजों पर भी सुचारू रूप से काम करते हैं।
 
       📑 बैच कॉपी:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ▶ पॉपअप खोलें, अधिकतम पाँच टैब चुनें और किसी भी टेम्पलेट में एक साथ कॉपी करें। टैब बार में पहले से चुने गए टैब अपने-आप चुन लिए जाते हैं।
-      ▶ आठ लेआउट: अलग पंक्तियाँ, बुलेट, टास्क लिस्ट, क्रमांकित सूची, Markdown टेबल, HTML टेबल, CSV, JSON।
+      ▶ पॉपअप खोलें, अधिकतम पाँच टैब चुनें और अपनी किसी भी टेम्पलेट में एक साथ कॉपी करें। टैब स्ट्रिप में पहले से चुने गए टैब अपने-आप चुन लिए जाते हैं।
+      ▶ कुल 8 लेआउट: अलग पंक्तियाँ, बुलेट, टास्क लिस्ट, क्रमांकित सूची, Markdown टेबल, HTML टेबल, CSV, JSON।
 
       ✨ मुख्य फ़ीचर:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ▶ स्मार्ट चयन: चुना हुआ टेक्स्ट लेता है, कुछ न चुना हो तो पेज टाइटल।
+      ▶ स्मार्ट चयन: चुने हुए टेक्स्ट को प्राथमिकता देता है, कुछ न चुना हो तो पेज टाइटल कॉपी करता है।
       ▶ सबसे छोटा काम करने वाला लिंक: {url:short} ट्रैकिंग हटाता है और Amazon, YouTube, Stack Overflow, Reddit, eBay, Etsy, Walmart, Target व Hobby Lobby पर साइट का अपना छोटा रूप इस्तेमाल करता है।
-      ▶ अपने छोटा करने के नियम: रेगुलर एक्सप्रेशन के बिना पाथ सेगमेंट से लिखें — या एक लंबा URL और एक काम करने वाला छोटा URL चिपकाएँ, नियम अपने-आप बन जाएगा।
-      ▶ साफ़ लिंक: {url:notrack} UTM और दूसरे ट्रैकिंग पैरामीटर हटाता है, पर पेज के लिए ज़रूरी पैरामीटर रखता है।
-      ▶ आपके अपने टेम्पलेट: Markdown, HTML, Jira या कुछ भी — {title}, {url}, {selectedText}, {url:domain}, {url:path} आदि, साथ ही ऐसे ब्लॉक जो केवल चयन होने (या न होने) पर दिखते हैं। टाइप करते समय प्लेसहोल्डर रंगीन दिखते हैं, इसलिए गलती तुरंत दिखती है।
+      ▶ अपने छोटा करने के नियम: बिना रेगुलर एक्सप्रेशन के पाथ सेगमेंट से नियम लिखें — या एक लंबा URL और एक काम करने वाला छोटा URL चिपकाएँ, नियम अपने-आप तैयार हो जाएगा।
+      ▶ साफ़ लिंक: {url:notrack} UTM और दूसरे ट्रैकिंग पैरामीटर हटाता है, पर पेज के लिए ज़रूरी पैरामीटर सुरक्षित रखता है।
+      ▶ यूज़र द्वारा लिखे गए टेम्पलेट: Markdown, HTML, Jira या किसी भी फ़ॉर्मैट में टेम्पलेट लिखें, जिसमें {title}, {url}, {selectedText}, {url:domain}, {url:path} जैसे प्लेसहोल्डर और चयन होने या न होने पर दिखने वाले ब्लॉक शामिल हैं। टाइप करते समय प्लेसहोल्डर रंगीन दिखते हैं, जिससे टाइपो तुरंत पकड़ में आ जाता है।
       ▶ राइट-क्लिक मेनू: पेज, चुना हुआ टेक्स्ट या कोई भी लिंक, बिना खोले, अपने फ़ॉर्मैट में कॉपी करें।
-      ▶ लाइट और डार्क: पॉपअप और सेटिंग्स सिस्टम थीम के अनुसार चलते हैं।
+      ▶ लाइट और डार्क: पॉपअप और सेटिंग्स सिस्टम थीम के अनुसार अपने-आप ढलते हैं।
 
       🔒 गोपनीयता:
       कोई अकाउंट नहीं, कोई एनालिटिक्स नहीं। आपके टेम्पलेट और कॉपी किए गए पेज आपके ब्राउज़र में ही रहते हैं।
@@ -320,25 +320,25 @@ locales:
       English, 简体中文, 繁體中文, 日本語, 한국어, Русский, हिन्दी, Deutsch, Español।
     changelog: |
       1.13.0
-      - छोटा करने के नियम अब रेगुलर एक्सप्रेशन के बजाय पाथ सेगमेंट से लिखे जाते हैं
-      - लंबा URL और काम करने वाला छोटा URL चिपकाएँ, नियम अपने-आप बनता है
-      - नियम पेज दिखाता है कि URL के साथ क्या हुआ, सिर्फ़ नतीजा नहीं
-      - टेम्पलेट फ़ील्ड में प्लेसहोल्डर रंगीन, टाइपो तुरंत दिखता है
-      - बिना शॉर्टकट वाले टेम्पलेट अब पॉपअप और राइट-क्लिक मेनू में दिखते हैं
-      - शॉर्टकट हटाने के बाद राइट-क्लिक मेनू अब गलत टेम्पलेट नहीं चुनता
-      - डार्क बैकग्राउंड पर भी एक्सटेंशन आइकन साफ़ दिखता है
+      - छोटा करने के नियम अब रेगुलर एक्सप्रेशन के बजाय पाथ सेगमेंट से लिखे जा सकते हैं
+      - लंबा URL और काम करने वाला छोटा URL चिपकाएँ, नियम अपने-आप तैयार हो जाता है
+      - नियम पेज URL के हटाए गए हिस्सों को काटकर दिखाता है और बताता है कि कौन-सा नियम लागू हुआ
+      - टेम्पलेट फ़ील्ड में प्लेसहोल्डर रंगीन दिखते हैं, जिससे टाइपो तुरंत पकड़ में आता है
+      - बिना शॉर्टकट वाले टेम्पलेट अब पॉपअप और राइट-क्लिक मेनू में भी दिखाई देते हैं
+      - शॉर्टकट हटाने के बाद राइट-क्लिक मेनू में गलत टेम्पलेट चुनने की समस्या ठीक की गई
+      - डार्क बैकग्राउंड पर भी एक्सटेंशन आइकन स्पष्ट और साफ़ दिखता है
   de:
     name: "Seitentitel und URL kopieren Pro: Markdown & benutzerdefinierter Link"
     short_description: Titel & URL als Markdown, HTML oder Jira kopieren. Tracking-Parameter (UTM) entfernen, eigene Vorlagen und intelligente Auswahl.
     description: |
-      🚀 Seitentitel und Link im Format kopieren, in das Sie einfügen – mit einem Tastenkürzel oder für mehrere Tabs auf einmal.
+      🚀 Schluss mit manuellem Formatieren von Links. Kopieren Sie Seitentitel und saubere URLs direkt im gewünschten Zielformat – mit einem Tastenkürzel oder für bis zu fünf Tabs auf einmal.
       --------------------------------------------------
 
       ⌨️ STANDARD-TASTENKOMBINATIONEN:
-      • [ Strg + Umschalt + P ] (Mac: Cmd + Umschalt + P) – Auswahl oder Titel, dazu der Link
+      • [ Strg + Umschalt + P ] (Mac: Cmd + Umschalt + P) – Auswahl (oder Seitentitel) + Link
       • [ Strg + Umschalt + L ] (Mac: Cmd + Umschalt + L) – Markdown-Link
-      • [ Strg + Umschalt + U ] (Mac: Cmd + Umschalt + U) – markierter Text in Anführungszeichen, mit Titel und Link
-      In den Einstellungen änder- oder entfernbar. Funktionieren auch auf der Neuer-Tab-Seite und auf chrome://-Seiten.
+      • [ Strg + Umschalt + U ] (Mac: Cmd + Umschalt + U) – Markierter Text in Anführungszeichen, mit Titel und Link
+      In den Einstellungen jederzeit änder- oder entfernbar. Funktionieren zuverlässig auch auf der Neuer-Tab-Seite und auf chrome://-Seiten.
 
       📑 MEHRERE TABS KOPIEREN:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -347,37 +347,37 @@ locales:
 
       ✨ HAUPTFUNKTIONEN:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ▶ INTELLIGENTE AUSWAHL: Nimmt den markierten Text – oder den Seitentitel, wenn nichts markiert ist.
-      ▶ KÜRZESTER FUNKTIONIERENDER LINK: {url:short} entfernt Tracking und nutzt auf Amazon, YouTube, Stack Overflow, Reddit, eBay, Etsy, Walmart, Target und Hobby Lobby die seiteneigene Kurzform.
-      ▶ EIGENE KÜRZUNGSREGELN: Nach Pfadsegmenten schreiben, ohne Regex – oder eine lange URL und eine funktionierende kurze einfügen, und die Regel wird für Sie abgeleitet.
+      ▶ INTELLIGENTE AUSWAHL: Übernimmt markierten Text – oder automatisch den Seitentitel, wenn nichts markiert ist.
+      ▶ KÜRZESTER FUNKTIONIERENDER LINK: {url:short} entfernt Tracking und nutzt auf Amazon, YouTube, Stack Overflow, Reddit, eBay, Etsy, Walmart, Target und Hobby Lobby die offizielle Kurzform der jeweiligen Website.
+      ▶ EIGENE KÜRZUNGSREGELN: Nach Pfadsegmenten schreiben, ganz ohne Regex – oder eine lange URL und eine funktionierende kurze einfügen, und die Regel wird für Sie abgeleitet.
       ▶ SAUBERE LINKS: {url:notrack} entfernt UTM- und andere Tracking-Parameter, behält aber die, die die Seite braucht.
-      ▶ EIGENE VORLAGEN: Markdown, HTML, Jira oder alles andere – mit {title}, {url}, {selectedText}, {url:domain}, {url:path} und mehr, plus Blöcken, die nur mit (oder ohne) Auswahl erscheinen. Platzhalter werden beim Tippen eingefärbt, Tippfehler fallen sofort auf.
+      ▶ VORLAGEN, DIE SIE SCHREIBEN: Markdown, HTML, Jira oder alles andere – mit {title}, {url}, {selectedText}, {url:domain}, {url:path} und mehr, plus Blöcken, die nur mit (oder ohne) Auswahl erscheinen. Platzhalter werden beim Tippen farblich hervorgehoben, sodass Tippfehler sofort auffallen.
       ▶ KONTEXTMENÜ: Seite, Auswahl oder beliebigen Link im eigenen Format kopieren – ohne den Link zu öffnen.
-      ▶ HELL & DUNKEL: Popup und Einstellungen folgen dem Systemdesign.
+      ▶ HELL & DUNKEL: Popup und Einstellungen folgen automatisch Ihrem Systemdesign.
 
       🔒 DATENSCHUTZ:
-      Kein Konto, keine Analyse. Ihre Vorlagen und die kopierten Seiten bleiben in Ihrem Browser.
+      Kein Konto, keine Analyse. Ihre Vorlagen und die kopierten Seiten bleiben ausschließlich in Ihrem Browser.
 
       🌏 SPRACHEN:
       English, 简体中文, 繁體中文, 日本語, 한국어, Русский, हिन्दी, Deutsch, Español.
     changelog: |
       1.13.0
       - Kürzungsregeln werden nach Pfadsegmenten statt per Regex geschrieben
-      - Lange URL und funktionierende kurze einfügen – die Regel wird abgeleitet
-      - Die Regelseite zeigt, was mit einer URL passiert ist, nicht nur das Ergebnis
-      - Platzhalter im Vorlagenfeld werden eingefärbt, Tippfehler fallen sofort auf
+      - Lange URL und funktionierende kurze einfügen, und die Regel wird automatisch abgeleitet
+      - Die Regelseite streicht die entfernten Teile einer URL durch und nennt die Regel, die gegriffen hat
+      - Platzhalter im Vorlagenfeld werden beim Tippen eingefärbt, Tippfehler fallen sofort auf
       - Vorlagen ohne Tastenkürzel erscheinen jetzt im Popup und im Kontextmenü
-      - Kontextmenü zeigt nach dem Entfernen eines Kürzels nicht mehr auf die falsche Vorlage
-      - Das Erweiterungssymbol bleibt auf dunklem Hintergrund gut lesbar
+      - Kontextmenü verweist nach dem Entfernen eines Kürzels nicht mehr auf die falsche Vorlage
+      - Das Erweiterungssymbol bleibt auf dunklem Hintergrund optimal lesbar
   es:
     name: "Copiar título de página y URL Pro: Markdown y enlace personalizado"
     short_description: Copia título y URL como Markdown, HTML o Jira. Quita parámetros de seguimiento (UTM), plantillas propias y selección inteligente.
     description: |
-      🚀 Copia el título y el enlace de una página en el formato donde vas a pegarlo: con un atajo, o varias pestañas a la vez.
+      🚀 Olvídate de dar formato a los enlaces a mano. Copia el título de la página y una URL limpia en el formato donde vas a pegarlo: con un solo atajo, o hasta cinco pestañas a la vez.
       --------------------------------------------------
 
       ⌨️ ATAJOS PREDETERMINADOS:
-      • [ Ctrl + Mayús + P ] (Mac: Cmd + Mayús + P) — tu selección o el título, y el enlace
+      • [ Ctrl + Mayús + P ] (Mac: Cmd + Mayús + P) — tu selección (o el título si no hay selección), y el enlace
       • [ Ctrl + Mayús + L ] (Mac: Cmd + Mayús + L) — enlace en Markdown
       • [ Ctrl + Mayús + U ] (Mac: Cmd + Mayús + U) — texto seleccionado entre comillas, con título y enlace
       Puedes cambiarlos o quitarlos en Ajustes. También funcionan en la página de nueva pestaña y en las páginas chrome://.
@@ -389,13 +389,13 @@ locales:
 
       ✨ FUNCIONES PRINCIPALES:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ▶ SELECCIÓN INTELIGENTE: Usa el texto seleccionado o, si no hay selección, el título de la página.
-      ▶ EL ENLACE MÁS CORTO QUE FUNCIONA: {url:short} elimina el seguimiento y usa la forma corta propia del sitio en Amazon, YouTube, Stack Overflow, Reddit, eBay, Etsy, Walmart, Target y Hobby Lobby.
+      ▶ SELECCIÓN INTELIGENTE: Copia el texto seleccionado o, si no hay selección, el título de la página.
+      ▶ EL ENLACE MÁS CORTO QUE FUNCIONA: {url:short} elimina el seguimiento y usa la forma corta oficial del sitio en Amazon, YouTube, Stack Overflow, Reddit, eBay, Etsy, Walmart, Target y Hobby Lobby.
       ▶ TUS PROPIAS REGLAS DE ACORTADO: Escríbelas por segmentos de ruta, sin expresiones regulares, o pega una URL larga y una corta que funcione y la regla se deduce sola.
       ▶ ENLACES LIMPIOS: {url:notrack} quita UTM y otros parámetros de seguimiento, pero conserva los que la página necesita.
-      ▶ PLANTILLAS A TU MEDIDA: Markdown, HTML, Jira o lo que quieras, con {title}, {url}, {selectedText}, {url:domain}, {url:path} y más, además de bloques que solo aparecen con (o sin) selección. Los marcadores se colorean al escribir, así que una errata se ve al instante.
+      ▶ PLANTILLAS QUE TÚ ESCRIBES: Markdown, HTML, Jira o lo que quieras, con {title}, {url}, {selectedText}, {url:domain}, {url:path} y más, además de bloques que solo aparecen con (o sin) selección. Los marcadores se colorean al escribir, así que una errata se ve al instante.
       ▶ MENÚ CONTEXTUAL: Copia la página, tu selección o cualquier enlace en tu formato, sin abrir el enlace.
-      ▶ CLARO Y OSCURO: La ventana emergente y los ajustes siguen el tema del sistema.
+      ▶ CLARO Y OSCURO: La ventana emergente y los ajustes siguen automáticamente el tema del sistema.
 
       🔒 PRIVACIDAD:
       Sin cuenta y sin analíticas. Tus plantillas y las páginas que copias se quedan en tu navegador.
@@ -404,10 +404,10 @@ locales:
       English, 简体中文, 繁體中文, 日本語, 한국어, Русский, हिन्दी, Deutsch, Español.
     changelog: |
       1.13.0
-      - Las reglas de acortado se escriben por segmentos de ruta en lugar de con expresiones regulares
+      - Las reglas de acortado se escriben por segmentos de ruta en lugar de expresiones regulares
       - Pega una URL larga y una corta que funcione, y la regla se deduce sola
-      - La página de reglas muestra qué le pasó a la URL, no solo el resultado
-      - Los marcadores del campo de plantilla se colorean y las erratas se ven al escribir
-      - Las plantillas sin atajo ya aparecen en la ventana emergente y en el menú contextual
+      - La página de reglas tacha las partes de la URL que se quitaron y nombra la regla que actuó
+      - Los marcadores del campo de plantilla se colorean al escribir para ver erratas al instante
+      - Las plantillas sin atajo asignado ahora aparecen en la ventana emergente y en el menú contextual
       - El menú contextual ya no apunta a otra plantilla tras quitar un atajo
-      - El icono de la extensión se distingue bien sobre fondos oscuros
+      - El icono de la extensión se distingue claramente sobre fondos oscuros
