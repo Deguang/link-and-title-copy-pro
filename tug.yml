@@ -54,7 +54,7 @@ locales:
       ✨ KEY FEATURES:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
       ▶ SMART SELECTION: Copies your selected text, or falls back to the page title when nothing is selected.
-      ▶ SHORTEST WORKING LINK: {url:short} removes tracking and uses the site's own short form on Amazon, YouTube, Stack Overflow, Reddit, eBay, Etsy, Walmart, Target and Hobby Lobby.
+      ▶ SHORTEST WORKING LINK: {url:short} removes tracking and uses the site's own short form on supported sites — and you can add rules for any other.
       ▶ CUSTOM SHORTENING RULES: Write rules by path segment without regex — or paste a long URL and a working short one, and the rule is inferred for you.
       ▶ CLEAN LINKS: {url:notrack} strips UTM and other tracking parameters but keeps the ones the page needs.
       ▶ TEMPLATES YOU WRITE: Write your own templates for Markdown, HTML, Jira or anything else, using {title}, {url}, {selectedText}, {url:domain}, {url:path} and more, plus conditional blocks with or without selection. Placeholders are colour-highlighted as you type, so typos show straight away.
@@ -65,7 +65,7 @@ locales:
       No account, no analytics. Your templates and copied pages stay in your browser.
 
       🌏 MULTILINGUAL:
-      English, 简体中文, 繁體中文, 日本語, 한국어, Русский, हिन्दी, Deutsch, Español.
+      Interface available in 9 languages.
     changelog: |
       1.13.0
       - Custom shortening rules can now be written by path segment instead of regex
@@ -96,7 +96,7 @@ locales:
       ✨ 核心功能：
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
       ● 智能提取：优先复制选中文本；没有选中时自动使用网页标题。
-      ● 可用的最短链接：{url:short} 去除冗余追踪参数，并在 Amazon、YouTube、Stack Overflow、Reddit、eBay、Etsy、Walmart、Target、Hobby Lobby 上使用站点官方的短链形式。
+      ● 可用的最短链接：{url:short} 去除冗余追踪参数，并在已支持的网站上使用站点官方的短链形式；其他网站可自行添加规则。
       ● 自定义短链规则：按路径段书写，无需正则表达式；也可以贴上长网址和一个可用的短网址，系统自动推导规则。
       ● 纯净链接：{url:notrack} 移除 UTM 等追踪参数，同时保留页面访问必需的参数。
       ● 自写模板：自由编写 Markdown、HTML、Jira 或任何格式，支持 {title}、{url}、{selectedText}、{url:domain}、{url:path} 等占位符，以及有选中或无选中的条件块。占位符在输入时按类型着色，拼写错误当场可见。
@@ -107,7 +107,7 @@ locales:
       无需账号，无任何数据统计。你的模板和复制的页面只留在你的浏览器本地。
 
       🌏 多语言：
-      English、简体中文、繁體中文、日本語、한국어、Русский、हिन्दी、Deutsch、Español。
+      界面支持 9 种语言。
     changelog: |
       1.13.0
       - 短链规则改为按路径段书写，不再需要正则表达式
@@ -138,7 +138,7 @@ locales:
       ✨ 核心功能：
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
       ● 智慧擷取：優先複製選取文字；沒有選取時自動使用網頁標題。
-      ● 可用的最短連結：{url:short} 移除冗贅追蹤參數，並在 Amazon、YouTube、Stack Overflow、Reddit、eBay、Etsy、Walmart、Target、Hobby Lobby 上使用網站官方的短連結形式。
+      ● 可用的最短連結：{url:short} 移除冗贅追蹤參數，並在已支援的網站上使用網站官方的短連結形式；其他網站可自行新增規則。
       ● 自訂短連結規則：依路徑段書寫，無需正規表示式；也可以貼上長網址和一個可用的短網址，由系統自動推導規則。
       ● 乾淨連結：{url:notrack} 移除 UTM 等追蹤參數，同時保留頁面正常運作必需的參數。
       ● 自寫模板：自由編寫 Markdown、HTML、Jira 或任何格式，支援 {title}、{url}、{selectedText}、{url:domain}、{url:path} 等佔位符，以及有選取或無選取的條件區塊。佔位符輸入時即依類型著色，拼錯當場可見。
@@ -149,7 +149,7 @@ locales:
       無需帳號，無任何數據統計。你的模板和複製的頁面都只留在你的本機瀏覽器裡。
 
       🌏 多語言：
-      English、简体中文、繁體中文、日本語、한국어、Русский、हिन्दी、Deutsch、Español。
+      介面支援 9 種語言。
     changelog: |
       1.13.0
       - 短連結規則改為依路徑段書寫，不再需要編寫正規表示式
@@ -180,7 +180,7 @@ locales:
       ✨ 主な機能：
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
       ■ スマート抽出：選択テキストがあればそれを優先し、選択がなければページタイトルを取得します。
-      ■ 使える最短リンク：{url:short} がトラッキングを除去し、Amazon、YouTube、Stack Overflow、Reddit、eBay、Etsy、Walmart、Target、Hobby Lobby ではサイト公式の短縮形を使います。
+      ■ 使える最短リンク：{url:short} がトラッキングを除去し、対応サイトではサイト公式の短縮形を使います。その他のサイトにも独自ルールを追加できます。
       ■ 独自の短縮ルール：正規表現なしでパスの区切りごとに記述。長い URL と動作する短い URL を貼れば、ルールを自動で導き出します。
       ■ クリーン URL：{url:notrack} が UTM などのトラッキングパラメータを削除し、ページに必要なものは残します。
       ■ 自分で書くテンプレート：Markdown、HTML、Jira など何でも自由に作成。{title}、{url}、{selectedText}、{url:domain}、{url:path} などに加え、選択の有無で切り替わる条件ブロックに対応。プレースホルダーは入力中に色分けされ、打ち間違いにすぐ気づけます。
@@ -191,7 +191,7 @@ locales:
       アカウント不要、計測や分析も一切なし。作成したテンプレートもコピーしたページも、ブラウザの外には出ません。
 
       🌏 多言語対応：
-      English、简体中文、繁體中文、日本語、한국어、Русский、हिन्दी、Deutsch、Español。
+      インターフェースは 9 言語に対応しています。
     changelog: |
       1.13.0
       - 短縮ルールを正規表現ではなくパスの区切りごとに記述できるように改善
@@ -222,7 +222,7 @@ locales:
       ✨ 주요 기능:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
       ▶ 스마트 선택: 선택한 텍스트가 있으면 텍스트를, 선택하지 않았을 때는 페이지 제목을 자동으로 가져옵니다.
-      ▶ 작동하는 가장 짧은 링크: {url:short}가 추적 파라미터를 제거하고 Amazon, YouTube, Stack Overflow, Reddit, eBay, Etsy, Walmart, Target, Hobby Lobby에서 사이트 공식 단축 형식을 사용합니다.
+      ▶ 작동하는 가장 짧은 링크: {url:short}가 추적 파라미터를 제거하고 지원되는 사이트에서는 사이트 공식 단축 형식을 사용합니다. 다른 사이트는 직접 규칙을 추가할 수 있습니다.
       ▶ 나만의 단축 규칙: 정규식 없이 경로 세그먼트 단위로 손쉽게 작성하세요. 긴 URL과 작동하는 짧은 URL을 붙여넣으면 규칙이 자동으로 추론됩니다.
       ▶ 깨끗한 링크: {url:notrack}이 UTM 등 추적 매개변수를 제거하고 페이지에 필요한 핵심 파라미터는 유지합니다.
       ▶ 직접 작성하는 템플릿: 마크다운, HTML, Jira 등 원하는 형식으로 직접 작성하세요. {title}, {url}, {selectedText}, {url:domain}, {url:path} 등과 선택 여부에 따라 나타나는 조건부 블록을 지원합니다. 입력하는 동안 자리표시자에 색이 입혀져 오타를 즉시 확인할 수 있습니다.
@@ -233,7 +233,7 @@ locales:
       계정 생성 불필요, 데이터 분석 및 추적 없음. 작성한 템플릿과 복사한 페이지는 브라우저 내부에서만 안전하게 보관됩니다.
 
       🌏 다국어 지원:
-      English, 简体中文, 繁體中文, 日本語, 한국어, Русский, हिन्दी, Deutsch, Español.
+      인터페이스는 9개 언어를 지원합니다.
     changelog: |
       1.13.0
       - 단축 규칙을 정규식 대신 경로 단위로 작성할 수 있도록 개선
@@ -264,7 +264,7 @@ locales:
       ✨ ОСНОВНЫЕ ФУНКЦИИ:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
       ▶ УМНОЕ ВЫДЕЛЕНИЕ: Копирует выделенный текст, а если ничего не выделено — заголовок страницы.
-      ▶ САМАЯ КОРОТКАЯ РАБОЧАЯ ССЫЛКА: {url:short} удаляет трекинг и использует собственную короткую форму сайта на Amazon, YouTube, Stack Overflow, Reddit, eBay, Etsy, Walmart, Target и Hobby Lobby.
+      ▶ САМАЯ КОРОТКАЯ РАБОЧАЯ ССЫЛКА: {url:short} удаляет трекинг и использует собственную короткую форму сайта на поддерживаемых сайтах — а для остальных можно добавить свои правила.
       ▶ СВОИ ПРАВИЛА СОКРАЩЕНИЯ: Создавайте правила по сегментам пути без регулярных выражений — или вставьте длинный URL и работающий короткий, и правило будет выведено автоматически.
       ▶ ЧИСТЫЕ ССЫЛКИ: {url:notrack} удаляет UTM и другие параметры отслеживания, сохраняя параметры, нужные странице.
       ▶ ШАБЛОНЫ, КОТОРЫЕ ПИШЕТЕ ВЫ: Создавайте свои шаблоны для Markdown, HTML, Jira или любого другого формата с {title}, {url}, {selectedText}, {url:domain}, {url:path} и блоками, зависящими от наличия или отсутствия выделения. Плейсхолдеры подсвечиваются цветом при вводе, поэтому опечатки видны сразу.
@@ -275,7 +275,7 @@ locales:
       Без аккаунта и без аналитики. Ваши шаблоны и копируемые страницы остаются строго в вашем браузере.
 
       🌏 ЯЗЫКИ:
-      English, 简体中文, 繁體中文, 日本語, 한국어, Русский, हिन्दी, Deutsch, Español.
+      Интерфейс доступен на 9 языках.
     changelog: |
       1.13.0
       - Правила сокращения теперь пишутся по сегментам пути вместо регулярных выражений
@@ -306,7 +306,7 @@ locales:
       ✨ मुख्य फ़ीचर:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
       ▶ स्मार्ट चयन: चुने हुए टेक्स्ट को प्राथमिकता देता है, कुछ न चुना हो तो पेज टाइटल कॉपी करता है।
-      ▶ सबसे छोटा काम करने वाला लिंक: {url:short} ट्रैकिंग हटाता है और Amazon, YouTube, Stack Overflow, Reddit, eBay, Etsy, Walmart, Target व Hobby Lobby पर साइट का अपना छोटा रूप इस्तेमाल करता है।
+      ▶ सबसे छोटा काम करने वाला लिंक: {url:short} ट्रैकिंग हटाता है और समर्थित साइटों पर साइट का अपना छोटा रूप इस्तेमाल करता है — बाकी साइटों के लिए आप अपने नियम जोड़ सकते हैं।
       ▶ अपने छोटा करने के नियम: बिना रेगुलर एक्सप्रेशन के पाथ सेगमेंट से नियम लिखें — या एक लंबा URL और एक काम करने वाला छोटा URL चिपकाएँ, नियम अपने-आप तैयार हो जाएगा।
       ▶ साफ़ लिंक: {url:notrack} UTM और दूसरे ट्रैकिंग पैरामीटर हटाता है, पर पेज के लिए ज़रूरी पैरामीटर सुरक्षित रखता है।
       ▶ यूज़र द्वारा लिखे गए टेम्पलेट: Markdown, HTML, Jira या किसी भी फ़ॉर्मैट में टेम्पलेट लिखें, जिसमें {title}, {url}, {selectedText}, {url:domain}, {url:path} जैसे प्लेसहोल्डर और चयन होने या न होने पर दिखने वाले ब्लॉक शामिल हैं। टाइप करते समय प्लेसहोल्डर रंगीन दिखते हैं, जिससे टाइपो तुरंत पकड़ में आ जाता है।
@@ -317,7 +317,7 @@ locales:
       कोई अकाउंट नहीं, कोई एनालिटिक्स नहीं। आपके टेम्पलेट और कॉपी किए गए पेज आपके ब्राउज़र में ही रहते हैं।
 
       🌏 भाषाएँ:
-      English, 简体中文, 繁體中文, 日本語, 한국어, Русский, हिन्दी, Deutsch, Español।
+      इंटरफ़ेस 9 भाषाओं में उपलब्ध है।
     changelog: |
       1.13.0
       - छोटा करने के नियम अब रेगुलर एक्सप्रेशन के बजाय पाथ सेगमेंट से लिखे जा सकते हैं
@@ -348,7 +348,7 @@ locales:
       ✨ HAUPTFUNKTIONEN:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
       ▶ INTELLIGENTE AUSWAHL: Übernimmt markierten Text – oder automatisch den Seitentitel, wenn nichts markiert ist.
-      ▶ KÜRZESTER FUNKTIONIERENDER LINK: {url:short} entfernt Tracking und nutzt auf Amazon, YouTube, Stack Overflow, Reddit, eBay, Etsy, Walmart, Target und Hobby Lobby die offizielle Kurzform der jeweiligen Website.
+      ▶ KÜRZESTER FUNKTIONIERENDER LINK: {url:short} entfernt Tracking und nutzt auf unterstützten Websites deren offizielle Kurzform – für alle anderen können Sie eigene Regeln anlegen.
       ▶ EIGENE KÜRZUNGSREGELN: Nach Pfadsegmenten schreiben, ganz ohne Regex – oder eine lange URL und eine funktionierende kurze einfügen, und die Regel wird für Sie abgeleitet.
       ▶ SAUBERE LINKS: {url:notrack} entfernt UTM- und andere Tracking-Parameter, behält aber die, die die Seite braucht.
       ▶ VORLAGEN, DIE SIE SCHREIBEN: Markdown, HTML, Jira oder alles andere – mit {title}, {url}, {selectedText}, {url:domain}, {url:path} und mehr, plus Blöcken, die nur mit (oder ohne) Auswahl erscheinen. Platzhalter werden beim Tippen farblich hervorgehoben, sodass Tippfehler sofort auffallen.
@@ -359,7 +359,7 @@ locales:
       Kein Konto, keine Analyse. Ihre Vorlagen und die kopierten Seiten bleiben ausschließlich in Ihrem Browser.
 
       🌏 SPRACHEN:
-      English, 简体中文, 繁體中文, 日本語, 한국어, Русский, हिन्दी, Deutsch, Español.
+      Oberfläche in 9 Sprachen verfügbar.
     changelog: |
       1.13.0
       - Kürzungsregeln werden nach Pfadsegmenten statt per Regex geschrieben
@@ -390,7 +390,7 @@ locales:
       ✨ FUNCIONES PRINCIPALES:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
       ▶ SELECCIÓN INTELIGENTE: Copia el texto seleccionado o, si no hay selección, el título de la página.
-      ▶ EL ENLACE MÁS CORTO QUE FUNCIONA: {url:short} elimina el seguimiento y usa la forma corta oficial del sitio en Amazon, YouTube, Stack Overflow, Reddit, eBay, Etsy, Walmart, Target y Hobby Lobby.
+      ▶ EL ENLACE MÁS CORTO QUE FUNCIONA: {url:short} elimina el seguimiento y usa la forma corta oficial del sitio en los sitios compatibles, y puedes añadir reglas para cualquier otro.
       ▶ TUS PROPIAS REGLAS DE ACORTADO: Escríbelas por segmentos de ruta, sin expresiones regulares, o pega una URL larga y una corta que funcione y la regla se deduce sola.
       ▶ ENLACES LIMPIOS: {url:notrack} quita UTM y otros parámetros de seguimiento, pero conserva los que la página necesita.
       ▶ PLANTILLAS QUE TÚ ESCRIBES: Markdown, HTML, Jira o lo que quieras, con {title}, {url}, {selectedText}, {url:domain}, {url:path} y más, además de bloques que solo aparecen con (o sin) selección. Los marcadores se colorean al escribir, así que una errata se ve al instante.
@@ -401,7 +401,7 @@ locales:
       Sin cuenta y sin analíticas. Tus plantillas y las páginas que copias se quedan en tu navegador.
 
       🌏 IDIOMAS:
-      English, 简体中文, 繁體中文, 日本語, 한국어, Русский, हिन्दी, Deutsch, Español.
+      Interfaz disponible en 9 idiomas.
     changelog: |
       1.13.0
       - Las reglas de acortado se escriben por segmentos de ruta en lugar de expresiones regulares
