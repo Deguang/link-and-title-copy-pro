@@ -323,6 +323,9 @@
     "reportIssue": {
         "message": "回報問題"
     },
+    "supportKofi": {
+        "message": "請我喝杯咖啡"
+    },
     "feedbackSurvey": {
         "message": "意見回饋 / 卸載問卷"
     },

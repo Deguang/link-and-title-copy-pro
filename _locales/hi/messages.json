@@ -323,6 +323,9 @@
     "reportIssue": {
         "message": "समस्या रिपोर्ट करें"
     },
+    "supportKofi": {
+        "message": "मुझे कॉफ़ी पिलाएँ"
+    },
     "feedbackSurvey": {
         "message": "फ़ीडबैक / अनइंस्टॉल सर्वे"
     },

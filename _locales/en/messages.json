@@ -323,6 +323,9 @@
     "reportIssue": {
         "message": "Report an Issue"
     },
+    "supportKofi": {
+        "message": "Buy me a coffee"
+    },
     "feedbackSurvey": {
         "message": "Feedback / Uninstall Survey"
     },

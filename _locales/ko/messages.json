@@ -323,6 +323,9 @@
     "reportIssue": {
         "message": "문제 신고"
     },
+    "supportKofi": {
+        "message": "커피 한 잔 사주기"
+    },
     "feedbackSurvey": {
         "message": "피드백 / 제거 설문"
     },

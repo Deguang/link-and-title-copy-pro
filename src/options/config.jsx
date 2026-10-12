@@ -10,6 +10,7 @@ import { PAYMENT_ENABLED } from '@/utils/license';
 import { REVIEW_OPT_OUT_KEY } from '@/utils/reviewPrompt';
 import { validateConfig } from '@/utils/validateConfig.mjs';
 import Keycap from '@/components/Keycap';
+import KofiLink from '@/components/KofiLink';
 
 // Maps a validation issue onto its localized message.
 const issueText = (t, issue) => {
@@ -771,6 +772,7 @@ export default function Config() {
                                 {t('reportIssue')}
                             </a>
                             {!PAYMENT_ENABLED && <LicenseSection />}
+                            <KofiLink t={t} />
                         </div>
                         <ReviewReminderToggle t={t} />
                     </div>

@@ -323,6 +323,9 @@
     "reportIssue": {
         "message": "問題を報告"
     },
+    "supportKofi": {
+        "message": "コーヒーをおごる"
+    },
     "feedbackSurvey": {
         "message": "フィードバック / アンインストールアンケート"
     },

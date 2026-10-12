@@ -323,6 +323,9 @@
     "reportIssue": {
         "message": "Problem melden"
     },
+    "supportKofi": {
+        "message": "Spendier mir einen Kaffee"
+    },
     "feedbackSurvey": {
         "message": "Feedback / Deinstallationsumfrage"
     },

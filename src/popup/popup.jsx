@@ -5,6 +5,7 @@ import { processTemplate } from '../utils/templateProcessor';
 import Keycap from '../components/Keycap';
 import { buildBatchText, BATCH_LAYOUTS } from '../utils/batchLayout.mjs';
 
+import KofiLink from '../components/KofiLink';
 import { getProStatus, FREE_BATCH_LIMIT, openUpgradePage, PAYMENT_ENABLED } from '../utils/license';
 import { WHATS_NEW_KEY, WHATS_NEW_VERSION, USER_RULES_KEY } from '../constant';
 import { recordCopies } from '../utils/reviewPrompt';
@@ -423,14 +424,16 @@ function Popup() {
         ? <CurrentTabView configs={configs} tabInfo={tabInfo} openOptions={openOptions} urlRules={urlRules} />
         : <BatchView configs={configs} allTabs={allTabs} isPro={isPro || !PAYMENT_ENABLED} urlRules={urlRules} />}
 
-      {/* Footer */}
-      <div className="mt-3 pt-3 border-t border-line-soft flex justify-between items-center text-xs text-ink-3">
-        <span>v1.13.0</span>
-        <div className="flex gap-3">
+      {/* Footer — the Ko-fi pill leads; links and version trail. Everything is
+          nowrap and the row may wrap, so long locales drop to a second line
+          instead of breaking labels mid-word. */}
+      <div className="mt-3 pt-3 border-t border-line-soft flex flex-wrap justify-between items-center gap-x-3 gap-y-2 text-xs text-ink-3 whitespace-nowrap">
+        <KofiLink t={t} />
+        <div className="flex items-center gap-3">
           <a href="https://github.com/Deguang/link-and-title-copy-pro/issues/new" target="_blank" rel="noreferrer" className="hover:text-accent transition">{t('reportIssue') || 'Feedback'}</a>
           <a href="https://app.lideguang.com/link-and-title-copy-pro/" target="_blank" rel="noreferrer" className="hover:text-accent transition">Website</a>
           <a href="https://github.com/Deguang/link-and-title-copy-pro" target="_blank" rel="noreferrer" className="hover:text-ink-2 transition">GitHub</a>
-          <a href="https://ko-fi.com/deguang" target="_blank" rel="noreferrer" className="hover:text-accent transition">Ko-fi</a>
+          <span>v1.13.0</span>
         </div>
       </div>
     </div>

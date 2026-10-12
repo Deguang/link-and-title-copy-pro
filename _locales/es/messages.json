@@ -323,6 +323,9 @@
     "reportIssue": {
         "message": "Informar de un problema"
     },
+    "supportKofi": {
+        "message": "Invítame a un café"
+    },
     "feedbackSurvey": {
         "message": "Comentarios / Encuesta de desinstalación"
     },

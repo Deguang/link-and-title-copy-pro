@@ -323,6 +323,9 @@
     "reportIssue": {
         "message": "Сообщить о проблеме"
     },
+    "supportKofi": {
+        "message": "Угостить кофе"
+    },
     "feedbackSurvey": {
         "message": "Отзыв / Опрос при удалении"
     },
