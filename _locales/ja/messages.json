@@ -326,6 +326,14 @@
     "supportKofi": {
         "message": "コーヒーをおごる"
     },
+    "kofiPrompt": {
+        "message": "この拡張機能で $COUNT$ 回コピーしました ☕ 時間の節約になっていたら、コーヒーを一杯おごっていただけるとうれしいです!",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
     "feedbackSurvey": {
         "message": "フィードバック / アンインストールアンケート"
     },

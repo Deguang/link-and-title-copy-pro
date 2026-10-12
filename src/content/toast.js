@@ -191,7 +191,7 @@ function injectStyles() {
 export function showToast(message = 'Copied to clipboard', contentPreview = '', options = {}) {
   injectStyles();
 
-  const { review = null, report = null, duration } = options;
+  const { review = null, kofi = null, report = null, duration } = options;
 
   // Create toast if it doesn't exist
   if (!toastElement) {
@@ -254,6 +254,9 @@ export function showToast(message = 'Copied to clipboard', contentPreview = '', 
     if (review) {
       renderReview(reviewDiv, review);
       reviewDiv.style.display = 'flex';
+    } else if (kofi) {
+      renderKofi(reviewDiv, kofi);
+      reviewDiv.style.display = 'flex';
     } else if (report) {
       renderReport(reviewDiv, report);
       reviewDiv.style.display = 'flex';
@@ -267,7 +270,7 @@ export function showToast(message = 'Copied to clipboard', contentPreview = '', 
   // and still be there when they come back. A failure toast with a report action
   // lingers longer than a normal one so the user can click it; normal toasts are brief.
   const visibleFor = typeof duration === 'number' ? duration : report ? 7000 : 2000;
-  const persist = !!review;
+  const persist = !!review || !!kofi; // the one-time Ko-fi thank-you also waits to be dismissed
 
   // Show toast
   // Remove show class first to reset transition if already shown (optional, but good for rapid clicks)
@@ -368,6 +371,38 @@ function renderReview(container, review) {
   actions.appendChild(reviewBtn);
   actions.appendChild(shareBtn);
   actions.appendChild(laterBtn);
+  container.appendChild(prompt);
+  container.appendChild(actions);
+}
+
+// One-time Ko-fi thank-you: a coffee button and a dismiss. It's marked shown
+// before it renders, so neither button needs to tell the background anything
+// beyond opening the page.
+function renderKofi(container, kofi) {
+  const prompt = document.createElement('div');
+  prompt.id = 'link-title-copy-pro-toast-review-prompt';
+  prompt.textContent = kofi.prompt;
+
+  const actions = document.createElement('div');
+  actions.id = 'link-title-copy-pro-toast-review-actions';
+
+  const ctaBtn = document.createElement('button');
+  ctaBtn.className = 'link-title-copy-pro-toast-btn link-title-copy-pro-toast-btn-primary';
+  ctaBtn.textContent = kofi.ctaLabel;
+  ctaBtn.addEventListener('click', () => {
+    try {
+      chrome.runtime.sendMessage({ action: 'openKofi' });
+    } catch { /* extension context gone */ }
+    hideToast();
+  });
+
+  const gotItBtn = document.createElement('button');
+  gotItBtn.className = 'link-title-copy-pro-toast-btn link-title-copy-pro-toast-btn-ghost';
+  gotItBtn.textContent = kofi.gotItLabel;
+  gotItBtn.addEventListener('click', hideToast);
+
+  actions.appendChild(ctaBtn);
+  actions.appendChild(gotItBtn);
   container.appendChild(prompt);
   container.appendChild(actions);
 }

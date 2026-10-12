@@ -11,6 +11,7 @@
 //   reviewAsks      : how many times we have already asked
 //   reviewDone      : user clicked Review, Share, or "Don't ask again" → never ask again
 //   reviewOptOut    : user turned reminders off in Settings → never ask (user-facing toggle)
+//   kofiShown       : the one-time Ko-fi thank-you has been shown → never again
 
 export const REVIEW_KEYS = {
   count: 'reviewCopyCount',
@@ -18,6 +19,7 @@ export const REVIEW_KEYS = {
   asks: 'reviewAsks',
   done: 'reviewDone',
   optOut: 'reviewOptOut',
+  kofiShown: 'kofiShown',
 };
 
 // Storage key for the Settings toggle (true = user opted out of reminders).
@@ -33,6 +35,14 @@ export const REVIEW_MAX_ASKS = 3;
 export const STORE_URL =
   'https://chromewebstore.google.com/detail/kakoelinbkchhkjcbgjgmailplkhpkod';
 export const REVIEW_URL = `${STORE_URL}/reviews`;
+
+// One-time Ko-fi thank-you, separate from the rate/share ask. It lands around the
+// 100th copy, but never on the same copy as a rate/share ask and never within
+// KOFI_GAP copies after one, so the two nudges don't stack (with the default
+// cadence that puts it at copy 120 for users who haven't rated yet).
+export const KOFI_THRESHOLD = 100;
+export const KOFI_GAP = 20;
+export const KOFI_URL = 'https://ko-fi.com/deguang';
 
 function get(keys) {
   return new Promise((resolve) =>
@@ -81,4 +91,27 @@ export async function shouldPromptReview() {
 // User acted on the ask (reviewed, shared, or "Don't ask again") — stop forever.
 export function markReviewDone() {
   return set({ [REVIEW_KEYS.done]: true });
+}
+
+// Decide whether to show the one-time Ko-fi thank-you. Call it only after
+// shouldPromptReview() returned show:false for this copy. Marks itself shown when
+// it fires, so it appears once whatever the user clicks. Honors the same Settings
+// opt-out as the rate/share ask.
+export async function shouldPromptKofi() {
+  const s = await get([
+    REVIEW_KEYS.count,
+    REVIEW_KEYS.nextAt,
+    REVIEW_KEYS.asks,
+    REVIEW_KEYS.optOut,
+    REVIEW_KEYS.kofiShown,
+  ]);
+  if (s[REVIEW_KEYS.optOut] || s[REVIEW_KEYS.kofiShown]) return false;
+  const count = s[REVIEW_KEYS.count] || 0;
+  if (count < KOFI_THRESHOLD) return false;
+  if ((s[REVIEW_KEYS.asks] || 0) > 0) {
+    const lastAskAt = (s[REVIEW_KEYS.nextAt] || REVIEW_THRESHOLD) - REVIEW_INTERVAL;
+    if (count - lastAskAt < KOFI_GAP) return false;
+  }
+  await set({ [REVIEW_KEYS.kofiShown]: true });
+  return true;
 }

@@ -326,6 +326,14 @@
     "supportKofi": {
         "message": "커피 한 잔 사주기"
     },
+    "kofiPrompt": {
+        "message": "이 확장 프로그램으로 $COUNT$번 복사했어요 ☕ 시간을 아껴 드렸다면 커피 한 잔 사주세요. 감사합니다!",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
     "feedbackSurvey": {
         "message": "피드백 / 제거 설문"
     },

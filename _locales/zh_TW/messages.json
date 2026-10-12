@@ -326,6 +326,14 @@
     "supportKofi": {
         "message": "請我喝杯咖啡"
     },
+    "kofiPrompt": {
+        "message": "你已經用它複製了 $COUNT$ 次 ☕ 如果它幫你省了時間,可以請我喝杯咖啡,謝謝支持!",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
     "feedbackSurvey": {
         "message": "意見回饋 / 卸載問卷"
     },

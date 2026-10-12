@@ -326,6 +326,14 @@
     "supportKofi": {
         "message": "Buy me a coffee"
     },
+    "kofiPrompt": {
+        "message": "You've copied $COUNT$ links with this extension ☕ If it saves you time, you can buy me a coffee — thank you!",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
     "feedbackSurvey": {
         "message": "Feedback / Uninstall Survey"
     },

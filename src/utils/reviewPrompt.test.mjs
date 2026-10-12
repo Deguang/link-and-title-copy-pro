@@ -4,8 +4,10 @@ import {
   recordCopies,
   shouldPromptReview,
   markReviewDone,
+  shouldPromptKofi,
   REVIEW_KEYS,
   REVIEW_THRESHOLD,
+  KOFI_THRESHOLD,
 } from './reviewPrompt.mjs';
 
 // In-memory chrome.storage.local mock, reset per test.
@@ -78,5 +80,55 @@ describe('shouldPromptReview — stop conditions', () => {
     assert.equal((await shouldPromptReview()).show, false);
     store[REVIEW_KEYS.optOut] = false;
     assert.equal((await shouldPromptReview()).show, true);
+  });
+});
+
+// Mirrors background.js: the rate/share ask gets first claim on each copy, and
+// the Ko-fi thank-you only takes a copy it didn't. Returns which nudge fired.
+const copyAndAsk = async () => {
+  await recordCopies(1);
+  if ((await shouldPromptReview()).show) return 'review';
+  if (await shouldPromptKofi()) return 'kofi';
+  return null;
+};
+const nudgesOver = async (n) => {
+  const fired = {};
+  for (let i = 1; i <= n; i++) {
+    const what = await copyAndAsk();
+    if (what) fired[i] = what;
+  }
+  return fired;
+};
+
+describe('shouldPromptKofi', () => {
+  test('stays silent before the threshold', async () => {
+    await copyN(KOFI_THRESHOLD - 1);
+    assert.equal(await shouldPromptKofi(), false);
+  });
+
+  test('fires once at the threshold when the rate/share ask is done', async () => {
+    await copyN(KOFI_THRESHOLD);
+    await markReviewDone();
+    assert.equal(await shouldPromptKofi(), true);
+    assert.equal(await shouldPromptKofi(), false);
+  });
+
+  test('never stacks on the rate/share cadence: review 50/100/150, Ko-fi 120', async () => {
+    assert.deepEqual(await nudgesOver(250), { 50: 'review', 100: 'review', 120: 'kofi', 150: 'review' });
+  });
+
+  test('lands at 100 for a user who already rated at 50', async () => {
+    const fired = {};
+    for (let i = 1; i <= 200; i++) {
+      const what = await copyAndAsk();
+      if (what) fired[i] = what;
+      if (what === 'review') await markReviewDone(); // rated on the first ask
+    }
+    assert.deepEqual(fired, { 50: 'review', 100: 'kofi' });
+  });
+
+  test('respects the Settings opt-out', async () => {
+    store[REVIEW_KEYS.optOut] = true;
+    assert.deepEqual(await nudgesOver(200), {});
   });
 });

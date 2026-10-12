@@ -6,6 +6,8 @@ import {
   recordCopies,
   shouldPromptReview,
   markReviewDone,
+  shouldPromptKofi,
+  KOFI_URL,
   REVIEW_URL,
   STORE_URL,
 } from '../utils/reviewPrompt';
@@ -558,6 +560,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                 message: request.message,
                 contentPreview: request.contentPreview,
                 review: extra?.review || null,   // milestone rate/share ask
+                kofi: extra?.kofi || null,       // one-time Ko-fi thank-you
                 report: extra?.report || false,  // failure toast → "Report problem" action
             }, { frameId: 0 }); // TARGET TOP FRAME
 
@@ -572,7 +575,14 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                 recordCopies(1)
                     .then((count) =>
                         shouldPromptReview().then((res) => {
-                            if (res.show) sendToast({ review: { reviewUrl: REVIEW_URL, storeUrl: STORE_URL, count, lastAsk: res.lastAsk } });
+                            if (res.show) {
+                                sendToast({ review: { reviewUrl: REVIEW_URL, storeUrl: STORE_URL, count, lastAsk: res.lastAsk } });
+                                return;
+                            }
+                            // The Ko-fi thank-you only ever takes a copy the rate/share ask didn't.
+                            return shouldPromptKofi().then((kofi) => {
+                                if (kofi) sendToast({ kofi: { count } });
+                            });
                         })
                     )
                     .catch(() => {});
@@ -583,6 +593,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         // User clicked Review or Share in the milestone toast — stop asking forever.
         markReviewDone();
         if (request.kind === 'review') chrome.tabs.create({ url: REVIEW_URL });
+        sendResponse({ success: true });
+    } else if (request.action === 'openKofi') {
+        // User clicked the coffee button in the one-time Ko-fi toast.
+        chrome.tabs.create({ url: KOFI_URL });
         sendResponse({ success: true });
     } else if (request.action === 'reportCopyIssue') {
         // User asked to report a copy problem. Build a diagnostic from the LOCAL

@@ -316,11 +316,19 @@ function handleMessage(message, sender, sendResponse) {
           shareText: chrome.i18n.getMessage('reviewShareText') || '',
         };
       }
+      let kofi = null;
+      if (message.kofi) {
+        kofi = {
+          prompt: chrome.i18n.getMessage('kofiPrompt', [String(message.kofi.count || '')]) || 'If it saves you time, buy me a coffee?',
+          ctaLabel: `☕ ${chrome.i18n.getMessage('supportKofi') || 'Buy me a coffee'}`,
+          gotItLabel: chrome.i18n.getMessage('reviewGotIt') || 'Got it',
+        };
+      }
       let report = null;
       if (message.report) {
         report = { label: chrome.i18n.getMessage('reportProblem') || 'Report problem' };
       }
-      showToast(message.message || 'Copied!', message.contentPreview, { review, report });
+      showToast(message.message || 'Copied!', message.contentPreview, { review, kofi, report });
       sendResponse({ success: true });
     } else if (message.action === 'getPageInfo') {
       // 返回页面信息用于预览

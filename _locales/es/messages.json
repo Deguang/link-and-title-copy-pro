@@ -326,6 +326,14 @@
     "supportKofi": {
         "message": "Invítame a un café"
     },
+    "kofiPrompt": {
+        "message": "Has copiado $COUNT$ enlaces con esta extensión ☕ Si te ahorra tiempo, puedes invitarme a un café. ¡Gracias!",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
     "feedbackSurvey": {
         "message": "Comentarios / Encuesta de desinstalación"
     },

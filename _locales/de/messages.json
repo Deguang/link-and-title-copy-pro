@@ -326,6 +326,14 @@
     "supportKofi": {
         "message": "Spendier mir einen Kaffee"
     },
+    "kofiPrompt": {
+        "message": "Sie haben mit dieser Erweiterung schon $COUNT$-mal kopiert ☕ Wenn sie Ihnen Zeit spart, spendieren Sie mir gern einen Kaffee – danke!",
+        "placeholders": {
+            "count": {
+                "content": "$1"
+            }
+        }
+    },
     "feedbackSurvey": {
         "message": "Feedback / Deinstallationsumfrage"
     },
