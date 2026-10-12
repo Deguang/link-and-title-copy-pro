@@ -63,6 +63,12 @@ Link&TitleCopyPro是一个可以同时复制浏览器标签页的标题和URL链
 
 ## Version History / 版本历史
 
+### v1.14.0
+
+- Batch copy no longer stops at five tabs — copy as many as you like / 批量复制不再限制五个标签页
+- A "Buy me a coffee" link in the popup and settings footers / 弹窗和设置页底部新增「请我喝杯咖啡」链接
+- A one-time thank-you note after about 100 copies, governed by the existing reminder switch in Settings / 复制约 100 次后出现一次感谢提示，可在设置中关闭
+
 ### v1.13.0
 
 - Shortening rules are written by path segment instead of regex: `**/dp/:asin` rather than `^(?:/[^/]+)?/(?:dp|gp/product)/([A-Z0-9]{10})…` / 短链规则改为按路径段书写，不再需要正则

@@ -2,7 +2,7 @@ version: "1.0"
 source:
   repository: https://github.com/Deguang/link-and-title-copy-pro
   changelog_locale: en
-  release_tag: v1.13.0
+  release_tag: v1.14.0
 global:
   category: tools
   support_email: better_li@live.com
@@ -37,7 +37,7 @@ locales:
     name: "Copy Page Title and URL Pro: Markdown & Custom Link"
     short_description: Copy title & URL as Markdown, HTML, or Jira. Clean tracking params (UTM), custom templates, and smart selection support.
     description: |
-      🚀 Stop reformatting links by hand. Copy clean page titles and URLs ready to paste — instantly with one shortcut, or batch-copy up to five tabs at once.
+      🚀 Stop reformatting links by hand. Copy clean page titles and URLs ready to paste — instantly with one shortcut, or batch-copy as many tabs as you like.
       --------------------------------------------------
 
       ⌨️ DEFAULT SHORTCUTS:
@@ -48,7 +48,7 @@ locales:
 
       📑 BATCH COPY:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ▶ Open the popup, tick up to five tabs, and copy them together in any template you choose. Tabs already selected in your tab strip are pre-selected for you.
+      ▶ Open the popup, tick the tabs you want, and copy them together in any template you choose. Tabs already selected in your tab strip are pre-selected for you.
       ▶ Eight layouts: separate lines, bullets, task list, numbered list, Markdown table, HTML table, CSV, JSON.
 
       ✨ KEY FEATURES:
@@ -67,19 +67,15 @@ locales:
       🌏 MULTILINGUAL:
       Interface available in 9 languages.
     changelog: |
-      1.13.0
-      - Custom shortening rules can now be written by path segment instead of regex
-      - Paste a long URL and a working short one to infer rules automatically
-      - The rules page strikes through the parts of a URL that were dropped and names the rule that did it
-      - Template placeholders are now colour-highlighted as you type to catch typos instantly
-      - Templates without shortcuts now appear in the popup and right-click menu
-      - Right-click menu entries no longer point at the wrong template when a shortcut is cleared
-      - The extension icon stays legible on dark backgrounds
+      1.14.0
+      - Batch copy no longer stops at five tabs — copy as many as you like
+      - A "Buy me a coffee" link in the popup and settings footers
+      - A one-time thank-you note after about 100 copies; it follows the existing reminder switch in Settings
   zh_CN:
     name: "网页标题与链接复制 Pro: 支持 Markdown"
     short_description: 一键复制网页标题与链接。支持 Markdown、HTML、Jira 格式。自动去除 UTM 追踪参数，自定义模板，提升开发与写作效率。
     description: |
-      🚀 告别手动调整格式与清理网址。以你需要的格式一键复制网页标题与纯净链接 —— 快捷键秒复制，或一次批量复制最多五个标签页。
+      🚀 告别手动调整格式与清理网址。以你需要的格式一键复制网页标题与纯净链接 —— 快捷键秒复制，或一次批量复制任意多个标签页。
       --------------------------------------------------
 
       ⌨️ 默认快捷键：
@@ -90,7 +86,7 @@ locales:
 
       📑 批量复制：
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ● 打开弹窗，勾选最多五个标签页，套用任一模板合并复制。标签栏中已选中的标签页会被自动预先勾选。
+      ● 打开弹窗，勾选想要的标签页，套用任一模板合并复制。标签栏中已选中的标签页会被自动预先勾选。
       ● 八种排列方式：分行、项目符号、任务清单、编号列表、Markdown 表格、HTML 表格、CSV、JSON。
 
       ✨ 核心功能：
@@ -109,19 +105,15 @@ locales:
       🌏 多语言：
       界面支持 9 种语言。
     changelog: |
-      1.13.0
-      - 短链规则改为按路径段书写，不再需要正则表达式
-      - 粘贴长网址和一个可用的短网址，规则即可自动推导
-      - 规则页会划掉网址中被去掉的部分，并标出生效的规则
-      - 模板编辑框中的占位符实时按类型着色，拼写错误当场可见
-      - 未设置快捷键的模板现在也会显示在弹窗和右键菜单中
-      - 修复清除快捷键后右键菜单可能误调用其他模板的问题
-      - 优化深色模式下扩展图标的显示对比度
+      1.14.0
+      - 批量复制不再限制五个标签页，想复制多少都行
+      - 弹窗和设置页底部新增「请我喝杯咖啡」链接
+      - 复制约 100 次后会出现一次感谢提示，可在设置中与其他提醒一起关闭
   zh_TW:
     name: "網頁標題與連結複製 Pro: 支援 Markdown"
     short_description: 一鍵複製網頁標題與連結。支援 Markdown、HTML、Jira 格式。自動移除 UTM 追蹤參數，自訂模板，提升開發與寫作效率。
     description: |
-      🚀 告別手動調整格式與雜亂網址。以你要貼上的格式一鍵複製網頁標題與乾淨連結 —— 快捷鍵即時複製，亦可批次複製最多五個分頁。
+      🚀 告別手動調整格式與雜亂網址。以你要貼上的格式一鍵複製網頁標題與乾淨連結 —— 快捷鍵即時複製，亦可一次批次複製任意多個分頁。
       --------------------------------------------------
 
       ⌨️ 預設快捷鍵：
@@ -132,7 +124,7 @@ locales:
 
       📑 批次複製：
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ● 開啟彈出視窗，勾選最多五個分頁，套用任一模板一起複製。在分頁列中已選取的分頁會自動預先勾選。
+      ● 開啟彈出視窗，勾選想要的分頁，套用任一模板一起複製。在分頁列中已選取的分頁會自動預先勾選。
       ● 提供 8 種排列方式：分行、項目符號、待辦清單、編號清單、Markdown 表格、HTML 表格、CSV、JSON。
 
       ✨ 核心功能：
@@ -151,19 +143,15 @@ locales:
       🌏 多語言：
       介面支援 9 種語言。
     changelog: |
-      1.13.0
-      - 短連結規則改為依路徑段書寫，不再需要編寫正規表示式
-      - 貼上長網址和一個可用的短網址，規則即可自動推導
-      - 規則頁會劃掉網址中被移除的部分，並標出生效的規則
-      - 模板編輯區的佔位符即時依類型著色，拼錯當場可見
-      - 未指派快捷鍵的模板現在也會出現在彈出視窗和右鍵選單中
-      - 修復清除快捷鍵後右鍵選單可能指向錯誤模板的問題
-      - 改善深色模式下擴充功能圖示的顯示對比度
+      1.14.0
+      - 批次複製不再限制五個分頁，想複製多少都行
+      - 彈出視窗與設定頁底部新增「請我喝杯咖啡」連結
+      - 複製約 100 次後會出現一次感謝提示，可在設定中與其他提醒一起關閉
   ja:
     name: "ページタイトルとURLをコピー Pro: Markdown対応"
     short_description: タイトルとURLをワンクリックでコピー。Markdown、HTML、Jira形式対応。UTMパラメータ自動削除、カスタムテンプレート機能搭載。
     description: |
-      🚀 リンクの手動整形はもう不要。貼り付け先に合わせた形式で、ページタイトルとクリーンなURLを瞬時にコピー。ショートカット一つでも、最大5つのタブを一括でも。
+      🚀 リンクの手動整形はもう不要。貼り付け先に合わせた形式で、ページタイトルとクリーンなURLを瞬時にコピー。ショートカット一つでも、複数のタブを一括でも。
       --------------------------------------------------
 
       ⌨️ デフォルトのショートカット：
@@ -174,7 +162,7 @@ locales:
 
       📑 一括コピー：
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ■ ポップアップを開き、最大5つのタブにチェックを入れて好きなテンプレートでまとめてコピー。タブバーで選択済みのタブは自動で事前選択されます。
+      ■ ポップアップを開き、コピーしたいタブにチェックを入れて好きなテンプレートでまとめてコピー。タブバーで選択済みのタブは自動で事前選択されます。
       ■ 選べる8種類のレイアウト：改行区切り、箇条書き、タスクリスト、番号付きリスト、Markdown 表、HTML 表、CSV、JSON。
 
       ✨ 主な機能：
@@ -193,19 +181,15 @@ locales:
       🌏 多言語対応：
       インターフェースは 9 言語に対応しています。
     changelog: |
-      1.13.0
-      - 短縮ルールを正規表現ではなくパスの区切りごとに記述できるように改善
-      - 長い URL と動作する短い URL を貼るだけで、ルールを自動推出して導出
-      - ルール画面で、URL から削除された部分を取り消し線で示し、適用されたルールを表示
-      - テンプレート欄のプレースホルダーを色分けし、打ち間違いがその場でわかるように
-      - ショートカット未設定のテンプレートもポップアップと右クリックメニューに表示
-      - ショートカット解除後に右クリックメニューが別のテンプレートを指す問題を修正
-      - ダーク背景でも拡張機能アイコンが見やすいよう視認性を向上
+      1.14.0
+      - 一括コピーの5タブ制限を撤廃し、好きなだけコピーできるように
+      - ポップアップと設定画面の下部に「コーヒーをおごる」リンクを追加
+      - 約100回コピーすると一度だけお礼のメッセージを表示。設定のリマインダーでオフにできます
   ko:
     name: "페이지 제목 및 URL 복사 Pro: 마크다운 및 맞춤 링크"
     short_description: 제목과 URL을 마크다운, HTML, Jira 형식으로 복사하세요. 추적 매개변수(UTM) 제거, 맞춤 템플릿, 스마트 선택을 지원합니다.
     description: |
-      🚀 매번 번거롭게 링크 서식을 다듬지 마세요. 페이지 제목과 정돈된 URL을 붙여넣을 형식 그대로 즉시 복사 — 단축키 하나로 빠르게, 최대 5개의 탭도 한 번에 일괄 복사합니다.
+      🚀 매번 번거롭게 링크 서식을 다듬지 마세요. 페이지 제목과 정돈된 URL을 붙여넣을 형식 그대로 즉시 복사 — 단축키 하나로 빠르게, 여러 탭도 개수 제한 없이 한 번에 일괄 복사합니다.
       --------------------------------------------------
 
       ⌨️ 기본 단축키:
@@ -216,7 +200,7 @@ locales:
 
       📑 일괄 복사:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ▶ 팝업을 열고 최대 5개의 탭을 선택해 원하는 템플릿으로 한꺼번에 복사하세요. 탭 표시줄에서 이미 선택한 탭은 자동으로 사전 체크됩니다.
+      ▶ 팝업을 열고 원하는 탭을 선택해 원하는 템플릿으로 한꺼번에 복사하세요. 탭 표시줄에서 이미 선택한 탭은 자동으로 사전 체크됩니다.
       ▶ 8가지 레이아웃 지원: 줄 구분, 글머리 기호, 작업 목록, 번호 목록, 마크다운 표, HTML 표, CSV, JSON.
 
       ✨ 주요 기능:
@@ -235,19 +219,15 @@ locales:
       🌏 다국어 지원:
       인터페이스는 9개 언어를 지원합니다.
     changelog: |
-      1.13.0
-      - 단축 규칙을 정규식 대신 경로 단위로 작성할 수 있도록 개선
-      - 긴 URL과 작동하는 짧은 URL을 붙여넣으면 규칙을 자동으로 생성
-      - 규칙 화면에서 URL의 삭제된 부분을 취소선으로 표시하고 적용된 규칙을 보여줌
-      - 템플릿 입력란의 자리표시자 색상 구분으로 오타를 실시간 확인
-      - 단축키가 없는 템플릿도 팝업과 우클릭 메뉴에 정상 표시
-      - 단축키 해제 후 우클릭 메뉴가 다른 템플릿을 가리키던 문제 수정
-      - 어두운 배경에서도 확장 프로그램 아이콘이 또렷하게 보이도록 개선
+      1.14.0
+      - 일괄 복사의 5개 탭 제한이 없어져 원하는 만큼 복사할 수 있습니다
+      - 팝업과 설정 화면 하단에 「커피 한 잔 사주기」 링크 추가
+      - 약 100번 복사하면 감사 메시지를 한 번 표시합니다. 설정의 알림 스위치로 끌 수 있습니다
   ru:
     name: "Копировать заголовок и URL Pro: Markdown"
     short_description: Копируйте заголовок и URL одним кликом. Поддержка Markdown, HTML, Jira. Автоудаление UTM-параметров, настраиваемые шаблоны.
     description: |
-      🚀 Хватит форматировать ссылки вручную. Копируйте заголовок страницы и чистый URL сразу в нужном виде — одним сочетанием клавиш или пакетом до пяти вкладок за раз.
+      🚀 Хватит форматировать ссылки вручную. Копируйте заголовок страницы и чистый URL сразу в нужном виде — одним сочетанием клавиш или сразу пакетом из любого числа вкладок.
       --------------------------------------------------
 
       ⌨️ СОЧЕТАНИЯ КЛАВИШ ПО УМОЛЧАНИЮ:
@@ -258,7 +238,7 @@ locales:
 
       📑 ПАКЕТНОЕ КОПИРОВАНИЕ:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ▶ Откройте всплывающее окно, отметьте до пяти вкладок и скопируйте их вместе по любому шаблону. Вкладки, уже выбранные на панели вкладок, отмечаются автоматически.
+      ▶ Откройте всплывающее окно, отметьте нужные вкладки и скопируйте их вместе по любому шаблону. Вкладки, уже выбранные на панели вкладок, отмечаются автоматически.
       ▶ Восемь вариантов оформления: построчно, маркированный список, список задач, нумерованный список, таблица Markdown, таблица HTML, CSV, JSON.
 
       ✨ ОСНОВНЫЕ ФУНКЦИИ:
@@ -277,19 +257,15 @@ locales:
       🌏 ЯЗЫКИ:
       Интерфейс доступен на 9 языках.
     changelog: |
-      1.13.0
-      - Правила сокращения теперь пишутся по сегментам пути вместо регулярных выражений
-      - Вставьте длинный URL и работающий короткий, чтобы правило сформировалось автоматически
-      - Страница правил зачёркивает удалённые части URL и называет сработавшее правило
-      - Плейсхолдеры в поле шаблона подсвечиваются цветом, сразу выявляя опечатки
-      - Шаблоны без горячих клавиш теперь отображаются во всплывающем окне и контекстном меню
-      - Контекстное меню больше не указывает на другой шаблон после сброса сочетания клавиш
-      - Значок расширения стал гораздо контрастнее и заметнее на тёмном фоне
+      1.14.0
+      - Пакетное копирование больше не ограничено пятью вкладками
+      - Ссылка «Угостить кофе» внизу всплывающего окна и настроек
+      - Однократная благодарность примерно после 100 копирований; отключается тем же переключателем напоминаний в настройках
   hi:
     name: "पेज टाइटल और URL कॉपी Pro: Markdown सपोर्ट"
     short_description: एक क्लिक में टाइटल और URL कॉपी करें। Markdown, HTML, Jira फॉर्मैट सपोर्ट। UTM पैरामीटर ऑटो-रिमूव, कस्टम टेम्पलेट।
     description: |
-      🚀 बार-बार लिंक फ़ॉर्मैट करने का झंझट खत्म। पेज का टाइटल और साफ़ URL सीधे अपने मनपसंद फ़ॉर्मैट में कॉपी करें — एक शॉर्टकट से, या एक साथ अधिकतम पाँच टैब।
+      🚀 बार-बार लिंक फ़ॉर्मैट करने का झंझट खत्म। पेज का टाइटल और साफ़ URL सीधे अपने मनपसंद फ़ॉर्मैट में कॉपी करें — एक शॉर्टकट से, या एक साथ जितने चाहें उतने टैब।
       --------------------------------------------------
 
       ⌨️ डिफ़ॉल्ट शॉर्टकट:
@@ -300,7 +276,7 @@ locales:
 
       📑 बैच कॉपी:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ▶ पॉपअप खोलें, अधिकतम पाँच टैब चुनें और अपनी किसी भी टेम्पलेट में एक साथ कॉपी करें। टैब स्ट्रिप में पहले से चुने गए टैब अपने-आप चुन लिए जाते हैं।
+      ▶ पॉपअप खोलें, अपने मनचाहे टैब चुनें और अपनी किसी भी टेम्पलेट में एक साथ कॉपी करें। टैब स्ट्रिप में पहले से चुने गए टैब अपने-आप चुन लिए जाते हैं।
       ▶ कुल 8 लेआउट: अलग पंक्तियाँ, बुलेट, टास्क लिस्ट, क्रमांकित सूची, Markdown टेबल, HTML टेबल, CSV, JSON।
 
       ✨ मुख्य फ़ीचर:
@@ -319,19 +295,15 @@ locales:
       🌏 भाषाएँ:
       इंटरफ़ेस 9 भाषाओं में उपलब्ध है।
     changelog: |
-      1.13.0
-      - छोटा करने के नियम अब रेगुलर एक्सप्रेशन के बजाय पाथ सेगमेंट से लिखे जा सकते हैं
-      - लंबा URL और काम करने वाला छोटा URL चिपकाएँ, नियम अपने-आप तैयार हो जाता है
-      - नियम पेज URL के हटाए गए हिस्सों को काटकर दिखाता है और बताता है कि कौन-सा नियम लागू हुआ
-      - टेम्पलेट फ़ील्ड में प्लेसहोल्डर रंगीन दिखते हैं, जिससे टाइपो तुरंत पकड़ में आता है
-      - बिना शॉर्टकट वाले टेम्पलेट अब पॉपअप और राइट-क्लिक मेनू में भी दिखाई देते हैं
-      - शॉर्टकट हटाने के बाद राइट-क्लिक मेनू में गलत टेम्पलेट चुनने की समस्या ठीक की गई
-      - डार्क बैकग्राउंड पर भी एक्सटेंशन आइकन स्पष्ट और साफ़ दिखता है
+      1.14.0
+      - बैच कॉपी में अब पाँच टैब की सीमा नहीं है — जितने चाहें उतने कॉपी करें
+      - पॉपअप और सेटिंग्स के नीचे "मुझे कॉफ़ी पिलाएँ" लिंक
+      - लगभग 100 कॉपी के बाद एक बार धन्यवाद संदेश; सेटिंग्स में रिमाइंडर स्विच से बंद किया जा सकता है
   de:
     name: "Seitentitel und URL kopieren Pro: Markdown & benutzerdefinierter Link"
     short_description: Titel & URL als Markdown, HTML oder Jira kopieren. Tracking-Parameter (UTM) entfernen, eigene Vorlagen und intelligente Auswahl.
     description: |
-      🚀 Schluss mit manuellem Formatieren von Links. Kopieren Sie Seitentitel und saubere URLs direkt im gewünschten Zielformat – mit einem Tastenkürzel oder für bis zu fünf Tabs auf einmal.
+      🚀 Schluss mit manuellem Formatieren von Links. Kopieren Sie Seitentitel und saubere URLs direkt im gewünschten Zielformat – mit einem Tastenkürzel oder für beliebig viele Tabs auf einmal.
       --------------------------------------------------
 
       ⌨️ STANDARD-TASTENKOMBINATIONEN:
@@ -342,7 +314,7 @@ locales:
 
       📑 MEHRERE TABS KOPIEREN:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ▶ Popup öffnen, bis zu fünf Tabs anhaken und gemeinsam in einer beliebigen Vorlage kopieren. Tabs, die Sie in der Tableiste bereits markiert haben, sind vorausgewählt.
+      ▶ Popup öffnen, die gewünschten Tabs anhaken und gemeinsam in einer beliebigen Vorlage kopieren. Tabs, die Sie in der Tableiste bereits markiert haben, sind vorausgewählt.
       ▶ Acht Layouts: einzelne Zeilen, Aufzählung, Aufgabenliste, nummerierte Liste, Markdown-Tabelle, HTML-Tabelle, CSV, JSON.
 
       ✨ HAUPTFUNKTIONEN:
@@ -361,19 +333,15 @@ locales:
       🌏 SPRACHEN:
       Oberfläche in 9 Sprachen verfügbar.
     changelog: |
-      1.13.0
-      - Kürzungsregeln werden nach Pfadsegmenten statt per Regex geschrieben
-      - Lange URL und funktionierende kurze einfügen, und die Regel wird automatisch abgeleitet
-      - Die Regelseite streicht die entfernten Teile einer URL durch und nennt die Regel, die gegriffen hat
-      - Platzhalter im Vorlagenfeld werden beim Tippen eingefärbt, Tippfehler fallen sofort auf
-      - Vorlagen ohne Tastenkürzel erscheinen jetzt im Popup und im Kontextmenü
-      - Kontextmenü verweist nach dem Entfernen eines Kürzels nicht mehr auf die falsche Vorlage
-      - Das Erweiterungssymbol bleibt auf dunklem Hintergrund optimal lesbar
+      1.14.0
+      - Die Sammelkopie ist nicht mehr auf fünf Tabs begrenzt
+      - Ein „Spendier mir einen Kaffee“-Link unten im Popup und in den Einstellungen
+      - Ein einmaliges Dankeschön nach etwa 100 Kopien; abschaltbar über den Erinnerungsschalter in den Einstellungen
   es:
     name: "Copiar título de página y URL Pro: Markdown y enlace personalizado"
     short_description: Copia título y URL como Markdown, HTML o Jira. Quita parámetros de seguimiento (UTM), plantillas propias y selección inteligente.
     description: |
-      🚀 Olvídate de dar formato a los enlaces a mano. Copia el título de la página y una URL limpia en el formato donde vas a pegarlo: con un solo atajo, o hasta cinco pestañas a la vez.
+      🚀 Olvídate de dar formato a los enlaces a mano. Copia el título de la página y una URL limpia en el formato donde vas a pegarlo: con un solo atajo, o todas las pestañas que quieras a la vez.
       --------------------------------------------------
 
       ⌨️ ATAJOS PREDETERMINADOS:
@@ -384,7 +352,7 @@ locales:
 
       📑 COPIA POR LOTES:
       ━━━━━━━━━━━━━━━━━━━━━━━━━━
-      ▶ Abre la ventana emergente, marca hasta cinco pestañas y cópialas juntas con cualquier plantilla. Las pestañas que ya seleccionaste en la barra de pestañas vienen marcadas.
+      ▶ Abre la ventana emergente, marca las pestañas que quieras y cópialas juntas con cualquier plantilla. Las pestañas que ya seleccionaste en la barra de pestañas vienen marcadas.
       ▶ Ocho formatos de lista: líneas separadas, viñetas, lista de tareas, lista numerada, tabla Markdown, tabla HTML, CSV, JSON.
 
       ✨ FUNCIONES PRINCIPALES:
@@ -403,11 +371,7 @@ locales:
       🌏 IDIOMAS:
       Interfaz disponible en 9 idiomas.
     changelog: |
-      1.13.0
-      - Las reglas de acortado se escriben por segmentos de ruta en lugar de expresiones regulares
-      - Pega una URL larga y una corta que funcione, y la regla se deduce sola
-      - La página de reglas tacha las partes de la URL que se quitaron y nombra la regla que actuó
-      - Los marcadores del campo de plantilla se colorean al escribir para ver erratas al instante
-      - Las plantillas sin atajo asignado ahora aparecen en la ventana emergente y en el menú contextual
-      - El menú contextual ya no apunta a otra plantilla tras quitar un atajo
-      - El icono de la extensión se distingue claramente sobre fondos oscuros
+      1.14.0
+      - La copia por lotes ya no se limita a cinco pestañas
+      - Un enlace «Invítame a un café» al pie de la ventana emergente y de los ajustes
+      - Un agradecimiento único tras unas 100 copias; se desactiva con el interruptor de recordatorios de los ajustes
