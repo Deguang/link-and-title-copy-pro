@@ -27,11 +27,11 @@ privacy:
 assets:
   icon_128: ./src/icons/icon.webp
   screenshots:
-    - ./docs/images/chromeStore-toast.png
-    - ./docs/images/chromeStore-paste.png
-    - ./docs/images/chromeStore-config.png
+    - ./docs/images/store/chromeStore-toast-1280x800.png
+    - ./docs/images/store/chromeStore-paste-1280x800.png
+    - ./docs/images/store/chromeStore-config-1280x800.png
   promo_small: ./docs/images/toast_440x280.png
-  promo_large: ./docs/images/easy_copy_1400x560.png
+  promo_large: ./docs/images/easy_copy_1400x560_1.png
 locales:
   en:
     name: "Copy Page Title and URL Pro: Markdown & Custom Link"
