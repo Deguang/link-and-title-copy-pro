@@ -31,18 +31,9 @@ export default function LicenseSection() {
     setInfo(null);
   };
 
-  // Payment isn't live yet. Keep the entry point visible but at footer-meta
-  // weight — a full-width card advertising a feature that doesn't exist yet
-  // outweighs everything that does. It becomes a real card once PAYMENT_ENABLED
-  // flips (see the footer in config.jsx).
-  if (!PAYMENT_ENABLED) {
-    return (
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-pro/20 px-2.5 py-1 text-xs font-medium text-warn">
-        <span aria-hidden="true">★</span>
-        {t('licenseComingSoon') || 'Pro · Coming soon'}
-      </span>
-    );
-  }
+  // Payment isn't live: batch copy is unlimited for everyone, so there's no
+  // Pro to advertise. The card comes back once PAYMENT_ENABLED flips.
+  if (!PAYMENT_ENABLED) return null;
 
   return (
     <div className="h-full rounded-xl border border-line bg-surface px-4 py-3 shadow-sm">

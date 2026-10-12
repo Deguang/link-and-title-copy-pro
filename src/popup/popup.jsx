@@ -421,7 +421,7 @@ function Popup() {
 
       {view === 'current'
         ? <CurrentTabView configs={configs} tabInfo={tabInfo} openOptions={openOptions} urlRules={urlRules} />
-        : <BatchView configs={configs} allTabs={allTabs} isPro={isPro} urlRules={urlRules} />}
+        : <BatchView configs={configs} allTabs={allTabs} isPro={isPro || !PAYMENT_ENABLED} urlRules={urlRules} />}
 
       {/* Footer */}
       <div className="mt-3 pt-3 border-t border-line-soft flex justify-between items-center text-xs text-ink-3">

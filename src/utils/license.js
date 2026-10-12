@@ -32,8 +32,9 @@ export const FREE_BATCH_LIMIT = 5;
 export const PRICING_URL =
   'https://app.lideguang.com/link-and-title-copy-pro/?utm_source=extension&utm_medium=popup&utm_campaign=batch_upsell#pricing';
 
-// Master switch: while false, the paywall entry shows "coming soon" (no purchase/
-// activation). Flip to true when payment goes live.
+// Master switch: while false, everyone gets Pro behaviour (batch copy is
+// unlimited) and no paywall or Pro entry is shown. Flip to true when payment
+// goes live to re-enable FREE_BATCH_LIMIT and the upgrade UI.
 export const PAYMENT_ENABLED = false;
 
 // ---- Optional online provider (Creem etc.) — leave URL empty to stay self-signed-only ----
