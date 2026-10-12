@@ -430,6 +430,7 @@ function Popup() {
           <a href="https://github.com/Deguang/link-and-title-copy-pro/issues/new" target="_blank" rel="noreferrer" className="hover:text-accent transition">{t('reportIssue') || 'Feedback'}</a>
           <a href="https://app.lideguang.com/link-and-title-copy-pro/" target="_blank" rel="noreferrer" className="hover:text-accent transition">Website</a>
           <a href="https://github.com/Deguang/link-and-title-copy-pro" target="_blank" rel="noreferrer" className="hover:text-ink-2 transition">GitHub</a>
+          <a href="https://ko-fi.com/deguang" target="_blank" rel="noreferrer" className="hover:text-accent transition">Ko-fi</a>
         </div>
       </div>
     </div>
