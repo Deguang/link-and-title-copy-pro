@@ -2,7 +2,7 @@ version: "1.0"
 source:
   repository: https://github.com/Deguang/link-and-title-copy-pro
   changelog_locale: en
-  release_tag: v1.14.0
+  release_tag: v1.15.0
 global:
   category: tools
   support_email: better_li@live.com
@@ -67,10 +67,9 @@ locales:
       🌏 MULTILINGUAL:
       Interface available in 9 languages.
     changelog: |
-      1.14.0
-      - Batch copy no longer stops at five tabs — copy as many as you like
-      - A "Buy me a coffee" link in the popup and settings footers
-      - A one-time thank-you note after about 100 copies; it follows the existing reminder switch in Settings
+      1.15.0
+      - Asks for a rating only once — earlier, right after a copy that cleaned a link or a batch copy — and never again once dismissed
+      - The ask now leads with a rating, and its dismiss button reads "No thanks"
   zh_CN:
     name: "网页标题与链接复制 Pro: 支持 Markdown"
     short_description: 一键复制网页标题与链接。支持 Markdown、HTML、Jira 格式。自动去除 UTM 追踪参数，自定义模板，提升开发与写作效率。
@@ -105,10 +104,9 @@ locales:
       🌏 多语言：
       界面支持 9 种语言。
     changelog: |
-      1.14.0
-      - 批量复制不再限制五个标签页，想复制多少都行
-      - 弹窗和设置页底部新增「请我喝杯咖啡」链接
-      - 复制约 100 次后会出现一次感谢提示，可在设置中与其他提醒一起关闭
+      1.15.0
+      - 评分提示只出现一次：提前到刚完成一次链接净化或批量复制之后，关掉就永远不再出现
+      - 提示改为优先邀请评分，关闭按钮改为「不用了」
   zh_TW:
     name: "網頁標題與連結複製 Pro: 支援 Markdown"
     short_description: 一鍵複製網頁標題與連結。支援 Markdown、HTML、Jira 格式。自動移除 UTM 追蹤參數，自訂模板，提升開發與寫作效率。
@@ -143,10 +141,9 @@ locales:
       🌏 多語言：
       介面支援 9 種語言。
     changelog: |
-      1.14.0
-      - 批次複製不再限制五個分頁，想複製多少都行
-      - 彈出視窗與設定頁底部新增「請我喝杯咖啡」連結
-      - 複製約 100 次後會出現一次感謝提示，可在設定中與其他提醒一起關閉
+      1.15.0
+      - 評分提示只出現一次：提前到剛完成一次連結淨化或批次複製之後，關掉就永遠不再出現
+      - 提示改為優先邀請評分，關閉按鈕改為「不用了」
   ja:
     name: "ページタイトルとURLをコピー Pro: Markdown対応"
     short_description: タイトルとURLをワンクリックでコピー。Markdown、HTML、Jira形式対応。UTMパラメータ自動削除、カスタムテンプレート機能搭載。
@@ -181,10 +178,9 @@ locales:
       🌏 多言語対応：
       インターフェースは 9 言語に対応しています。
     changelog: |
-      1.14.0
-      - 一括コピーの5タブ制限を撤廃し、好きなだけコピーできるように
-      - ポップアップと設定画面の下部に「コーヒーをおごる」リンクを追加
-      - 約100回コピーすると一度だけお礼のメッセージを表示。設定のリマインダーでオフにできます
+      1.15.0
+      - 評価のお願いは一度だけ。リンクのクリーンアップや一括コピーの直後に早めに表示し、閉じたら二度と出ません
+      - お願いは評価を優先し、閉じるボタンは「結構です」に
   ko:
     name: "페이지 제목 및 URL 복사 Pro: 마크다운 및 맞춤 링크"
     short_description: 제목과 URL을 마크다운, HTML, Jira 형식으로 복사하세요. 추적 매개변수(UTM) 제거, 맞춤 템플릿, 스마트 선택을 지원합니다.
@@ -219,10 +215,9 @@ locales:
       🌏 다국어 지원:
       인터페이스는 9개 언어를 지원합니다.
     changelog: |
-      1.14.0
-      - 일괄 복사의 5개 탭 제한이 없어져 원하는 만큼 복사할 수 있습니다
-      - 팝업과 설정 화면 하단에 「커피 한 잔 사주기」 링크 추가
-      - 약 100번 복사하면 감사 메시지를 한 번 표시합니다. 설정의 알림 스위치로 끌 수 있습니다
+      1.15.0
+      - 평점 요청은 단 한 번만, 링크 정리나 일괄 복사 직후에 더 일찍 표시되며 닫으면 다시 나타나지 않습니다
+      - 요청 문구는 평점을 먼저 안내하고, 닫기 버튼은 「괜찮아요」로 변경
   ru:
     name: "Копировать заголовок и URL Pro: Markdown"
     short_description: Копируйте заголовок и URL одним кликом. Поддержка Markdown, HTML, Jira. Автоудаление UTM-параметров, настраиваемые шаблоны.
@@ -257,10 +252,9 @@ locales:
       🌏 ЯЗЫКИ:
       Интерфейс доступен на 9 языках.
     changelog: |
-      1.14.0
-      - Пакетное копирование больше не ограничено пятью вкладками
-      - Ссылка «Угостить кофе» внизу всплывающего окна и настроек
-      - Однократная благодарность примерно после 100 копирований; отключается тем же переключателем напоминаний в настройках
+      1.15.0
+      - Просьба об оценке появляется только один раз — раньше, сразу после очистки ссылки или пакетного копирования — и больше не возвращается после закрытия
+      - Просьба теперь в первую очередь предлагает оценить, а кнопка закрытия называется «Нет, спасибо»
   hi:
     name: "पेज टाइटल और URL कॉपी Pro: Markdown सपोर्ट"
     short_description: एक क्लिक में टाइटल और URL कॉपी करें। Markdown, HTML, Jira फॉर्मैट सपोर्ट। UTM पैरामीटर ऑटो-रिमूव, कस्टम टेम्पलेट।
@@ -295,10 +289,9 @@ locales:
       🌏 भाषाएँ:
       इंटरफ़ेस 9 भाषाओं में उपलब्ध है।
     changelog: |
-      1.14.0
-      - बैच कॉपी में अब पाँच टैब की सीमा नहीं है — जितने चाहें उतने कॉपी करें
-      - पॉपअप और सेटिंग्स के नीचे "मुझे कॉफ़ी पिलाएँ" लिंक
-      - लगभग 100 कॉपी के बाद एक बार धन्यवाद संदेश; सेटिंग्स में रिमाइंडर स्विच से बंद किया जा सकता है
+      1.15.0
+      - रेटिंग का अनुरोध अब केवल एक बार दिखता है — जल्दी, किसी लिंक को साफ़ करने या बैच कॉपी के ठीक बाद — और बंद करने पर फिर कभी नहीं
+      - अनुरोध अब पहले रेटिंग के लिए कहता है, और बंद करने का बटन "नहीं, धन्यवाद" है
   de:
     name: "Seitentitel und URL kopieren Pro: Markdown & benutzerdefinierter Link"
     short_description: Titel & URL als Markdown, HTML oder Jira kopieren. Tracking-Parameter (UTM) entfernen, eigene Vorlagen und intelligente Auswahl.
@@ -333,10 +326,9 @@ locales:
       🌏 SPRACHEN:
       Oberfläche in 9 Sprachen verfügbar.
     changelog: |
-      1.14.0
-      - Die Sammelkopie ist nicht mehr auf fünf Tabs begrenzt
-      - Ein „Spendier mir einen Kaffee“-Link unten im Popup und in den Einstellungen
-      - Ein einmaliges Dankeschön nach etwa 100 Kopien; abschaltbar über den Erinnerungsschalter in den Einstellungen
+      1.15.0
+      - Die Bitte um eine Bewertung erscheint nur noch einmal – früher, direkt nach einem bereinigten Link oder einer Sammelkopie – und nach dem Schließen nie wieder
+      - Die Bitte nennt jetzt zuerst die Bewertung, der Schließen-Button heißt „Nein, danke“
   es:
     name: "Copiar título de página y URL Pro: Markdown y enlace personalizado"
     short_description: Copia título y URL como Markdown, HTML o Jira. Quita parámetros de seguimiento (UTM), plantillas propias y selección inteligente.
@@ -371,7 +363,6 @@ locales:
       🌏 IDIOMAS:
       Interfaz disponible en 9 idiomas.
     changelog: |
-      1.14.0
-      - La copia por lotes ya no se limita a cinco pestañas
-      - Un enlace «Invítame a un café» al pie de la ventana emergente y de los ajustes
-      - Un agradecimiento único tras unas 100 copias; se desactiva con el interruptor de recordatorios de los ajustes
+      1.15.0
+      - La petición de valoración aparece una sola vez: antes, justo tras limpiar un enlace o una copia por lotes, y nunca más si la cierras
+      - La petición ahora invita primero a valorar y el botón de cerrar dice «No, gracias»

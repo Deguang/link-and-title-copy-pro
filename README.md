@@ -63,6 +63,11 @@ Link&TitleCopyPro是一个可以同时复制浏览器标签页的标题和URL链
 
 ## Version History / 版本历史
 
+### v1.15.0
+
+- The rate/share ask appears only once, earlier (from about the 10th copy, right after a copy that cleaned a link or a batch copy), and never again once dismissed / 评分提示只出现一次，提前到第 10 次左右、在链接净化或批量复制之后，关掉就不再出现
+- The ask leads with a rating, and its dismiss button reads "No thanks" / 提示优先邀请评分，关闭按钮改为「不用了」
+
 ### v1.14.0
 
 - Batch copy no longer stops at five tabs — copy as many as you like / 批量复制不再限制五个标签页
