@@ -419,7 +419,7 @@
         "message": "该快捷键可能与浏览器快捷键冲突，点击「编辑」可修改。"
     },
     "reviewPrompt": {
-        "message": "你已经用它复制了 $COUNT$ 次 🎉 如果帮到你了,把它分享给朋友吧!",
+        "message": "你已经用它复制了 $COUNT$ 次 🎉 如果帮到你了,给个评分会是很大的支持!",
         "placeholders": {
             "count": {
                 "content": "$1"
@@ -438,14 +438,11 @@
     "reviewShareText": {
         "message": "一键复制任意网页的标题和链接 —— 支持 Markdown、HTML、Jira 或自定义模板。这个 Chrome 扩展每天都帮我省下不少时间 👇"
     },
-    "reviewLater": {
-        "message": "以后再说"
-    },
     "reviewGotIt": {
         "message": "知道了"
     },
     "reviewDontAskAgain": {
-        "message": "不再提示"
+        "message": "不用了"
     },
     "reviewRemindersLabel": {
         "message": "偶尔提醒我评分或分享"

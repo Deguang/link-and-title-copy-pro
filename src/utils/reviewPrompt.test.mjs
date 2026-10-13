@@ -4,9 +4,11 @@ import {
   recordCopies,
   shouldPromptReview,
   markReviewDone,
+  markReviewHighlight,
   shouldPromptKofi,
   REVIEW_KEYS,
-  REVIEW_THRESHOLD,
+  REVIEW_MIN_COPIES,
+  REVIEW_FALLBACK_COPIES,
   KOFI_THRESHOLD,
 } from './reviewPrompt.mjs';
 
@@ -40,46 +42,65 @@ describe('recordCopies', () => {
   });
 });
 
-describe('shouldPromptReview — cadence', () => {
-  test('stays silent before the threshold', async () => {
-    await copyN(REVIEW_THRESHOLD - 1);
-    assert.equal((await shouldPromptReview()).show, false);
+describe('shouldPromptReview — timing', () => {
+  test('a highlight before the minimum does not ask', async () => {
+    await copyN(REVIEW_MIN_COPIES - 1);
+    assert.equal(await shouldPromptReview({ highlight: true }), false);
   });
 
-  test('fires ask #1 at the threshold, not the last', async () => {
-    await copyN(REVIEW_THRESHOLD);
-    assert.deepEqual(await shouldPromptReview(), { show: true, lastAsk: false });
-    assert.equal(store[REVIEW_KEYS.asks], 1);
-    assert.equal(store[REVIEW_KEYS.nextAt], 100);
+  test('asks on the first highlight once the minimum is reached', async () => {
+    await copyN(REVIEW_MIN_COPIES);
+    assert.equal(await shouldPromptReview(), false); // ordinary copy
+    await copyN(1);
+    assert.equal(await shouldPromptReview({ highlight: true }), true);
+    assert.equal(store[REVIEW_KEYS.askedAt], REVIEW_MIN_COPIES + 1);
   });
 
-  test('does not repeat until the next interval', async () => {
-    await copyN(REVIEW_THRESHOLD);
-    await shouldPromptReview();
-    assert.equal((await shouldPromptReview()).show, false);
+  test('a batch copy in the popup makes the next on-page copy ask', async () => {
+    await copyN(REVIEW_MIN_COPIES);
+    await markReviewHighlight();
+    await copyN(1);
+    assert.equal(await shouldPromptReview(), true);
+    assert.equal(store[REVIEW_KEYS.highlight], false);
   });
 
-  test('escalates to lastAsk on the 3rd ask, then stops', async () => {
-    await copyN(50); assert.equal((await shouldPromptReview()).lastAsk, false); // #1
-    await copyN(50); assert.equal((await shouldPromptReview()).lastAsk, false); // #2
-    await copyN(50); assert.equal((await shouldPromptReview()).lastAsk, true);  // #3
-    await copyN(50); assert.equal((await shouldPromptReview()).show, false);    // capped
+  test('falls back to an ordinary copy if no highlight comes', async () => {
+    await copyN(REVIEW_FALLBACK_COPIES - 1);
+    assert.equal(await shouldPromptReview(), false);
+    await copyN(1);
+    assert.equal(await shouldPromptReview(), true);
+  });
+
+  test('asks only once, even if ignored', async () => {
+    await copyN(REVIEW_FALLBACK_COPIES);
+    assert.equal(await shouldPromptReview(), true);
+    for (let i = 0; i < 200; i++) {
+      await copyN(1);
+      assert.equal(await shouldPromptReview({ highlight: true }), false);
+    }
+  });
+
+  test('a user already asked under the old 50/100/150 schedule is never asked again', async () => {
+    store[REVIEW_KEYS.count] = 60;
+    store[REVIEW_KEYS.asks] = 1;
+    store[REVIEW_KEYS.nextAt] = 100;
+    assert.equal(await shouldPromptReview({ highlight: true }), false);
   });
 });
 
 describe('shouldPromptReview — stop conditions', () => {
   test('never prompts once markReviewDone() is set', async () => {
-    await copyN(50);
+    await copyN(REVIEW_FALLBACK_COPIES);
     await markReviewDone();
-    assert.equal((await shouldPromptReview()).show, false);
+    assert.equal(await shouldPromptReview(), false);
   });
 
   test('respects the Settings opt-out and restores when re-enabled', async () => {
-    await copyN(50);
+    await copyN(REVIEW_FALLBACK_COPIES);
     store[REVIEW_KEYS.optOut] = true;
-    assert.equal((await shouldPromptReview()).show, false);
+    assert.equal(await shouldPromptReview(), false);
     store[REVIEW_KEYS.optOut] = false;
-    assert.equal((await shouldPromptReview()).show, true);
+    assert.equal(await shouldPromptReview(), true);
   });
 });
 
@@ -87,7 +108,7 @@ describe('shouldPromptReview — stop conditions', () => {
 // the Ko-fi thank-you only takes a copy it didn't. Returns which nudge fired.
 const copyAndAsk = async () => {
   await recordCopies(1);
-  if ((await shouldPromptReview()).show) return 'review';
+  if (await shouldPromptReview()) return 'review';
   if (await shouldPromptKofi()) return 'kofi';
   return null;
 };
@@ -113,18 +134,22 @@ describe('shouldPromptKofi', () => {
     assert.equal(await shouldPromptKofi(), false);
   });
 
-  test('never stacks on the rate/share cadence: review 50/100/150, Ko-fi 120', async () => {
-    assert.deepEqual(await nudgesOver(250), { 50: 'review', 100: 'review', 120: 'kofi', 150: 'review' });
+  test('one early rate/share ask, Ko-fi at 100', async () => {
+    assert.deepEqual(await nudgesOver(250), { [REVIEW_FALLBACK_COPIES]: 'review', 100: 'kofi' });
   });
 
-  test('lands at 100 for a user who already rated at 50', async () => {
-    const fired = {};
-    for (let i = 1; i <= 200; i++) {
-      const what = await copyAndAsk();
-      if (what) fired[i] = what;
-      if (what === 'review') await markReviewDone(); // rated on the first ask
-    }
-    assert.deepEqual(fired, { 50: 'review', 100: 'kofi' });
+  test('keeps its gap from a late ask', async () => {
+    store[REVIEW_KEYS.count] = 99;
+    assert.deepEqual(await nudgesOver(30), { 1: 'review', 21: 'kofi' }); // copies 100 and 120
+  });
+
+  test('keeps its gap from an ask made under the old schedule', async () => {
+    store[REVIEW_KEYS.count] = 105;
+    store[REVIEW_KEYS.asks] = 2;
+    store[REVIEW_KEYS.nextAt] = 150; // last ask at 100
+    assert.equal(await shouldPromptKofi(), false);
+    store[REVIEW_KEYS.count] = 120;
+    assert.equal(await shouldPromptKofi(), true);
   });
 
   test('respects the Settings opt-out', async () => {

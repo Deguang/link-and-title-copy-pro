@@ -1,15 +1,21 @@
 // Review / share nudge.
 //
-// After the user has copied enough times to clearly find the extension useful,
-// we ask (once) for a store review or a share. The ask piggybacks on the copy
-// success toast that already appears on every shortcut copy — it is NOT a
-// separate interruption — and it is never shown again once the user acts.
+// We ask exactly once for a store review or a share, early — around the 10th
+// copy, while "this thing is handy" is still fresh — and preferably right after
+// a highlight moment (a copy that actually stripped tracking parameters, or a
+// successful batch copy). The ask piggybacks on the copy success toast that
+// already appears on every shortcut copy — it is NOT a separate interruption.
+// Whatever the user does with it (rate, share, dismiss, or just walk away), it
+// never comes back: re-asking only trains people to click the close button.
 //
 // State (chrome.storage.local):
 //   reviewCopyCount : total successful copies (across shortcut + popup paths)
-//   reviewNextAt    : copy count at which the next ask may fire
-//   reviewAsks      : how many times we have already asked
-//   reviewDone      : user clicked Review, Share, or "Don't ask again" → never ask again
+//   reviewAsks      : >0 once the ask has been shown → never ask again
+//   reviewAskedAt   : copy count at which the ask was shown (spaces out the Ko-fi toast)
+//   reviewHighlight : a batch copy happened in the popup (which has no on-page
+//                     toast) → the next on-page copy counts as a highlight
+//   reviewNextAt    : legacy (≤ v1.14 re-ask schedule), read only for Ko-fi spacing
+//   reviewDone      : user clicked Review, Share, or "No thanks" → never ask again
 //   reviewOptOut    : user turned reminders off in Settings → never ask (user-facing toggle)
 //   kofiShown       : the one-time Ko-fi thank-you has been shown → never again
 
@@ -17,6 +23,8 @@ export const REVIEW_KEYS = {
   count: 'reviewCopyCount',
   nextAt: 'reviewNextAt',
   asks: 'reviewAsks',
+  askedAt: 'reviewAskedAt',
+  highlight: 'reviewHighlight',
   done: 'reviewDone',
   optOut: 'reviewOptOut',
   kofiShown: 'kofiShown',
@@ -25,11 +33,13 @@ export const REVIEW_KEYS = {
 // Storage key for the Settings toggle (true = user opted out of reminders).
 export const REVIEW_OPT_OUT_KEY = REVIEW_KEYS.optOut;
 
-// Ask on the 50th copy. If ignored, ask again every REVIEW_INTERVAL copies,
-// up to REVIEW_MAX_ASKS times total, then give up.
-export const REVIEW_THRESHOLD = 50;
-export const REVIEW_INTERVAL = 50;
-export const REVIEW_MAX_ASKS = 3;
+// From the REVIEW_MIN_COPIES-th copy on, ask on the first highlight moment. If
+// none has come by REVIEW_FALLBACK_COPIES, ask on an ordinary copy instead.
+export const REVIEW_MIN_COPIES = 10;
+export const REVIEW_FALLBACK_COPIES = 20;
+// The old schedule re-asked every 50 copies; only used to place the Ko-fi gap
+// for users whose last ask happened under it.
+const LEGACY_REVIEW_INTERVAL = 50;
 
 // Chrome Web Store listing for this extension.
 export const STORE_URL =
@@ -38,8 +48,7 @@ export const REVIEW_URL = `${STORE_URL}/reviews`;
 
 // One-time Ko-fi thank-you, separate from the rate/share ask. It lands around the
 // 100th copy, but never on the same copy as a rate/share ask and never within
-// KOFI_GAP copies after one, so the two nudges don't stack (with the default
-// cadence that puts it at copy 120 for users who haven't rated yet).
+// KOFI_GAP copies after one, so the two nudges don't stack.
 export const KOFI_THRESHOLD = 100;
 export const KOFI_GAP = 20;
 export const KOFI_URL = 'https://ko-fi.com/deguang';
@@ -61,40 +70,45 @@ export async function recordCopies(n = 1) {
   return count;
 }
 
+// A batch copy succeeded in the popup. The popup can't show the on-page toast,
+// so remember it and let the next on-page copy carry the ask.
+export function markReviewHighlight() {
+  return set({ [REVIEW_KEYS.highlight]: true });
+}
+
 // Decide whether to surface the ask right now. Call this only on a path that can
-// actually render the prompt (the on-page success toast). When `show` is true it
-// also advances the schedule so the same milestone won't fire again immediately.
-// `lastAsk` is true when this is the final permitted nudge (so the UI can offer a
-// "Don't ask again" instead of "Later").
-export async function shouldPromptReview() {
-  const none = { show: false, lastAsk: false };
+// actually render the prompt (the on-page success toast). `highlight` is true when
+// this copy is a highlight moment (e.g. it stripped tracking parameters). When it
+// returns true it also records the ask, so it never fires again.
+export async function shouldPromptReview({ highlight = false } = {}) {
   const s = await get([
     REVIEW_KEYS.count,
-    REVIEW_KEYS.nextAt,
     REVIEW_KEYS.asks,
     REVIEW_KEYS.done,
     REVIEW_KEYS.optOut,
+    REVIEW_KEYS.highlight,
   ]);
-  if (s[REVIEW_KEYS.done] || s[REVIEW_KEYS.optOut]) return none;
+  if (s[REVIEW_KEYS.done] || s[REVIEW_KEYS.optOut]) return false;
+  if ((s[REVIEW_KEYS.asks] || 0) > 0) return false;
   const count = s[REVIEW_KEYS.count] || 0;
-  const nextAt = s[REVIEW_KEYS.nextAt] || REVIEW_THRESHOLD;
-  const asks = s[REVIEW_KEYS.asks] || 0;
-  if (count < nextAt || asks >= REVIEW_MAX_ASKS) return none;
-  const newAsks = asks + 1;
+  if (count < REVIEW_MIN_COPIES) return false;
+  const moment = highlight || !!s[REVIEW_KEYS.highlight];
+  if (!moment && count < REVIEW_FALLBACK_COPIES) return false;
   await set({
-    [REVIEW_KEYS.nextAt]: count + REVIEW_INTERVAL,
-    [REVIEW_KEYS.asks]: newAsks,
+    [REVIEW_KEYS.asks]: 1,
+    [REVIEW_KEYS.askedAt]: count,
+    [REVIEW_KEYS.highlight]: false,
   });
-  return { show: true, lastAsk: newAsks >= REVIEW_MAX_ASKS };
+  return true;
 }
 
-// User acted on the ask (reviewed, shared, or "Don't ask again") — stop forever.
+// User acted on the ask (reviewed, shared, or "No thanks") — stop forever.
 export function markReviewDone() {
   return set({ [REVIEW_KEYS.done]: true });
 }
 
 // Decide whether to show the one-time Ko-fi thank-you. Call it only after
-// shouldPromptReview() returned show:false for this copy. Marks itself shown when
+// shouldPromptReview() returned false for this copy. Marks itself shown when
 // it fires, so it appears once whatever the user clicks. Honors the same Settings
 // opt-out as the rate/share ask.
 export async function shouldPromptKofi() {
@@ -102,6 +116,7 @@ export async function shouldPromptKofi() {
     REVIEW_KEYS.count,
     REVIEW_KEYS.nextAt,
     REVIEW_KEYS.asks,
+    REVIEW_KEYS.askedAt,
     REVIEW_KEYS.optOut,
     REVIEW_KEYS.kofiShown,
   ]);
@@ -109,7 +124,8 @@ export async function shouldPromptKofi() {
   const count = s[REVIEW_KEYS.count] || 0;
   if (count < KOFI_THRESHOLD) return false;
   if ((s[REVIEW_KEYS.asks] || 0) > 0) {
-    const lastAskAt = (s[REVIEW_KEYS.nextAt] || REVIEW_THRESHOLD) - REVIEW_INTERVAL;
+    const lastAskAt = s[REVIEW_KEYS.askedAt] ??
+      (s[REVIEW_KEYS.nextAt] || LEGACY_REVIEW_INTERVAL) - LEGACY_REVIEW_INTERVAL;
     if (count - lastAskAt < KOFI_GAP) return false;
   }
   await set({ [REVIEW_KEYS.kofiShown]: true });

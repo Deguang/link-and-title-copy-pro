@@ -419,7 +419,7 @@
         "message": "Dieses Tastenkürzel kann mit einem Browser-Tastenkürzel kollidieren. Klicken Sie auf „Bearbeiten“, um es zu ändern."
     },
     "reviewPrompt": {
-        "message": "Sie haben mit dieser Erweiterung schon $COUNT$-mal kopiert 🎉 Wenn sie Zeit spart, teilen Sie sie mit Freunden!",
+        "message": "Sie haben mit dieser Erweiterung schon $COUNT$-mal kopiert 🎉 Wenn sie Zeit spart, hilft eine kurze Bewertung sehr!",
         "placeholders": {
             "count": {
                 "content": "$1"
@@ -438,14 +438,11 @@
     "reviewShareText": {
         "message": "Mit einem Tastendruck Titel und Link jeder Seite kopieren — als Markdown, HTML, Jira oder eigenes Format. Diese Chrome-Erweiterung spart mir jeden Tag echt Zeit 👇"
     },
-    "reviewLater": {
-        "message": "Später"
-    },
     "reviewGotIt": {
         "message": "Alles klar"
     },
     "reviewDontAskAgain": {
-        "message": "Nicht mehr fragen"
+        "message": "Nein, danke"
     },
     "reviewRemindersLabel": {
         "message": "Mich gelegentlich ans Bewerten oder Teilen erinnern"

@@ -266,7 +266,7 @@ export function showToast(message = 'Copied to clipboard', contentPreview = '', 
   }
 
   // The review/share ask stays until the user acts or dismisses it — they copied
-  // that #50 content to actually use it, so the ask must survive their paste task
+  // that content to actually use it, so the ask must survive their paste task
   // and still be there when they come back. A failure toast with a report action
   // lingers longer than a normal one so the user can click it; normal toasts are brief.
   const visibleFor = typeof duration === 'number' ? duration : report ? 7000 : 2000;
@@ -350,23 +350,17 @@ function renderReview(container, review) {
     }
   });
 
-  // Subtle dismiss so the persistent ask is always closeable. On the final nudge
-  // this becomes an explicit opt-out ("Don't ask again") that stops asking forever;
-  // otherwise it's a plain "Later" that just hides and lets it return at +50.
+  // Subtle dismiss so the persistent ask is always closeable. The ask is shown
+  // only once, so dismissing it is a permanent "no" — it never comes back.
   const laterBtn = document.createElement('button');
   laterBtn.className = 'link-title-copy-pro-toast-btn link-title-copy-pro-toast-btn-ghost';
-  if (review.lastAsk) {
-    laterBtn.textContent = review.dontAskAgainLabel;
-    laterBtn.addEventListener('click', () => {
-      try {
-        chrome.runtime.sendMessage({ action: 'reviewAction', kind: 'dismiss' });
-      } catch { /* extension context gone */ }
-      hideToast();
-    });
-  } else {
-    laterBtn.textContent = review.laterLabel;
-    laterBtn.addEventListener('click', hideToast);
-  }
+  laterBtn.textContent = review.dismissLabel;
+  laterBtn.addEventListener('click', () => {
+    try {
+      chrome.runtime.sendMessage({ action: 'reviewAction', kind: 'dismiss' });
+    } catch { /* extension context gone */ }
+    hideToast();
+  });
 
   actions.appendChild(reviewBtn);
   actions.appendChild(shareBtn);

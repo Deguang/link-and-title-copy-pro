@@ -574,9 +574,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             if (request.success) {
                 recordCopies(1)
                     .then((count) =>
-                        shouldPromptReview().then((res) => {
-                            if (res.show) {
-                                sendToast({ review: { reviewUrl: REVIEW_URL, storeUrl: STORE_URL, count, lastAsk: res.lastAsk } });
+                        shouldPromptReview({ highlight: !!request.highlight }).then((ask) => {
+                            if (ask) {
+                                sendToast({ review: { reviewUrl: REVIEW_URL, storeUrl: STORE_URL, count } });
                                 return;
                             }
                             // The Ko-fi thank-you only ever takes a copy the rate/share ask didn't.
@@ -590,7 +590,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         }
         sendResponse({ success: true });
     } else if (request.action === 'reviewAction') {
-        // User clicked Review or Share in the milestone toast — stop asking forever.
+        // User clicked Review, Share or "No thanks" in the ask — stop asking forever.
         markReviewDone();
         if (request.kind === 'review') chrome.tabs.create({ url: REVIEW_URL });
         sendResponse({ success: true });

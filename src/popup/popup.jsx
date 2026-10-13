@@ -8,7 +8,7 @@ import { buildBatchText, BATCH_LAYOUTS } from '../utils/batchLayout.mjs';
 import KofiLink from '../components/KofiLink';
 import { getProStatus, FREE_BATCH_LIMIT, openUpgradePage, PAYMENT_ENABLED } from '../utils/license';
 import { WHATS_NEW_KEY, WHATS_NEW_VERSION, USER_RULES_KEY } from '../constant';
-import { recordCopies } from '../utils/reviewPrompt';
+import { recordCopies, markReviewHighlight } from '../utils/reviewPrompt';
 
 const STORAGE_KEY = 'CopyTitleAndUrlConfigs';
 
@@ -157,7 +157,9 @@ function BatchView({ configs, allTabs, isPro, urlRules }) {
       setCopied(n);
       setTimeout(() => setCopied(0), 1800);
       // Count toward the review nudge (the ask itself surfaces on the on-page toast).
+      // A multi-tab batch is a highlight moment, so the next on-page copy may ask.
       recordCopies(n).catch(() => {});
+      if (n > 1) markReviewHighlight().catch(() => {});
     }
   };
 

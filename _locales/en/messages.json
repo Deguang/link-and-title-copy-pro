@@ -419,7 +419,7 @@
         "message": "This shortcut may conflict with a browser shortcut. Click Edit to change it."
     },
     "reviewPrompt": {
-        "message": "You've copied $COUNT$ links with this extension 🎉 If it saves you time, share it with a friend!",
+        "message": "You've copied $COUNT$ links with this extension 🎉 If it saves you time, a quick rating helps a lot!",
         "placeholders": {
             "count": {
                 "content": "$1"
@@ -438,14 +438,11 @@
     "reviewShareText": {
         "message": "Copy any page's title and link in one keystroke — as Markdown, HTML, Jira, or your own template. This Chrome extension saves me real time every day 👇"
     },
-    "reviewLater": {
-        "message": "Later"
-    },
     "reviewGotIt": {
         "message": "Got it"
     },
     "reviewDontAskAgain": {
-        "message": "Don't ask again"
+        "message": "No thanks"
     },
     "reviewRemindersLabel": {
         "message": "Occasionally remind me to rate or share"

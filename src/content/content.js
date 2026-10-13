@@ -2,6 +2,7 @@
 const STORAGE_KEY = 'CopyTitleAndUrlConfigs';
 import { processTemplate } from '../utils/templateProcessor';
 import { matchShortcut } from '../utils/shortcutMatch.mjs';
+import { cleanUrl } from '../utils/cleanUrl.mjs';
 
 
 
@@ -205,11 +206,19 @@ function copyToClipboard(template, overrideTitle, overrideUrl) {
     if (!isContextAlive()) return;
     // Send message to background to show toast (Background will route it to Top Frame)
     const toastMessage = chrome.i18n.getMessage('toastCopied');
+    // A highlight moment for the review ask: the page URL carried tracking
+    // parameters and the copied text came out without the raw, tracked URL.
+    const pageUrl = overrideUrl || window.location.href;
+    let highlight = false;
+    try {
+      highlight = cleanUrl(pageUrl) !== pageUrl && !processedText.includes(pageUrl);
+    } catch { /* unparsable URL — not a highlight */ }
     chrome.runtime.sendMessage({
         action: 'showToastRequest',
         message: toastMessage || 'Copied to Clipboard!',
         contentPreview: processedText,
-        success: true // marks a real copy so it counts toward the review nudge
+        success: true, // marks a real copy so it counts toward the review nudge
+        highlight,
     });
   }
 
@@ -306,10 +315,8 @@ function handleMessage(message, sender, sendResponse) {
           prompt: chrome.i18n.getMessage('reviewPrompt', [String(message.review.count || '')]) || 'Enjoying the extension?',
           reviewLabel: chrome.i18n.getMessage('reviewCta') || '⭐ Rate it',
           shareLabel: chrome.i18n.getMessage('reviewShare') || '🔗 Share',
-          laterLabel: chrome.i18n.getMessage('reviewLater') || 'Later',
           gotItLabel: chrome.i18n.getMessage('reviewGotIt') || 'Got it',
-          dontAskAgainLabel: chrome.i18n.getMessage('reviewDontAskAgain') || "Don't ask again",
-          lastAsk: !!message.review.lastAsk,
+          dismissLabel: chrome.i18n.getMessage('reviewDontAskAgain') || 'No thanks',
           sharedMsg: chrome.i18n.getMessage('reviewShared') || 'Copied! Now paste it to a friend to share.',
           // Persuasive blurb copied to the clipboard on share (the store link is
           // appended by the toast), so pasting it anywhere actually sells the tool.
